@@ -5,7 +5,7 @@
 """
 
 from urllib.parse import urljoin
-
+from datetime import datetime
 import requests
 
 
@@ -54,4 +54,45 @@ class Nasa(object):
 
         else:
             self.insight_weather_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()
+
+    def asteroid_feed(self, start_date=None, end_date=None):
+        url = self._host + '/neo/v1/feed'
+
+        if start_date is None:
+            start_date = datetime.today().strftime('%Y-%m-%d')
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'start_date': start_date,
+                             'end_date': end_date
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()
+
+    def get_asteroids(self, asteroid_id=None):
+        url = self._host + '/neo/rest/v1/neo/'
+
+        if asteroid_id is not None:
+            url = url + str(asteroid_id)
+
+            r = requests.get(url,
+                             params={
+                                 'api_key': self._key
+                             })
+
+        else:
+            pass
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
             return r.json()
