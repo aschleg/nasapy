@@ -82,13 +82,13 @@ class Nasa(object):
         if asteroid_id is not None:
             url = url + str(asteroid_id)
 
-            r = requests.get(url,
-                             params={
-                                 'api_key': self._key
-                             })
-
         else:
-            pass
+            url = url + 'browse/'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key
+                         })
 
         if r.status_code != 200:
             raise requests.exceptions.HTTPError(r.reason, r.url)
@@ -96,3 +96,47 @@ class Nasa(object):
         else:
             self.limit_remaining = r.headers['X-RateLimit-Remaining']
             return r.json()
+
+    def neo_sentry(self, active=True):
+        pass
+
+    def coronal_mass_ejection(self, start_date=None, end_date=None,
+                              accurate_only=True, speed=None, complete_entry=True, half_angle=0,
+                              catalog='ALL', keyword=None):
+
+        if catalog not in ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'):
+            raise ValueError("catalog parameter must be one of ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG')")
+
+        url = self._host + '/DONKI/CMEAnalysis'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'startDate': start_date,
+                             'endDate': end_date,
+                             'mostAccurateOnly': accurate_only,
+                             'completeEntryOnly': complete_entry,
+                             'speed': speed,
+                             'halfAngle': half_angle,
+                             'catalog': catalog,
+                             'keyword': keyword
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()
+
+    def geomagnetic_storm(self, start_date=None, end_date=None):
+        pass
+
+    def interplantery_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
+        pass
+
+    def solar_flare(self, start_date=None, end_date=None):
+        pass
+
+    def solar_energetic_particle(self, start_date=None, end_date=None):
+        pass

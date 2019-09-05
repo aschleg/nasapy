@@ -1,0 +1,124 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=False
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6xT32/TMBB+56849QWQujYpDOjexoCnbULaJF6QqmtyTbw6duSzs2WI/53PaTeB
+        9ooUKbJ9vvt++des8v0YTNPG2dns3Ioquzr4n+7C9N5ypM8cRGfzWc1RULIqyvVJge8Ue/LQW3Yc
+        jXc4um2Fyg+xpUpcTGGk7z7E1CRRIceDaTj6QN8k1MZhCF1xIxb3KS9ao1QFuaeWa+otOozkdxRN
+        JxQ9aUz1SBET1Cf8giPdj1SnYFwz7e9M0EiVCVXqjtMAK/fIGCXSVw6xXdC5EhMoJRvnFO897dLj
+        40iV9ak+sWYv5Ld3UkUlYTV2pMGo2doDiqfZrXRGe8AAnv3Y8KMEtMVq7/w9COkE6SL31Azhieqc
+        cE7J1aiP3teZ2hY9oK21Jgo1bPnByHTJp0BdqlqyHBoJc9LeBLZ0ZSyo/+DxUD2C0xbAoH0xL4qC
+        bHbzZBQGptpoZBfJuAlR5Z3mUZNl9MUHrj1UwMllnvGM01QH8PTm8uriLcEbFXE0EUarLGDHYc9b
+        6FOL9HN0tj7skp2T6eDrgm56di6bwwdwpy+wIQyK6QboDnp1Hg52rGoGuADzgeuZ7GtgeClTjs7x
+        dusRleMtuKmCZpp6RMUPnFF3HrJDB0RK53RzTeX608fzBVEObh98ZxxiRz1HaL4VC6dykiXkCe+K
+        g1wJV9mq/9dpUHZmZ3I53XKA4skyXcsWP9RTY7IJsCKc7HzAoAYKNtmDozovxOEqeNUFHlmLkFs8
+        rzbGXs+WS+59vXCsvGj8MK2Wk+TLcl2sl09J86tVLZGNXa024FkInlxZVikMomW5uOsbtO6kNryJ
+        Y59f9tQEmyphAJPNgIweHvZQYjuaaHNZFusQlinef6cbVf8f6kbLYvV+Avz71R8AAAD//wMAkeEa
+        s68EAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Sep 2019 14:37:59 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '40'
+      X-RateLimit-Remaining:
+      - '37'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=False
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6xT32/TMBB+56849QWQujYpDOjexoCnbULaJF6QqmtyTbw6duSzs2WI/53PaTeB
+        9ooUKbJ9vvt++des8v0YTNPG2dns3Ioquzr4n+7C9N5ypM8cRGfzWc1RULIqyvVJge8Ue/LQW3Yc
+        jXc4um2Fyg+xpUpcTGGk7z7E1CRRIceDaTj6QN8k1MZhCF1xIxb3KS9ao1QFuaeWa+otOozkdxRN
+        JxQ9aUz1SBET1Cf8giPdj1SnYFwz7e9M0EiVCVXqjtMAK/fIGCXSVw6xXdC5EhMoJRvnFO897dLj
+        40iV9ak+sWYv5Ld3UkUlYTV2pMGo2doDiqfZrXRGe8AAnv3Y8KMEtMVq7/w9COkE6SL31Azhieqc
+        cE7J1aiP3teZ2hY9oK21Jgo1bPnByHTJp0BdqlqyHBoJc9LeBLZ0ZSyo/+DxUD2C0xbAoH0xL4qC
+        bHbzZBQGptpoZBfJuAlR5Z3mUZNl9MUHrj1UwMllnvGM01QH8PTm8uriLcEbFXE0EUarLGDHYc9b
+        6FOL9HN0tj7skp2T6eDrgm56di6bwwdwpy+wIQyK6QboDnp1Hg52rGoGuADzgeuZ7GtgeClTjs7x
+        dusRleMtuKmCZpp6RMUPnFF3HrJDB0RK53RzTeX608fzBVEObh98ZxxiRz1HaL4VC6dykiXkCe+K
+        g1wJV9mq/9dpUHZmZ3I53XKA4skyXcsWP9RTY7IJsCKc7HzAoAYKNtmDozovxOEqeNUFHlmLkFs8
+        rzbGXs+WS+59vXCsvGj8MK2Wk+TLcl2sl09J86tVLZGNXa024FkInlxZVikMomW5uOsbtO6kNryJ
+        Y59f9tQEmyphAJPNgIweHvZQYjuaaHNZFusQlinef6cbVf8f6kbLYvV+Avz71R8AAAD//wMAkeEa
+        s68EAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Sep 2019 14:37:59 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '40'
+      X-RateLimit-Remaining:
+      - '36'
+    status:
+      code: 200
+      message: OK
+version: 1
