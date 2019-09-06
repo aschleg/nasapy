@@ -11,69 +11,6 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=False
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA6RUS4vjRhC+51cUvuRiy/bmAbO3ZQi7gSyB7EByG0qtktTrVrfohz0i5L/nq27P
-        sPcFI6xW1+t71L+7gbPs3u/enc4PhxN+v+72O3lZHXvONnh8+swp2atQyhwTWU+hRPps3WWjv3mj
-        j+z4ZSNXr6xiMpviONaD1BE9Bud4TdZPNMaw0JVTJhPSYg0ZF8qQ9pRnsZF8MU4QOZbo2QhqTd5m
-        IfYDmSholGbh60biZBGfazMt1ISoxT6MWSIxjXKjxTqHAWhDylaCxEdrZhloQa5o2ZFN1Ds0hLOe
-        zQUJc9CHRJyh74iR0ArdZokNARpDRLhmNuyplwlNsJdbR0+zEKBDuzrsIH1E+joiXXy44VqiRwUz
-        rGKZPmh1pJAXXlYnFEYMg6PRenS2zpzuZ1q4NePsKGQ2wNTRH3aac4MUGGhhF5Dao1cMeQdsaClT
-        WSX6cGWKsnj2mW6huIFmBmm9iEdRTExJ/2IepV8y/cYxzz8mSqCa+1Ay/fTLqQFKPIU9sctzKNNM
-        NlMO4YJqnMG8dtYCzuf96fQaA2xBI5or4OqpzsouycEEFyLZhSfZQxrLGhIIAR7/HCIUpvyHNVuj
-        hOklgmhBsqpJR3+ccSPy/faffZJ45Rxii/xU+h7ofqk8PkE6yQD/PaU53FKNTxlSoTkATeu4KUtr
-        grQ3jb0C19HvgAkcg7qGyKnNe6g6I4xf2UBOFdlAg4VvPEpjnG/J7+gTYDqIlzht99ZlsaoOsKGj
-        qZnsCJe8yR2SaGw1wEwYZMAg1lmDIPAW63txcJC+blBNuAFSdsaWRY+mqBTrdDa2mLVEqA8eDHCX
-        WyHSjC9hgQWaqCB8HSmKCk+VjUl0BUzV+CoPLAY8yjh29KVi+eaCam3cVltWo9FNJQfmX6XWuwJb
-        F3Wv+geeUfHo7Bfyug00gYHbkUH9gsOiDdaqLb312A6D7d0G0/lUNVR3DuCH3tmCrGougfFfd1kz
-        lO6NDhtvHkp02HVzzmt6fzzyGobOc+JuCtf6dqzKO54fTg/Hu+CqZ6rYn0/d13VCngV98HPeVt2p
-        NQKHqkdr5PkKSNtKvZ5xnG12eu2vN2C/1QcufGdLz+fTu59rX//98D8AAAD//wMAjCM1WegFAAA=
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      Age:
-      - '0'
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Fri, 06 Sep 2019 14:00:42 GMT
-      Server:
-      - openresty
-      Strict-Transport-Security:
-      - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
-      X-Cache:
-      - MISS
-      X-RateLimit-Limit:
-      - '40'
-      X-RateLimit-Remaining:
-      - '39'
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.21.0
-    method: GET
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=False
   response:
     body:
@@ -121,8 +58,176 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '995'
+      - '994'
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=True
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6RUS4vjRhC+51cUvuRiy/bmAbO3ZQi7gSyB7EByG0qtktTrVrfohz0i5L/nq27P
+        sPcFI6xW1+t71L+7gbPs3u/enc4PhxN+v+72O3lZHXvONnh8+swp2atQyhwTWU+hRPps3WWjv3mj
+        j+z4ZSNXr6xiMpviONaD1BE9Bud4TdZPNMaw0JVTJhPSYg0ZF8qQ9pRnsZF8MU4QOZbo2QhqTd5m
+        IfYDmSholGbh60biZBGfazMt1ISoxT6MWSIxjXKjxTqHAWhDylaCxEdrZhloQa5o2ZFN1Ds0hLOe
+        zQUJc9CHRJyh74iR0ArdZokNARpDRLhmNuyplwlNsJdbR0+zEKBDuzrsIH1E+joiXXy44VqiRwUz
+        rGKZPmh1pJAXXlYnFEYMg6PRenS2zpzuZ1q4NePsKGQ2wNTRH3aac4MUGGhhF5Dao1cMeQdsaClT
+        WSX6cGWKsnj2mW6huIFmBmm9iEdRTExJ/2IepV8y/cYxzz8mSqCa+1Ay/fTLqQFKPIU9sctzKNNM
+        NlMO4YJqnMG8dtYCzuf96fQaA2xBI5or4OqpzsouycEEFyLZhSfZQxrLGhIIAR7/HCIUpvyHNVuj
+        hOklgmhBsqpJR3+ccSPy/faffZJ45Rxii/xU+h7ofqk8PkE6yQD/PaU53FKNTxlSoTkATeu4KUtr
+        grQ3jb0C19HvgAkcg7qGyKnNe6g6I4xf2UBOFdlAg4VvPEpjnG/J7+gTYDqIlzht99ZlsaoOsKGj
+        qZnsCJe8yR2SaGw1wEwYZMAg1lmDIPAW63txcJC+blBNuAFSdsaWRY+mqBTrdDa2mLVEqA8eDHCX
+        WyHSjC9hgQWaqCB8HSmKCk+VjUl0BUzV+CoPLAY8yjh29KVi+eaCam3cVltWo9FNJQfmX6XWuwJb
+        F3Wv+geeUfHo7Bfyug00gYHbkUH9gsOiDdaqLb312A6D7d0G0/lUNVR3DuCH3tmCrGougfFfd1kz
+        lO6NDhtvHkp02HVzzmt6fzzyGobOc+JuCtf6dqzKO54fTg/Hu+CqZ6rYn0/d13VCngV98HPeVt2p
+        NQKHqkdr5PkKSNtKvZ5xnG12eu2vN2C/1QcufGdLz+fTu59rX//98D8AAAD//wMAjCM1WegFAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 06 Sep 2019 14:00:44 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '993'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-01-01&hd=False
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6RTwW7bMAy97yuIXHZxEqfbgDa3Yoe1hxUD0u0a0BJja1UkQZSTpsP+faScDEN7
+        HGDYlvT0+PhI/ppZLDRbz67a1c28Xckza2b0nDwGLC4GOXocHMPOR1mHHrK+ZKMMBOxeCOIOEHr0
+        +HxaANwH2KEpDbiiqMsJzOcQM2ABT8gFEuaiN2OgdaVKQyyxp+AMbOK+y5QjfKmkjYIUqzCPuSe5
+        X+M5YnCh7gfC3J3gh8t9hM9+5EJZ71QKwYmyR4FZzE/QYbB6ZgUll0VT7NiMWdiUau/snMlo8peo
+        rxRp0JiKM+jBu34oIBmP6P0Jeh+PDF3WXVkK0IVdxkx2Qp517AiLBLTg9thTA9b1rlQCHjAnCmQb
+        +VUulfSXQ+kbyGQoKL38xGyFRlJXXMydq0XaJFdexIFNQkPwSJ7YxCSBeEyUU2QNrZXyTHMTvZRG
+        ssUA9Oy4MlRhUPCJgrI/3G5u3zPcjV3n6TXtGz8W1ew3dZRoEZ5CPEoohq+r9qMIShikTbo4FvjU
+        Nm3bni09SUXlwOTI8pGKeS331bXUx3utzeT8GXZEbT6lBCNpdNKbJMqPrgzSg7wXb6FcbLg0jXVi
+        4L91NjFI43hfO39qJmGFBzryWt9wF7N7EdDkgMm4K/ANmUXZd1/EM0l89CQjNNgxexmeoZTE6+US
+        U7SLgIyLPh7qalktXq5u2tWSzy2/5alw2w9ixOJn6oVpT9bhtpySjmm9I5tM+eAMbQ+UeZrSgw5u
+        cUWi68i+sV+Tvj/3oiD/S92qvZ7U/X73BwAA//8DAFUtpNJBBAAA
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 06 Sep 2019 14:00:44 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '992'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019%2F01%2F01&hd=False
+  response:
+    body:
+      string: '{"code":400,"msg":"time data ''2019/01/01'' does not match format ''%Y-%m-%d''","service_version":"v1"}
+
+'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '100'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 06 Sep 2019 14:00:44 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '991'
+    status:
+      code: 400
+      message: BAD REQUEST
 version: 1

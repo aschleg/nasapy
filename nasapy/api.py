@@ -130,7 +130,21 @@ class Nasa(object):
             return r.json()
 
     def geomagnetic_storm(self, start_date=None, end_date=None):
-        pass
+        url = self._host + '/DONKI/GST'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'startDate': start_date,
+                             'endDate': end_date
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()
 
     def interplantery_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
         pass
