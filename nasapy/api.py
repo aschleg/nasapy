@@ -20,7 +20,7 @@ class Nasa(object):
 
         self._host = 'https://api.nasa.gov'
         self.limit_remaining = None
-        self.insight_weather_remaining = None
+        self.mars_weather_remaining = None
 
     def picture_of_the_day(self, date=None, hd=False):
         url = urljoin(self._host + '/planetary/', 'apod')
@@ -39,7 +39,7 @@ class Nasa(object):
             self.limit_remaining = r.headers['X-RateLimit-Remaining']
             return r.json()
 
-    def insight_weather(self):
+    def mars_weather(self):
         url = self._host + '/insight_weather/'
 
         r = requests.get(url,
@@ -53,11 +53,11 @@ class Nasa(object):
             raise requests.exceptions.HTTPError(r.reason, r.url)
 
         else:
-            self.insight_weather_remaining = r.headers['X-RateLimit-Remaining']
+            self.mars_weather_remaining = r.headers['X-RateLimit-Remaining']
             return r.json()
 
     def asteroid_feed(self, start_date=None, end_date=None):
-        url = self._host + '/neo/v1/feed'
+        url = self._host + '/neo/rest/v1/feed'
 
         if start_date is None:
             start_date = datetime.today().strftime('%Y-%m-%d')

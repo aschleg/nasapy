@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/insight_weather/?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&ver=1.0&feedtype=json
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2a34vbOBDH3/evCHm+CM1o9Ctv5W6PPhzluORYaCkh7JpuaLfZJtn2Stn//WQn
+        ji1ZjRY2BWtxHoJHduKvZiYzH0v5cTEajVHheDr64Q6d8Wp+PHbW8quzJloySfjbqB693rlRRKla
+        Y3efyyuBA0OjWsP/lcOoGKGsxh4P58Z/rjbb3eLf+e/ugjFysBNuJohz4FOOU5Jvx/WVr69mHU3E
+        EChQBFwQBYo4AzSBHJBMa+LNC3xlfy0jwkQpjHAKqhH29z+XHWFacWZFKK10VijNSWBc6dBZWium
+        NChf06xYbtflp8bfVp93xeao4eqPtgTgLau8+frufrndLm6KD5ui2O6VMH68ZeuS+7X74vIGs6tx
+        7Pxm9eG2PD/hTHMNTrkBMDp26cN94roqWu7cYeixcQFAcgKkmTw5gav0DCwKo60UKAFOzUAYVEaQ
+        QKFkdwYgIDIDTM5A80QIEvoh/vFaNI/4WsV8LZJKLaZ8/eY8vk64Grvqk+JVKk8u31ye1H4e6SC6
+        2mVKO0DK8Zezs4hP5biWXfUqqV4ka0xK/HlKjLCRH6hOypepzJkl9f/UqYH+nwbp8LOlrn6T1G9S
+        9WWWUH+ivIS1p9JJMpLkNlldeCrJZ+lKfh5Hc4rk+d3acYD7nruq8eaXMhf1+35OjvOamhnnPGKK
+        QnQRXKs2oxw4z+ngtsN5miHRUzivxinkpzlPMNPBPMGt6GAeUiAGDENlW5SHT6A8mgNMEaYS0pTH
+        227ZdymFFCrTwjAiLQJ1JeURkXjplCeEipSGrCiP2xg79ZDyrIgIzQWTSOWMSUARQs2HkxSanDkJ
+        AXUWnIQykuUZcVI5+CxO6mVf6nISJThJMsO7Szxahks8e05SXU5STAc4EsekI4+o1HIYtzIQBNxI
+        HQjiDGy44ASakWtyzcs8AZTkHHDKnbbUcpi0DGUozflKyEBaBUq8g3HaORuNtC8dlBBUpAbnBErS
+        Rh5W+8hJ6JI9ojSf1TAZcXTSz5RK9CTmPSnPU6iRMaICZM2oJmtEdQ/9OSMqkIkkTw8RVepIcckI
+        UcF9+GUgapsIuoja1J0oospyJa618XlofKjD9amJtQ67Yju2ItwXjSNqTYICTiOqZIJCDlQaIhu2
+        IS6DYlwFK2VRKFVzrqZCTSWloJSYDp0DQpjOFq0Qjo0JAkFaEwPx8hfvXPGPFK2cmBREjPR6yKQq
+        4uhcuEhnjUUAkRTJiItiXJERFxmK7A/0j4ts7Ok8IyzS6nkLd71MmJCKtutPi4/F91Lvu33rLf/a
+        VrfhcvuzOabWsRy7o/f77/i6/LS6We2+L65vi+uP24ay2v+SC6HrcO/b9cNmu/i22t0ubpa75VHG
+        /tVOqtEIPAs9S3gWeZb0LOVZ2rOMZ1n/7oEYXw34csDXA74g8BWBLwl8TeCLAl8V+qow8JGvCsXR
+        eN/OkiqAzvW7zUPRTXmfTIe4NWa/4+Zj/BC3xux33LxnnyFsjdnHsO37abtfDg1vlGUkh4Y3yjxu
+        Q8M7mlnFbWh4tZlB2MKGR0PDq8z8Ijk0vFHmcRsa3tHMKm5Dw6vNDMIWNjw5NLzKfFYkhy7Vc2cP
+        reVo/npnD/2gNn+Vr/0i3vh3U3x5WG2Km2qXrHV6u9/Lqk7Ufm/vjPl7Y/7uWLM/5oRdlDd/vPgf
+        fz0TvTVCAAA=
+    headers:
+      Access-Control-Allow-Headers:
+      - x-requested-with, Content-Type, origin, authorization, accept, client-security-token
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1000'
+      Age:
+      - '304'
+      Cache-Control:
+      - max-age=600
+      - max-age=60
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 07 Sep 2019 08:46:03 GMT
+      Expires:
+      - '{ts ''2019-09-07 08:40:59''}'
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; includeSubDomains; preload;
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      Via:
+      - 1.1 dd696cd34661639d03785ff59a76e693.cloudfront.net (CloudFront), https/1.1
+        api-umbrella (ApacheTrafficServer [cMsSfW])
+      X-Amz-Cf-Id:
+      - tm08ue4TXdluBTOGNe38VJe3M5T65Ii7QqIyst19RAT7yzINelAqBg==
+      X-Amz-Cf-Pop:
+      - IAD79-C1
+      X-Cache:
+      - Hit from cloudfront
+      X-Frame-Options:
+      - ALLOWALL
+      X-RateLimit-Limit:
+      - '2000'
+      X-RateLimit-Remaining:
+      - '1998'
+    status:
+      code: 200
+      message: OK
+version: 1
