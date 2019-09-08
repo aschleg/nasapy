@@ -95,3 +95,40 @@ def test_get_asteroids():
 
     assert isinstance(ast, dict)
     assert isinstance(ast_browse, dict)
+
+    with pytest.raises(HTTPError):
+        nasa.get_asteroids(asteroid_id=0)
+
+
+@vcr.use_cassette('tests/cassettes/coronal_mass_ejection.yml')
+def test_coronal_mass_ejection():
+    keys = ['time21_5', 'latitude', 'longitude', 'halfAngle', 'speed', 'type', 'isMostAccurate',
+            'associatedCMEID', 'catalog']
+
+    cme = nasa.coronal_mass_ejection()
+    cme_swrc = nasa.coronal_mass_ejection(catalog='SWRC_CATALOG')
+
+    assert isinstance(cme, (list, dict))
+    assert isinstance(cme_swrc, (list, dict))
+
+    assert cme_swrc[0]['catalog'] == 'SWRC_CATALOG'
+    assert len(set(keys).difference(cme[0].keys())) == 0
+
+    with pytest.raises(ValueError):
+        nasa.coronal_mass_ejection(catalog='test')
+
+
+@vcr.use_cassette('tests/cassettes/geomagnetic_storm.yml')
+def test_geomagnetic_storm():
+    keys = ['gstID', 'startTime', 'allKpIndex', 'linkedEvents']
+
+    ge = nasa.geomagnetic_storm()
+
+    assert isinstance(ge, (list, dict))
+    assert len(set(keys).difference(ge[0].keys())) == 0
+
+
+@vcr.use_cassette('tests/cassettes/interplantary_shock.yml')
+def test_interplantary_shock():
+    pass
+

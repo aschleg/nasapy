@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/DONKI/GST?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4quVkovLvF0UbJSMjIwtNQ1sNA1NgwxNLIyMAAiXffgEF0DA0MlHaXiksSikpDM
+        3FQsKqOA8ok5Od4FnnkpqRVKVtHVSvlJxalFZakpWHSYAg0G6ciGKTcDmp5fWpQMMtrP39FRqVYH
+        hwFA9wEdR4QBsTpKOZl52akprmWpeSXFYCclJpdklmWWVKJ61gDkWUNzkGc9goPBnq2NBTkANVgg
+        NhMTLAiVxAYL3XwVCwAAAP//AwAwWjOd7gEAAA==
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sun, 08 Sep 2019 12:31:30 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '971'
+    status:
+      code: 200
+      message: OK
+version: 1

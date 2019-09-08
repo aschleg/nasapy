@@ -147,10 +147,80 @@ class Nasa(object):
             return r.json()
 
     def interplantery_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
-        pass
+
+        if location not in ('ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'):
+            raise ValueError(
+                "location parameter must be one of {'ALL' (default), 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'}")
+
+        if catalog not in ('ALL', 'SWRC_CATALOG', 'WINSLOW_MESSENGER_ICME_CATALOG'):
+            raise ValueError(
+                "catalog parameter must be one of {'ALL' (default) 'SWRC_CATALOG', 'WINSLOW_MESSENGER_ICME_CATALOG'}")
+
+        url = self._host + '/DONKI/IPS'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'startDate': start_date,
+                             'endDate': end_date,
+                             'location': location,
+                             'catalog': catalog
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r
 
     def solar_flare(self, start_date=None, end_date=None):
-        pass
+        url = self._host + '/DONKI/FLR'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'startDate': start_date,
+                             'endDate': end_date
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()
 
     def solar_energetic_particle(self, start_date=None, end_date=None):
-        pass
+        url = self._host + '/DONKI/SEP'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'startDate': start_date,
+                             'endDate': end_date
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()
+
+    def magnetopause_crossing(self, start_date=None, end_date=None):
+        url = self._host + '/DONKI/MPC'
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self._key,
+                             'startDate': start_date,
+                             'endDate': end_date
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.limit_remaining = r.headers['X-RateLimit-Remaining']
+            return r.json()

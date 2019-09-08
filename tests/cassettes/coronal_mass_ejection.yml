@@ -1,0 +1,110 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&mostAccurateOnly=True&completeEntryOnly=True&halfAngle=0&catalog=ALL
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6SPQWvCQBCF/8ucs2V2TGKyt5CWUqgUbKBQEVmSbRpIs8HdHET8786WCla8iLd5
+        b2Ye71vtwXc/huQmAQWEMheYCTmrZKJm2SdE0Gvf+akxoNIHZGmH9k+LnILzrfuvYmh7viAZDDca
+        07BI86D8buQNvHNU5xbW+aKup632bPrtZCLQztm6Y6MpF08vj+c1qCJUcaYQBe8EouSUwYZf4KnW
+        Xve2Dekfy3JTFlXx+vYMh+gqFGUVkUrwP5SQ8QVWcgElfylPUPH8Tiiugbmi+Fao9REAAP//AwBy
+        wql9qwEAAA==
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '1'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sun, 08 Sep 2019 12:25:33 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '977'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&mostAccurateOnly=True&completeEntryOnly=True&halfAngle=0&catalog=SWRC_CATALOG
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6SPQWvCQBCF/8ucs2V2TGKyt5CWUqgUbKBQEVmSbRpIs8HdHET8786WCla8iLd5
+        b2Ye71vtwXc/huQmAQWEMheYCTmrZKJm2SdE0Gvf+akxoNIHZGmH9k+LnILzrfuvYmh7viAZDDca
+        07BI86D8buQNvHNU5xbW+aKup632bPrtZCLQztm6Y6MpF08vj+c1qCJUcaYQBe8EouSUwYZf4KnW
+        Xve2Dekfy3JTFlXx+vYMh+gqFGUVkUrwP5SQ8QVWcgElfylPUPH8Tiiugbmi+Fao9REAAP//AwBy
+        wql9qwEAAA==
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sun, 08 Sep 2019 12:25:33 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '976'
+    status:
+      code: 200
+      message: OK
+version: 1
