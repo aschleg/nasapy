@@ -178,6 +178,9 @@ class Nasa(object):
 
             if r.text == '':
                 r = {}
+            else:
+                r = r.json()
+
             return r
 
     def solar_flare(self, start_date=None, end_date=None):
@@ -237,7 +240,16 @@ def _donki_request(key, url, start_date, end_date):
                          'endDate': end_date
                      })
 
+    limit_remaining = r.headers['X-RateLimit-Remaining']
+
     if r.status_code != 200:
         raise requests.exceptions.HTTPError(r.reason, r.url)
+
     else:
-        return r.headers['X-RateLimit-Remaining'], r.json()
+        if r.text == '':
+
+            r = {}
+        else:
+            r = r.json()
+
+    return limit_remaining, r

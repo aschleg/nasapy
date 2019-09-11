@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/insight_weather/?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&ver=1.0&feedtype=json
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2WS2uDQBDH734K8dzIzvpY9Vb6oIceSmMptAQRY4lEI/WRNIR89+5qfIzNJSn0
+        GU/7nxlnf864oxtJlhVqMsWRN3zJxbnbrrnyl1yNTFslpnEmN9ag4Faq2wCdLVmISCCg6nbP+ias
+        lHGjXtm2O59yHWV54T24FzxAoQTsEbF4oAuaQ4mjw5PSRN76ewItF3SHEAdoF3h3f/WBnRlUtQkM
+        2IExwxiwM81QCTOsATxjoBJCGaYfh36eiruUVbQowqxleLzsIyQpRw/SJKliF2Uc12mkJpWSp7E3
+        D9c5dz/XGUQ3+GpS+5d+HE2jYu0FszCY512f+k0btm2Xd5aWWe6tomLmTf3Cb7eoL9I+qLgAKYqU
+        hpSOlIGUiRRDykLKxrsPYDANYBzAPICBABMBRgLMBBgKMBXFVHRQI0xFtVZMeo66gbz0RVaGO+u2
+        e8VuHseH9u1U1V5VX/w431NWPAlOx6GTP6Vx+48Dmp6n0/Cp04A/WNS0vupz8SuacNRYOWJan8r2
+        jdP475b08EH5f19EPAi7SmXhaxlloYhv0wt3Xv9rV46mgtXvdld+MU2r9UQSG2yld6AFSh5IDQAA
+    headers:
+      Access-Control-Allow-Headers:
+      - x-requested-with, Content-Type, origin, authorization, accept, client-security-token
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1000'
+      Age:
+      - '149'
+      Cache-Control:
+      - max-age=600
+      - max-age=60
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 11 Sep 2019 12:38:40 GMT
+      Expires:
+      - '{ts ''2019-09-11 12:36:11''}'
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; includeSubDomains; preload;
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      Via:
+      - 1.1 c9bcf1ef5ff6ccbffc94a95572996803.cloudfront.net (CloudFront), https/1.1
+        api-umbrella (ApacheTrafficServer [cSsSfU])
+      X-Amz-Cf-Id:
+      - 1_AbGeP4IzJ7gMrnIMNHe45SJ-fQE6C1RFTXkPC2xe_O_bP4YltC8w==
+      X-Amz-Cf-Pop:
+      - IAD79-C3
+      X-Cache:
+      - Hit from cloudfront
+      X-Frame-Options:
+      - ALLOWALL
+      X-RateLimit-Limit:
+      - '2000'
+      X-RateLimit-Remaining:
+      - '1996'
+    status:
+      code: 200
+      message: OK
+version: 1

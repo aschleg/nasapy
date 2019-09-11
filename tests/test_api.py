@@ -59,15 +59,12 @@ def test_picture_of_the_day():
         nasa.picture_of_the_day(date='2019/01/01')
 
 
-@vcr.use_cassette('tests/cassettes/insights_weather.yml')
+@vcr.use_cassette('tests/cassettes/mars_weather.yml')
 def test_mars_weather():
     weather = nasa.mars_weather()
 
-    sols = ['259', '260', '261', '262', '263', '264', '265']
-
     assert isinstance(weather, dict)
     assert 'sol_keys' in weather.keys()
-    assert len(set(sols).intersection(weather.keys())) > 0
 
     assert nasa.mars_weather_remaining is not None
 
