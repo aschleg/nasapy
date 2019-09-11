@@ -107,6 +107,9 @@ class Nasa(object):
         if catalog not in ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'):
             raise ValueError("catalog parameter must be one of ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG')")
 
+        if not isinstance(complete_entry, bool):
+            raise TypeError('complete_entry parameter must be boolean (True or False).')
+
         url = self._host + '/DONKI/CMEAnalysis'
 
         r = requests.get(url,
@@ -172,55 +175,69 @@ class Nasa(object):
 
         else:
             self.limit_remaining = r.headers['X-RateLimit-Remaining']
+
+            if r.text == '':
+                r = {}
             return r
 
     def solar_flare(self, start_date=None, end_date=None):
-        url = self._host + '/DONKI/FLR'
+        self.limit_remaining, r = _donki_request(url=self._host + '/DONKI/FLR',
+                                                 key=self._key,
+                                                 start_date=start_date,
+                                                 end_date=end_date)
 
-        r = requests.get(url,
-                         params={
-                             'api_key': self._key,
-                             'startDate': start_date,
-                             'endDate': end_date
-                         })
-
-        if r.status_code != 200:
-            raise requests.exceptions.HTTPError(r.reason, r.url)
-
-        else:
-            self.limit_remaining = r.headers['X-RateLimit-Remaining']
-            return r.json()
+        return r
 
     def solar_energetic_particle(self, start_date=None, end_date=None):
-        url = self._host + '/DONKI/SEP'
+        self.limit_remaining, r = _donki_request(url=self._host + '/DONKI/SEP',
+                                                 key=self._key,
+                                                 start_date=start_date,
+                                                 end_date=end_date)
 
-        r = requests.get(url,
-                         params={
-                             'api_key': self._key,
-                             'startDate': start_date,
-                             'endDate': end_date
-                         })
-
-        if r.status_code != 200:
-            raise requests.exceptions.HTTPError(r.reason, r.url)
-
-        else:
-            self.limit_remaining = r.headers['X-RateLimit-Remaining']
-            return r.json()
+        return r
 
     def magnetopause_crossing(self, start_date=None, end_date=None):
-        url = self._host + '/DONKI/MPC'
+        self.limit_remaining, r = _donki_request(url=self._host + '/DONKI/MPC',
+                                                 key=self._key,
+                                                 start_date=start_date,
+                                                 end_date=end_date)
 
-        r = requests.get(url,
-                         params={
-                             'api_key': self._key,
-                             'startDate': start_date,
-                             'endDate': end_date
-                         })
+        return r
 
-        if r.status_code != 200:
-            raise requests.exceptions.HTTPError(r.reason, r.url)
+    def radiation_belt_enhancement(self, start_date=None, end_date=None):
+        self.limit_remaining, r = _donki_request(url=self._host + '/DONKI/RBE',
+                                                 key=self._key,
+                                                 start_date=start_date,
+                                                 end_date=end_date)
 
-        else:
-            self.limit_remaining = r.headers['X-RateLimit-Remaining']
-            return r.json()
+    def hight_speed_stream(self, start_date=None, end_date=None):
+        self.limit_remaining, r = _donki_request(url=self._host + '/DONKI/HSS',
+                                                 key=self._key,
+                                                 start_date=start_date,
+                                                 end_date=end_date)
+
+    def wsa_enlil_simulation(self, start_date=None, end_date=None):
+        self.limit_remaining, r = _donki_request(url=self._host + '/DONKI/WSAEnlilSimulations',
+                                                 key=self._key,
+                                                 start_date=start_date,
+                                                 end_date=end_date)
+
+    def epic(self, date, color='natural'):
+        pass
+
+    def earth_imagery(self, lat, long, dim=0.025, date=None, cloud_score=False):
+        pass
+
+
+def _donki_request(key, url, start_date, end_date):
+    r = requests.get(url,
+                     params={
+                         'api_key': key,
+                         'startDate': start_date,
+                         'endDate': end_date
+                     })
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+    else:
+        return r.headers['X-RateLimit-Remaining'], r.json()

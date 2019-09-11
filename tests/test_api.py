@@ -116,6 +116,8 @@ def test_coronal_mass_ejection():
 
     with pytest.raises(ValueError):
         nasa.coronal_mass_ejection(catalog='test')
+    with pytest.raises(TypeError):
+        nasa.coronal_mass_ejection(complete_entry='True')
 
 
 @vcr.use_cassette('tests/cassettes/geomagnetic_storm.yml')
@@ -130,5 +132,8 @@ def test_geomagnetic_storm():
 
 @vcr.use_cassette('tests/cassettes/interplantary_shock.yml')
 def test_interplantary_shock():
-    pass
 
+    with pytest.raises(ValueError):
+        nasa.interplantery_shock(catalog='test')
+    with pytest.raises(ValueError):
+        nasa.interplantery_shock(location='test')
