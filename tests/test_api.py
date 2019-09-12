@@ -27,13 +27,14 @@ nasa = nasa_api()
 @vcr.use_cassette('tests/cassettes/initialization.yml')
 def test_initialization():
     nasa_demo = Nasa()
-    assert nasa_demo._key == 'DEMO_KEY'
+
+    assert nasa_demo.api_key == 'DEMO_KEY'
 
     potd = nasa_demo.picture_of_the_day()
 
     assert isinstance(potd, dict)
 
-    assert nasa._key == key
+    assert nasa.api_key == key
 
     potd = nasa.picture_of_the_day()
 
@@ -66,7 +67,7 @@ def test_mars_weather():
     assert isinstance(weather, dict)
     assert 'sol_keys' in weather.keys()
 
-    assert nasa.mars_weather_remaining is not None
+    assert nasa.mars_weather_limit_remaining is not None
 
 
 @vcr.use_cassette('tests/cassettes/asteroid_feed.yml')
