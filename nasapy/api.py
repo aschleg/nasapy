@@ -257,6 +257,12 @@ class Nasa(object):
 
         Examples
         --------
+        # Initialize NASA API with a demo key.
+        >>> n = Nasa()
+        # Get entire asteroid data set.
+        >>> n.get_asteroids()
+        # Get asteroid with ID 3542519
+        >>> n.get_asteroids(asteroid_id=3542519)
 
         """
         url = self.host + '/neo/rest/v1/neo/'

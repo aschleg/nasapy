@@ -14,40 +14,29 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=False
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6xTy27bMBC89ysWvvQiy1KSNnVueaBNgDSHpveAllYSY4oUlqQdoei/d0g5QD6g
-        J0HLfczOzP5ZNW6aRfdDWF2tfirZR083KrKsilWrAiN6VtXbdbVd12eI8dtklFVBO4un3wN7psb5
-        UTfURh+oMS62nlrRXSDvRqa6OK8qMmnEemYlntRRzaSMsz2FgaljCdow+aCk02xQ7rr80jjrAxuT
-        x9EtTwNHXxKm0o5VDLqLhh5Ee3riXTSqQFfvaG/d0ZJC9MctXVZn5wXtjPNAg9khd47TxEKGu1DS
-        k1tizpqZbG5E2uY0v58pOOKD23MO6FH1LHMC2Bl3ZPEF6eBpEg5hLsjP48hBwEbnZCQ/KYuZOxcD
-        ff3IQVoCsJdpn8GXG7VVNgBoTHsbJ4T3ZlCimsBYMaDniRZAPyivD7xQ3ovSmCLcGW6CBquZbOrE
-        jaQwQ8lupsGFREPUfshMl3QDUC0UZynI7XwTJdV+VLFxB7A0Ouh6Gp2agaULarkXZjrqFgIm0VLG
-        QfOxpOuFzmyqtETi7fHuier64nJT11++Yb9xMvyWSh5nC73vAOOkIZf0DHhgTdAZJCZQaCEMduET
-        Q4NuW7YYHYaTTGmLxXloLQyLXJMH0mZApbjYpy/UBJvTIiE1yhKwW3hopnuWne7X90ocmHgFiwl1
-        qivolfEDoH5wzZ5b6iF7gtTDXzzmU8Bf5lq4QUPQk2AjNdHsSxzN0EYxOJchhMlfbTZqcm1plVdl
-        7w75b5ONtam31Xbz8OvhefHzcxSgty0meHg5Wbl8nXp0RHutXsI8pQPNtQh6+EI3/ALR/HKfhxrh
-        oINJaelsPhxL8rii7+/a3eF6kfzfgL7UdVVltH8//QMAAP//AwAP9u40ZgQAAA==
+      string: '{"copyright":"Petr\nHor\u00e1lek","date":"2019-09-14","explanation":"Of
+        course this little planet is really planet Earth in a digitally stitched 360
+        x 180 degree mosaic captured high in the Chilean Atacama desert.","hdurl":"https://apod.nasa.gov/apod/image/1909/2019_07_04_SPECULOOS_Pano_24mm_LP_viz.jpg","media_type":"image","service_version":"v1","title":"Little
+        Planet to Exoplanets","url":"https://apod.nasa.gov/apod/image/1909/2019_07_04_SPECULOOS_Pano_24mm_LP_viz1024.jpg"}
+
+'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '480'
       Content-Type:
       - application/json
       Date:
-      - Thu, 12 Sep 2019 13:25:21 GMT
+      - Sat, 14 Sep 2019 13:02:36 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -55,7 +44,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '971'
+      - '994'
     status:
       code: 200
       message: OK
@@ -74,19 +63,12 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=True
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6xTy27bMBC89ysWvvQiy1KSNnVueaBNgDSHpveAllYSY4oUlqQdoei/d0g5QD6g
-        J0HLfczOzP5ZNW6aRfdDWF2tfirZR083KrKsilWrAiN6VtXbdbVd12eI8dtklFVBO4un3wN7psb5
-        UTfURh+oMS62nlrRXSDvRqa6OK8qMmnEemYlntRRzaSMsz2FgaljCdow+aCk02xQ7rr80jjrAxuT
-        x9EtTwNHXxKm0o5VDLqLhh5Ee3riXTSqQFfvaG/d0ZJC9MctXVZn5wXtjPNAg9khd47TxEKGu1DS
-        k1tizpqZbG5E2uY0v58pOOKD23MO6FH1LHMC2Bl3ZPEF6eBpEg5hLsjP48hBwEbnZCQ/KYuZOxcD
-        ff3IQVoCsJdpn8GXG7VVNgBoTHsbJ4T3ZlCimsBYMaDniRZAPyivD7xQ3ovSmCLcGW6CBquZbOrE
-        jaQwQ8lupsGFREPUfshMl3QDUC0UZynI7XwTJdV+VLFxB7A0Ouh6Gp2agaULarkXZjrqFgIm0VLG
-        QfOxpOuFzmyqtETi7fHuier64nJT11++Yb9xMvyWSh5nC73vAOOkIZf0DHhgTdAZJCZQaCEMduET
-        Q4NuW7YYHYaTTGmLxXloLQyLXJMH0mZApbjYpy/UBJvTIiE1yhKwW3hopnuWne7X90ocmHgFiwl1
-        qivolfEDoH5wzZ5b6iF7gtTDXzzmU8Bf5lq4QUPQk2AjNdHsSxzN0EYxOJchhMlfbTZqcm1plVdl
-        7w75b5ONtam31Xbz8OvhefHzcxSgty0meHg5Wbl8nXp0RHutXsI8pQPNtQh6+EI3/ALR/HKfhxrh
-        oINJaelsPhxL8rii7+/a3eF6kfzfgL7UdVVltH8//QMAAP//AwAP9u40ZgQAAA==
+      string: '{"copyright":"Petr\nHor\u00e1lek","date":"2019-09-14","explanation":"Of
+        course this little planet is really planet Earth in a digitally stitched 360
+        x 180 degree mosaic captured high in the Chilean Atacama desert.","hdurl":"https://apod.nasa.gov/apod/image/1909/2019_07_04_SPECULOOS_Pano_24mm_LP_viz.jpg","media_type":"image","service_version":"v1","title":"Little
+        Planet to Exoplanets","url":"https://apod.nasa.gov/apod/image/1909/2019_07_04_SPECULOOS_Pano_24mm_LP_viz1024.jpg"}
+
+'
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -94,20 +76,16 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '480'
       Content-Type:
       - application/json
       Date:
-      - Thu, 12 Sep 2019 13:25:21 GMT
+      - Sat, 14 Sep 2019 13:02:37 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -115,7 +93,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '970'
+      - '993'
     status:
       code: 200
       message: OK
@@ -150,7 +128,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Connection:
       - keep-alive
       Content-Encoding:
@@ -158,7 +136,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 12 Sep 2019 13:25:22 GMT
+      - Sat, 14 Sep 2019 13:02:37 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -174,7 +152,56 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '969'
+      - '992'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-14&hd=False
+  response:
+    body:
+      string: '{"copyright":"Petr\nHor\u00e1lek","date":"2019-09-14","explanation":"Of
+        course this little planet is really planet Earth in a digitally stitched 360
+        x 180 degree mosaic captured high in the Chilean Atacama desert.","hdurl":"https://apod.nasa.gov/apod/image/1909/2019_07_04_SPECULOOS_Pano_24mm_LP_viz.jpg","media_type":"image","service_version":"v1","title":"Little
+        Planet to Exoplanets","url":"https://apod.nasa.gov/apod/image/1909/2019_07_04_SPECULOOS_Pano_24mm_LP_viz1024.jpg"}
+
+'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '480'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 14 Sep 2019 13:02:38 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '991'
     status:
       code: 200
       message: OK
@@ -208,7 +235,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 12 Sep 2019 13:25:22 GMT
+      - Sat, 14 Sep 2019 13:02:38 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -220,7 +247,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '968'
+      - '990'
     status:
       code: 400
       message: BAD REQUEST

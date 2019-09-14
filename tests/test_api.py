@@ -46,6 +46,7 @@ def test_picture_of_the_day():
     potd = nasa.picture_of_the_day()
     potd_hd = nasa.picture_of_the_day(hd=True)
     potd_date = nasa.picture_of_the_day(date='2019-01-01')
+    potd_datetime = nasa.picture_of_the_day(date=datetime.datetime.today())
 
     keys = ['date', 'explanation', 'media_type', 'service_version', 'title', 'url']
 
@@ -53,6 +54,7 @@ def test_picture_of_the_day():
     assert len(set(keys).difference(potd.keys())) == 0
     assert isinstance(potd_hd, dict)
     assert isinstance(potd_date, dict)
+    assert isinstance(potd_datetime, dict)
 
     assert nasa.limit_remaining is not None
 
@@ -77,15 +79,21 @@ def test_mars_weather():
 @vcr.use_cassette('tests/cassettes/asteroid_feed.yml')
 def test_asteroid_feed():
     feed = nasa.asteroid_feed(start_date='2019-01-01')
+    feed_datetime = nasa.asteroid_feed(start_date=datetime.datetime.today() - datetime.timedelta(7))
 
     assert isinstance(feed, dict)
+    assert isinstance(feed_datetime, dict)
     assert isinstance(feed['element_count'], int)
     assert 'near_earth_objects' in feed.keys()
 
+    with pytest.raises(TypeError):
+        nasa.asteroid_feed(start_date=1)
+    with pytest.raises(TypeError):
+        nasa.asteroid_feed(start_date='2018-12-31', end_date=1)
     with pytest.raises(HTTPError):
         nasa.asteroid_feed(start_date='2019/01/01')
     with pytest.raises(HTTPError):
-        nasa.asteroid_feed(start_date= '2018-12-31', end_date='2019/01/01')
+        nasa.asteroid_feed(start_date='2018-12-31', end_date='2019/01/01')
 
 
 @vcr.use_cassette('tests/cassettes/get_asteroids.yml')
