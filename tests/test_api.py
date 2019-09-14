@@ -58,6 +58,10 @@ def test_picture_of_the_day():
 
     with pytest.raises(HTTPError):
         nasa.picture_of_the_day(date='2019/01/01')
+    with pytest.raises(TypeError):
+        nasa.picture_of_the_day(date=1)
+    with pytest.raises(TypeError):
+        nasa.picture_of_the_day(hd='test')
 
 
 @vcr.use_cassette('tests/cassettes/mars_weather.yml')
@@ -72,18 +76,16 @@ def test_mars_weather():
 
 @vcr.use_cassette('tests/cassettes/asteroid_feed.yml')
 def test_asteroid_feed():
-    feed = nasa.asteroid_feed()
-    date_today = datetime.datetime.today().strftime('%Y-%m-%d')
+    feed = nasa.asteroid_feed(start_date='2019-01-01')
 
     assert isinstance(feed, dict)
     assert isinstance(feed['element_count'], int)
     assert 'near_earth_objects' in feed.keys()
-    assert date_today in feed['near_earth_objects'].keys()
 
     with pytest.raises(HTTPError):
         nasa.asteroid_feed(start_date='2019/01/01')
     with pytest.raises(HTTPError):
-        nasa.asteroid_feed(end_date='2019/01/01')
+        nasa.asteroid_feed(start_date= '2018-12-31', end_date='2019/01/01')
 
 
 @vcr.use_cassette('tests/cassettes/get_asteroids.yml')
