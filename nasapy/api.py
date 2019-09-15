@@ -276,9 +276,47 @@ class Nasa(object):
         pass
 
     def coronal_mass_ejection(self, start_date=None, end_date=None,
-                              accurate_only=True, speed=None, complete_entry=True, half_angle=0,
+                              accurate_only=True, speed=0, complete_entry=True, half_angle=0,
                               catalog='ALL', keyword=None):
+        r"""
+        Returns data collected on coronal mass ejection events.
 
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+        accurate_only : bool, default True
+            If True (default), only the most accurate results collected are returned.
+        complete_entry : bool, default True
+            If True (default), only results with complete data is returned.
+        speed : int, default 0
+            The lower limit of the speed of the CME event. Default is 0
+        half_angle : int, default 0
+            The lower limit half angle of the CME event. Default is 0.
+        catalog : str, {'ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'}
+            Specifies which catalog of data to return results. Defaults to 'ALL'.
+        keyword : str, default None
+            Filter results by a specific keyword.
+
+        Raises
+        ------
+        ValueError
+            Raised if the :code:`catalog` parameter is not one of {'ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'}.
+        TypeError
+            Raised if parameter :code:`complete_entry` is not boolean (True or False).
+        TypeError
+            Raised if parameter :code:`accurate_only` is not boolean (True or False).
+
+        Returns
+        -------
+        list
+            List of results representing returned JSON data. If no data is returned, an empty list is returned.
+
+        """
         start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
 
         if catalog not in ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'):
@@ -286,6 +324,9 @@ class Nasa(object):
 
         if not isinstance(complete_entry, bool):
             raise TypeError('complete_entry parameter must be boolean (True or False).')
+
+        if not isinstance(accurate_only, bool):
+            raise TypeError('accurate_only parameter must be boolean (True or False).')
 
         url = self.host + '/DONKI/CMEAnalysis'
 
@@ -309,14 +350,34 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
             if r.text == '':
-                r = {}
+                r = []
             else:
                 r = r.json()
 
             return r
 
     def geomagnetic_storm(self, start_date=None, end_date=None):
+        r"""
+        Returns data collected on geomagnetic storm events.
 
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        Raises
+        ------
+
+        Returns
+        -------
+        list
+            List of results representing returned JSON data. If no data is returned, an empty list is returned.
+
+        """
         start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
 
         url = self.host + '/DONKI/GST'
@@ -335,15 +396,53 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
             if r.text == '':
-                r = {}
+                r = []
             else:
                 r = r.json()
 
             return r
 
-    def interplantery_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
+    def interplantary_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
+        r"""
+        Returns data collected on interplantary shock events.
 
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+        location : str, {'ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'}
+            Filters returned results to specified location of the interplantary shock event. Defaults to 'ALL'.
+        catalog : str, {'ALL', 'SWRC_CATALOG', 'WINSLOW_MESSENGER_ICME_CATALOG'}
+            Filters results to a specified catalog of collected data. Defaults to 'ALL'.
+
+        Raises
+        ------
+        ValueError
+            Raised if :code:`location` parameter is not one of {'ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'}
+        ValueError
+            Raised if :code:`catalog` parameter is not one of {'ALL', 'SWRC_CATALOG', 'WINSLOW_MESSENGER_ICME_CATALOG'}
+        TypeError
+            Raised if :code:`location` parameter is not a string.
+        TypeError
+            Raised if :code:`catalog` parameter is not a string.
+
+        Returns
+        -------
+        list
+            List of results representing returned JSON data. If no data is returned, an empty list is returned.
+
+        """
         start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
+
+        if not isinstance(location, str):
+            raise TypeError('location parameter must be a string')
+
+        if not isinstance(catalog, str):
+            raise TypeError('location parameter must be a string')
 
         if location not in ('ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'):
             raise ValueError(
@@ -371,13 +470,25 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
             if r.text == '':
-                r = {}
+                r = []
             else:
                 r = r.json()
 
             return r
 
     def solar_flare(self, start_date=None, end_date=None):
+        r"""
+
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/FLR',
                                                    key=self.__api_key,
                                                    start_date=start_date,

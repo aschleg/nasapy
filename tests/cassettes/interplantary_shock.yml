@@ -11,16 +11,10 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=ALL
+    uri: https://api.nasa.gov/DONKI/IPS?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&location=ALL&catalog=ALL
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6RRYUvDMBT8KyGfFFZ5ydptzbdSRYSNgSsMFBmhzbpom5QmRYf4332dCtsYiPNb
-        3r3L8e7u8Z16XSvOVhEVlAOLA5gEfJJxLiJ4oANaSa99VygqAhZeAQLWlN9I1M8bWa0TU1bIYLwH
-        XKNUQQUPx/3ktw1u6AKltJtZ55M871rpEfRtpwZUOmdzjUCRzm7urg/PgBh1BECAuwCAoYqx/V+K
-        r1x6WdmyV1/ep6s0yZLp/JZ+DE6YigMGGQcRskNToyNLSDt2taP8mIp2GZxtancGjMQQTppaSkdq
-        JV3XqoJ0TpuSPHfOE2sU0cZhYLUynlxMk0U6J+nwkrxqvyGSNJVEil0T97Ilsmla+6ZrbM6aq78H
-        xTMYi3D8S1Bf9e63vx/UkMX/DYpljJ/R/tMnAAAA//8DAOCwDvHUAgAA
+      string: ''
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -28,21 +22,17 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '0'
       Content-Type:
-      - application/json;charset=UTF-8
+      - text/plain; charset=UTF-8
       Date:
-      - Sun, 15 Sep 2019 13:40:03 GMT
+      - Sun, 15 Sep 2019 13:39:46 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -50,7 +40,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '980'
+      - '982'
     status:
       code: 200
       message: OK
@@ -66,16 +56,17 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=SWRC_CATALOG
+    uri: https://api.nasa.gov/DONKI/IPS?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-01-01&location=ALL&catalog=ALL
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA6RRYUvDMBT8KyGfFFZ5ydptzbdSRYSNgSsMFBmhzbpom5QmRYf4332dCtsYiPNb
-        3r3L8e7u8Z16XSvOVhEVlAOLA5gEfJJxLiJ4oANaSa99VygqAhZeAQLWlN9I1M8bWa0TU1bIYLwH
-        XKNUQQUPx/3ktw1u6AKltJtZ55M871rpEfRtpwZUOmdzjUCRzm7urg/PgBh1BECAuwCAoYqx/V+K
-        r1x6WdmyV1/ep6s0yZLp/JZ+DE6YigMGGQcRskNToyNLSDt2taP8mIp2GZxtancGjMQQTppaSkdq
-        JV3XqoJ0TpuSPHfOE2sU0cZhYLUynlxMk0U6J+nwkrxqvyGSNJVEil0T97Ilsmla+6ZrbM6aq78H
-        xTMYi3D8S1Bf9e63vx/UkMX/DYpljJ/R/tMnAAAA//8DAOCwDvHUAgAA
+        H4sIAAAAAAAAA8yUXWvCMBSG/4rk2sA56Ycud6WKFHSKPWwwkVFUtoC2QztBxP++tFgKwxSWsU7o
+        VXKe9H3P1+LMVkmebLM3Jln8PA9fw4CC8XTEuixZ5eqo8lM00HcC8IEDckRCTwLoj0ezmAOgDt1m
+        +hWVpcUjNJwPp51An26OmzQntdvc4F/0vUoP+f5zp4MOTC7OTK2ZFNBla3X42Canx6QkqwdlJ5rM
+        gpDYpXsNRXPobBzEFIXssiyif2JRcHAIXWuLNX+3Fh2OgkA0WRwm+/z9Zglr2OjP+16XQRxOn+ay
+        U1RlEowsquJw4ZIA6TrGxmuSXMFtSnY5eITYlOXGWal5o+r/nhWPg09C6KE1VqXRYs3fsUUEgp51
+        FT1e8fdtEX3pFXv99lI3z1bpr4SN/v5gHei/OkXjgW8n+Qq3LNkvEoXmWWnM8hVuXbKebcdacgm3
+        K1nojYRS2PVyBbcpucehT9i3y3IN/0ry8gsAAP//AwBZpTXICAoAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -88,7 +79,7 @@ interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sun, 15 Sep 2019 13:40:03 GMT
+      - Sun, 15 Sep 2019 13:39:47 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -105,7 +96,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '979'
+      - '981'
     status:
       code: 200
       message: OK

@@ -126,10 +126,18 @@ def test_geomagnetic_storm():
 @vcr.use_cassette('tests/cassettes/interplantary_shock.yml')
 def test_interplantary_shock():
 
+    shock = nasa.interplantary_shock()
+    shock_date = nasa.interplantary_shock(start_date='2019-01-01')
+
+    assert shock == []
+    assert len(shock_date) > 0
+    assert isinstance(shock_date, list)
+    assert isinstance(shock_date[0], dict)
+
     with pytest.raises(ValueError):
-        nasa.interplantery_shock(catalog='test')
+        nasa.interplantary_shock(catalog='test')
     with pytest.raises(ValueError):
-        nasa.interplantery_shock(location='test')
+        nasa.interplantary_shock(location='test')
 
 
 def test_date_check():
