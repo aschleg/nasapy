@@ -206,20 +206,7 @@ class Nasa(object):
         """
         url = self.host + '/neo/rest/v1/feed'
 
-        if not isinstance(start_date, (str, datetime.datetime)):
-            raise TypeError('start_date parameter must be a string representing a date in YYYY-MM-DD format or '
-                            'a datetime object.')
-
-        if end_date is not None:
-            if not isinstance(end_date, (str, datetime.datetime)):
-                raise TypeError('end_date parameter must be a string representing a date in YYYY-MM-DD format or '
-                                'a datetime object.')
-
-            if isinstance(end_date, datetime.datetime):
-                end_date = end_date.strftime('%Y-%m-%d')
-
-        if isinstance(start_date, datetime.datetime):
-            start_date = start_date.strftime('%Y-%m-%d')
+        start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
 
         r = requests.get(url,
                          params={
@@ -292,6 +279,8 @@ class Nasa(object):
                               accurate_only=True, speed=None, complete_entry=True, half_angle=0,
                               catalog='ALL', keyword=None):
 
+        start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
+
         if catalog not in ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'):
             raise ValueError("catalog parameter must be one of ('ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG')")
 
@@ -318,9 +307,18 @@ class Nasa(object):
 
         else:
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
-            return r.json()
+
+            if r.text == '':
+                r = {}
+            else:
+                r = r.json()
+
+            return r
 
     def geomagnetic_storm(self, start_date=None, end_date=None):
+
+        start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
+
         url = self.host + '/DONKI/GST'
 
         r = requests.get(url,
@@ -335,9 +333,17 @@ class Nasa(object):
 
         else:
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
-            return r.json()
+
+            if r.text == '':
+                r = {}
+            else:
+                r = r.json()
+
+            return r
 
     def interplantery_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
+
+        start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
 
         if location not in ('ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'):
             raise ValueError(
@@ -427,6 +433,8 @@ class Nasa(object):
 
 
 def _donki_request(key, url, start_date, end_date):
+    start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
+
     r = requests.get(url,
                      params={
                          'api_key': key,
@@ -447,3 +455,23 @@ def _donki_request(key, url, start_date, end_date):
             r = r.json()
 
     return limit_remaining, r
+
+
+def _check_dates(start_date=None, end_date=None):
+    if start_date is not None:
+        if not isinstance(start_date, (str, datetime.datetime)):
+            raise TypeError('start_date parameter must be a string representing a date in YYYY-MM-DD format or '
+                            'a datetime object.')
+
+    if end_date is not None:
+        if not isinstance(end_date, (str, datetime.datetime)):
+            raise TypeError('end_date parameter must be a string representing a date in YYYY-MM-DD format or '
+                            'a datetime object.')
+
+        if isinstance(end_date, datetime.datetime):
+            end_date = end_date.strftime('%Y-%m-%d')
+
+    if isinstance(start_date, datetime.datetime):
+        start_date = start_date.strftime('%Y-%m-%d')
+
+    return start_date, end_date

@@ -1,7 +1,7 @@
 import vcr
 import os
 import pytest
-from nasapy.api import Nasa
+from nasapy.api import Nasa, _check_dates
 from requests.exceptions import HTTPError
 import datetime
 
@@ -28,16 +28,12 @@ nasa = nasa_api()
 def test_initialization():
     nasa_demo = Nasa()
 
-    assert nasa_demo.api_key == 'DEMO_KEY'
-
-    potd = nasa_demo.picture_of_the_day()
-
-    assert isinstance(potd, dict)
-
-    assert nasa.api_key == key
-
+    potd_demo = nasa_demo.picture_of_the_day()
     potd = nasa.picture_of_the_day()
 
+    assert nasa_demo.api_key == 'DEMO_KEY'
+    assert isinstance(potd_demo, dict)
+    assert nasa.api_key == key
     assert isinstance(potd, dict)
 
 
@@ -58,8 +54,6 @@ def test_picture_of_the_day():
 
     assert nasa.limit_remaining is not None
 
-    with pytest.raises(HTTPError):
-        nasa.picture_of_the_day(date='2019/01/01')
     with pytest.raises(TypeError):
         nasa.picture_of_the_day(date=1)
     with pytest.raises(TypeError):
@@ -85,15 +79,6 @@ def test_asteroid_feed():
     assert isinstance(feed_datetime, dict)
     assert isinstance(feed['element_count'], int)
     assert 'near_earth_objects' in feed.keys()
-
-    with pytest.raises(TypeError):
-        nasa.asteroid_feed(start_date=1)
-    with pytest.raises(TypeError):
-        nasa.asteroid_feed(start_date='2018-12-31', end_date=1)
-    with pytest.raises(HTTPError):
-        nasa.asteroid_feed(start_date='2019/01/01')
-    with pytest.raises(HTTPError):
-        nasa.asteroid_feed(start_date='2018-12-31', end_date='2019/01/01')
 
 
 @vcr.use_cassette('tests/cassettes/get_asteroids.yml')
@@ -145,3 +130,24 @@ def test_interplantary_shock():
         nasa.interplantery_shock(catalog='test')
     with pytest.raises(ValueError):
         nasa.interplantery_shock(location='test')
+
+
+def test_date_check():
+    start_date = datetime.datetime.today() - datetime.timedelta(7)
+    end_date = datetime.datetime.today()
+
+    start_dt, end_dt = _check_dates(start_date=start_date, end_date=end_date)
+    start_str, end_str = _check_dates(start_date='2019-01-01', end_date='2018-01-01')
+
+    assert isinstance(start_dt, str)
+    assert isinstance(end_dt, str)
+
+    assert isinstance(start_str, str)
+    assert isinstance(end_str, str)
+
+    start_int, end_int = 1, 2
+
+    with pytest.raises(TypeError):
+        _check_dates(start_date=start_int, end_date='2019-01-01')
+    with pytest.raises(TypeError):
+        _check_dates(start_date='2019-01-01', end_date=end_int)

@@ -1,1 +1,1 @@
-from nasapy.api import *
+from nasapy.api import Nasa
