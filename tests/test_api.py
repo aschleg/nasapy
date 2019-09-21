@@ -129,7 +129,7 @@ def test_interplantary_shock():
     shock = nasa.interplantary_shock()
     shock_date = nasa.interplantary_shock(start_date='2019-01-01')
 
-    assert shock == []
+    assert shock == {}
     assert len(shock_date) > 0
     assert isinstance(shock_date, list)
     assert isinstance(shock_date[0], dict)
