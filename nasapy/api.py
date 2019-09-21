@@ -279,7 +279,8 @@ class Nasa(object):
                               accurate_only=True, speed=0, complete_entry=True, half_angle=0,
                               catalog='ALL', keyword=None):
         r"""
-        Returns data collected on coronal mass ejection events.
+        Returns data collected on coronal mass ejection events from the Space Weather Database of Notifications,
+        Knowledge, Information (DONKI).
 
         Parameters
         ----------
@@ -304,6 +305,12 @@ class Nasa(object):
 
         Raises
         ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
         ValueError
             Raised if the :code:`catalog` parameter is not one of {'ALL', 'SWRC_CATALOG', 'JANG_ET_AL_CATALOG'}.
         TypeError
@@ -314,7 +321,16 @@ class Nasa(object):
         Returns
         -------
         list
-            List of results representing returned JSON data. If no data is returned, an empty list is returned.
+            List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize NASA API with a demo key
+        >>> n = Nasa()
+        # View data from coronal mass ejection events from the last thirty days
+        >>> n.coronal_mass_ejection()
+        # View all CME events from the beginning of 2019.
+        >>> n.coronal_mass_ejection(start_date='2019-01-01', end_date=datetime.datetime.today())
 
         """
         start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
@@ -350,7 +366,7 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
             if r.text == '':
-                r = []
+                r = {}
             else:
                 r = r.json()
 
@@ -358,7 +374,8 @@ class Nasa(object):
 
     def geomagnetic_storm(self, start_date=None, end_date=None):
         r"""
-        Returns data collected on geomagnetic storm events.
+        Returns data collected on geomagnetic storm events from the Space Weather Database of Notifications, Knowledge,
+        Information (DONKI).
 
         Parameters
         ----------
@@ -371,11 +388,31 @@ class Nasa(object):
 
         Raises
         ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
 
         Returns
         -------
         list
-            List of results representing returned JSON data. If no data is returned, an empty list is returned.
+            List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get geomagnetic storm events from the last thirty days.
+        >>> n.geomagnetic_storm()
+        [{'gstID': '2019-08-31T12:00:00-GST-001',
+          'startTime': '2019-08-31T12:00Z',
+          'allKpIndex': [{'observedTime': '2019-08-31T15:00Z',
+            'kpIndex': 6,
+            'source': 'NOAA'},
+           {'observedTime': '2019-09-01T15:00Z', 'kpIndex': 6, 'source': 'NOAA'}],
+          'linkedEvents': [{'activityID': '2019-08-30T12:17:00-HSS-001'}]}]
 
         """
         start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
@@ -396,7 +433,7 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
             if r.text == '':
-                r = []
+                r = {}
             else:
                 r = r.json()
 
@@ -404,7 +441,8 @@ class Nasa(object):
 
     def interplantary_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
         r"""
-        Returns data collected on interplantary shock events.
+        Returns data collected on interplantary shock events from the Space Weather Database of Notifications,
+        Knowledge, Information (DONKI).
 
         Parameters
         ----------
@@ -421,6 +459,12 @@ class Nasa(object):
 
         Raises
         ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
         ValueError
             Raised if :code:`location` parameter is not one of {'ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'}
         ValueError
@@ -434,6 +478,9 @@ class Nasa(object):
         -------
         list
             List of results representing returned JSON data. If no data is returned, an empty list is returned.
+
+        Examples
+        --------
 
         """
         start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
@@ -470,7 +517,7 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
             if r.text == '':
-                r = []
+                r = {}
             else:
                 r = r.json()
 
@@ -478,6 +525,8 @@ class Nasa(object):
 
     def solar_flare(self, start_date=None, end_date=None):
         r"""
+        Returns data on solar flare events from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI).
 
         Parameters
         ----------
@@ -488,6 +537,37 @@ class Nasa(object):
             String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
             date in UTC time.
 
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+
+        Returns
+        -------
+        list
+            If data is available in the specified date range, a list of dictionary objects representing the data from
+            the API is returned. If no data is available, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get solar flare events from May of 2019
+        >>> n.solar_flare(start_date='2019-05-01', end_date='2019-05-31')
+        [{'flrID': '2019-05-06T05:04:00-FLR-001',
+          'instruments': [{'id': 11, 'displayName': 'GOES15: SEM/XRS 1.0-8.0'}],
+          'beginTime': '2019-05-06T05:04Z',
+          'peakTime': '2019-05-06T05:10Z',
+          'endTime': None,
+          'classType': 'C9.9',
+          'sourceLocation': 'N08E50',
+          'activeRegionNum': 12740,
+          'linkedEvents': None}]
+
         """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/FLR',
                                                    key=self.__api_key,
@@ -497,6 +577,47 @@ class Nasa(object):
         return r
 
     def solar_energetic_particle(self, start_date=None, end_date=None):
+        r"""
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to solar energetic particle events.
+
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+
+        Returns
+        -------
+        list
+            If data is available in the specified date range, a list of dictionary objects representing the data from
+            the API is returned. If no data is available, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get data from April 2017
+        >>> n.solar_energetic_particle(start_date='2017-04-01', end_date='2017-04-30')
+        [{'sepID': '2017-04-18T23:39:00-SEP-001',
+          'eventTime': '2017-04-18T23:39Z',
+          'instruments': [{'id': 6, 'displayName': 'STEREO A: IMPACT 13-100 MeV'}],
+          'linkedEvents': [{'activityID': '2017-04-18T19:15:00-FLR-001'},
+           {'activityID': '2017-04-18T19:48:00-CME-001'}]}]
+
+        """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/SEP',
                                                    key=self.__api_key,
                                                    start_date=start_date,
@@ -505,6 +626,46 @@ class Nasa(object):
         return r
 
     def magnetopause_crossing(self, start_date=None, end_date=None):
+        r"""
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to magnetopause crossing events.
+
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+
+        Returns
+        -------
+        list
+            If data is available in the specified date range, a list of dictionary objects representing the data from
+            the API is returned. If no data is available, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get data on magnetopause crossing events from 2018 to the current date.
+        >>> n.magnetopause_crossing(start_date='2018-01-01')
+        [{'mpcID': '2018-05-05T14:33:00-MPC-001',
+          'eventTime': '2018-05-05T14:33Z',
+          'instruments': [{'id': 15, 'displayName': 'MODEL: SWMF'}],
+          'linkedEvents': [{'activityID': '2018-05-05T09:27:00-HSS-001'}]}]
+
+        """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/MPC',
                                                    key=self.__api_key,
                                                    start_date=start_date,
@@ -513,6 +674,46 @@ class Nasa(object):
         return r
 
     def radiation_belt_enhancement(self, start_date=None, end_date=None):
+        r"""
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to radiation belt enhancement events.
+
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+
+        Returns
+        -------
+        list
+            If data is available in the specified date range, a list of dictionary objects representing the data from
+            the API is returned. If no data is available, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get data on radiation belt enhancement events from the last 30 days.
+        >>> n.radiation_belt_enhancement()
+        [{'rbeID': '2019-08-31T18:50:00-RBE-001',
+          'eventTime': '2019-08-31T18:50Z',
+          'instruments': [{'id': 14, 'displayName': 'GOES13: SEM/EPS >0.8 MeV'}],
+          'linkedEvents': [{'activityID': '2019-08-30T12:17:00-HSS-001'}]}]
+
+        """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/RBE',
                                                    key=self.__api_key,
                                                    start_date=start_date,
@@ -521,6 +722,56 @@ class Nasa(object):
         return r
 
     def hight_speed_stream(self, start_date=None, end_date=None):
+        r"""
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to hight speed stream events.
+
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+
+        Returns
+        -------
+        list
+            If data is available in the specified date range, a list of dictionary objects representing the data from
+            the API is returned. If no data is available, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get data on hight speed stream events from the beginning of September 2019.
+        >>> n.hight_speed_stream()
+        [{'hssID': '2019-09-09T01:22:00-HSS-001',
+          'eventTime': '2019-09-09T01:22Z',
+          'instruments': [{'id': 9, 'displayName': 'ACE: SWEPAM'}],
+          'linkedEvents': None},
+         {'hssID': '2019-09-12T20:21:00-HSS-001',
+          'eventTime': '2019-09-12T20:21Z',
+          'instruments': [{'id': 9, 'displayName': 'ACE: SWEPAM'},
+           {'id': 10, 'displayName': 'ACE: MAG'}],
+          'linkedEvents': None},
+         {'hssID': '2019-09-17T03:00:00-HSS-001',
+          'eventTime': '2019-09-17T03:00Z',
+          'instruments': [{'id': 20, 'displayName': 'STEREO A: IMPACT'},
+           {'id': 21, 'displayName': 'STEREO A: PLASTIC'}],
+          'linkedEvents': None}]
+
+        """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/HSS',
                                                    key=self.__api_key,
                                                    start_date=start_date,
@@ -529,6 +780,65 @@ class Nasa(object):
         return r
 
     def wsa_enlil_simulation(self, start_date=None, end_date=None):
+        r"""
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API.
+
+        Parameters
+        ----------
+        start_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior
+            to the current date in UTC time.
+        end_date : str, datetime, default None
+            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current
+            date in UTC time.
+
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+        TypeError
+            Raised if parameter :code:`start_date` is not a string representing a date in YYYY-MM-DD format or
+            a datetime object.
+
+        Returns
+        -------
+        list
+            If data is available in the specified date range, a list of dictionary objects representing the data from
+            the API is returned. If no data is available, an empty dictionary is returned.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get data from the first simulation performed in 2019.
+        >>> wsa = n.wsa_enlil_simulation(start_date='2019-01-01')
+        >>> wsa[0]
+        {'simulationID': 'WSA-ENLIL/14394/1',
+         'modelCompletionTime': '2019-01-03T18:26Z',
+         'au': 2.0,
+         'cmeInputs': [{'cmeStartTime': '2019-01-02T23:12Z',
+           'latitude': -27.0,
+           'longitude': 45.0,
+           'speed': 430.0,
+           'halfAngle': 18.0,
+           'time21_5': '2019-01-03T07:15Z',
+           'isMostAccurate': True,
+           'levelOfData': 1,
+           'ipsList': [],
+           'cmeid': '2019-01-02T23:12:00-CME-001'}],
+         'estimatedShockArrivalTime': None,
+         'estimatedDuration': None,
+         'rmin_re': None,
+         'kp_18': None,
+         'kp_90': None,
+         'kp_135': None,
+         'kp_180': None,
+         'isEarthGB': False,
+         'impactList': None}
+
+        """
         self.__limit_remaining, r = _donki_request(url=self.host + '/DONKI/WSAEnlilSimulations',
                                                    key=self.__api_key,
                                                    start_date=start_date,

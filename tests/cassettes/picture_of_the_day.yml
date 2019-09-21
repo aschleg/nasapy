@@ -14,41 +14,36 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=False
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6RUy47kNgy85yuIPk8/ZoFk0XsbBFkgwB4CdO4DtkzbysqiQdHd2wny7ylJM4vk
-        nJNlSiSLVSX9tRvYZfdp9+H0fN6fzvvnH3dPO/m2Js7sUTO2fnW6cyHNQjqSz0KJbZLixHmgpLmt
-        U7zJQMXVlkJyEyOToDYgGDPpZnRR5NHlUVyWA9HnaEgrIrkeSIBBAHF6ah34qjehkHQbaETJhqWe
-        q5tZDR/LNMsSy4plQ3Zh3xAszubo2kAaErhn/YLw3CAXRa2ymvBAQZc1iUt6EJtu2K0d6vjiB/od
-        6zZSY8CNw1dUzupgAxmj6UK97nXz/rutFXYRuj5aKdOregz0M5cSc0RfDhKMR6/bYMau0WOe3uAf
-        6LcYMAfatLkw8sgJ5YImrdGYR+O+oM9ytY3t8YQqDBn6oYIzQwyV0EZgoUFkfSePfdHO2RPd55ig
-        Zpxmf0+d8fMW6Lk1ABq3tbNhgAovfGcbULqGWdhAiQyT7EFvpQvT+4wBrmkTmtXin5qdExpm6dXu
-        bCtmGti+0hXSFIhQk1Bz5kHvrVNjsbUNDMeghrZYd4frWt65vmyQum9u6wrUSUao+ALFNwvNJMZD
-        VCgYQWmTrw2bUb4bL2aXjL1/qT7rVglCYZNmU6yKcNGMWQLsBf+DSmgJT1UlZZF6P/5j19r7u8Qv
-        o9f7wVM9DXsTzG5U4jdaMN1c3qAEzTBORxKihQSq6uCSPYKmbtLm6OYkt1gPKC5PgasoOui7I84x
-        0X5f1Q4zlc2AElacoFbgrVRPtelGHnDx7vw44AmYh80SLv/svpZPxyOvOhwyFz5Memt/x7jwJMfn
-        8+l8rI9Aw/kKiarNX88fPx7+WCdUWmSI/OqPtT4zLQfBInaLQV4xd+mvzO0ZYY+e6rEX+oKKdGlX
-        r78Y0P2NP5z7n9h+OjVsf//wDwAAAP//AwA42UQ9/wQAAA==
+      string: '{"copyright":"Robert Eder","date":"2019-09-21","explanation":"Framing
+        a bright emission region, this telescopic view looks out across a pretty field
+        of stars along the plane of our Milky Way Galaxy, toward the nebula rich constellation
+        Cygnus the Swan. Popularly called the Tulip Nebula, the reddish glowing cloud
+        of interstellar gas and dust is also found in the 1959 catalog by astronomer
+        Stewart Sharpless as Sh2-101. About 8,000 light-years distant and 70 light-years
+        across the complex and beautiful nebula blossoms near the center of this composite
+        image. Ultraviolet radiation from young energetic O stars at the edge of the
+        Cygnus OB3 association, ionizes the atoms and powers the emission from the
+        Tulip Nebula.","hdurl":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder.jpg","media_type":"image","service_version":"v1","title":"The
+        Tulip in the Swan","url":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder1024.jpg"}
+
+'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '0'
+      - '1'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '947'
       Content-Type:
       - application/json
       Date:
-      - Sun, 15 Sep 2019 12:49:58 GMT
+      - Sat, 21 Sep 2019 13:00:04 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -56,7 +51,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '994'
+      - '977'
     status:
       code: 200
       message: OK
@@ -75,20 +70,19 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=True
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6RUy47kNgy85yuIPk8/ZoFk0XsbBFkgwB4CdO4DtkzbysqiQdHd2wny7ylJM4vk
-        nJNlSiSLVSX9tRvYZfdp9+H0fN6fzvvnH3dPO/m2Js7sUTO2fnW6cyHNQjqSz0KJbZLixHmgpLmt
-        U7zJQMXVlkJyEyOToDYgGDPpZnRR5NHlUVyWA9HnaEgrIrkeSIBBAHF6ah34qjehkHQbaETJhqWe
-        q5tZDR/LNMsSy4plQ3Zh3xAszubo2kAaErhn/YLw3CAXRa2ymvBAQZc1iUt6EJtu2K0d6vjiB/od
-        6zZSY8CNw1dUzupgAxmj6UK97nXz/rutFXYRuj5aKdOregz0M5cSc0RfDhKMR6/bYMau0WOe3uAf
-        6LcYMAfatLkw8sgJ5YImrdGYR+O+oM9ytY3t8YQqDBn6oYIzQwyV0EZgoUFkfSePfdHO2RPd55ig
-        Zpxmf0+d8fMW6Lk1ABq3tbNhgAovfGcbULqGWdhAiQyT7EFvpQvT+4wBrmkTmtXin5qdExpm6dXu
-        bCtmGti+0hXSFIhQk1Bz5kHvrVNjsbUNDMeghrZYd4frWt65vmyQum9u6wrUSUao+ALFNwvNJMZD
-        VCgYQWmTrw2bUb4bL2aXjL1/qT7rVglCYZNmU6yKcNGMWQLsBf+DSmgJT1UlZZF6P/5j19r7u8Qv
-        o9f7wVM9DXsTzG5U4jdaMN1c3qAEzTBORxKihQSq6uCSPYKmbtLm6OYkt1gPKC5PgasoOui7I84x
-        0X5f1Q4zlc2AElacoFbgrVRPtelGHnDx7vw44AmYh80SLv/svpZPxyOvOhwyFz5Memt/x7jwJMfn
-        8+l8rI9Aw/kKiarNX88fPx7+WCdUWmSI/OqPtT4zLQfBInaLQV4xd+mvzO0ZYY+e6rEX+oKKdGlX
-        r78Y0P2NP5z7n9h+OjVsf//wDwAAAP//AwA42UQ9/wQAAA==
+      string: '{"copyright":"Robert Eder","date":"2019-09-21","explanation":"Framing
+        a bright emission region, this telescopic view looks out across a pretty field
+        of stars along the plane of our Milky Way Galaxy, toward the nebula rich constellation
+        Cygnus the Swan. Popularly called the Tulip Nebula, the reddish glowing cloud
+        of interstellar gas and dust is also found in the 1959 catalog by astronomer
+        Stewart Sharpless as Sh2-101. About 8,000 light-years distant and 70 light-years
+        across the complex and beautiful nebula blossoms near the center of this composite
+        image. Ultraviolet radiation from young energetic O stars at the edge of the
+        Cygnus OB3 association, ionizes the atoms and powers the emission from the
+        Tulip Nebula.","hdurl":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder.jpg","media_type":"image","service_version":"v1","title":"The
+        Tulip in the Swan","url":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder1024.jpg"}
+
+'
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -96,20 +90,16 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '947'
       Content-Type:
       - application/json
       Date:
-      - Sun, 15 Sep 2019 12:49:59 GMT
+      - Sat, 21 Sep 2019 13:00:04 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -117,7 +107,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '993'
+      - '976'
     status:
       code: 200
       message: OK
@@ -152,7 +142,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '0'
+      - '1'
       Connection:
       - keep-alive
       Content-Encoding:
@@ -160,7 +150,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 15 Sep 2019 12:49:59 GMT
+      - Sat, 21 Sep 2019 13:00:05 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -176,7 +166,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '992'
+      - '975'
     status:
       code: 200
       message: OK
@@ -192,23 +182,22 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-15&hd=False
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-21&hd=False
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6RUy47kNgy85yuIPk8/ZoFk0XsbBFkgwB4CdO4DtkzbysqiQdHd2wny7ylJM4vk
-        nJNlSiSLVSX9tRvYZfdp9+H0fN6fzvvnH3dPO/m2Js7sUTO2fnW6cyHNQjqSz0KJbZLixHmgpLmt
-        U7zJQMXVlkJyEyOToDYgGDPpZnRR5NHlUVyWA9HnaEgrIrkeSIBBAHF6ah34qjehkHQbaETJhqWe
-        q5tZDR/LNMsSy4plQ3Zh3xAszubo2kAaErhn/YLw3CAXRa2ymvBAQZc1iUt6EJtu2K0d6vjiB/od
-        6zZSY8CNw1dUzupgAxmj6UK97nXz/rutFXYRuj5aKdOregz0M5cSc0RfDhKMR6/bYMau0WOe3uAf
-        6LcYMAfatLkw8sgJ5YImrdGYR+O+oM9ytY3t8YQqDBn6oYIzQwyV0EZgoUFkfSePfdHO2RPd55ig
-        Zpxmf0+d8fMW6Lk1ABq3tbNhgAovfGcbULqGWdhAiQyT7EFvpQvT+4wBrmkTmtXin5qdExpm6dXu
-        bCtmGti+0hXSFIhQk1Bz5kHvrVNjsbUNDMeghrZYd4frWt65vmyQum9u6wrUSUao+ALFNwvNJMZD
-        VCgYQWmTrw2bUb4bL2aXjL1/qT7rVglCYZNmU6yKcNGMWQLsBf+DSmgJT1UlZZF6P/5j19r7u8Qv
-        o9f7wVM9DXsTzG5U4jdaMN1c3qAEzTBORxKihQSq6uCSPYKmbtLm6OYkt1gPKC5PgasoOui7I84x
-        0X5f1Q4zlc2AElacoFbgrVRPtelGHnDx7vw44AmYh80SLv/svpZPxyOvOhwyFz5Memt/x7jwJMfn
-        8+l8rI9Aw/kKiarNX88fPx7+WCdUWmSI/OqPtT4zLQfBInaLQV4xd+mvzO0ZYY+e6rEX+oKKdGlX
-        r78Y0P2NP5z7n9h+OjVsf//wDwAAAP//AwA42UQ9/wQAAA==
+      string: '{"copyright":"Robert Eder","date":"2019-09-21","explanation":"Framing
+        a bright emission region, this telescopic view looks out across a pretty field
+        of stars along the plane of our Milky Way Galaxy, toward the nebula rich constellation
+        Cygnus the Swan. Popularly called the Tulip Nebula, the reddish glowing cloud
+        of interstellar gas and dust is also found in the 1959 catalog by astronomer
+        Stewart Sharpless as Sh2-101. About 8,000 light-years distant and 70 light-years
+        across the complex and beautiful nebula blossoms near the center of this composite
+        image. Ultraviolet radiation from young energetic O stars at the edge of the
+        Cygnus OB3 association, ionizes the atoms and powers the emission from the
+        Tulip Nebula.","hdurl":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder.jpg","media_type":"image","service_version":"v1","title":"The
+        Tulip in the Swan","url":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder1024.jpg"}
+
+'
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -216,20 +205,16 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '947'
       Content-Type:
       - application/json
       Date:
-      - Sun, 15 Sep 2019 12:50:00 GMT
+      - Sat, 21 Sep 2019 13:00:05 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -237,7 +222,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '991'
+      - '974'
     status:
       code: 200
       message: OK
