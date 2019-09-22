@@ -1,7 +1,7 @@
 import vcr
 import os
 import pytest
-from nasapy.api import Nasa, _check_dates
+from nasapy.api import Nasa, _check_dates, _donki_request
 from requests.exceptions import HTTPError
 import datetime
 
@@ -150,6 +150,28 @@ def test_interplantary_shock():
         nasa.interplantary_shock(catalog=2)
 
 
+@vcr.use_cassette('tests/cassettes/solar_flare.yml')
+def test_solar_flare():
+    sf = nasa.solar_flare(start_date='2019-01-01', end_date='2019-02-01')
+    sf_no_dat = nasa.solar_flare()
+
+    assert sf_no_dat == {}
+    assert isinstance(sf, (list, dict))
+    assert isinstance(sf[0], dict)
+
+
+@vcr.use_cassette('tests/cassettes/solar_energetic_particle.yml')
+def test_solar_energetic_particle():
+    sp = nasa.solar_energetic_particle(start_date='2017-01-01', end_date='2017-05-01')
+
+    assert isinstance(sp, list)
+    assert isinstance(sp[0], dict)
+
+    sp_no_dat = nasa.solar_energetic_particle()
+    assert sp_no_dat == {}
+    assert isinstance(sp_no_dat, dict)
+
+
 def test_date_check():
     start_date = datetime.datetime.today() - datetime.timedelta(7)
     end_date = datetime.datetime.today()
@@ -169,3 +191,17 @@ def test_date_check():
         _check_dates(start_date=start_int, end_date='2019-01-01')
     with pytest.raises(TypeError):
         _check_dates(start_date='2019-01-01', end_date=end_int)
+
+
+def test_donki_request():
+    url = 'https://api.nasa.gov//DONKI/FLR'
+
+    limit, r = _donki_request(key=key, url=url, start_date='2019-01-01', end_date='2019-02-01')
+
+    assert isinstance(limit, (str, int))
+    assert isinstance(r, list)
+
+    limit_no_dat, r_no_dat = _donki_request(key=key, url=url)
+
+    assert isinstance(limit_no_dat, (str, int))
+    assert isinstance(r_no_dat, dict)

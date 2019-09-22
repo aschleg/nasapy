@@ -1,0 +1,101 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/DONKI/FLR?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-01-01&endDate=2019-02-01
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7yQ0UrDMBSGX2Wc62SepKR1udUqwuygLSiOXcQ2SlialqYdjLF3N3V4oxvijXCu
+        zhf+/+RbH+DN9g+3IIEjW1BklMcli2QYRHq3zCkiAwLG+aEfG+0GD3J9AFODZIxAbXxn1T5TjQ4Z
+        96u0YELOivTx6jkvZmyO9HqOcNwQeNXvxpXm8933rpfQ0Gm1PYs5n7B29Ym60VoClVXel/tuSrsR
+        oYKAb8e+0su2UoNpXdhnKJ54HIiqBrPTeTigddnYhMt5EkUErHFbXae706+m4CP5KSTCEoUUyX8I
+        +eq6IGTCcfD+uxB+SUiy+JuQzQcAAAD//wMA7fyNtiMCAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sun, 22 Sep 2019 12:15:20 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '961'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/DONKI/FLR?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Date:
+      - Sun, 22 Sep 2019 12:15:20 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '960'
+    status:
+      code: 200
+      message: OK
+version: 1
