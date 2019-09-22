@@ -14,32 +14,31 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=False
   response:
     body:
-      string: '{"copyright":"Robert Eder","date":"2019-09-21","explanation":"Framing
-        a bright emission region, this telescopic view looks out across a pretty field
-        of stars along the plane of our Milky Way Galaxy, toward the nebula rich constellation
-        Cygnus the Swan. Popularly called the Tulip Nebula, the reddish glowing cloud
-        of interstellar gas and dust is also found in the 1959 catalog by astronomer
-        Stewart Sharpless as Sh2-101. About 8,000 light-years distant and 70 light-years
-        across the complex and beautiful nebula blossoms near the center of this composite
-        image. Ultraviolet radiation from young energetic O stars at the edge of the
-        Cygnus OB3 association, ionizes the atoms and powers the emission from the
-        Tulip Nebula.","hdurl":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder.jpg","media_type":"image","service_version":"v1","title":"The
-        Tulip in the Swan","url":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder1024.jpg"}
+      string: '{"copyright":"Anton Komlev","date":"2019-09-22","explanation":"What
+        do you see when you look into this sky? In the center, in the dark, do you
+        see a night sky filled with stars? Do you see a sunset to the left? Clouds
+        all around? Do you see the central band of our Milky Way Galaxy running down
+        the middle? Do you see the ruins of an abandoned outpost on a hill? (The outpost
+        is on Askold Island, Russia.)  Do you see a photographer with a headlamp contemplating
+        surreal surroundings? (The image is a panorama of 38 images taken last month
+        and compiled into a Little Planet projection.)  Do you see a rugged path lined
+        with steps? Or do you see the eye of a dragon?","hdurl":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_2000.jpg","media_type":"image","service_version":"v1","title":"Eye
+        Sky a Dragon","url":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_960.jpg"}
 
 '
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Connection:
       - keep-alive
       Content-Length:
-      - '947'
+      - '890'
       Content-Type:
       - application/json
       Date:
-      - Sat, 21 Sep 2019 13:00:04 GMT
+      - Sun, 22 Sep 2019 11:56:11 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -51,7 +50,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '977'
+      - '992'
     status:
       code: 200
       message: OK
@@ -70,17 +69,16 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=True
   response:
     body:
-      string: '{"copyright":"Robert Eder","date":"2019-09-21","explanation":"Framing
-        a bright emission region, this telescopic view looks out across a pretty field
-        of stars along the plane of our Milky Way Galaxy, toward the nebula rich constellation
-        Cygnus the Swan. Popularly called the Tulip Nebula, the reddish glowing cloud
-        of interstellar gas and dust is also found in the 1959 catalog by astronomer
-        Stewart Sharpless as Sh2-101. About 8,000 light-years distant and 70 light-years
-        across the complex and beautiful nebula blossoms near the center of this composite
-        image. Ultraviolet radiation from young energetic O stars at the edge of the
-        Cygnus OB3 association, ionizes the atoms and powers the emission from the
-        Tulip Nebula.","hdurl":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder.jpg","media_type":"image","service_version":"v1","title":"The
-        Tulip in the Swan","url":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder1024.jpg"}
+      string: '{"copyright":"Anton Komlev","date":"2019-09-22","explanation":"What
+        do you see when you look into this sky? In the center, in the dark, do you
+        see a night sky filled with stars? Do you see a sunset to the left? Clouds
+        all around? Do you see the central band of our Milky Way Galaxy running down
+        the middle? Do you see the ruins of an abandoned outpost on a hill? (The outpost
+        is on Askold Island, Russia.)  Do you see a photographer with a headlamp contemplating
+        surreal surroundings? (The image is a panorama of 38 images taken last month
+        and compiled into a Little Planet projection.)  Do you see a rugged path lined
+        with steps? Or do you see the eye of a dragon?","hdurl":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_2000.jpg","media_type":"image","service_version":"v1","title":"Eye
+        Sky a Dragon","url":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_960.jpg"}
 
 '
     headers:
@@ -91,11 +89,11 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '947'
+      - '890'
       Content-Type:
       - application/json
       Date:
-      - Sat, 21 Sep 2019 13:00:04 GMT
+      - Sun, 22 Sep 2019 11:56:11 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -107,7 +105,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '976'
+      - '991'
     status:
       code: 200
       message: OK
@@ -150,7 +148,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 21 Sep 2019 13:00:05 GMT
+      - Sun, 22 Sep 2019 11:56:12 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -166,7 +164,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '975'
+      - '990'
     status:
       code: 200
       message: OK
@@ -182,20 +180,19 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-21&hd=False
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-22&hd=False
   response:
     body:
-      string: '{"copyright":"Robert Eder","date":"2019-09-21","explanation":"Framing
-        a bright emission region, this telescopic view looks out across a pretty field
-        of stars along the plane of our Milky Way Galaxy, toward the nebula rich constellation
-        Cygnus the Swan. Popularly called the Tulip Nebula, the reddish glowing cloud
-        of interstellar gas and dust is also found in the 1959 catalog by astronomer
-        Stewart Sharpless as Sh2-101. About 8,000 light-years distant and 70 light-years
-        across the complex and beautiful nebula blossoms near the center of this composite
-        image. Ultraviolet radiation from young energetic O stars at the edge of the
-        Cygnus OB3 association, ionizes the atoms and powers the emission from the
-        Tulip Nebula.","hdurl":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder.jpg","media_type":"image","service_version":"v1","title":"The
-        Tulip in the Swan","url":"https://apod.nasa.gov/apod/image/1909/Tulip_CropRobertEder1024.jpg"}
+      string: '{"copyright":"Anton Komlev","date":"2019-09-22","explanation":"What
+        do you see when you look into this sky? In the center, in the dark, do you
+        see a night sky filled with stars? Do you see a sunset to the left? Clouds
+        all around? Do you see the central band of our Milky Way Galaxy running down
+        the middle? Do you see the ruins of an abandoned outpost on a hill? (The outpost
+        is on Askold Island, Russia.)  Do you see a photographer with a headlamp contemplating
+        surreal surroundings? (The image is a panorama of 38 images taken last month
+        and compiled into a Little Planet projection.)  Do you see a rugged path lined
+        with steps? Or do you see the eye of a dragon?","hdurl":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_2000.jpg","media_type":"image","service_version":"v1","title":"Eye
+        Sky a Dragon","url":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_960.jpg"}
 
 '
     headers:
@@ -206,11 +203,11 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '947'
+      - '890'
       Content-Type:
       - application/json
       Date:
-      - Sat, 21 Sep 2019 13:00:05 GMT
+      - Sun, 22 Sep 2019 11:56:12 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -222,7 +219,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '974'
+      - '989'
     status:
       code: 200
       message: OK

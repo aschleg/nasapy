@@ -100,10 +100,12 @@ def test_coronal_mass_ejection():
 
     cme = nasa.coronal_mass_ejection()
     cme_swrc = nasa.coronal_mass_ejection(catalog='SWRC_CATALOG')
+    cme_no_date = nasa.coronal_mass_ejection(start_date='2019-09-21', end_date='2019-09-21')
 
     assert isinstance(cme, (list, dict))
     assert isinstance(cme_swrc, (list, dict))
 
+    assert cme_no_date == {}
     assert cme_swrc[0]['catalog'] == 'SWRC_CATALOG'
     assert len(set(keys).difference(cme[0].keys())) == 0
 
@@ -111,6 +113,8 @@ def test_coronal_mass_ejection():
         nasa.coronal_mass_ejection(catalog='test')
     with pytest.raises(TypeError):
         nasa.coronal_mass_ejection(complete_entry='True')
+    with pytest.raises(TypeError):
+        nasa.coronal_mass_ejection(accurate_only='True')
 
 
 @vcr.use_cassette('tests/cassettes/geomagnetic_storm.yml')
@@ -118,7 +122,9 @@ def test_geomagnetic_storm():
     keys = ['gstID', 'startTime', 'allKpIndex', 'linkedEvents']
 
     ge = nasa.geomagnetic_storm()
+    ge_no_dat = nasa.geomagnetic_storm(start_date='2019-09-21', end_date='2019-09-21')
 
+    assert ge_no_dat == {}
     assert isinstance(ge, (list, dict))
     assert len(set(keys).difference(ge[0].keys())) == 0
 
@@ -138,6 +144,10 @@ def test_interplantary_shock():
         nasa.interplantary_shock(catalog='test')
     with pytest.raises(ValueError):
         nasa.interplantary_shock(location='test')
+    with pytest.raises(TypeError):
+        nasa.interplantary_shock(location=2)
+    with pytest.raises(TypeError):
+        nasa.interplantary_shock(catalog=2)
 
 
 def test_date_check():

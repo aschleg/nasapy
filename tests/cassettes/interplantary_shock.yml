@@ -27,7 +27,7 @@ interactions:
       Content-Type:
       - text/plain; charset=UTF-8
       Date:
-      - Sat, 21 Sep 2019 13:04:52 GMT
+      - Sun, 22 Sep 2019 11:55:52 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -40,7 +40,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '970'
+      - '994'
     status:
       code: 200
       message: OK
@@ -79,7 +79,7 @@ interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 21 Sep 2019 13:04:52 GMT
+      - Sun, 22 Sep 2019 11:55:52 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -96,7 +96,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '969'
+      - '993'
     status:
       code: 200
       message: OK

@@ -489,7 +489,7 @@ class Nasa(object):
             raise TypeError('location parameter must be a string')
 
         if not isinstance(catalog, str):
-            raise TypeError('location parameter must be a string')
+            raise TypeError('catalog parameter must be a string')
 
         if location not in ('ALL', 'Earth', 'MESSENGER', 'STEREO A', 'STEREO B'):
             raise ValueError(
@@ -849,8 +849,90 @@ class Nasa(object):
     def epic(self, date, color='natural'):
         pass
 
-    def earth_imagery(self, lat, long, dim=0.025, date=None, cloud_score=False):
-        pass
+    def earth_imagery(self, lat, lon, dim=0.025, date=None, cloud_score=False):
+        url = self.host + '/plantery/earth/imagery'
+
+        if not isinstance(cloud_score, bool):
+            raise TypeError('cloud score parameter must be boolean (True or False).')
+
+        if date is not None:
+            if not isinstance(date, (str, datetime.datetime)):
+                raise TypeError('date parameter must be a string representing a date in YYYY-MM-DD format or a '
+                                'datetime object.')
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self.__api_key,
+                             'lat': lat,
+                             'lon': lon,
+                             'dim': dim,
+                             'date': date,
+                             'cloud_score': cloud_score
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+
+            if r.text == '':
+                r = {}
+            else:
+                r = r.json()
+
+            return r
+
+    def earth_assets(self, lat, lon, begin_date, end_date=None):
+        url = self.host + '/plantery/earth/assets'
+
+        if not isinstance(begin_date, (str, datetime.datetime)):
+            raise TypeError('begin date parameter must be a string representing a date in YYYY-MM-DD format or a '
+                            'datetime object.')
+
+        if end_date is not None:
+            if not isinstance(end_date, (str, datetime.datetime)):
+                raise TypeError('end date parameter must be a string representing a date in YYYY-MM-DD format or a '
+                                'datetime object.')
+
+        r = requests.get(url,
+                         params={
+                             'api_key': self.__api_key,
+                             'lat': lat,
+                             'lon': lon,
+                             'begin_date': begin_date,
+                             'end_date': end_date
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+
+            if r.text == '':
+                r = {}
+            else:
+                r = r.json()
+
+            return r
+
+    def exoplanets(self, table, select, count, colset, where, order, ra, dec):
+        host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'
+
+        r = requests.get(host,
+                         params={
+                             'api_key': self.__api_key,
+                             'table': table,
+                             'select': select,
+                             'count': count,
+                             'colset': colset,
+                             'where': where,
+                             'order': order,
+                             'ra': ra,
+                             'dec': dec,
+                             'format': 'json'
+                         })
 
 
 def _donki_request(key, url, start_date, end_date):
