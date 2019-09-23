@@ -14,18 +14,21 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=False
   response:
     body:
-      string: '{"copyright":"Anton Komlev","date":"2019-09-22","explanation":"What
-        do you see when you look into this sky? In the center, in the dark, do you
-        see a night sky filled with stars? Do you see a sunset to the left? Clouds
-        all around? Do you see the central band of our Milky Way Galaxy running down
-        the middle? Do you see the ruins of an abandoned outpost on a hill? (The outpost
-        is on Askold Island, Russia.)  Do you see a photographer with a headlamp contemplating
-        surreal surroundings? (The image is a panorama of 38 images taken last month
-        and compiled into a Little Planet projection.)  Do you see a rugged path lined
-        with steps? Or do you see the eye of a dragon?","hdurl":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_2000.jpg","media_type":"image","service_version":"v1","title":"Eye
-        Sky a Dragon","url":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_960.jpg"}
-
-'
+      string: !!binary |
+        H4sIAAAAAAAAA6xUS2sbMRC+91cMvrQFx167h8a+JU0oFPqAGHopGHl37FWtlbZ6eOOU/vd+o/Wm
+        piHQQyGOZWk08z1m9HNUuvbo9a6Oo+Voley3VBT8llb8wGb19erTaDyqVGQczovZ4qJYXMzfYI/v
+        W6OsitpZuecqdSQdSFniH0lbdz8mRXKRupotVkecVWSlECnPEqbMhGjlGue96xCPcz6wP+boZKM2
+        FGsmy/fxT9a8k7N02hjaMBlnd+wRiuJymqFYulU+1i8DWYdv9pZqbnRoseS+1hD7XJ6+ylmm4NLf
+        mSZ09ciYXFkmH6jRVQcIG44dg7qUiZ2j4EyIuuQw7iU5lRfNTrpgCWFk37AKmbNItMLGllVMnitq
+        dSmLrDWVrmld0BDZbal2yRswb9SOA0W1R21sS7q7ZElt3IHpGgDVmFbJ7/lIzpJ8QbBAW++aR4wU
+        3aC4LAfoPZaNixGxknQj2Ds1lKuS13bXmyaqQ/1O2whzhgxizLwo3tINl9xs2J+JIQlLlwzUcJG8
+        Dky5G2q4LfeESdgfxVAKURoqU5Lt2nn9ADY5XvoBjQXdIJJR5V5kyMlVCpCwh9Rzia79FyLSPiE1
+        zVMml/QhWTRU7vJBa++AXWAzXDxDLmoJcoB4in0LWhgFIYRGns2zoUEmRHioTbKVsmW2+oxMj6on
+        g8arDD9jCnKeJvPkwSV9VL6sx7RJAIk/uCgKqwb/Bm+BJfaTZOBsoMDAJ8M+zsEyaqceaxy4erhq
+        Iw2VxIVrzHZgf3FrQasE86svn2+W9N65HbC+q9F2eAzuI9uAtyTQq61n6AmnPJUebS9iQbdGoZPw
+        4eo1np8arWbw8NQxtmE5narWVROrgprs3CH/muZBmM4WxWIaME7IvY7yqK1nxWUx+d7ukKbhSqt1
+        PLbyvuUL2ETlA+Z0jWYSSDg5zLAddTQSdtu/b8s8l+JEnpy703TLuAxrXPoPKH+9+A0AAP//AwD8
+        soW0pAUAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -33,16 +36,20 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Length:
-      - '890'
+      Content-Encoding:
+      - gzip
       Content-Type:
       - application/json
       Date:
-      - Sun, 22 Sep 2019 11:56:11 GMT
+      - Mon, 23 Sep 2019 16:01:03 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -50,7 +57,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '992'
+      - '981'
     status:
       code: 200
       message: OK
@@ -69,35 +76,42 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=True
   response:
     body:
-      string: '{"copyright":"Anton Komlev","date":"2019-09-22","explanation":"What
-        do you see when you look into this sky? In the center, in the dark, do you
-        see a night sky filled with stars? Do you see a sunset to the left? Clouds
-        all around? Do you see the central band of our Milky Way Galaxy running down
-        the middle? Do you see the ruins of an abandoned outpost on a hill? (The outpost
-        is on Askold Island, Russia.)  Do you see a photographer with a headlamp contemplating
-        surreal surroundings? (The image is a panorama of 38 images taken last month
-        and compiled into a Little Planet projection.)  Do you see a rugged path lined
-        with steps? Or do you see the eye of a dragon?","hdurl":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_2000.jpg","media_type":"image","service_version":"v1","title":"Eye
-        Sky a Dragon","url":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_960.jpg"}
-
-'
+      string: !!binary |
+        H4sIAAAAAAAAA6xUS2sbMRC+91cMvrQFx167h8a+JU0oFPqAGHopGHl37FWtlbZ6eOOU/vd+o/Wm
+        piHQQyGOZWk08z1m9HNUuvbo9a6Oo+Voley3VBT8llb8wGb19erTaDyqVGQczovZ4qJYXMzfYI/v
+        W6OsitpZuecqdSQdSFniH0lbdz8mRXKRupotVkecVWSlECnPEqbMhGjlGue96xCPcz6wP+boZKM2
+        FGsmy/fxT9a8k7N02hjaMBlnd+wRiuJymqFYulU+1i8DWYdv9pZqbnRoseS+1hD7XJ6+ylmm4NLf
+        mSZ09ciYXFkmH6jRVQcIG44dg7qUiZ2j4EyIuuQw7iU5lRfNTrpgCWFk37AKmbNItMLGllVMnitq
+        dSmLrDWVrmld0BDZbal2yRswb9SOA0W1R21sS7q7ZElt3IHpGgDVmFbJ7/lIzpJ8QbBAW++aR4wU
+        3aC4LAfoPZaNixGxknQj2Ds1lKuS13bXmyaqQ/1O2whzhgxizLwo3tINl9xs2J+JIQlLlwzUcJG8
+        Dky5G2q4LfeESdgfxVAKURoqU5Lt2nn9ADY5XvoBjQXdIJJR5V5kyMlVCpCwh9Rzia79FyLSPiE1
+        zVMml/QhWTRU7vJBa++AXWAzXDxDLmoJcoB4in0LWhgFIYRGns2zoUEmRHioTbKVsmW2+oxMj6on
+        g8arDD9jCnKeJvPkwSV9VL6sx7RJAIk/uCgKqwb/Bm+BJfaTZOBsoMDAJ8M+zsEyaqceaxy4erhq
+        Iw2VxIVrzHZgf3FrQasE86svn2+W9N65HbC+q9F2eAzuI9uAtyTQq61n6AmnPJUebS9iQbdGoZPw
+        4eo1np8arWbw8NQxtmE5narWVROrgprs3CH/muZBmM4WxWIaME7IvY7yqK1nxWUx+d7ukKbhSqt1
+        PLbyvuUL2ETlA+Z0jWYSSDg5zLAddTQSdtu/b8s8l+JEnpy703TLuAxrXPoPKH+9+A0AAP//AwD8
+        soW0pAUAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '0'
+      - '1'
       Connection:
       - keep-alive
-      Content-Length:
-      - '890'
+      Content-Encoding:
+      - gzip
       Content-Type:
       - application/json
       Date:
-      - Sun, 22 Sep 2019 11:56:11 GMT
+      - Mon, 23 Sep 2019 16:01:04 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -105,7 +119,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '991'
+      - '980'
     status:
       code: 200
       message: OK
@@ -140,7 +154,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Connection:
       - keep-alive
       Content-Encoding:
@@ -148,7 +162,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 22 Sep 2019 11:56:12 GMT
+      - Mon, 23 Sep 2019 16:01:04 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -164,7 +178,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '990'
+      - '979'
     status:
       code: 200
       message: OK
@@ -180,21 +194,24 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-22&hd=False
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-09-23&hd=False
   response:
     body:
-      string: '{"copyright":"Anton Komlev","date":"2019-09-22","explanation":"What
-        do you see when you look into this sky? In the center, in the dark, do you
-        see a night sky filled with stars? Do you see a sunset to the left? Clouds
-        all around? Do you see the central band of our Milky Way Galaxy running down
-        the middle? Do you see the ruins of an abandoned outpost on a hill? (The outpost
-        is on Askold Island, Russia.)  Do you see a photographer with a headlamp contemplating
-        surreal surroundings? (The image is a panorama of 38 images taken last month
-        and compiled into a Little Planet projection.)  Do you see a rugged path lined
-        with steps? Or do you see the eye of a dragon?","hdurl":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_2000.jpg","media_type":"image","service_version":"v1","title":"Eye
-        Sky a Dragon","url":"https://apod.nasa.gov/apod/image/1909/EyeDragonSky_Komlev_960.jpg"}
-
-'
+      string: !!binary |
+        H4sIAAAAAAAAA6xUS2sbMRC+91cMvrQFx167h8a+JU0oFPqAGHopGHl37FWtlbZ6eOOU/vd+o/Wm
+        piHQQyGOZWk08z1m9HNUuvbo9a6Oo+Voley3VBT8llb8wGb19erTaDyqVGQczovZ4qJYXMzfYI/v
+        W6OsitpZuecqdSQdSFniH0lbdz8mRXKRupotVkecVWSlECnPEqbMhGjlGue96xCPcz6wP+boZKM2
+        FGsmy/fxT9a8k7N02hjaMBlnd+wRiuJymqFYulU+1i8DWYdv9pZqbnRoseS+1hD7XJ6+ylmm4NLf
+        mSZ09ciYXFkmH6jRVQcIG44dg7qUiZ2j4EyIuuQw7iU5lRfNTrpgCWFk37AKmbNItMLGllVMnitq
+        dSmLrDWVrmld0BDZbal2yRswb9SOA0W1R21sS7q7ZElt3IHpGgDVmFbJ7/lIzpJ8QbBAW++aR4wU
+        3aC4LAfoPZaNixGxknQj2Ds1lKuS13bXmyaqQ/1O2whzhgxizLwo3tINl9xs2J+JIQlLlwzUcJG8
+        Dky5G2q4LfeESdgfxVAKURoqU5Lt2nn9ADY5XvoBjQXdIJJR5V5kyMlVCpCwh9Rzia79FyLSPiE1
+        zVMml/QhWTRU7vJBa++AXWAzXDxDLmoJcoB4in0LWhgFIYRGns2zoUEmRHioTbKVsmW2+oxMj6on
+        g8arDD9jCnKeJvPkwSV9VL6sx7RJAIk/uCgKqwb/Bm+BJfaTZOBsoMDAJ8M+zsEyaqceaxy4erhq
+        Iw2VxIVrzHZgf3FrQasE86svn2+W9N65HbC+q9F2eAzuI9uAtyTQq61n6AmnPJUebS9iQbdGoZPw
+        4eo1np8arWbw8NQxtmE5narWVROrgprs3CH/muZBmM4WxWIaME7IvY7yqK1nxWUx+d7ukKbhSqt1
+        PLbyvuUL2ETlA+Z0jWYSSDg5zLAddTQSdtu/b8s8l+JEnpy703TLuAxrXPoPKH+9+A0AAP//AwD8
+        soW0pAUAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -202,16 +219,20 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Length:
-      - '890'
+      Content-Encoding:
+      - gzip
       Content-Type:
       - application/json
       Date:
-      - Sun, 22 Sep 2019 11:56:12 GMT
+      - Mon, 23 Sep 2019 16:01:05 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -219,7 +240,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '989'
+      - '978'
     status:
       code: 200
       message: OK
