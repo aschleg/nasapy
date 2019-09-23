@@ -153,23 +153,81 @@ def test_interplantary_shock():
 @vcr.use_cassette('tests/cassettes/solar_flare.yml')
 def test_solar_flare():
     sf = nasa.solar_flare(start_date='2019-01-01', end_date='2019-02-01')
-    sf_no_dat = nasa.solar_flare()
-
-    assert sf_no_dat == {}
     assert isinstance(sf, (list, dict))
     assert isinstance(sf[0], dict)
+
+    sf_no_dat = nasa.solar_flare()
+    assert sf_no_dat == {}
 
 
 @vcr.use_cassette('tests/cassettes/solar_energetic_particle.yml')
 def test_solar_energetic_particle():
     sp = nasa.solar_energetic_particle(start_date='2017-01-01', end_date='2017-05-01')
-
     assert isinstance(sp, list)
     assert isinstance(sp[0], dict)
 
     sp_no_dat = nasa.solar_energetic_particle()
     assert sp_no_dat == {}
     assert isinstance(sp_no_dat, dict)
+
+
+@vcr.use_cassette('tests/cassettes/magnetopause_crossing.yml')
+def test_magnetopause_crossing():
+    mc = nasa.magnetopause_crossing(start_date='2018-01-01', end_date='2018-05-31')
+    assert isinstance(mc, list)
+    assert isinstance(mc[0], dict)
+
+    mc_no_dat = nasa.magnetopause_crossing()
+    assert mc_no_dat == {}
+    assert isinstance(mc_no_dat, dict)
+
+
+@vcr.use_cassette('tests/cassettes/radiation_belt_enhancement.yml')
+def test_radiation_belt_enhancement():
+    rbe = nasa.radiation_belt_enhancement(start_date='2019-08-01')
+    assert isinstance(rbe, list)
+    assert isinstance(rbe[0], dict)
+
+    rbe_no_dat = nasa.radiation_belt_enhancement(start_date='2019-09-22')
+    assert rbe_no_dat == {}
+    assert isinstance(rbe_no_dat, dict)
+
+
+@vcr.use_cassette('tests/cassettes/hight_speed_stream.yml')
+def test_hight_speed_stream():
+    hss = nasa.hight_speed_stream()
+    assert isinstance(hss, list)
+    assert isinstance(hss[0], dict)
+
+    hss_no_dat = nasa.hight_speed_stream(start_date='2019-09-22')
+    assert hss_no_dat == {}
+    assert isinstance(hss_no_dat, dict)
+
+
+@vcr.use_cassette('tests/cassettes/wsa_simulation.yml')
+def test_wsa_simulation():
+    wsa = nasa.wsa_enlil_simulation(start_date='2019-01-01', end_date='2019-01-05')
+    assert isinstance(wsa, list)
+    assert isinstance(wsa[0], dict)
+
+    wsa_no_dat = nasa.wsa_enlil_simulation()
+    assert wsa_no_dat == {}
+    assert isinstance(wsa_no_dat, dict)
+
+
+@vcr.use_cassette('tests/cassettes/earth_imagery.yml')
+def test_earth_imagery():
+    pass
+
+
+@vcr.use_cassette('tests/cassettes/earth_assets.yml')
+def test_earth_assets():
+    pass
+
+
+@vcr.use_cassette('tests/cassettes/exoplanets.yml')
+def test_exoplanets():
+    pass
 
 
 def test_date_check():
