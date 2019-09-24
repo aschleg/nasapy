@@ -850,10 +850,21 @@ class Nasa(object):
         pass
 
     def earth_imagery(self, lat, lon, dim=0.025, date=None, cloud_score=False):
-        url = self.host + '/plantery/earth/imagery'
+        url = self.host + '/planetary/earth/imagery/'
 
         if not isinstance(cloud_score, bool):
             raise TypeError('cloud score parameter must be boolean (True or False).')
+        if not isinstance(lat, (int, float)):
+            raise TypeError('lat parameter must be an int or float')
+        if not isinstance(lon, (int, float)):
+            raise TypeError('lon parameter must be an int or float')
+        if not isinstance(dim, float):
+            raise TypeError('dim parameter must be a float')
+
+        if not -90 <= lat <= 90:
+            raise ValueError('latitudes values range from -90 to 90')
+        if not -180 <= lon <= 180:
+            raise ValueError('longitude values range from -180 to 180')
 
         if date is not None:
             if not isinstance(date, (str, datetime.datetime)):
@@ -862,26 +873,21 @@ class Nasa(object):
 
         r = requests.get(url,
                          params={
-                             'api_key': self.__api_key,
-                             'lat': lat,
                              'lon': lon,
+                             'lat': lat,
                              'dim': dim,
                              'date': date,
-                             'cloud_score': cloud_score
+                             'cloud_score': cloud_score,
+                             'api_key': self.__api_key
                          })
 
-        if r.status_code != 200:
-            raise requests.exceptions.HTTPError(r.reason, r.url)
-
+        if r.status_code != 200 or r.text == '':
+            r = {}
         else:
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+            r = r.json()
 
-            if r.text == '':
-                r = {}
-            else:
-                r = r.json()
-
-            return r
+        return r
 
     def earth_assets(self, lat, lon, begin_date, end_date=None):
         url = self.host + '/plantery/earth/assets'

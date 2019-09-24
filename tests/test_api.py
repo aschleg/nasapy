@@ -217,7 +217,25 @@ def test_wsa_simulation():
 
 @vcr.use_cassette('tests/cassettes/earth_imagery.yml')
 def test_earth_imagery():
-    pass
+    image = nasa.earth_imagery(lat=1.5, lon=100.75)
+    image_no_dat = nasa.earth_imagery(lat=1.5, lon=180)
+
+    assert isinstance(image, dict)
+    assert image_no_dat == {}
+
+    with pytest.raises(TypeError):
+        nasa.earth_imagery(lat=1.5, lon=100.75, cloud_score='False')
+    with pytest.raises(TypeError):
+        nasa.earth_imagery(lat='1.5', lon=100.75)
+    with pytest.raises(TypeError):
+        nasa.earth_imagery(lon='100.75', lat=1.5)
+    with pytest.raises(TypeError):
+        nasa.earth_imagery(lat=1.5, lon=100.75, date=1)
+
+    with pytest.raises(ValueError):
+        nasa.earth_imagery(lat=91, lon=100.75)
+    with pytest.raises(ValueError):
+        nasa.earth_imagery(lon=181, lat=1.5)
 
 
 @vcr.use_cassette('tests/cassettes/earth_assets.yml')
