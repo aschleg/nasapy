@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/planetary/earth/assets?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&lat=1.5&lon=100.75&begin_date=2019-01-01
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5SXvW5TQRBGX8W6dVbM793d2yGKNBY07igiRFIgoSARp4ry7szueh0EjD10tpwc
+        ec799pv1y/L1x/Pjcdl2BW52y8+Hp+fvxyd7+/lluf9yfLBXCwFyAk0kB+CNcQNa7G+/3bcP9x/K
+        3R4Pd4dP79/Za6QMWtt/oMj+9iPA8nqz+5O1JqiThRHWChdYpJ0Fm2qElVeXlRPiZNUIq9IFFuXJ
+        KgEWQXFZJSFNXxBhke++JuT/mZHU91UTjedo7iOZoOz6Qkg83QsHZmRwZ0RMuJ5mlEi+mNx8ISUs
+        JxZFMsHqzCgJMMF0TwFfAsD/zkRn4XQPgXwJYHVZlGCcbdgg4EuA9QKLoPmiukm+/hwFFF2W1U53
+        bywOZEJgzRdYo7+MRYEzJFB896a/uzcWrJEZq+9e0ugvKptGvhei715P/WUsDnShWEu7vqzve381
+        ViSrKL779dRfxoqcR8HVd78mGpkwViQTmH331vc99819JPdYu3v8a6dZIHLikXtjRTJB6Lu3vu87
+        reUrMiOR776cerWxIpkg8d3b7ui92liRs03qure+h77TGivQq0LZzb2xRkcbC0O+quvedsfo6MaK
+        ZILBdd/20OwJjJxtJte97SE4ZyLii9l3T4n6ro0+R1bHvfadds5EoCcUwLlPGMtmnJ2jcr1XFdi5
+        M3UW9V3bOiewHxXUuU8Yi3/r1UDuFbJzn+isc69G7hMKxfclb70auU8ognM3se9le2j2Kgb6SxF9
+        97aHZq/aD4CrvxUU2Xevb70KkUyg+u5tD40zVLbYjOtw/wsAAP//lFjbjcQgEKtopWGAISnmSrne
+        10CG/bi15GvACsbxgz9+D74GpP/oywXP6eXi3COHTtZKWDfn/kpfRW4r9+iFc48c+k/Wdq+c+zt9
+        VfwfvVHuZ3YcL1T05YPyBayPFyrc+035gt/7yTTFc6rzM8ILs/sqWdtro/pCdpzuq2yFXjvhC8Md
+        fn+6r8BXmJEcWlhP90UHEP7tMCc5BCzstNO/hHwMa6QDLCzfmYYuJ52xkw4ALGRH5pDS78MG6QAL
+        a+/tmWmC7sMuzj2yIz1a2QpRjHPfPh6tYTnnfsoid4dyj6VzvuDRh3uhy0W5+Bnh0Vv30ITwbwfe
+        wL5vKxwQHr25h+6V7/LC9XW9zt5Wtmh45XzBo9NXi9DlwhvXF96GsmMqnTw8KPfTo/c9ats9/KZ8
+        zX6fvloUfdVC+Zp+n/eovClEdcrXfGfa/oXdIXTMqI3wNYtJ9lVgCT4xjG3RhfX0Vc2jh7EtCiyc
+        ceejtpGHsS26sE5fVbb7fJb+/j9Ok8hdC18VdD+MbVFgzae59C8h04axLbqwTi90YbuPcrboz+8b
+        AAD//wMAvPh0Y9oXAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 25 Sep 2019 13:21:33 GMT
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-Cloud-Trace-Context:
+      - 1f53ea0bdb57db7250e9a6539cccedd5;o=1
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '989'
+    status:
+      code: 200
+      message: OK
+version: 1

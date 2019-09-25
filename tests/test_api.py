@@ -231,6 +231,8 @@ def test_earth_imagery():
         nasa.earth_imagery(lon='100.75', lat=1.5)
     with pytest.raises(TypeError):
         nasa.earth_imagery(lat=1.5, lon=100.75, date=1)
+    with pytest.raises(TypeError):
+        nasa.earth_imagery(dim='1', lat=1.5, lon=100.75)
 
     with pytest.raises(ValueError):
         nasa.earth_imagery(lat=91, lon=100.75)
@@ -240,7 +242,18 @@ def test_earth_imagery():
 
 @vcr.use_cassette('tests/cassettes/earth_assets.yml')
 def test_earth_assets():
-    pass
+    assets = nasa.earth_assets(lon=100.75, lat=1.5, begin_date='2019-01-01')
+
+    assert isinstance(assets, dict)
+
+    with pytest.raises(TypeError):
+        nasa.earth_assets(lon=100.75, lat=1.5, begin_date=1)
+    with pytest.raises(TypeError):
+        nasa.earth_assets(lon=100.75, lat=1.5, begin_date='2019-01-01', end_date=1)
+    with pytest.raises(ValueError):
+        nasa.earth_assets(lat=91, lon=100.75, begin_date='2019-01-01')
+    with pytest.raises(ValueError):
+        nasa.earth_assets(lon=181, lat=1.5, begin_date='2019-01-01')
 
 
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')

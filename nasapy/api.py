@@ -846,8 +846,27 @@ class Nasa(object):
 
         return r
 
-    def epic(self, date, color='natural'):
-        pass
+    def epic(self, color='natural', date=None, all=None, available=None):
+        url = self.host + '/EPIC/api/'
+
+        if color not in ('natural', 'enhanced'):
+            raise ValueError("color parameter must be 'natural' (default), or 'enhanced'.")
+
+        if None in (date, all, available):
+            url = url + '{color}/all'.format(color=color)
+
+        elif date is not None:
+            if not isinstance(date, (str, datetime.datetime)):
+                raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD format or a "
+                                "datetime object.")
+
+            if isinstance(date, datetime.datetime):
+                date = date.strftime('%Y-%m-%d')
+
+            url = url + '{color}/date/{date}'.format(date=date, color=color)
+
+        r = requests.get(url,
+                         params={'api_key': self.__api_key})
 
     def earth_imagery(self, lat, lon, dim=0.025, date=None, cloud_score=False):
         url = self.host + '/planetary/earth/imagery/'
@@ -890,7 +909,7 @@ class Nasa(object):
         return r
 
     def earth_assets(self, lat, lon, begin_date, end_date=None):
-        url = self.host + '/plantery/earth/assets'
+        url = self.host + '/planetary/earth/assets'
 
         if not isinstance(begin_date, (str, datetime.datetime)):
             raise TypeError('begin date parameter must be a string representing a date in YYYY-MM-DD format or a '
@@ -900,6 +919,11 @@ class Nasa(object):
             if not isinstance(end_date, (str, datetime.datetime)):
                 raise TypeError('end date parameter must be a string representing a date in YYYY-MM-DD format or a '
                                 'datetime object.')
+
+        if not -90 <= lat <= 90:
+            raise ValueError('latitudes values range from -90 to 90')
+        if not -180 <= lon <= 180:
+            raise ValueError('longitude values range from -180 to 180')
 
         r = requests.get(url,
                          params={
@@ -916,12 +940,7 @@ class Nasa(object):
         else:
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
-            if r.text == '':
-                r = {}
-            else:
-                r = r.json()
-
-            return r
+            return r.json()
 
     def exoplanets(self, table, select, count, colset, where, order, ra, dec):
         host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'
