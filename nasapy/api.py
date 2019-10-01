@@ -869,6 +869,50 @@ class Nasa(object):
                          params={'api_key': self.__api_key})
 
     def earth_imagery(self, lat, lon, dim=0.025, date=None, cloud_score=False):
+        r"""
+        Retrieves the URL and other information from the Landsat 8 image database for the specified lat/lon location
+        and date.
+
+        Parameters
+        ----------
+        lat : int, float
+            Latitude
+        lon : int, float
+            Longitude
+        dim : float, default 0.025
+            Width and height of the image in degrees.
+        date : str, datetime, default None
+            Date the image was taken. If specified, must be a string representing a date in 'YYYY-MM-DD' format or a
+            datetime object. If None, the most recent image available from the current date is returned.
+        cloud_score : bool, default False
+            Calculate the percentage of the image covered by clouds.
+
+        Raises
+        ------
+        TypeError
+            Raised if :code:`cloud_score` parameter is not boolean (True or False)
+        TypeError
+            Raised if :code:`lat` parameter is not an int or float
+        TypeError
+            Raised if :code:`lon` parameter is not an int or float
+        TypeError
+            Raised if :code:`dim` parameter is not a float
+        TypeError
+            Raised if :code:`date` parameter is not a string or a datetime object.
+        ValueError
+            Raised if :code:`lat` parameter is not between :math:`[-90, 90]`
+        ValueError
+            Raised if :code:`lon` parameter is not between :math:`[-180, 180]`
+
+        Returns
+        -------
+        dict
+            Dictionary object representing the returned JSON data from the API.
+
+        Examples
+        --------
+
+        """
         url = self.host + '/planetary/earth/imagery/'
 
         if not isinstance(cloud_score, bool):
@@ -890,6 +934,9 @@ class Nasa(object):
                 raise TypeError('date parameter must be a string representing a date in YYYY-MM-DD format or a '
                                 'datetime object.')
 
+            if isinstance(date, datetime.datetime):
+                date = date.strftime('%Y-%m-%d')
+
         r = requests.get(url,
                          params={
                              'lon': lon,
@@ -909,16 +956,49 @@ class Nasa(object):
         return r
 
     def earth_assets(self, lat, lon, begin_date, end_date=None):
+        r"""
+
+        Parameters
+        ----------
+        lat : int, float
+            Latitude
+        lon : int, float
+            Longitude
+        begin_date : str, datetime
+
+        end_date : str, datetime, default None
+
+
+        Raises
+        ------
+        ValueError
+            Raised if :code:`lat` parameter is not between :math:`[-90, 90]`
+        ValueError
+            Raised if :code:`lon` parameter is not between :math:`[-180, 180]`
+
+        Returns
+        -------
+
+        Examples
+        --------
+
+        """
         url = self.host + '/planetary/earth/assets'
 
         if not isinstance(begin_date, (str, datetime.datetime)):
             raise TypeError('begin date parameter must be a string representing a date in YYYY-MM-DD format or a '
                             'datetime object.')
 
+        if isinstance(begin_date, datetime.datetime):
+            begin_date = begin_date.strftime('%Y-%m-%d')
+
         if end_date is not None:
             if not isinstance(end_date, (str, datetime.datetime)):
                 raise TypeError('end date parameter must be a string representing a date in YYYY-MM-DD format or a '
                                 'datetime object.')
+
+            if isinstance(end_date, datetime.datetime):
+                end_date = end_date.strftime('%Y-%m-%d')
 
         if not -90 <= lat <= 90:
             raise ValueError('latitudes values range from -90 to 90')
