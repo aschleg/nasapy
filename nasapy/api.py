@@ -846,13 +846,13 @@ class Nasa(object):
 
         return r
 
-    def epic(self, color='natural', date=None, all=None, available=None):
+    def epic(self, color='natural', date=None, all_dates=True, available=False):
         url = self.host + '/EPIC/api/'
 
         if color not in ('natural', 'enhanced'):
             raise ValueError("color parameter must be 'natural' (default), or 'enhanced'.")
 
-        if None in (date, all, available):
+        if None in (date, all_dates, available):
             url = url + '{color}/all'.format(color=color)
 
         elif date is not None:
@@ -867,6 +867,8 @@ class Nasa(object):
 
         r = requests.get(url,
                          params={'api_key': self.__api_key})
+
+        return r
 
     def earth_imagery(self, lat, lon, dim=0.025, date=None, cloud_score=False):
         r"""
@@ -911,6 +913,15 @@ class Nasa(object):
 
         Examples
         --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        >>> n.earth_imagery(lon=100.75, lat=1.5, cloud_score=True)
+        {'cloud_score': 0.9947187123297982,
+         'date': '2014-01-03T03:30:22',
+         'id': 'LC8_L1T_TOA/LC81270592014003LGN00',
+         'resource': {'dataset': 'LC8_L1T_TOA', 'planet': 'earth'},
+         'service_version': 'v1',
+         'url': 'https://earthengine.googleapis.com/api/thumb?thumbid=9081d44f6984d0e4791922804beb54a4&token=e5c9e249894564f93533f02dbd87a1a3'}
 
         """
         url = self.host + '/planetary/earth/imagery/'
@@ -957,6 +968,8 @@ class Nasa(object):
 
     def earth_assets(self, lat, lon, begin_date, end_date=None):
         r"""
+        Retrieves the datetimes and asset names of available imagery for a specified lat-lon location over a given
+        date range. The satellite that takes the images passes over each point approximately once every sixteen days.
 
         Parameters
         ----------
@@ -965,9 +978,9 @@ class Nasa(object):
         lon : int, float
             Longitude
         begin_date : str, datetime
-
+            Beginning of date range in which to search for available assets.
         end_date : str, datetime, default None
-
+            End of date range in which to search for available assets. If not specified, defaults to the current date.
 
         Raises
         ------
@@ -975,12 +988,20 @@ class Nasa(object):
             Raised if :code:`lat` parameter is not between :math:`[-90, 90]`
         ValueError
             Raised if :code:`lon` parameter is not between :math:`[-180, 180]`
+        TypeError
+            Raised if :code:`begin_date` parameter is not a string representative of a datetime or a datetime object.
+        TypeError
+            Raised if :code:`end_date` parameter is not a string representative of a datetime or a datetime object.
 
         Returns
         -------
+        dict
+            Dictionary object representing the returned JSON data from the API.
 
-        Examples
-        --------
+        Notes
+        -----
+        The assets endpoint is meant to support the imagery endpoint by making it easier for users to find available
+        imagery for a given location.
 
         """
         url = self.host + '/planetary/earth/assets'
@@ -1041,6 +1062,15 @@ class Nasa(object):
 
 
 def _donki_request(key, url, start_date=None, end_date=None):
+    r"""
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+    """
     start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
 
     r = requests.get(url,
@@ -1066,6 +1096,15 @@ def _donki_request(key, url, start_date=None, end_date=None):
 
 
 def _check_dates(start_date=None, end_date=None):
+    r"""
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+    """
     if start_date is not None:
         if not isinstance(start_date, (str, datetime.datetime)):
             raise TypeError('start_date parameter must be a string representing a date in YYYY-MM-DD format or '

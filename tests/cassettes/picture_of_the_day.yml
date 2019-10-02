@@ -14,21 +14,18 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=False
   response:
     body:
-      string: '{"date":"2019-10-01","explanation":"If you were a small one-eyed monster,
-        would you want to visit a black hole? Well the one in this video does -- but
-        should it? No, actually, but since our little friend is insistent on going,
-        the video informs it what black holes really are, and how to be as safe as
-        possible when visiting. Black holes are clumps of matter so dense that light
-        cannot escape. Pairs of black holes, each several times the mass of our Sun,
-        have recently been found to merge by detection of unusual gravitational radiation.  The
-        regions surrounding supermassive black holes in the centers of galaxies can
-        light up as stars that near them get shredded. The closest known black hole
-        to the Earth is V616 Mon, which is about 3,300 light years away. The best
-        way for our monster friend to stay safe, the video informs, is to not go too
-        close.","media_type":"video","service_version":"v1","title":"Black Hole Safety
-        Video","url":"https://www.youtube.com/embed/aMTwtb3TVIk"}
-
-'
+      string: !!binary |
+        H4sIAAAAAAAAA6RTTW/UMBC98ytGewJpN5tthWB7rRAgVC70vpokk8SsY4exkxAh/jvPTlupZy5W
+        4vl6897zn13DUXZ3u5vydD6cykN5s9vv5Pdo2XE03iH02MtKrELOR2JrZqHDgaopUnyONKtxXUHI
+        pMlNYWJLrdch4JxcQ8alVLpnNY7JSTVZ3hNTKwv5lpbe1H2e0ArHSaWhXlT2NJiuj1RJSAc1Emo1
+        FaIcSGYevQJimvvJiXYSTU02VzBmLsY1mK9+wEDWaqUQWUMeU6nwFZXEI2tegxrWKzUTJnXKxgVc
+        cqSBr5LDpvYO7bel/Mi/Jinoq6ZLtnbNOa3pgD3syeNPFxOErs4vLsHN7QdvpcbqSrX1E9B5BZSM
+        WM0wYLHOenCTerQqmOEietdAGwEhk2gUrDSAmSbOos9rZbgWeZp4iuozpqGgLEprfaaKwsi1gAmd
+        6kR0oNHkj41xAkupr9fK5PQvU1VZoR+56lGArPYj6kfGVlm+jfDBu9iHzQCfE1z6nkVOoJ9UNzGI
+        bXMpRKg87HNbPpWvEAg7WwNAW+jD/n35Kkq88ArPQNkaw2GHIOKgcoRzKAxQgeILwOgX1ibvAuEC
+        AqAGbk5u+yZi326g3hUwe99MamHzPsYx3B2P8FVTOA5cdH7Of0czcCfH07k8Hx826bb6y8bP5XR7
+        /lD8HDt0g4qGL3Ed06PKdbgMorOp5QK9wvam5hOuo4k2pT28+OJ+88Xr97JRifz/x1l+LDPOv2/+
+        AQAA//8DAKq0HRf5AwAA
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -36,16 +33,20 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Length:
-      - '984'
+      Content-Encoding:
+      - gzip
       Content-Type:
       - application/json
       Date:
-      - Tue, 01 Oct 2019 12:51:57 GMT
+      - Wed, 02 Oct 2019 12:48:39 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -53,7 +54,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '983'
+      - '993'
     status:
       code: 200
       message: OK
@@ -72,21 +73,18 @@ interactions:
     uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&hd=True
   response:
     body:
-      string: '{"date":"2019-10-01","explanation":"If you were a small one-eyed monster,
-        would you want to visit a black hole? Well the one in this video does -- but
-        should it? No, actually, but since our little friend is insistent on going,
-        the video informs it what black holes really are, and how to be as safe as
-        possible when visiting. Black holes are clumps of matter so dense that light
-        cannot escape. Pairs of black holes, each several times the mass of our Sun,
-        have recently been found to merge by detection of unusual gravitational radiation.  The
-        regions surrounding supermassive black holes in the centers of galaxies can
-        light up as stars that near them get shredded. The closest known black hole
-        to the Earth is V616 Mon, which is about 3,300 light years away. The best
-        way for our monster friend to stay safe, the video informs, is to not go too
-        close.","media_type":"video","service_version":"v1","title":"Black Hole Safety
-        Video","url":"https://www.youtube.com/embed/aMTwtb3TVIk"}
-
-'
+      string: !!binary |
+        H4sIAAAAAAAAA6RTTW/UMBC98ytGewJpN5tthWB7rRAgVC70vpokk8SsY4exkxAh/jvPTlupZy5W
+        4vl6897zn13DUXZ3u5vydD6cykN5s9vv5Pdo2XE03iH02MtKrELOR2JrZqHDgaopUnyONKtxXUHI
+        pMlNYWJLrdch4JxcQ8alVLpnNY7JSTVZ3hNTKwv5lpbe1H2e0ArHSaWhXlT2NJiuj1RJSAc1Emo1
+        FaIcSGYevQJimvvJiXYSTU02VzBmLsY1mK9+wEDWaqUQWUMeU6nwFZXEI2tegxrWKzUTJnXKxgVc
+        cqSBr5LDpvYO7bel/Mi/Jinoq6ZLtnbNOa3pgD3syeNPFxOErs4vLsHN7QdvpcbqSrX1E9B5BZSM
+        WM0wYLHOenCTerQqmOEietdAGwEhk2gUrDSAmSbOos9rZbgWeZp4iuozpqGgLEprfaaKwsi1gAmd
+        6kR0oNHkj41xAkupr9fK5PQvU1VZoR+56lGArPYj6kfGVlm+jfDBu9iHzQCfE1z6nkVOoJ9UNzGI
+        bXMpRKg87HNbPpWvEAg7WwNAW+jD/n35Kkq88ArPQNkaw2GHIOKgcoRzKAxQgeILwOgX1ibvAuEC
+        AqAGbk5u+yZi326g3hUwe99MamHzPsYx3B2P8FVTOA5cdH7Of0czcCfH07k8Hx826bb6y8bP5XR7
+        /lD8HDt0g4qGL3Ed06PKdbgMorOp5QK9wvam5hOuo4k2pT28+OJ+88Xr97JRifz/x1l+LDPOv2/+
+        AQAA//8DAKq0HRf5AwAA
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -94,16 +92,20 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Length:
-      - '984'
+      Content-Encoding:
+      - gzip
       Content-Type:
       - application/json
       Date:
-      - Tue, 01 Oct 2019 12:51:57 GMT
+      - Wed, 02 Oct 2019 12:48:40 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -111,7 +113,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '982'
+      - '992'
     status:
       code: 200
       message: OK
@@ -154,7 +156,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 01 Oct 2019 12:51:58 GMT
+      - Wed, 02 Oct 2019 12:48:40 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -170,7 +172,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '981'
+      - '991'
     status:
       code: 200
       message: OK
@@ -186,24 +188,21 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-10-01&hd=False
+    uri: https://api.nasa.gov/planetary/apod?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&date=2019-10-02&hd=False
   response:
     body:
-      string: '{"date":"2019-10-01","explanation":"If you were a small one-eyed monster,
-        would you want to visit a black hole? Well the one in this video does -- but
-        should it? No, actually, but since our little friend is insistent on going,
-        the video informs it what black holes really are, and how to be as safe as
-        possible when visiting. Black holes are clumps of matter so dense that light
-        cannot escape. Pairs of black holes, each several times the mass of our Sun,
-        have recently been found to merge by detection of unusual gravitational radiation.  The
-        regions surrounding supermassive black holes in the centers of galaxies can
-        light up as stars that near them get shredded. The closest known black hole
-        to the Earth is V616 Mon, which is about 3,300 light years away. The best
-        way for our monster friend to stay safe, the video informs, is to not go too
-        close.","media_type":"video","service_version":"v1","title":"Black Hole Safety
-        Video","url":"https://www.youtube.com/embed/aMTwtb3TVIk"}
-
-'
+      string: !!binary |
+        H4sIAAAAAAAAA6RTTW/UMBC98ytGewJpN5tthWB7rRAgVC70vpokk8SsY4exkxAh/jvPTlupZy5W
+        4vl6897zn13DUXZ3u5vydD6cykN5s9vv5Pdo2XE03iH02MtKrELOR2JrZqHDgaopUnyONKtxXUHI
+        pMlNYWJLrdch4JxcQ8alVLpnNY7JSTVZ3hNTKwv5lpbe1H2e0ArHSaWhXlT2NJiuj1RJSAc1Emo1
+        FaIcSGYevQJimvvJiXYSTU02VzBmLsY1mK9+wEDWaqUQWUMeU6nwFZXEI2tegxrWKzUTJnXKxgVc
+        cqSBr5LDpvYO7bel/Mi/Jinoq6ZLtnbNOa3pgD3syeNPFxOErs4vLsHN7QdvpcbqSrX1E9B5BZSM
+        WM0wYLHOenCTerQqmOEietdAGwEhk2gUrDSAmSbOos9rZbgWeZp4iuozpqGgLEprfaaKwsi1gAmd
+        6kR0oNHkj41xAkupr9fK5PQvU1VZoR+56lGArPYj6kfGVlm+jfDBu9iHzQCfE1z6nkVOoJ9UNzGI
+        bXMpRKg87HNbPpWvEAg7WwNAW+jD/n35Kkq88ArPQNkaw2GHIOKgcoRzKAxQgeILwOgX1ibvAuEC
+        AqAGbk5u+yZi326g3hUwe99MamHzPsYx3B2P8FVTOA5cdH7Of0czcCfH07k8Hx826bb6y8bP5XR7
+        /lD8HDt0g4qGL3Ed06PKdbgMorOp5QK9wvam5hOuo4k2pT28+OJ+88Xr97JRifz/x1l+LDPOv2/+
+        AQAA//8DAKq0HRf5AwAA
     headers:
       Access-Control-Allow-Origin:
       - '*'
@@ -211,16 +210,20 @@ interactions:
       - '0'
       Connection:
       - keep-alive
-      Content-Length:
-      - '984'
+      Content-Encoding:
+      - gzip
       Content-Type:
       - application/json
       Date:
-      - Tue, 01 Oct 2019 12:51:58 GMT
+      - Wed, 02 Oct 2019 12:48:41 GMT
       Server:
       - openresty
       Strict-Transport-Security:
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
@@ -228,7 +231,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '980'
+      - '990'
     status:
       code: 200
       message: OK

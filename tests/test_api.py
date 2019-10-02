@@ -219,8 +219,10 @@ def test_wsa_simulation():
 def test_earth_imagery():
     image = nasa.earth_imagery(lat=1.5, lon=100.75)
     image_no_dat = nasa.earth_imagery(lat=1.5, lon=180)
+    image_datetime = nasa.earth_imagery(lat=1.5, lon=180, date=datetime.datetime.today())
 
     assert isinstance(image, dict)
+    assert isinstance(image_datetime, dict)
     assert image_no_dat == {}
 
     with pytest.raises(TypeError):
@@ -243,8 +245,12 @@ def test_earth_imagery():
 @vcr.use_cassette('tests/cassettes/earth_assets.yml')
 def test_earth_assets():
     assets = nasa.earth_assets(lon=100.75, lat=1.5, begin_date='2019-01-01')
+    assets_datetime = nasa.earth_assets(lon=100.75, lat=1.5,
+                                        begin_date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d'),
+                                        end_date=datetime.datetime.today())
 
     assert isinstance(assets, dict)
+    assert isinstance(assets_datetime, dict)
 
     with pytest.raises(TypeError):
         nasa.earth_assets(lon=100.75, lat=1.5, begin_date=1)
