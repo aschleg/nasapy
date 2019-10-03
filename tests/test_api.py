@@ -215,6 +215,11 @@ def test_wsa_simulation():
     assert isinstance(wsa_no_dat, dict)
 
 
+@vcr.use_cassette('tests/cassettes/epic.yml')
+def test_epic():
+    pass
+
+
 @vcr.use_cassette('tests/cassettes/earth_imagery.yml')
 def test_earth_imagery():
     image = nasa.earth_imagery(lat=1.5, lon=100.75)

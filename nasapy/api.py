@@ -846,16 +846,91 @@ class Nasa(object):
 
         return r
 
-    def epic(self, color='natural', date=None, all_dates=True, available=False):
+    def epic(self, color='natural', date=None, available=False):
+        r"""
+        The EPIC API provides data on the imagery collected by the DSCOVR's Earth Polychromatic Imaging Camera
+        (EPIC).
+
+        Parameters
+        ----------
+        color : str, {'natural', 'enhanced'}
+            Specifies the type of imagery to return. Must be one of 'natural' (default) or 'enhanced'
+        date : str, datetime, default None
+            String representing a date in 'YYYY-MM-DD' format or a datetime object.
+        available : bool, default False
+            Alternative listing of all dates with specified color imagery.
+
+        Raises
+        ------
+        TypeError
+            Raised if parameter :code:`available` is not boolean (True or False).
+        TypeError
+            Raised if parameter :code:`date` is not a string or a datetime object.
+        ValueError
+            Raised if parameter :code:`color` is not one of 'natural' or 'enhanced'
+
+        Returns
+        -------
+        list
+            List of dictionaries representing the returned JSON data from the EPIC API.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get EPIC data from the beginning of 2019.
+        >>> e = n.epic(date='2019-01-01')
+        # Print the first result
+        >>> e[0]
+        {'identifier': '20190101015633',
+         'caption': "This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft",
+         'image': 'epic_RGB_20190101015633',
+         'version': '02',
+         'centroid_coordinates': {'lat': -27.281877, 'lon': 155.325443},
+         'dscovr_j2000_position': {'x': 350941.733992,
+          'y': -1329357.949188,
+          'z': -711000.841667},
+         'lunar_j2000_position': {'x': -281552.637877,
+          'y': -263898.385852,
+          'z': 34132.662255},
+         'sun_j2000_position': {'x': 25746688.614416,
+          'y': -132882102.563308,
+          'z': -57603901.841971},
+         'attitude_quaternions': {'q0': 0.621256,
+          'q1': 0.675002,
+          'q2': 0.397198,
+          'q3': 0.025296},
+         'date': '2019-01-01 01:51:44',
+         'coords': {'centroid_coordinates': {'lat': -27.281877, 'lon': 155.325443},
+          'dscovr_j2000_position': {'x': 350941.733992,
+           'y': -1329357.949188,
+           'z': -711000.841667},
+          'lunar_j2000_position': {'x': -281552.637877,
+           'y': -263898.385852,
+           'z': 34132.662255},
+          'sun_j2000_position': {'x': 25746688.614416,
+           'y': -132882102.563308,
+           'z': -57603901.841971},
+          'attitude_quaternions': {'q0': 0.621256,
+           'q1': 0.675002,
+           'q2': 0.397198,
+           'q3': 0.025296}}}
+
+        Notes
+        -----
+        If a :code:`date` is not given and :code:`available` is :code:`False`, a listing of all dates with the
+        specified color imagery is returned using the :code:`all` endpoint of the EPIC API.
+
+        """
         url = self.host + '/EPIC/api/'
 
         if color not in ('natural', 'enhanced'):
             raise ValueError("color parameter must be 'natural' (default), or 'enhanced'.")
 
-        if None in (date, all_dates, available):
-            url = url + '{color}/all'.format(color=color)
+        if not isinstance(available, bool):
+            raise TypeError('available parameter must be boolean (True or False).')
 
-        elif date is not None:
+        if date is not None:
             if not isinstance(date, (str, datetime.datetime)):
                 raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD format or a "
                                 "datetime object.")
@@ -865,8 +940,20 @@ class Nasa(object):
 
             url = url + '{color}/date/{date}'.format(date=date, color=color)
 
+        elif available:
+            url = url + '{color}/available'.format(color=color)
+
+        else:
+            url = url + '{color}/all'.format(color=color)
+
         r = requests.get(url,
                          params={'api_key': self.__api_key})
+
+        if r.status_code != 200 or r.text == '':
+            r = {}
+        else:
+            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+            r = r.json()
 
         return r
 
