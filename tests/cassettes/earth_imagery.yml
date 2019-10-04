@@ -17,7 +17,7 @@ interactions:
       string: "{\n  \"cloud_score\": 0.9947187123297982, \n  \"date\": \"2014-01-03T03:30:22\",
         \n  \"id\": \"LC8_L1T_TOA/LC81270592014003LGN00\", \n  \"resource\": {\n    \"dataset\":
         \"LC8_L1T_TOA\", \n    \"planet\": \"earth\"\n  }, \n  \"service_version\":
-        \"v1\", \n  \"url\": \"https://earthengine.googleapis.com/api/thumb?thumbid=9081d44f6984d0e4791922804beb54a4&token=af4fd53edf9b46090dc81adbffbfe101\"\n}"
+        \"v1\", \n  \"url\": \"https://earthengine.googleapis.com/api/thumb?thumbid=9081d44f6984d0e4791922804beb54a4&token=4a7e7b32df9567703fa411c2ac396680\"\n}"
     headers:
       Age:
       - '1'
@@ -28,7 +28,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Oct 2019 13:26:24 GMT
+      - Fri, 04 Oct 2019 12:18:27 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -40,7 +40,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '985'
+      - '982'
     status:
       code: 200
       message: OK
@@ -71,7 +71,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Oct 2019 13:26:24 GMT
+      - Fri, 04 Oct 2019 12:18:28 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -83,7 +83,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '984'
+      - '981'
     status:
       code: 500
       message: INTERNAL SERVER ERROR
@@ -99,7 +99,7 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/earth/imagery/?lon=180&lat=1.5&dim=0.025&date=2019-10-03&cloud_score=False&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+    uri: https://api.nasa.gov/planetary/earth/imagery/?lon=180&lat=1.5&dim=0.025&date=2019-10-04&cloud_score=False&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
   response:
     body:
       string: "{\n  \"msg\": \"Internal Service Error\", \n  \"service_version\":
@@ -114,7 +114,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Oct 2019 13:26:25 GMT
+      - Fri, 04 Oct 2019 12:18:29 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -126,7 +126,7 @@ interactions:
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '983'
+      - '980'
     status:
       code: 500
       message: INTERNAL SERVER ERROR

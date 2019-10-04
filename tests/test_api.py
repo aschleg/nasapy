@@ -217,7 +217,28 @@ def test_wsa_simulation():
 
 @vcr.use_cassette('tests/cassettes/epic.yml')
 def test_epic():
-    pass
+
+    enhanced = nasa.epic(color='enhanced', date='2019-01-01')
+    natural = nasa.epic(date='2019-01-01')
+    available_dates = nasa.epic(available=True)
+    available_dates_enhanced = nasa.epic(color='enhanced', available=True)
+    epic_datetime = nasa.epic(date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d'))
+
+    assert isinstance(enhanced, list)
+    assert isinstance(enhanced[0], dict)
+    assert isinstance(natural, list)
+    assert isinstance(natural[0], dict)
+    assert isinstance(available_dates, list)
+    assert isinstance(available_dates_enhanced, list)
+    assert isinstance(epic_datetime, list)
+    assert isinstance(epic_datetime[0], dict)
+
+    with pytest.raises(ValueError):
+        nasa.epic(color='test')
+    with pytest.raises(TypeError):
+        nasa.epic(available='True')
+    with pytest.raises(TypeError):
+        nasa.epic(date=1)
 
 
 @vcr.use_cassette('tests/cassettes/earth_imagery.yml')
