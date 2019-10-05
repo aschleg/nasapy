@@ -9,7 +9,7 @@ import datetime
 tape = vcr.VCR(
     cassette_library_dir='tests/cassettes',
     serializer='json',
-    record_mode='once'
+    record_mode='new_episodes'
 )
 
 key = os.environ.get('NASA_KEY')
@@ -223,6 +223,7 @@ def test_epic():
     available_dates = nasa.epic(available=True)
     available_dates_enhanced = nasa.epic(color='enhanced', available=True)
     epic_datetime = nasa.epic(date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d'))
+    epic_all_dates = nasa.epic()
 
     assert isinstance(enhanced, list)
     assert isinstance(enhanced[0], dict)
@@ -232,6 +233,7 @@ def test_epic():
     assert isinstance(available_dates_enhanced, list)
     assert isinstance(epic_datetime, list)
     assert isinstance(epic_datetime[0], dict)
+    assert isinstance(epic_all_dates, list)
 
     with pytest.raises(ValueError):
         nasa.epic(color='test')

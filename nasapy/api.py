@@ -1147,6 +1147,85 @@ class Nasa(object):
                              'format': 'json'
                          })
 
+        return r
+
+    @staticmethod
+    def media_search(query=None, center=None, description=None, keywords=None, location=None, media_type=None,
+                     nasa_id=None, page=None, photographer=None, secondary_creator=None, title=None, year_start=None,
+                     year_end=None):
+
+        url = 'https://images-api.nasa.gov/search'
+
+        if all(p is None for p in (query, center, description, keywords, location, media_type, nasa_id, page,
+                                   photographer, secondary_creator, title, year_start, year_end)):
+            raise ValueError('at least one parameter is required')
+
+        if media_type is not None:
+            if media_type not in ('image', 'audio', 'image,audio', 'audio,image'):
+                raise ValueError("media_type parameter must be one of 'image' or 'audio' or a combination of both "
+                                 "('image,audio' or 'audio,image'.")
+
+        r = requests.get(url,
+                         params={
+                             'q': query,
+                             'center': center,
+                             'description': description,
+                             'keywords': keywords,
+                             'location': location,
+                             'media_type': media_type,
+                             'nasa_id': nasa_id,
+                             'page': page,
+                             'photographer': photographer,
+                             'secondary_creator': secondary_creator,
+                             'title': title,
+                             'year_start': year_start,
+                             'year_end': year_end
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            return r.json()['collection']
+
+    @staticmethod
+    def media_asset_manifest(nasa_id):
+
+        return _media_assets(endpoint='asset', nasa_id=nasa_id)
+
+    @staticmethod
+    def media_asset_metadata(nasa_id):
+        return _media_assets(endpoint='metadata', nasa_id=nasa_id)
+
+    @staticmethod
+    def media_asset_captions(nasa_id):
+        return _media_assets(endpoint='captions', nasa_id=nasa_id)
+
+    # def patents(self, query, concept_tags=False, limit=None):
+    #     url = self.host + '/patents/content'
+    #
+    #     if limit is not None:
+    #         if not isinstance(limit, int):
+    #             raise TypeError('limit parameter must None (return all results) or an int.')
+    #
+    #     if not isinstance(concept_tags, bool):
+    #         raise TypeError('concept_tags parameter must be boolean (True or False).')
+    #
+    #     r = requests.get(url,
+    #                      params={
+    #                          'query': query,
+    #                          'limit': limit,
+    #                          'api_key': self.__api_key
+    #                      })
+    #
+    #     if r.status_code != 200 or r.text == '':
+    #         r = {}
+    #     else:
+    #         self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+    #         r = r.json()
+    #
+    #     return r
+
 
 def _donki_request(key, url, start_date=None, end_date=None):
     r"""
@@ -1209,3 +1288,35 @@ def _check_dates(start_date=None, end_date=None):
         start_date = start_date.strftime('%Y-%m-%d')
 
     return start_date, end_date
+
+
+def _media_assets(endpoint, nasa_id):
+    url = 'https://images-api.nasa.gov/{endpoint}/{nasa_id}'
+
+    r = requests.get(url.format(endpoint=endpoint,
+                                nasa_id=nasa_id))
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+
+    else:
+        if endpoint == 'asset':
+            return r.json()['collection']['items']
+
+        elif endpoint == 'metadata':
+            location = r.json()['location']
+            r = requests.get(location).json()
+            r['location'] = location
+
+            return r
+
+        elif endpoint == 'captions':
+            location = r.json()['location']
+            r = requests.get(location).text
+
+            r = {
+                'location': location,
+                'captions': r
+            }
+
+            return r
