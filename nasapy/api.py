@@ -1130,6 +1130,68 @@ class Nasa(object):
 
             return r.json()
 
+    def mars_rover(self, sol=None, earth_date=None, camera='all', rover='curiosity', page=1):
+        r"""
+
+        Parameters
+        ----------
+
+        Raises
+        ------
+
+        Returns
+        -------
+
+        Examples
+        --------
+
+        """
+        if sol is not None and earth_date is not None:
+            raise ValueError('either the sol or earth_date parameter should be specified, not both.')
+
+        cameras = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES', 'all']
+
+        if camera not in cameras:
+            raise ValueError("camera parameter must be one of 'all' (default), 'FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', "
+                             "'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', or 'MINITES'")
+
+        if earth_date is not None:
+            if not isinstance(earth_date, (str, datetime.datetime)):
+                raise TypeError('end date parameter must be a string representing a date in YYYY-MM-DD format or a '
+                                'datetime object.')
+
+            if isinstance(earth_date, datetime.datetime):
+                earth_date = earth_date.strftime('%Y-%m-%d')
+
+        if rover not in ('curiosity', 'opportunity', 'spirit'):
+            raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', or 'spirit'.")
+
+        url = self.host + '/mars-photos/api/v1/rovers/{rover}/photos'.format(rover=rover)
+
+        params = {
+            'page': page,
+            'api_key': self.__api_key
+        }
+
+        if sol is not None:
+            params['sol'] = sol
+        else:
+            params['earth_date'] = earth_date
+
+        if camera != 'all':
+            params['camera'] = camera
+
+        r = requests.get(url,
+                         params=params)
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        else:
+            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+
+            return r.json()['photos']
+
     def exoplanets(self, table, select, count, colset, where, order, ra, dec):
         host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'
 
@@ -1200,6 +1262,13 @@ class Nasa(object):
     @staticmethod
     def media_asset_captions(nasa_id):
         return _media_assets(endpoint='captions', nasa_id=nasa_id)
+
+    # def mars_mission_manifest(self, rover):
+    #     url = self.host + '/mars-photos/api/manifests/{rover}'.format(rover=rover)
+    #
+    #     r = requests.get(url)
+    #
+    #     return r
 
     # def patents(self, query, concept_tags=False, limit=None):
     #     url = self.host + '/patents/content'

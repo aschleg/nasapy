@@ -37,7 +37,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Cache-Control:
       - no-cache
       Connection:
@@ -47,7 +47,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 05 Oct 2019 11:52:16 GMT
+      - Sun, 06 Oct 2019 13:01:35 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -61,11 +61,11 @@ interactions:
       X-Cache:
       - MISS
       X-Cloud-Trace-Context:
-      - 63776652571be9655eb61d1ce18837f0;o=1
+      - 35f3990f5b31f3be7054edaca4b0edbb;o=1
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '988'
+      - '972'
     status:
       code: 200
       message: OK
@@ -81,7 +81,7 @@ interactions:
       User-Agent:
       - python-requests/2.21.0
     method: GET
-    uri: https://api.nasa.gov/planetary/earth/assets?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&lat=1.5&lon=100.75&begin_date=2019-01-01&end_date=2019-10-05
+    uri: https://api.nasa.gov/planetary/earth/assets?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&lat=1.5&lon=100.75&begin_date=2019-01-01&end_date=2019-10-06
   response:
     body:
       string: !!binary |
@@ -107,7 +107,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Cache-Control:
       - no-cache
       Connection:
@@ -117,7 +117,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 05 Oct 2019 11:52:17 GMT
+      - Sun, 06 Oct 2019 13:01:36 GMT
       Server:
       - openresty
       Strict-Transport-Security:
@@ -131,11 +131,11 @@ interactions:
       X-Cache:
       - MISS
       X-Cloud-Trace-Context:
-      - 04c60efb6fe246df7d6711927e1fa5ea
+      - a13a43b2025581061a742451648a7959
       X-RateLimit-Limit:
       - '1000'
       X-RateLimit-Remaining:
-      - '987'
+      - '971'
     status:
       code: 200
       message: OK
