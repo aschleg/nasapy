@@ -42,7 +42,7 @@ def test_picture_of_the_day():
     potd = nasa.picture_of_the_day()
     potd_hd = nasa.picture_of_the_day(hd=True)
     potd_date = nasa.picture_of_the_day(date='2019-01-01')
-    potd_datetime = nasa.picture_of_the_day(date=datetime.datetime.today())
+    potd_datetime = nasa.picture_of_the_day(date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d'))
 
     keys = ['date', 'explanation', 'media_type', 'service_version', 'title', 'url']
 
@@ -73,7 +73,8 @@ def test_mars_weather():
 @vcr.use_cassette('tests/cassettes/asteroid_feed.yml')
 def test_asteroid_feed():
     feed = nasa.asteroid_feed(start_date='2019-01-01')
-    feed_datetime = nasa.asteroid_feed(start_date=datetime.datetime.today() - datetime.timedelta(7))
+    feed_datetime = nasa.asteroid_feed(
+        start_date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d') - datetime.timedelta(7))
 
     assert isinstance(feed, dict)
     assert isinstance(feed_datetime, dict)
@@ -247,7 +248,8 @@ def test_epic():
 def test_earth_imagery():
     image = nasa.earth_imagery(lat=1.5, lon=100.75)
     image_no_dat = nasa.earth_imagery(lat=1.5, lon=180)
-    image_datetime = nasa.earth_imagery(lat=1.5, lon=180, date=datetime.datetime.today())
+    image_datetime = nasa.earth_imagery(lat=1.5, lon=180,
+                                        date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d'))
 
     assert isinstance(image, dict)
     assert isinstance(image_datetime, dict)
@@ -275,7 +277,7 @@ def test_earth_assets():
     assets = nasa.earth_assets(lon=100.75, lat=1.5, begin_date='2019-01-01')
     assets_datetime = nasa.earth_assets(lon=100.75, lat=1.5,
                                         begin_date=datetime.datetime.strptime('2019-01-01', '%Y-%m-%d'),
-                                        end_date=datetime.datetime.today())
+                                        end_date=datetime.datetime.strptime('2019-10-01', '%Y-%m-%d'))
 
     assert isinstance(assets, dict)
     assert isinstance(assets_datetime, dict)
@@ -288,6 +290,37 @@ def test_earth_assets():
         nasa.earth_assets(lat=91, lon=100.75, begin_date='2019-01-01')
     with pytest.raises(ValueError):
         nasa.earth_assets(lon=181, lat=1.5, begin_date='2019-01-01')
+
+
+@vcr.use_cassette('tests/cassettes/mars_rover.yml')
+def test_mars_rover():
+    mars_rover_earth_date = nasa.mars_rover(earth_date='2015-06-03')
+    mars_rover_earth_datetime = nasa.mars_rover(earth_date=datetime.datetime.strptime('2015-06-03', '%Y-%m-%d'))
+    mars_rover_sol = nasa.mars_rover(sol=1000)
+    spirit_rover = nasa.mars_rover(sol=1, rover='spirit')
+
+    assert isinstance(mars_rover_earth_date, list)
+    assert isinstance(mars_rover_earth_date[0], dict)
+
+    assert isinstance(mars_rover_earth_datetime, list)
+
+    assert isinstance(mars_rover_sol, list)
+    assert isinstance(mars_rover_sol[0], dict)
+
+    assert isinstance(spirit_rover, list)
+    assert isinstance(spirit_rover[0], dict)
+
+    with pytest.raises(ValueError):
+        nasa.mars_rover(camera='test')
+    with pytest.raises(ValueError):
+        nasa.mars_rover(rover='test')
+    with pytest.raises(TypeError):
+        nasa.mars_rover(earth_date=1)
+
+
+@vcr.use_cassette('tests/cassettes/media_search.yml')
+def test_media_search():
+    pass
 
 
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')

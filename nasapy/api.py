@@ -1002,6 +1002,7 @@ class Nasa(object):
         --------
         # Initialize API connection with a Demo Key
         >>> n = Nasa()
+        # Get imagery at latitude 1.5, longitude 100.75 and include the computed cloud score calculation.
         >>> n.earth_imagery(lon=100.75, lat=1.5, cloud_score=True)
         {'cloud_score': 0.9947187123297982,
          'date': '2014-01-03T03:30:22',
@@ -1132,18 +1133,73 @@ class Nasa(object):
 
     def mars_rover(self, sol=None, earth_date=None, camera='all', rover='curiosity', page=1):
         r"""
+        Retrieves image data collected by the Mars rovers Curiosity, Discovery and Spirit.
 
         Parameters
         ----------
+        sol : int, None (default)
+            The sol (Martian rotation or day) on which the images were collected. Either this parameter or
+            :code:`earth_date` must be provided. The parameter :code:`earth_date` is an alternative parameter for
+            searching for a specific date. The sol values count up from the rover's landing date, for example, the
+            Curiosity's 100th sol would be the 100th Martian rotation since the rover landed.
+        earth_date : str, datetime, None (default)
+            Alternative search parameter for finding data on a specific date. Must be a string representing a date
+            in 'YYYY-MM-DD' format or a datetime object. Either :code:`earth_date` or :code:`sol` must be specified.
+        camera : str, {'all', FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES'}
+            Filter results to a specific camera on the Mars Curiosity, Opportunity or Spirit rovers. Defaults to 'all',
+            which includes all cameras.
+        page : int, default 1
+            25 results per page are returned.
+        rover : str, {'curiosity', 'opportunity', 'spirit'}
+            Specifies the Mars rover to return data. Defaults to the Curiosity rover which has more available cameras.
 
         Raises
         ------
+        ValueError
+            Raised if both :code:`sol` and :code:`earth_date` parameters are not specified.
+        ValueError
+            Raised if the :code:`camera` parameter is not one of 'all' (default), 'FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', "
+            "'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', or 'MINITES'
+        ValueError
+            Raised if :code:`rover` parameter is not one of 'curiosity' (default), 'opportunity', 'spirit'
+        TypeError
+            Raised if :code:`earth_date` (if provided) is not a string or a datetime object.
 
         Returns
         -------
+        list
+            List of dictionaries representing the returned JSON data from the Mars Rover API.
 
         Examples
         --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Return image data collected on Curiosity's 1000th sol.
+        >>> r = n.mars_rover(sol=1000)
+        # Print the first result in the list collection.
+        {'id': 102693,
+         'sol': 1000,
+         'camera': {'id': 20,
+          'name': 'FHAZ',
+          'rover_id': 5,
+          'full_name': 'Front Hazard Avoidance Camera'},
+         'img_src': 'http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG',
+         'earth_date': '2015-05-30',
+         'rover': {'id': 5,
+          'name': 'Curiosity',
+          'landing_date': '2012-08-06',
+          'launch_date': '2011-11-26',
+          'status': 'active',
+          'max_sol': 2540,
+          'max_date': '2019-09-28',
+          'total_photos': 366206,
+          'cameras': [{'name': 'FHAZ', 'full_name': 'Front Hazard Avoidance Camera'},
+           {'name': 'NAVCAM', 'full_name': 'Navigation Camera'},
+           {'name': 'MAST', 'full_name': 'Mast Camera'},
+           {'name': 'CHEMCAM', 'full_name': 'Chemistry and Camera Complex'},
+           {'name': 'MAHLI', 'full_name': 'Mars Hand Lens Imager'},
+           {'name': 'MARDI', 'full_name': 'Mars Descent Imager'},
+           {'name': 'RHAZ', 'full_name': 'Rear Hazard Avoidance Camera'}]}}
 
         """
         if sol is not None and earth_date is not None:
@@ -1163,10 +1219,10 @@ class Nasa(object):
             if isinstance(earth_date, datetime.datetime):
                 earth_date = earth_date.strftime('%Y-%m-%d')
 
-        if rover not in ('curiosity', 'opportunity', 'spirit'):
+        if str.lower(rover) not in ('curiosity', 'opportunity', 'spirit'):
             raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', or 'spirit'.")
 
-        url = self.host + '/mars-photos/api/v1/rovers/{rover}/photos'.format(rover=rover)
+        url = self.host + '/mars-photos/api/v1/rovers/{rover}/photos'.format(rover=str.lower(rover))
 
         params = {
             'page': page,
@@ -1215,7 +1271,34 @@ class Nasa(object):
     def media_search(query=None, center=None, description=None, keywords=None, location=None, media_type=None,
                      nasa_id=None, page=None, photographer=None, secondary_creator=None, title=None, year_start=None,
                      year_end=None):
+        r"""
+        Performs a general search for images from the images.nasa.gov API based on parameters and criteria specified.
+        At least one parameter must be provided.
 
+        Parameters
+        ----------
+        query : str, None (default)
+        center : str, None (default)
+        description :  str, None (default)
+        keywords : str, None (default)
+        location : str, None (default)
+        media_type : str, {None, 'image', 'audio', 'image,audio', 'audio,image'}
+        nasa_id : str, None (default)
+        page : int, None (default)
+        photographer : str, None (default)
+        secondary_creator : str, None (default)
+        title : str, None (default)
+        year_start : str, datetime, None (default)
+        year_end : str, datetime, None (default)
+
+        Raises
+        ------
+
+        Returns
+        -------
+
+
+        """
         url = 'https://images-api.nasa.gov/search'
 
         if all(p is None for p in (query, center, description, keywords, location, media_type, nasa_id, page,
@@ -1226,6 +1309,22 @@ class Nasa(object):
             if media_type not in ('image', 'audio', 'image,audio', 'audio,image'):
                 raise ValueError("media_type parameter must be one of 'image' or 'audio' or a combination of both "
                                  "('image,audio' or 'audio,image'.")
+
+        if year_start is not None:
+            if not isinstance(year_start, (str, datetime.datetime)):
+                raise TypeError('year start parameter must be a string representing a year in YYYY format or a '
+                                'datetime object.')
+
+            if isinstance(year_start, datetime.datetime):
+                year_start = year_start.strftime('%Y')
+
+        if year_end is not None:
+            if not isinstance(year_end, (str, datetime.datetime)):
+                raise TypeError('year end parameter must be a string representing a year in YYYY format or a '
+                                'datetime object.')
+
+            if isinstance(year_end, datetime.datetime):
+                year_end = year_end.strftime('%Y')
 
         r = requests.get(url,
                          params={
@@ -1257,10 +1356,12 @@ class Nasa(object):
 
     @staticmethod
     def media_asset_metadata(nasa_id):
+
         return _media_assets(endpoint='metadata', nasa_id=nasa_id)
 
     @staticmethod
     def media_asset_captions(nasa_id):
+
         return _media_assets(endpoint='captions', nasa_id=nasa_id)
 
     # def mars_mission_manifest(self, rover):
@@ -1388,4 +1489,4 @@ def _media_assets(endpoint, nasa_id):
                 'captions': r
             }
 
-            return r
+    return r
