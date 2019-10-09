@@ -320,6 +320,44 @@ def test_mars_rover():
 
 @vcr.use_cassette('tests/cassettes/media_search.yml')
 def test_media_search():
+    s = nasa.media_search(query='apollo 11', description='moon landing')
+
+    assert isinstance(s, dict)
+    assert isinstance(s['items'], list)
+
+    with pytest.raises(ValueError):
+        nasa.media_search(media_type='test')
+    with pytest.raises(ValueError):
+        nasa.media_search()
+    with pytest.raises(TypeError):
+        nasa.media_search(year_start=1)
+    with pytest.raises(TypeError):
+        nasa.media_search(year_end=1)
+
+
+@vcr.use_cassette('tests/cassettes/media_asset_manifest.yml')
+def test_media_asset_manifest():
+    m = nasa.media_asset_manifest(nasa_id='as11-40-5874')
+
+    assert isinstance(m, list)
+
+    with pytest.raises(HTTPError):
+        nasa.media_asset_manifest(nasa_id='1')
+
+
+@vcr.use_cassette('tests/cassettes/media_asset_metadata.yml')
+def test_media_asset_metadata():
+    m = nasa.media_asset_metadata(nasa_id='as11-40-5874')
+
+    assert isinstance(m, dict)
+    assert 'location' in m.keys()
+
+    with pytest.raises(HTTPError):
+        nasa.media_asset_metadata(nasa_id='1')
+
+
+@vcr.use_cassette('tests/cassettes/media_asset_captions.yml')
+def test_media_asset_captions():
     pass
 
 

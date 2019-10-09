@@ -1269,7 +1269,7 @@ class Nasa(object):
 
     @staticmethod
     def media_search(query=None, center=None, description=None, keywords=None, location=None, media_type=None,
-                     nasa_id=None, page=None, photographer=None, secondary_creator=None, title=None, year_start=None,
+                     nasa_id=None, page=1, photographer=None, secondary_creator=None, title=None, year_start=None,
                      year_end=None):
         r"""
         Performs a general search for images from the images.nasa.gov API based on parameters and criteria specified.
@@ -1278,30 +1278,79 @@ class Nasa(object):
         Parameters
         ----------
         query : str, None (default)
+            Query terms to search.
         center : str, None (default)
+            NASA center that published the results.
         description :  str, None (default)
+            Search for specific terms in the 'description' field of the resulting data.
         keywords : str, None (default)
+            Search for specific terms in the 'keywords' field of the resulting data. Multiple values should be
+            comma-separated.
         location : str, None (default)
+            Search for terms in the 'locations' field of the resulting data.
         media_type : str, {None, 'image', 'audio', 'image,audio', 'audio,image'}
+            Filter results to specific media types. Options include 'image', 'audio', 'image,audio', 'audio,image'.
+            The default :code:`None` includes all media types.
         nasa_id : str, None (default)
-        page : int, None (default)
+            The media asset's NASA ID.
+        page : int, 1 (default)
+            Page number of results to return. Starts at 1.
         photographer : str, None (default)
+            The primary photographer's name.
         secondary_creator : str, None (default)
+            A secondary photographer/videographer's name.
         title : str, None (default)
+            Search terms in the 'title' field of the resulting data.
         year_start : str, datetime, None (default)
+            The start year for results. If provided, must be a string representing a year in YYYY format or a
+            datetime object.
         year_end : str, datetime, None (default)
+            The end year for results. If provided, must be a string representing a year in YYYY format or a
+            datetime object.
 
         Raises
         ------
+        ValueError
+            Raised if no parameters are specified.
+        ValueError
+            Raised if the :code:`media_type` parameter is not one of 'image', 'audio', 'image,audio', 'audio,image'
+            (if specified).
+        TypeError
+            Raised if :code:`year_start` parameter (if provided) is not a string or a datetime object.
+        TypeError
+            Raised if :code:`year_end` parameter (if provided) is not a string or a datetime object.
 
         Returns
         -------
+        dict
+            Dictionary containing matching search results.
 
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Search for media related to 'apollo 11' with 'moon landing' in the description of the items.
+        >>> r = n.media_search(query='apollo 11', description='moon landing')
+        # Print the first returned media item from the resulting collection.
+        >>> r['items'][0]
+        {'href': 'https://images-assets.nasa.gov/video/Apollo 11 Overview/collection.json',
+         'data': [{'description': 'Video highlights from the historic first manned landing on the moon, during the Apollo 11 mission in July 1969.',
+           'date_created': '2013-05-15T00:00:00Z',
+           'nasa_id': 'Apollo 11 Overview',
+           'media_type': 'video',
+           'keywords': ['Apollo 11', 'Moon'],
+           'center': 'HQ',
+           'title': 'Apollo 11 Overview'}],
+         'links': [{'href': 'https://images-assets.nasa.gov/video/Apollo 11 Overview/Apollo 11 Overview~thumb.jpg',
+           'rel': 'preview',
+           'render': 'image'},
+          {'href': 'https://images-assets.nasa.gov/video/Apollo 11 Overview/Apollo 11 Overview.srt',
+           'rel': 'captions'}]}
 
         """
         url = 'https://images-api.nasa.gov/search'
 
-        if all(p is None for p in (query, center, description, keywords, location, media_type, nasa_id, page,
+        if all(p is None for p in (query, center, description, keywords, location, media_type, nasa_id,
                                    photographer, secondary_creator, title, year_start, year_end)):
             raise ValueError('at least one parameter is required')
 
@@ -1351,12 +1400,51 @@ class Nasa(object):
 
     @staticmethod
     def media_asset_manifest(nasa_id):
+        r"""
+        Returns the media asset's manifest, which contains the available versions of the asset and it's metadata
+        location.
 
+        Parameters
+        ----------
+        nasa_id : str
+            The ID of the media asset.
+
+        Returns
+        -------
+        list
+            List of dictionaries containing the media asset's manifest.
+
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get the manifest for the NASA media asset 'as11-40-5874'
+        >>> n.media_asset_manifest(nasa_id='as11-40-5874')
+        [{'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~orig.jpg'},
+         {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~large.jpg'},
+         {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~medium.jpg'},
+         {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~small.jpg'},
+         {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~thumb.jpg'},
+         {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/metadata.json'}]
+
+        """
         return _media_assets(endpoint='asset', nasa_id=nasa_id)
 
     @staticmethod
     def media_asset_metadata(nasa_id):
+        r"""
 
+        Parameters
+        ----------
+        nasa_id : str
+            The ID of the media asset.
+
+        Returns
+        -------
+        dict
+            Dictionary containing the metadata of the provided media asset ID.
+
+        """
         return _media_assets(endpoint='metadata', nasa_id=nasa_id)
 
     @staticmethod

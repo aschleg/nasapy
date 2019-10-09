@@ -1,0 +1,264 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-api.nasa.gov/metadata/as11-40-5874
+  response:
+    body:
+      string: '{"location":"https://images-assets.nasa.gov/image/as11-40-5874/metadata.json"}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin,Content-Type,Accept,Authorization,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET,PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - private
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 09 Oct 2019 13:18:23 GMT
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 1002c05e647d0804e83147cdd205d14a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - MmhyJdCgoPpTVY2cq3Px2Rl6gjB2l5GK_x4wWAL1jLZ-x08WXEJDuw==
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Cache:
+      - Miss from cloudfront
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-assets.nasa.gov/image/as11-40-5874/metadata.json
+  response:
+    body:
+      string: '{"ICC_Profile:ConnectionSpaceIlluminant": "0.9642 1 0.82491", "Photoshop:DisplayedUnitsX":
+        "inches", "AVAIL:DateCreated": "1969:07:21", "EXIF:Software": "Adobe Photoshop
+        CS6 (Windows)", "EXIF:SamplesPerPixel": 3, "EXIF:ExifImageHeight": 3882, "AVAIL:Description508":
+        "", "File:FileInodeChangeDate": "2015:10:19 21:17:04+00:00", "File:MIMEType":
+        "image/jpeg", "ICC_Profile:ViewingCondIlluminant": "19.6445 20.3718 16.8089",
+        "XMP:HistoryParameters": ["from image/tiff to image/jpeg", "converted from
+        image/tiff to image/jpeg"], "File:EncodingProcess": "Baseline DCT, Huffman
+        coding", "ICC_Profile:ProfileClass": "Display Device Profile", "ICC_Profile:MeasurementObserver":
+        "CIE 1931", "AVAIL:Center": "JSC", "AVAIL:Keywords": ["APOLLO 11 FLIGHT",
+        "MOON", "LUNAR SURFACE", "LUNAR BASES", "LUNAR MODULE", "ASTRONAUTS", "EXTRAVEHICULAR
+        ACIVITY"], "XMP:HistoryChanged": ["/", "/", "/", "/"], "IPTC:Keywords": ["APOLLO
+        11 FLIGHT", "MOON", "LUNAR SURFACE", "LUNAR BASES", "LUNAR MODULE", "ASTRONAUTS",
+        "EXTRAVEHICULAR ACIVITY"], "ICC_Profile:ViewingCondIlluminantType": "D50",
+        "ICC_Profile:PrimaryPlatform": "Microsoft Corporation", "XMP:Subject": ["APOLLO
+        11 FLIGHT", "MOON", "LUNAR SURFACE", "LUNAR BASES", "LUNAR MODULE", "ASTRONAUTS",
+        "EXTRAVEHICULAR ACIVITY"], "File:FilePermissions": "rw-------", "EXIF:ModifyDate":
+        "2015:09:28 16:06:44", "File:BitsPerSample": 8, "ICC_Profile:BlueMatrixColumn":
+        "0.14307 0.06061 0.7141", "Composite:ThumbnailImage": "(Binary data 7885 bytes)",
+        "AVAIL:Title": "Apollo 11 Mission image - Astronaut Edwin Aldrin poses beside
+        th", "ICC_Profile:Technology": "Cathode Ray Tube Display", "EXIF:ImageHeight":
+        3882, "XMP:CreatorTool": "Adobe Photoshop CS6 (Windows)", "XMP:MetadataDate":
+        "2015:09:28 16:06:44-05:00", "XMP:HistoryInstanceID": ["xmp.iid:F678871A18CEE211AC309EB950E23FBB",
+        "xmp.iid:F778871A18CEE211AC309EB950E23FBB", "xmp.iid:F878871A18CEE211AC309EB950E23FBB",
+        "xmp.iid:0D189BEF1766E5119008DC5E2E9E7F6F"], "ICC_Profile:ProfileCreator":
+        "HP  ", "APP14:APP14Flags0": "(none)", "File:ColorComponents": 3, "Photoshop:IPTCDigest":
+        "7e5a0b98ca6125a637132f2fea38b05c", "XMP:HistoryWhen": ["2013:06:05 15:07:04-05:00",
+        "2013:06:05 15:07:43-05:00", "2013:06:05 15:07:43-05:00", "2015:09:28 16:06:44-05:00"],
+        "XMP:DerivedFromDocumentID": "uuid:71729A1F6655DB119444E25E9547A475", "ICC_Profile:DeviceMfgDesc":
+        "IEC http://www.iec.ch", "Photoshop:YResolution": 300, "Composite:DateTimeOriginal":
+        "1969:07:21 00:00:00+00:00", "XMP:XMPToolkit": "Adobe XMP Core 5.3-c011 66.145661,
+        2012/02/06-14:56:27        ", "XMP:LegacyIPTCDigest": "BBAC4F14642AB2F23B038E15696D2B56",
+        "XMP:ICCProfileName": "sRGB IEC61966-2.1", "XMP:DerivedFromOriginalDocumentID":
+        "uuid:71729A1F6655DB119444E25E9547A475", "AVAIL:Owner": "mgwhite", "EXIF:Compression":
+        "Uncompressed", "ICC_Profile:DeviceModelDesc": "IEC 61966-2.1 Default RGB
+        colour space - sRGB", "ICC_Profile:MeasurementFlare": "0.999%", "EXIF:ExifVersion":
+        "0221", "IPTC:TimeCreated": "00:00:00+00:00", "ICC_Profile:RedMatrixColumn":
+        "0.43607 0.22249 0.01392", "ICC_Profile:BlueTRC": "(Binary data 2060 bytes)",
+        "EXIF:ImageWidth": 3922, "Photoshop:ProgressiveScans": "3 Scans", "IPTC:DateCreated":
+        "1969:07:21", "File:FileModifyDate": "2015:10:19 21:17:04+00:00", "ICC_Profile:DeviceAttributes":
+        "Reflective, Glossy, Positive, Color", "XMP:Marked": false, "XMP:InstanceID":
+        "xmp.iid:0D189BEF1766E5119008DC5E2E9E7F6F", "EXIF:XResolution": 300, "EXIF:PhotometricInterpretation":
+        "RGB", "File:ImageWidth": 3922, "ICC_Profile:MeasurementIlluminant": "D65",
+        "AVAIL:Album": "", "XMP:OriginalDocumentID": "uuid:71729A1F6655DB119444E25E9547A475",
+        "XMP:ModifyDate": "2015:09:28 16:06:44-05:00", "ICC_Profile:ColorSpaceData":
+        "RGB ", "Photoshop:GlobalAltitude": 30, "XMP:Title": "Apollo 11 Mission image
+        - Astronaut Edwin Aldrin poses beside the U.S. flag that has been placed on
+        the moon", "ICC_Profile:GreenTRC": "(Binary data 2060 bytes)", "APP14:APP14Flags1":
+        "(none)", "IPTC:ApplicationRecordVersion": 2, "XMP:Format": "image/jpeg",
+        "ICC_Profile:ProfileConnectionSpace": "XYZ ", "EXIF:ColorSpace": "sRGB", "ICC_Profile:ProfileVersion":
+        "2.1.0", "XMP:CreateDate": "2006:10:06 13:16:35-05:00", "APP14:DCTEncodeVersion":
+        100, "File:FileSize": "2 MB", "IPTC:ObjectName": "Apollo 11 Mission image
+        - Astronaut Edwin Aldrin poses beside th", "ICC_Profile:MeasurementGeometry":
+        "Unknown (0)", "EXIF:ImageDescription": "Astronaut Edwin E. Aldrin,Lunar Module
+        (LM) pilot, poses for a photo beside the U.S. flag that has been placed on
+        the moon. The LM is visible in the left  field of view. Numerous footprints
+        and the cable of the surface television camera are visible on the lunar surface
+        in the foreground.  Image taken at Tranquility Base during the Apollo 11 Mission.
+        Original film magazine was labeled S.  Film Type: Ektachrome EF SO168 color
+        film on a 2.7-mil Estar polyester base taken with a 60mm lens. Sun angle is
+        Medium. Tilt direction is South (S).\n", "IPTC:CodedCharacterSet": "UTF8",
+        "ICC_Profile:RenderingIntent": "Perceptual", "ICC_Profile:ViewingCondDesc":
+        "Reference Viewing Condition in IEC61966-2.1", "AVAIL:Description": "AS11-40-5874
+        (20 July 1969) --- Astronaut Edwin E. Aldrin Jr., lunar module pilot of the
+        first lunar landing mission, poses for a photograph beside the deployed United
+        States flag during Apollo 11 extravehicular activity (EVA) on the lunar surface.
+        The Lunar Module (LM) is on the left, and the footprints of the astronauts
+        are clearly visible in the soil of the moon. Astronaut Neil A. Armstrong,
+        commander, took this picture with a 70mm Hasselblad lunar surface camera.
+        While astronauts Armstrong and Aldrin descended in the LM the \"Eagle\" to
+        explore the Sea of Tranquility region of the moon, astronaut Michael Collins,
+        command module pilot, remained with the Command and Service Modules (CSM)
+        \"Columbia\" in lunar orbit.", "ICC_Profile:DeviceModel": "sRGB", "XMP:ColorMode":
+        "RGB", "ICC_Profile:ProfileCMMType": "Lino", "Photoshop:DisplayedUnitsY":
+        "inches", "XMP:DateCreated": "1969:07:21", "XMP:Description": "Astronaut Edwin
+        E. Aldrin,Lunar Module (LM) pilot, poses for a photo beside the U.S. flag
+        that has been placed on the moon. The LM is visible in the left  field of
+        view. Numerous footprints and the cable of the surface television camera are
+        visible on the lunar surface in the foreground.  Image taken at Tranquility
+        Base during the Apollo 11 Mission. Original film magazine was labeled S.  Film
+        Type: Ektachrome EF SO168 color film on a 2.7-mil Estar polyester base taken
+        with a 60mm lens. Sun angle is Medium. Tilt direction is South (S).\n", "ICC_Profile:ProfileID":
+        0, "ICC_Profile:MediaBlackPoint": "0 0 0", "ICC_Profile:Luminance": "76.03647
+        80 87.12462", "EXIF:ThumbnailLength": 7885, "File:FileAccessDate": "2015:10:19
+        21:17:04+00:00", "EXIF:ResolutionUnit": "inches", "SourceFile": "-", "ICC_Profile:MediaWhitePoint":
+        "0.95045 1 1.08905", "Composite:DateTimeCreated": "1969:07:21 00:00:00+00:00",
+        "Composite:ImageSize": "3922x3882", "AVAIL:SecondaryCreator": "", "AVAIL:NASAID":
+        "as11-40-5874", "ICC_Profile:ViewingCondSurround": "3.92889 4.07439 3.36179",
+        "Photoshop:CopyrightFlag": false, "XMP:HistorySoftwareAgent": ["Adobe Photoshop
+        CS6 (Windows)", "Adobe Photoshop CS6 (Windows)", "Adobe Photoshop CS6 (Windows)",
+        "Adobe Photoshop CS6 (Windows)"], "ICC_Profile:RedTRC": "(Binary data 2060
+        bytes)", "ICC_Profile:ProfileFileSignature": "acsp", "ICC_Profile:DeviceManufacturer":
+        "IEC ", "ICC_Profile:MeasurementBacking": "0 0 0", "IPTC:Caption-Abstract":
+        "Astronaut Edwin E. Aldrin,Lunar Module (LM) pilot, poses for a photo beside
+        the U.S. flag that has been placed on the moon. The LM is visible in the left  field
+        of view. Numerous footprints and the cable of the surface television camera
+        are visible on the lunar surface in the foreground.  Image taken at Tranquility
+        Base during the Apollo 11 Mission. Original film magazine was labeled S.  Film
+        Type: Ektachrome EF SO168 color film on a 2.7-mil Estar polyester base taken
+        with a 60mm lens. Sun angle is Medium. Tilt direction is South (S).\r", "Photoshop:XResolution":
+        300, "ICC_Profile:CMMFlags": "Not Embedded, Independent", "File:YCbCrSubSampling":
+        "YCbCr4:4:4 (1 1)", "File:CurrentIPTCDigest": "7e5a0b98ca6125a637132f2fea38b05c",
+        "File:FileName": "as11-40-5874.jpg", "Photoshop:PhotoshopFormat": "Standard",
+        "EXIF:BitsPerSample": "8 8 8", "Photoshop:PhotoshopThumbnail": "(Binary data
+        7885 bytes)", "XMP:DocumentID": "uuid:71729A1F6655DB119444E25E9547A475", "File:ImageHeight":
+        3882, "APP14:ColorTransform": "YCbCr", "EXIF:ExifImageWidth": 3922, "AVAIL:Location":
+        "", "Photoshop:GlobalAngle": 30, "AVAIL:MediaType": "image", "AVAIL:Photographer":
+        "", "EXIF:Orientation": "Horizontal (normal)", "XMP:HistoryAction": ["saved",
+        "saved", "converted", "derived", "saved", "saved"], "Photoshop:PhotoshopQuality":
+        8, "File:ExifByteOrder": "Little-endian (Intel, II)", "ICC_Profile:ProfileCopyright":
+        "Copyright (c) 1998 Hewlett-Packard Company", "ICC_Profile:ProfileDateTime":
+        "1998:02:09 06:49:00", "XMP:DerivedFromInstanceID": "xmp.iid:F778871A18CEE211AC309EB950E23FBB",
+        "EXIF:PlanarConfiguration": "Chunky", "File:FileType": "JPEG", "EXIF:YResolution":
+        300, "ExifTool:ExifToolVersion": 9.46, "ICC_Profile:ProfileDescription": "sRGB
+        IEC61966-2.1", "ICC_Profile:GreenMatrixColumn": "0.38515 0.71687 0.09708",
+        "EXIF:ThumbnailOffset": 970}'
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - public, max-age=300, s-max-age=600
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '9313'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 29 Sep 2019 16:12:30 GMT
+      ETag:
+      - '"9335542b2914ef9f6d8d414b1bff4550"'
+      Last-Modified:
+      - Fri, 17 Feb 2017 10:15:29 GMT
+      Server:
+      - AmazonS3
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 e4d3d5aafc7d7d582423c073065ab563.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - mUsv7jjna87JcWhZLpA1dVZbcLkymeD456PeluYF3aPcWXDv7d0s9Q==
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Cache:
+      - RefreshHit from cloudfront
+      x-amz-version-id:
+      - Ab3bgCYiIsBM5ISk3FSkjn1i9ponoC2p
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-api.nasa.gov/metadata/1
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin,Content-Type,Accept,Authorization,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET,PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 09 Oct 2019 13:18:24 GMT
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 deaaf0548506de20925615eb51a7ea7f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - f0E-ye9QYrCgfUeNNEgOmLw83IkFb7dz7YKROprbxdDsoUxzJuBKHA==
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Cache:
+      - Error from cloudfront
+    status:
+      code: 404
+      message: Not Found
+version: 1

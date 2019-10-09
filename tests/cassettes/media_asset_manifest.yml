@@ -1,0 +1,96 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-api.nasa.gov/asset/as11-40-5874
+  response:
+    body:
+      string: '{"collection":{"items":[{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~orig.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~large.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~medium.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~small.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~thumb.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/metadata.json"}],"href":"https://images-api.nasa.gov/asset/as11-40-5874","version":"1.0"}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin,Content-Type,Accept,Authorization,X-Requested-With
+      Access-Control-Allow-Methods:
+      - DELETE,GET,PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - public, max-age=300, s-maxage=600
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '587'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 09 Oct 2019 13:18:22 GMT
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 27a84054de24e45f952ea4056a821764.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Y3OLqT8aj82B4JCj-RosnJv9KYiclHvWLZyzCL140aVnllNstHC19Q==
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Cache:
+      - Miss from cloudfront
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-api.nasa.gov/asset/1
+  response:
+    body:
+      string: '{"reason":"Could not find Asset with assetid=1"}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin,Content-Type,Accept,Authorization,X-Requested-With
+      Access-Control-Allow-Methods:
+      - DELETE,GET,PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 09 Oct 2019 13:18:23 GMT
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 44cd593d82a2d200a94217033c614c6a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - gC6H3iML7kqxhMJ8ebmP3MRsWdq2iD-EZD9tUWRiWSt-vWib9gz9nA==
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Cache:
+      - Error from cloudfront
+    status:
+      code: 404
+      message: Not Found
+version: 1
