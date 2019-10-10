@@ -244,6 +244,11 @@ def test_epic():
         nasa.epic(date=1)
 
 
+@vcr.use_cassette('tests/cassettes/genelab_search.yml')
+def test_genelab_search():
+    pass
+
+
 @vcr.use_cassette('tests/cassettes/earth_imagery.yml')
 def test_earth_imagery():
     image = nasa.earth_imagery(lat=1.5, lon=100.75)
@@ -358,7 +363,14 @@ def test_media_asset_metadata():
 
 @vcr.use_cassette('tests/cassettes/media_asset_captions.yml')
 def test_media_asset_captions():
-    pass
+    m = nasa.media_asset_captions(nasa_id='172_ISS-Slosh')
+
+    assert isinstance(m, dict)
+    assert 'location' in m.keys()
+    assert 'captions' in m.keys()
+
+    with pytest.raises(HTTPError):
+        nasa.media_asset_captions(nasa_id='1')
 
 
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')

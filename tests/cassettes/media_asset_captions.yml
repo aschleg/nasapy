@@ -1,0 +1,237 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-api.nasa.gov/captions/172_ISS-Slosh
+  response:
+    body:
+      string: '{"location":"https://images-assets.nasa.gov/video/172_ISS-Slosh/172_ISS-Slosh.srt"}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin,Content-Type,Accept,Authorization,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET,PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - public, max-age=300, s-maxage=600
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '83'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 10 Oct 2019 13:24:54 GMT
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 60b744e5b364d04abea9fa6686121242.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - qApIa3EWbvZbmEeriyRsO-56piBPgPea8NMreUERHMcgPDsBO3B1Ug==
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Cache:
+      - Miss from cloudfront
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-assets.nasa.gov/video/172_ISS-Slosh/172_ISS-Slosh.srt
+  response:
+    body:
+      string: "1\n00:00:01,230 --> 00:00:02,670\n[ music ] \n\n2\n00:00:02,690 -->
+        00:00:05,850\nThe Strange Way Fluids Slosh on the International Space Station
+        - \n\n3\n00:00:05,870 --> 00:00:08,200\npresented by Science@NASA\n\n4\n00:00:08,220
+        --> 00:00:11,580\nThe next time you pour yourself a glass of water, \n\n5\n00:00:11,600
+        --> 00:00:13,440\npause before you drink it.  \n\n6\n00:00:13,460 --> 00:00:16,650\nFirst,
+        swirl the clear liquid around the glass.\n\n7\n00:00:16,670 --> 00:00:18,730\nGently
+        slosh it back and forth. \n\n8\n00:00:18,750 --> 00:00:20,630\nTap the glass
+        on the tabletop, \n\n9\n00:00:20,650 --> 00:00:23,250\nand watch the patterns
+        that form on the surface. \n\n10\n00:00:23,270 --> 00:00:25,160\nNow imagine
+        the same exercise ... \n\n11\n00:00:25,180 --> 00:00:26,990\nin zero gravity.\n\n12\n00:00:27,010
+        --> 00:00:28,910\nWould the waves and ripples look the same? \n\n13\n00:00:28,930
+        --> 00:00:31,930\nWould the liquid slosh more, or less? \n\n14\n00:00:31,950
+        --> 00:00:33,310\nFaster, or slower?\n\n15\n00:00:33,330 --> 00:00:36,510\nNASA
+        engineers spend a surprising amount of time \n\n16\n00:00:36,530 --> 00:00:39,250\nasking
+        themselves these same questions. \n\n17\n00:00:39,270 --> 00:00:41,910\nTheir
+        interest centers not on water glasses, \n\n18\n00:00:41,930 --> 00:00:44,020\nbut
+        rather on fuel tanks. \n\n19\n00:00:44,040 --> 00:00:47,210\nNASA's most powerful
+        rockets use liquid fuel, \n\n20\n00:00:47,230 --> 00:00:48,920\nand when these
+        rockets blast off, \n\n21\n00:00:48,940 --> 00:00:50,920\nthe propellants
+        slosh around. \n\n22\n00:00:50,940 --> 00:00:53,120\nScientists have a good
+        idea \n\n23\n00:00:53,140 --> 00:00:55,450\nhow liquids slosh in normal Earth
+        gravity \n\n24\n00:00:55,470 --> 00:00:58,790\nwhere the weight and viscosity
+        of the liquid rule its dynamics. \n\n25\n00:00:58,810 --> 00:01:00,750\nDeep
+        space is different, however. \n\n26\n00:01:00,770 --> 00:01:03,500\nWeightless
+        propellants are guided by surface tension \n\n27\n00:01:03,520 --> 00:01:05,210\nand
+        capillary effects. \n\n28\n00:01:05,230 --> 00:01:06,380\nFar from Earth,
+        \n\n29\n00:01:06,400 --> 00:01:09,240\nthey could slosh and froth in unexpected
+        ways.\n\n30\n00:01:09,260 --> 00:01:11,810\n'Modern computer models try to
+        predict \n\n31\n00:01:11,830 --> 00:01:13,970\nhow liquid moves inside a propellant
+        tank,' \n\n32\n00:01:13,990 --> 00:01:16,520\nsays Brandon Marsell of NASA's
+        Fluid Group \n\n33\n00:01:16,540 --> 00:01:17,790\nat the Kennedy Space Center.
+        \n\n34\n00:01:17,810 --> 00:01:19,680\n'Most of the models we have \n\n35\n00:01:19,700
+        --> 00:01:22,160\nwere validated under 1 g conditions on Earth. \n\n36\n00:01:22,180
+        --> 00:01:25,270\nNone have been validated in microgravity.'\n\n37\n00:01:25,290
+        --> 00:01:27,960\nEnter the SPHERES-Slosh experiment.\n\n38\n00:01:27,980
+        --> 00:01:29,650\n'The International Space Station \n\n39\n00:01:29,670 -->
+        00:01:31,340\nprovides the perfect environment \n\n40\n00:01:31,360 --> 00:01:34,260\nto
+        conduct liquid behavior studies in microgravity,'\n\n41\n00:01:34,280 -->
+        00:01:35,970\nsays the principal investigator, \n\n42\n00:01:35,990 --> 00:01:38,170\nPaul
+        Schallhorn also at Kennedy. \n\n43\n00:01:38,190 --> 00:01:40,030\n'So we
+        have designed an experiment \n\n44\n00:01:40,050 --> 00:01:42,150\nthat simulates
+        how rocket fuels move around \n\n45\n00:01:42,170 --> 00:01:43,640\ninside
+        their tanks.'\n\n46\n00:01:43,660 --> 00:01:45,700\nBuilt by Professor Dan
+        Kirk \n\n47\n00:01:45,720 --> 00:01:48,080\nand colleagues at the Florida
+        Institute of Technology, \n\n48\n00:01:48,100 --> 00:01:50,100\nSPHERES-Slosh
+        is, essentially, \n\n49\n00:01:50,120 --> 00:01:54,010\na fluid chamber grappled
+        by a pair of bowling ball-sized robots. \n\n50\n00:01:54,030 --> 00:01:55,690\nThe
+        two SPHERES \n\n51\n00:01:55,710 --> 00:01:58,720\n(a product of the Space
+        Systems Laboratory at MIT) \n\n52\n00:01:58,740 --> 00:02:00,580\nwere already
+        onboard the space station \n\n53\n00:02:00,600 --> 00:02:03,860\nwhen the
+        Slosh chamber arrived in February 2014. \n\n54\n00:02:03,880 --> 00:02:06,500\nTogether,
+        the robots move the chamber back and forth \n\n55\n00:02:06,520 --> 00:02:08,500\nto
+        mimic common spacecraft maneuvers \n\n56\n00:02:08,520 --> 00:02:11,020\nsuch
+        as the 'BBQ roll', attitude adjustments, \n\n57\n00:02:11,040 --> 00:02:13,470\nand
+        engine shut-downs. \n\n58\n00:02:13,490 --> 00:02:16,130\nIn 2014, astronauts
+        supervised the robots \n\n59\n00:02:16,150 --> 00:02:19,710\nas they made
+        three test runs using chambers 20% \n\n60\n00:02:19,730 --> 00:02:21,740\nand
+        40% filled with fluid-\n\n61\n00:02:21,760 --> 00:02:24,350\nmuch like a partially-spent
+        fuel tank.\n\n62\n00:02:24,370 --> 00:02:25,720\n'We use water \n\n63\n00:02:25,740
+        --> 00:02:28,420\nmixed with a bit of green food coloring,' says Schallhorn.
+        \ \n\n64\n00:02:28,440 --> 00:02:30,090\nWhy water? \n\n65\n00:02:30,110 -->
+        00:02:31,120\n'For one thing, \n\n66\n00:02:31,140 --> 00:02:32,900\nit is
+        a safe fluid for the space station. \n\n67\n00:02:32,920 --> 00:02:35,320\nWater
+        is on the approved list \n\n68\n00:02:35,340 --> 00:02:38,100\nof fluids we
+        can send to the station,' he explains. \n\n69\n00:02:38,120 --> 00:02:41,230\n'Also,
+        its viscosity is similar to hydrazine, \n\n70\n00:02:41,250 --> 00:02:43,370\na
+        propellant used by satellites; \n\n71\n00:02:43,390 --> 00:02:45,670\nand
+        its density is similar to liquid oxygen, \n\n72\n00:02:45,690 --> 00:02:48,030\nan
+        important cryogenic propellant.'\n\n73\n00:02:48,050 --> 00:02:49,910\nDuring
+        the experiments, \n\n74\n00:02:49,930 --> 00:02:51,670\nwhich can last as
+        long as six hours, \n\n75\n00:02:51,690 --> 00:02:54,920\ncameras, gyros and
+        accelerometers \n\n76\n00:02:54,940 --> 00:02:56,480\nrecord the motions of
+        the water.\n\n77\n00:02:56,500 --> 00:02:58,960\n'We are getting great data,'
+        says Marsell. \n\n78\n00:02:58,980 --> 00:03:00,520\n'So far,' he says, \n\n79\n00:03:00,540
+        --> 00:03:02,940\n'our computer models on Earth have done a good job \n\n80\n00:03:02,960
+        --> 00:03:04,830\npredicting wave motions inside the chamber.'\n\n81\n00:03:04,850
+        --> 00:03:06,920\nBut there is a mystery....\n\n82\n00:03:06,940 --> 00:03:09,400\n'It
+        has to do with bubbles,' says Schallhorn. \n\n83\n00:03:09,420 --> 00:03:12,740\n'The
+        way bubbles form and interact inside the chamber \n\n84\n00:03:12,760 -->
+        00:03:15,760\nis surprising-and not predicted by our models. \n\n85\n00:03:15,780
+        --> 00:03:18,180\nWe were taken off guard with what we saw in the data.'\n\n86\n00:03:18,200
+        --> 00:03:21,300\nThe bubbling and frothing of shaken fuels \n\n87\n00:03:21,320
+        --> 00:03:23,850\nis cutting-edge research in fluid dynamics, \n\n88\n00:03:23,870
+        --> 00:03:27,320\nand SPHERE-Slosh is showing that it may be very important.
+        \ \n\n89\n00:03:27,340 --> 00:03:30,080\nJacob Roth of the Fluids Group at
+        KSC adds, \n\n90\n00:03:30,100 --> 00:03:33,190\n'this is something we plan
+        to investigate further. \n\n91\n00:03:33,210 --> 00:03:34,220\nWho knows?
+        \n\n92\n00:03:34,240 --> 00:03:38,000\nIt might just shake up our understanding
+        of fluids in space.'\n\n93\n00:03:38,020 --> 00:03:40,090\nFor more news about
+        frothing fuels, \n\n94\n00:03:40,110 --> 00:03:42,190\nand other physics research
+        on the space station, \n\n95\n00:03:42,210 --> 00:03:45,873\nstay tuned to
+        science.nasa.gov\n\r"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, max-age=300, s-max-age=600
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '6938'
+      Content-Type:
+      - text/plain
+      Date:
+      - Sat, 05 Oct 2019 11:15:45 GMT
+      ETag:
+      - '"9bb65724716f0b448e2d7ef41da418fa"'
+      Last-Modified:
+      - Fri, 24 Mar 2017 16:18:40 GMT
+      Server:
+      - AmazonS3
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 7eb3b782ab09047ce0d11ee03763894c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - gbRuw8MhzHuzbX34omqQvv9PAzkFq7OIrryuFUoT-osjoOIWZmLj4Q==
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Cache:
+      - RefreshHit from cloudfront
+      x-amz-version-id:
+      - O1dcZ7uJSx5mzMNMEPRZBZWWkhgbJswe
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://images-api.nasa.gov/captions/1
+  response:
+    body:
+      string: '{"reason":"Didn''t find assetid=1"}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin,Content-Type,Accept,Authorization,X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET,PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '34'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 10 Oct 2019 13:24:55 GMT
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Via:
+      - 1.1 599f04a365a179d553682d476509c389.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 21oDMdAYzQ-oP1xG5d_fy1-Ju0tIOCBL_exfGBtUgiBnIkl83APUEg==
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Cache:
+      - Error from cloudfront
+    status:
+      code: 404
+      message: Not Found
+version: 1

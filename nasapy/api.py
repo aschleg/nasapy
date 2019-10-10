@@ -1267,6 +1267,10 @@ class Nasa(object):
 
         return r
 
+    def genelab_search(self, term, sort, type='cgene,nih_geo_gse,ebi_pride,mg_rast', page=0, size=25, order='DESC',
+                       ffield=None, fvalue=None):
+        pass
+
     @staticmethod
     def media_search(query=None, center=None, description=None, keywords=None, location=None, media_type=None,
                      nasa_id=None, page=1, photographer=None, secondary_creator=None, title=None, year_start=None,
@@ -1327,7 +1331,7 @@ class Nasa(object):
 
         Examples
         --------
-        # Initialize API connection with a Demo Key
+        # Initialize API connection
         >>> n = Nasa()
         # Search for media related to 'apollo 11' with 'moon landing' in the description of the items.
         >>> r = n.media_search(query='apollo 11', description='moon landing')
@@ -1433,6 +1437,7 @@ class Nasa(object):
     @staticmethod
     def media_asset_metadata(nasa_id):
         r"""
+        Retrieves the specified media asset's metadata.
 
         Parameters
         ----------
@@ -1449,7 +1454,23 @@ class Nasa(object):
 
     @staticmethod
     def media_asset_captions(nasa_id):
+        r"""
+        Retrieves the captions and location of the captions .srt file for a media asset from the NASA image API.
 
+        Parameters
+        ----------
+        nasa_id : str
+            The ID of the media asset.
+
+        Returns
+        -------
+        dict
+            Dictionary object containing the resulting data from the API given the media asset ID. The dictionary will
+            contain two keys, :code:`location` and :code:`captions`. The :code:`location` key can be used to
+            download the .srt file directly while the :code:`captions` key can be used in conjunction with a library
+            such as srt for parsing media asset captions.
+
+        """
         return _media_assets(endpoint='captions', nasa_id=nasa_id)
 
     # def mars_mission_manifest(self, rover):
