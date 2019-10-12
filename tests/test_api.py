@@ -246,7 +246,21 @@ def test_epic():
 
 @vcr.use_cassette('tests/cassettes/genelab_search.yml')
 def test_genelab_search():
-    pass
+
+    space = nasa.genelab_search(term='space', size=1)
+    databases = nasa.genelab_search(term='space', database='cgene,nih_geo_gse', size=1)
+    order = nasa.genelab_search(term='space', database='cgene,nih_geo_gse', order='asc', size=1)
+
+    assert isinstance(space, dict)
+    assert isinstance(databases, dict)
+    assert isinstance(order, dict)
+
+    with pytest.raises(ValueError):
+        nasa.genelab_search(page=-1)
+    with pytest.raises(ValueError):
+        nasa.genelab_search(order=1)
+    with pytest.raises(ValueError):
+        nasa.genelab_search(size=0)
 
 
 @vcr.use_cassette('tests/cassettes/earth_imagery.yml')

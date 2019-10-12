@@ -1129,7 +1129,7 @@ class Nasa(object):
         else:
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
-            return r.json()
+        return r.json()
 
     def mars_rover(self, sol=None, earth_date=None, camera='all', rover='curiosity', page=1):
         r"""
@@ -1246,7 +1246,7 @@ class Nasa(object):
         else:
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
-            return r.json()['photos']
+        return r.json()['photos']
 
     def exoplanets(self, table, select, count, colset, where, order, ra, dec):
         host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'
@@ -1267,9 +1267,37 @@ class Nasa(object):
 
         return r
 
-    def genelab_search(self, term, sort, type='cgene,nih_geo_gse,ebi_pride,mg_rast', page=0, size=25, order='DESC',
+    def genelab_search(self, term=None, database='cgene', page=0, size=25, sort=None, order='desc',
                        ffield=None, fvalue=None):
-        pass
+
+        url = 'https://genelab-data.ndc.nasa.gov/genelab/data/search'
+
+        if order not in ('desc', 'asc'):
+            raise ValueError('order parameter must be "desc" (descending, default), or "asc" (ascending)')
+
+        if page < 0:
+            raise ValueError('page parameter must be at least 0 (start)')
+
+        if size <= 0:
+            raise ValueError('size of results to return cannot be 0 or less.')
+
+        r = requests.get(url,
+                         params={
+                             'term': term,
+                             'sort': sort,
+                             'type': database,
+                             'from': page,
+                             'size': size,
+                             'order': str.upper(order),
+                             'ffield': ffield,
+                             'fvalue': fvalue,
+                             'api_key': self.__api_key
+                         })
+
+        if r.status_code != 200:
+            raise requests.exceptions.HTTPError(r.reason, r.url)
+
+        return r.json()
 
     @staticmethod
     def media_search(query=None, center=None, description=None, keywords=None, location=None, media_type=None,

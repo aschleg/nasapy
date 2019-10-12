@@ -3,5 +3,8 @@ $ cat .gitignore
 venv/
 .idea/
 notebooks/
+dist/
+build/
+nasapy.egg-info/
 *.pyc
 *.DS_Store

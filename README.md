@@ -9,7 +9,35 @@
 
 Python wrapper for the [nasa.gov API](https://api.nasa.gov/).
 
+## Installation
+
+`nasapy` is most easily installed using `pip`
+
+```bash
+pip install nasapy
+```
+
+The library can also be cloned or downloaded into a location of your choosing and then installed using the `setup.py` 
+file per the following:
+
+~~~ python
+git clone git@github.com:aschleg/nasapy.git
+cd nasapy
+python setup.py install
+~~~
+
+## Examples and Usage
+
+
+## Documentation
+
+* [Nasa's API documentation page](https://api.nasa.gov/)
+
 ## Requirements
 
 * Python 3.4+
 * `requests>=2.18`
+
+## License
+
+MIT
