@@ -1,0 +1,446 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/techport/api/projects/17792?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: !!binary |
+        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
+        h4eHPwEAAP//AwCd86EF2BgAAA==
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Cache-Control:
+      - private
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Language:
+      - en-US
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 16 Oct 2019 13:39:58 GMT
+      Server:
+      - openresty
+      Set-Cookie:
+      - TSESSIONID=kGn4ZcQawX6aSh9BX8a7UagdR8fNblTgArSY; Path=/; HttpOnly;Secure
+      - JSESSIONID=225D9F7BC127F4C56CF8DC0016B18D5F; Path=/; HttpOnly;Secure
+      - fsr.s=''; Domain='.nasa.gov'; Expires='Thu, Jan 01 1970 00:00:00 GMT'; Max-Age=0;
+        Path=/;Secure
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '990'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/techport/api/projects/17792.xml?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: !!binary |
+        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
+        bscFAAAA//8DAJ/3rYgfIQAA
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '2'
+      Cache-Control:
+      - private
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Language:
+      - en-US
+      Content-Type:
+      - application/xml;charset=utf-8
+      Date:
+      - Wed, 16 Oct 2019 13:39:59 GMT
+      Server:
+      - openresty
+      Set-Cookie:
+      - TSESSIONID=GB3mo6r1vAsPDplsWTAPAcmXcLDRfTf2Rkqj; Path=/; HttpOnly;Secure
+      - JSESSIONID=35F662609DFCA3F2AAC5A8E9719D6878; Path=/; HttpOnly;Secure
+      - fsr.s=''; Domain='.nasa.gov'; Expires='Thu, Jan 01 1970 00:00:00 GMT'; Max-Age=0;
+        Path=/;Secure
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '989'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/techport/api/projects/?updatedSince=2019-10-01&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+        <html><head>
+
+        <title>301 Moved Permanently</title>
+
+        </head><body>
+
+        <h1>Moved Permanently</h1>
+
+        <p>The document has moved <a href="https://techport.nasa.gov/api/projects?updatedSince=2019-10-01">here</a>.</p>
+
+        </body></html>
+
+'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '270'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Date:
+      - Wed, 16 Oct 2019 13:39:59 GMT
+      Location:
+      - https://api.nasa.gov/techport/api/projects?updatedSince=2019-10-01&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSfW])
+      X-Cache:
+      - MISS
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '988'
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/techport/api/projects?updatedSince=2019-10-01&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: '{"projects":{"totalCount":6,"projects":[{"id":95410,"lastUpdated":"2019-10-15"},{"id":14656,"lastUpdated":"2019-10-11"},{"id":94183,"lastUpdated":"2019-10-10"},{"id":94182,"lastUpdated":"2019-10-10"},{"id":10759,"lastUpdated":"2019-10-10"},{"id":94848,"lastUpdated":"2019-10-1"}]}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '1'
+      Cache-Control:
+      - private
+      Connection:
+      - keep-alive
+      Content-Language:
+      - en-US
+      Content-Length:
+      - '281'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 16 Oct 2019 13:40:00 GMT
+      Server:
+      - openresty
+      Set-Cookie:
+      - TSESSIONID=PVijYVVokHVhoxjOmcvm4wgGZ1pBgRnzCZiN; Path=/; HttpOnly;Secure
+      - JSESSIONID=F443D1E794D1FFD5F757252581835DD8; Path=/; HttpOnly;Secure
+      - fsr.s=''; Domain='.nasa.gov'; Expires='Thu, Jan 01 1970 00:00:00 GMT'; Max-Age=0;
+        Path=/;Secure
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '987'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/techport/api/projects/?updatedSince=2019-10-01&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+        <html><head>
+
+        <title>301 Moved Permanently</title>
+
+        </head><body>
+
+        <h1>Moved Permanently</h1>
+
+        <p>The document has moved <a href="https://techport.nasa.gov/api/projects?updatedSince=2019-10-01">here</a>.</p>
+
+        </body></html>
+
+'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '1'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '270'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Date:
+      - Wed, 16 Oct 2019 13:40:00 GMT
+      Location:
+      - https://api.nasa.gov/techport/api/projects?updatedSince=2019-10-01&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+      Server:
+      - openresty
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Via:
+      - http/1.1 api-umbrella (ApacheTrafficServer [cHs f ])
+      X-Cache:
+      - HIT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '986'
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.nasa.gov/techport/api/projects?updatedSince=2019-10-01&api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+  response:
+    body:
+      string: '{"projects":{"totalCount":6,"projects":[{"id":95410,"lastUpdated":"2019-10-15"},{"id":14656,"lastUpdated":"2019-10-11"},{"id":94183,"lastUpdated":"2019-10-10"},{"id":94182,"lastUpdated":"2019-10-10"},{"id":10759,"lastUpdated":"2019-10-10"},{"id":94848,"lastUpdated":"2019-10-1"}]}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      Cache-Control:
+      - private
+      Connection:
+      - keep-alive
+      Content-Language:
+      - en-US
+      Content-Length:
+      - '281'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 16 Oct 2019 13:40:00 GMT
+      Server:
+      - openresty
+      Set-Cookie:
+      - TSESSIONID=ggH7Tkx24Y97BpIYZwsXUK3xziEaU4tSmGVC; Path=/; HttpOnly;Secure
+      - JSESSIONID=C716B4A2054EE600F5CC717A5A324A53; Path=/; HttpOnly;Secure
+      - fsr.s=''; Domain='.nasa.gov'; Expires='Thu, Jan 01 1970 00:00:00 GMT'; Max-Age=0;
+        Path=/;Secure
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      - max-age=31536000; preload
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Cache:
+      - MISS
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-RateLimit-Limit:
+      - '1000'
+      X-RateLimit-Remaining:
+      - '985'
+    status:
+      code: 200
+      message: ''
+version: 1

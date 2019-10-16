@@ -390,11 +390,24 @@ def test_media_asset_captions():
 
 @vcr.use_cassette('tests/cassettes/techport.yml')
 def test_techport():
-    pass
+    project_id = nasa.techport(project_id=17792)
+    xml = nasa.techport(project_id=17792, return_format='xml')
+    last_updated = nasa.techport(last_updated='2019-10-01')
+    last_updated_dt = nasa.techport(last_updated=datetime.datetime.strptime('2019-10-01', '%Y-%m-%d'))
+
+    assert isinstance(project_id, dict)
+    assert isinstance(xml, str)
+    assert isinstance(last_updated, dict)
+    assert isinstance(last_updated_dt, dict)
+
+    with pytest.raises(ValueError):
+        nasa.techport(return_format='test')
+    with pytest.raises(TypeError):
+        nasa.techport(last_updated=1)
 
 
 @vcr.use_cassette('tests/cassettes/tle.yml')
-def test_yml():
+def test_tle():
     pass
 
 

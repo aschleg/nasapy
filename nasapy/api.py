@@ -1269,7 +1269,29 @@ class Nasa(object):
 
     def genelab_search(self, term=None, database='cgene', page=0, size=25, sort=None, order='desc',
                        ffield=None, fvalue=None):
+        r"""
 
+        Parameters
+        ----------
+        term : str, default None
+        database : str, {'cgene',
+        page : int, default 0
+        size : int, default 25
+        sort : str, default None
+        order : str, {'desc', 'asc'}
+        ffield : str, default None
+        fvalue : str, default None
+
+        Raises
+        ------
+
+        Returns
+        -------
+
+        Examples
+        --------
+
+        """
         url = 'https://genelab-data.ndc.nasa.gov/genelab/data/search'
 
         if order not in ('desc', 'asc'):
@@ -1300,6 +1322,33 @@ class Nasa(object):
         return r.json()
 
     def techport(self, project_id=None, last_updated=None, return_format='json'):
+        r"""
+        Retrieves available NASA project data.
+
+        Parameters
+        ----------
+        project_id : str, int, default None
+            The ID of the project record. If not specified, all available projects will be returned.
+        last_updated : str, datetime
+            Returns projects only updated after the specified date. Must be a string representing a date in
+            'YYYY-MM-DD' format or a datetime object.
+        return_format : str, {'json', 'xml'}
+            Specifies the return format of the data. Defaults to 'json', but 'xml' formatted data is also available.
+
+        Raises
+        ------
+        ValueError
+            Raised if :code:`return_foramt` is not one of 'json' (default) or 'xml'.
+        TypeError
+            Raised if :code:`last_updated` is not a string or a datetime object.
+
+        Returns
+        -------
+        dict or str
+            If :code:`return_format` is 'json', a dictionary representing the JSON formatted data is returned.
+            Otherwise, a string formatted for XML is returned.
+
+        """
         url = self.host + '/techport/api/projects/'
 
         if return_format not in ('json', 'xml'):
@@ -1333,7 +1382,7 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
         if return_format == 'xml':
-            r = r.text()
+            r = r.text
         else:
             r = r.json()
 
@@ -1341,6 +1390,37 @@ class Nasa(object):
 
 
 def tle(search_satellite=None, satellite_number=None):
+    r"""
+    Returns two-line element set records provided by CelesTrak. A two-line element set (TLE) is a data format
+    encoding a list of orbital elements of an Earth-orbiting object for a given point in time.
+
+    Parameters
+    ----------
+    search_satellite : str, default None
+        Searches satellites by name designation.
+    satellite_number : str, int, default None
+        Specfic satellite ID number.
+
+    Returns
+    -------
+    dict
+        Dictionary object representing the returned JSON data.
+
+    Examples
+    --------
+    # The TLE endpoint does not require API authentication, thus we can call the function without initializing the
+    # Nasa class
+    # Retrieve available data for a specific satellite ID.
+    >>> tle(satellite_number=43553)
+    {'@id': 'https://data.ivanstanojevic.me/api/tle/43553',
+     '@type': 'TleModel',
+     'satelliteId': 43553,
+     'name': '1998-067PB',
+     'date': '2019-10-14T19:13:21+00:00',
+     'line1': '1 43553U 98067PB  19287.80094257  .00010817  00000-0  12491-3 0  9999',
+     'line2': '2 43553  51.6389 108.1812 0005967 223.4274 136.6250 15.62481474 71504'}
+
+    """
     url = 'https://data.ivanstanojevic.me/api/tle'
 
     if all(p is None for p in (search_satellite, satellite_number)):
@@ -1357,7 +1437,7 @@ def tle(search_satellite=None, satellite_number=None):
 
             r = requests.get(url)
 
-    return r
+    return r.json()
 
 
 def media_search(query=None, center=None, description=None, keywords=None, location=None, media_type=None,
