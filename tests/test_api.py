@@ -408,7 +408,16 @@ def test_techport():
 
 @vcr.use_cassette('tests/cassettes/tle.yml')
 def test_tle():
-    pass
+    tle_all = tle()
+    tle_sat_num = tle(satellite_number=43553)
+    tle_search = tle(search_satellite='1998-067PB')
+
+    assert isinstance(tle_all, dict)
+    assert isinstance(tle_sat_num, dict)
+    assert isinstance(tle_search, dict)
+
+    with pytest.raises(HTTPError):
+        tle(satellite_number=1)
 
 
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')

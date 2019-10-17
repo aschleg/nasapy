@@ -362,15 +362,14 @@ class Nasa(object):
         if r.status_code != 200:
             raise requests.exceptions.HTTPError(r.reason, r.url)
 
+        self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+
+        if r.text == '':
+            r = {}
         else:
-            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+            r = r.json()
 
-            if r.text == '':
-                r = {}
-            else:
-                r = r.json()
-
-            return r
+        return r
 
     def geomagnetic_storm(self, start_date=None, end_date=None):
         r"""
@@ -429,15 +428,14 @@ class Nasa(object):
         if r.status_code != 200:
             raise requests.exceptions.HTTPError(r.reason, r.url)
 
+        self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+
+        if r.text == '':
+            r = {}
         else:
-            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+            r = r.json()
 
-            if r.text == '':
-                r = {}
-            else:
-                r = r.json()
-
-            return r
+        return r
 
     def interplantary_shock(self, start_date=None, end_date=None, location='ALL', catalog='ALL'):
         r"""
@@ -513,15 +511,14 @@ class Nasa(object):
         if r.status_code != 200:
             raise requests.exceptions.HTTPError(r.reason, r.url)
 
+        self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+
+        if r.text == '':
+            r = {}
         else:
-            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+            r = r.json()
 
-            if r.text == '':
-                r = {}
-            else:
-                r = r.json()
-
-            return r
+        return r
 
     def solar_flare(self, start_date=None, end_date=None):
         r"""
@@ -1378,8 +1375,7 @@ class Nasa(object):
         if r.status_code != 200:
             raise requests.exceptions.HTTPError(r.reason, r.url)
 
-        else:
-            self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+        self.__limit_remaining = r.headers['X-RateLimit-Remaining']
 
         if return_format == 'xml':
             r = r.text
@@ -1387,6 +1383,38 @@ class Nasa(object):
             r = r.json()
 
         return r
+
+    # def mars_mission_manifest(self, rover):
+    #     url = self.host + '/mars-photos/api/manifests/{rover}'.format(rover=rover)
+    #
+    #     r = requests.get(url)
+    #
+    #     return r
+
+    # def patents(self, query, concept_tags=False, limit=None):
+    #     url = self.host + '/patents/content'
+    #
+    #     if limit is not None:
+    #         if not isinstance(limit, int):
+    #             raise TypeError('limit parameter must None (return all results) or an int.')
+    #
+    #     if not isinstance(concept_tags, bool):
+    #         raise TypeError('concept_tags parameter must be boolean (True or False).')
+    #
+    #     r = requests.get(url,
+    #                      params={
+    #                          'query': query,
+    #                          'limit': limit,
+    #                          'api_key': self.__api_key
+    #                      })
+    #
+    #     if r.status_code != 200 or r.text == '':
+    #         r = {}
+    #     else:
+    #         self.__limit_remaining = r.headers['X-RateLimit-Remaining']
+    #         r = r.json()
+    #
+    #     return r
 
 
 def tle(search_satellite=None, satellite_number=None):
@@ -1423,19 +1451,20 @@ def tle(search_satellite=None, satellite_number=None):
     """
     url = 'https://data.ivanstanojevic.me/api/tle'
 
-    if all(p is None for p in (search_satellite, satellite_number)):
+    if search_satellite is not None:
+        r = requests.get(url,
+                         params={'search': search_satellite})
+
+    elif satellite_number is not None:
+        url = url + '/{satellite_number}'.format(satellite_number=satellite_number)
+
         r = requests.get(url)
 
     else:
+        r = requests.get(url)
 
-        if search_satellite is not None:
-            r = requests.get(url,
-                             params={'search': search_satellite})
-
-        elif satellite_number is not None:
-            url = url + '/{satellite_number}'.format(satellite_number=satellite_number)
-
-            r = requests.get(url)
+    if r.status_code == 404:
+        raise requests.exceptions.HTTPError(r.json()['response']['message'])
 
     return r.json()
 
@@ -1641,37 +1670,18 @@ def media_asset_captions(nasa_id):
     """
     return _media_assets(endpoint='captions', nasa_id=nasa_id)
 
-    # def mars_mission_manifest(self, rover):
-    #     url = self.host + '/mars-photos/api/manifests/{rover}'.format(rover=rover)
-    #
-    #     r = requests.get(url)
-    #
-    #     return r
 
-    # def patents(self, query, concept_tags=False, limit=None):
-    #     url = self.host + '/patents/content'
-    #
-    #     if limit is not None:
-    #         if not isinstance(limit, int):
-    #             raise TypeError('limit parameter must None (return all results) or an int.')
-    #
-    #     if not isinstance(concept_tags, bool):
-    #         raise TypeError('concept_tags parameter must be boolean (True or False).')
-    #
-    #     r = requests.get(url,
-    #                      params={
-    #                          'query': query,
-    #                          'limit': limit,
-    #                          'api_key': self.__api_key
-    #                      })
-    #
-    #     if r.status_code != 200 or r.text == '':
-    #         r = {}
-    #     else:
-    #         self.__limit_remaining = r.headers['X-RateLimit-Remaining']
-    #         r = r.json()
-    #
-    #     return r
+def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=0.05, h_min=None, h_max=None,
+                        v_inf_min=None, v_inf_max=None, v_rel_min=None, v_rel_max=None, orbit_class=None, pha=False,
+                        nea=False, comet=False, nea_comet=False, neo=True, kind=None, spk=None, des=None,
+                        body='Earth', sort='date', limit=None, fullname=False):
+    url = 'https://ssd-api.jpl.nasa.gov/cad.api'
+
+
+def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, impact_e_min=None, impact_e_max=None,
+              vel_min=None, vel_max=None, alt_min=None, alt_max=None, req_loc=False, req_alt=False, req_vel=False,
+              req_vel_comp=False, vel_comp=False, sort='-date', limit=None):
+    url = 'https://ssd-api.jpl.nasa.gov/fireball.api'
 
 
 def _donki_request(key, url, start_date=None, end_date=None):
@@ -1698,12 +1708,10 @@ def _donki_request(key, url, start_date=None, end_date=None):
     if r.status_code != 200:
         raise requests.exceptions.HTTPError(r.reason, r.url)
 
+    if r.text == '':
+        r = {}
     else:
-        if r.text == '':
-
-            r = {}
-        else:
-            r = r.json()
+        r = r.json()
 
     return limit_remaining, r
 
