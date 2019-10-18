@@ -1,8 +1,10 @@
 import vcr
 import os
 import pytest
+
+from nasapy import Nasa
 from nasapy.api import *
-from nasapy.api import _media_assets, _donki_request, _check_dates
+from nasapy.api import _donki_request, _check_dates
 from requests.exceptions import HTTPError
 import datetime
 
