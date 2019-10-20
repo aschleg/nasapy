@@ -15,38 +15,79 @@ from nasapy.api import tle, media_search, media_asset_captions, media_asset_meta
 
 class Nasa(object):
     r"""
+    Class object containing the methods for interacting with NASA API endpoints that require an API key.
 
     Parameters
     ----------
     key : str, default None
+        The generated API key received from the NASA API. Registering for an API key can be done on the `NASA API
+        webpage <https://api.nasa.gov/>`_. If :code:`None`, a 'DEMO_KEY' with a much more restricted access limited
+        is used.
 
     Attributes
     ----------
     key : str, None
+        The specified key when initializing the class.
     limit_remaining : int
+        The number of API calls available.
     mars_weather_limit_remaining : int
+        The number of API calls available for the :code:`mars_weather` method.
 
     Methods
     -------
     picture_of_the_day
+        Returns the URL and other information for the NASA Picture of the Day.
     mars_weather
+        Returns per-Sol (Martian Days) summary data for each of the last seven available Sols.
     asteroid_feed
+        Returns a list of asteroids based on their closest approach date to Earth.
     get_asteroids
+        Returns data from the overall asteroid data-set or specific asteroids given an ID.
     coronal_mass_ejection
+        Returns data collected on coronal mass ejection events from the Space Weather Database of Notifications,
+        Knowledge, Information (DONKI).
     geomagnetic_storm
+        Returns data collected on geomagnetic storm events from the Space Weather Database of Notifications, Knowledge,
+        Information (DONKI).
     interplantary_shock
+        Returns data collected on interplantary shock events from the Space Weather Database of Notifications,
+        Knowledge, Information (DONKI).
     solar_flare
+        Returns data on solar flare events from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI).
     solar_energetic_particle
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to solar energetic particle events.
     magnetopause_crossing
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to magnetopause crossing events.
     radiation_belt_enhancement
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to radiation belt enhancement events.
     hight_speed_stream
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API related to hight speed stream events.
     wsa_enlil_simulation
+        Returns data available from the Space Weather Database of Notifications, Knowledge, Information
+        (DONKI) API.
     epic
+        The EPIC API provides data on the imagery collected by the DSCOVR's Earth Polychromatic Imaging Camera
+        (EPIC).
     earth_imagery
+        Retrieves the URL and other information from the Landsat 8 image database for the specified lat/lon location
+        and date.
     earth_assets
+        Retrieves the datetimes and asset names of available imagery for a specified lat-lon location over a given
+        date range. The satellite that takes the images passes over each point approximately once every sixteen days.
     mars_rover
+        Retrieves image data collected by the Mars rovers Curiosity, Discovery and Spirit.
     genelab_search
+        Retrieves available data from the GeneLab and other bioinformatics databases such as the National Institutes
+        of Health (NIH) / National Center for Biotechnology Information (NCBI), Gene Expression Omnibus (GEO), the
+        European Bioinformatics Institute's (EBI) Proteomics Identification (PRIDE), and the Argonne National
+        Laboratory's (ANL) Metagenomics Rapid Annotations using Subsystems Technology (MG-RAST).
     techport
+        Retrieves available NASA project data.
 
     """
     def __init__(self, key=None):
@@ -154,7 +195,7 @@ class Nasa(object):
         Raises
         ------
         HTTPError
-        Raised when the returned status code is not 200 (success).
+            Raised when the returned status code is not 200 (success).
 
         Returns
         -------
@@ -227,6 +268,11 @@ class Nasa(object):
         # Get asteroids approaching Earth at the beginning of 2019.
         >>> n.asteroid_feed(start_date='2019-01-01')
 
+        Notes
+        -----
+        All the data is from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). The API is maintained by the
+        `SpaceRocks team <https://github.com/SpaceRocks/>`_
+
         """
         url = self.host + '/neo/rest/v1/feed'
 
@@ -274,6 +320,11 @@ class Nasa(object):
         >>> n.get_asteroids()
         # Get asteroid with ID 3542519
         >>> n.get_asteroids(asteroid_id=3542519)
+
+        Notes
+        -----
+        All the data is from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). The API is maintained by the
+        `SpaceRocks team <https://github.com/SpaceRocks/>`_
 
         """
         url = self.host + '/neo/rest/v1/neo/'
@@ -942,6 +993,11 @@ class Nasa(object):
         If a :code:`date` is not given and :code:`available` is :code:`False`, a listing of all dates with the
         specified color imagery is returned using the :code:`all` endpoint of the EPIC API.
 
+        The EPIC API provides information on the daily imagery collected by DSCOVR's Earth Polychromatic Imaging
+        Camera (EPIC) instrument. Uniquely positioned at the Earth-Sun Lagrange point, EPIC provides full disc
+        imagery of the Earth and captures unique perspectives of certain astronomical events such as lunar transits
+        using a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.
+
         """
         url = self.host + '/EPIC/api/'
 
@@ -1291,26 +1347,60 @@ class Nasa(object):
     def genelab_search(self, term=None, database='cgene', page=0, size=25, sort=None, order='desc',
                        ffield=None, fvalue=None):
         r"""
+        Retrieves available data from the GeneLab and other bioinformatics databases such as the National Institutes
+        of Health (NIH) / National Center for Biotechnology Information (NCBI), Gene Expression Omnibus (GEO), the
+        European Bioinformatics Institute's (EBI) Proteomics Identification (PRIDE), and the Argonne National
+        Laboratory's (ANL) Metagenomics Rapid Annotations using Subsystems Technology (MG-RAST).
 
         Parameters
         ----------
         term : str, default None
-        database : str, {'cgene',
+            Search by specific keyword(s). Case-insensitive boolean operators (AND, OR, NOT) can be used as well
+            to include and filter specific keywords.
+        database : str, {'cgene', 'nih_geo_gse', 'ebi_pride', 'mg_rast'}
+            Determines the database(s) to query. Defaults to the 'cgene' (GeneLab) database, but other available
+            databases include 'nih_geo_gse' (NIH GEO), 'ebi_pride' (EBI PRIDE), or 'mg_rast' (MG-RAST). Multiple
+            databases can be queried by separating values with commas. For example,
+            'cgene,nih_geo_gse,ebi_pride,mg_rast' will query all available databases.
         page : int, default 0
+            Specifies the page of results to return. Defaults to the first page (0).
         size : int, default 25
+            Specifies the number of results to return per page. Default is 25 results per page.
         sort : str, default None
+            Sorts by a specific field name in the returned JSON data.
         order : str, {'desc', 'asc'}
+            Determines the sorting order. Must be one of 'desc' (descending) or 'asc' (ascending).
         ffield : str, default None
+            Filters the returned data based on the defined field. Should be paired with the :code:`fvalue` parameter.
+            Only the 'cgene' (GeneLab) database can be filtered.
         fvalue : str, default None
+            Filters the returned data based on value or values in the specified :code:`ffield` parameter field. Only
+            the 'cgene' (GeneLab) database can be filtered.
 
         Raises
         ------
+        ValueError
+            Raised if :code:`order` parameter is not one of 'desc' (default), or 'asc'.
+        ValueError
+            Raised if :code:`page` parameter is less than 0.
+        ValueError
+            Raised if :code:`size` parameter is 0 or less.
+        HTTPError
+            Raised if result does not have a 200 status code.
 
         Returns
         -------
+        dict
+            Dictionary object representing the returned JSON data.
 
-        Examples
-        --------
+        Notes
+        -----
+        The `GeneLab public data repository <https://genelab-data.ndc.nasa.gov/genelab/projects>`_ provides the same
+        functionality as the API in a searchable HTML interface. For more information on the available bioinformatics
+        databases, please see the following links:
+        `Gene Expression Omnibus (GEO) <https://www.ncbi.nlm.nih.gov/geo/>`_
+        `European Bioinformatics Institute (EBI) <https://www.ebi.ac.uk/pride/archive/>`_
+        `Argonne National Laboratorys (ANL) <http://www.mg-rast.org>`_
 
         """
         url = 'https://genelab-data.ndc.nasa.gov/genelab/data/search'
