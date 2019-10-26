@@ -20,7 +20,7 @@ pip install nasapy
 The library can also be cloned or downloaded into a location of your choosing and then installed using the `setup.py` 
 file per the following:
 
-~~~ python
+~~~ bash
 git clone git@github.com:aschleg/nasapy.git
 cd nasapy
 python setup.py install

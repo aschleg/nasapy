@@ -263,17 +263,205 @@ def media_asset_captions(nasa_id):
     return _media_assets(endpoint='captions', nasa_id=nasa_id)
 
 
-def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=0.05, h_min=None, h_max=None,
+def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max='0.05', h_min=None, h_max=None,
                         v_inf_min=None, v_inf_max=None, v_rel_min=None, v_rel_max=None, orbit_class=None, pha=False,
-                        nea=False, comet=False, nea_comet=False, neo=True, kind=None, spk=None, des=None,
+                        nea=False, comet=False, nea_comet=False, neo=False, kind=None, spk=None, des=None,
                         body='Earth', sort='date', limit=None, fullname=False):
+    r"""
+
+    Parameters
+    ----------
+    date_min
+    date_max
+    dist_min
+    dist_max
+    h_min
+    h_max
+    v_inf_min
+    v_inf_max
+    v_rel_min
+    v_rel_max
+    orbit_class
+    pha
+    nea
+    comet
+    nea_comet
+    neo
+    kind
+    spk
+    des
+    body
+    sort
+    limit
+    fullname
+
+    Raises
+    ------
+
+    Returns
+    -------
+
+    """
     url = 'https://ssd-api.jpl.nasa.gov/cad.api'
+
+    if h_min is not None and h_max is not None:
+        if h_min > h_max:
+            raise ValueError('h_min parameter must be less than h_max')
+
+    if v_inf_min is not None and v_inf_max is not None:
+        if v_inf_min > v_inf_max:
+            raise ValueError('v_inf_min parameter must be less than v_inf_max')
+
+    if v_rel_min is not None and v_rel_max is not None:
+        if v_rel_min > v_rel_max:
+            raise ValueError('v_rel_min parameter must be less than v_rel_max')
+
+    if limit is not None:
+        if not isinstance(limit, int):
+            raise TypeError('limit parameter must be an integer (if specified)')
+
+        elif limit <= 0:
+            raise ValueError('limit parameter must be greater than 0')
+
+    if not isinstance(pha, bool):
+        raise TypeError('pha parameter must be boolean (True or False)')
+
+    if not isinstance(nea, bool):
+        raise TypeError('nea parameter must be boolean (True or False)')
+
+    if not isinstance(comet, bool):
+        raise TypeError('comet parameter must be boolean (True or False)')
+
+    if not isinstance(neo, bool):
+        raise TypeError('neo parameter must be boolean (True or False)')
+
+    if not isinstance(fullname, bool):
+        raise TypeError('fullname parameter must be boolean (True or False)')
+
+    r = requests.get(url,
+                     params={
+                         'date-min': date_min,
+                         'date-max': date_max,
+                         'dist-min': dist_min,
+                         'dist-max': dist_max,
+                         'h-min': h_min,
+                         'h-max': h_max,
+                         'v-inf-min': v_inf_min,
+                         'v-inf-max': v_inf_max,
+                         'v-rel-min': v_rel_min,
+                         'v-rel-max': v_rel_max,
+                         'class': orbit_class,
+                         'pha': pha,
+                         'nea': nea,
+                         'comet': comet,
+                         'nea-comet': nea_comet,
+                         'neo': neo,
+                         'kind': kind,
+                         'spk': spk,
+                         'des': des,
+                         'body': body,
+                         'sort': sort,
+                         'limit': limit,
+                         'fullname': fullname
+                     })
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+
+    else:
+        return r.json()
 
 
 def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, impact_e_min=None, impact_e_max=None,
               vel_min=None, vel_max=None, alt_min=None, alt_max=None, req_loc=False, req_alt=False, req_vel=False,
               req_vel_comp=False, vel_comp=False, sort='-date', limit=None):
+    r"""
+
+    Parameters
+    ----------
+    date_min
+    date_max
+    energy_min
+    energy_max
+    impact_e_min
+    impact_e_max
+    vel_min
+    vel_max
+    alt_min
+    alt_max
+    req_loc
+    req_alt
+    req_vel
+    req_vel_comp
+    vel_comp
+    sort
+    limit
+    
+    Raises
+    ------
+
+    Returns
+    -------
+
+    """
     url = 'https://ssd-api.jpl.nasa.gov/fireball.api'
+
+    if vel_min is not None and vel_max is not None:
+        if vel_min > vel_max:
+            raise ValueError('vel_min parameter must be less than vel_max')
+
+    if alt_min is not None and alt_max is not None:
+        if alt_min > alt_max:
+            raise ValueError('alt_min parameter must be less than alt_max')
+
+    if not isinstance(req_loc, bool):
+        raise TypeError('req_loc parameter must be boolean (True or False)')
+
+    if not isinstance(req_alt, bool):
+        raise TypeError('req_alt parameter must be boolean (True or False)')
+
+    if not isinstance(req_vel, bool):
+        raise TypeError('req_vel parameter must be boolean (True or False)')
+
+    if not isinstance(req_vel_comp, bool):
+        raise TypeError('req_vel_comp parameter must be boolean (True or False)')
+
+    if not isinstance(vel_comp, bool):
+        raise TypeError('vel_comp parameter must be boolean (True or False)')
+
+    if limit is not None:
+        if not isinstance(limit, int):
+            raise TypeError('limit parameter must be an integer (if specified)')
+
+        elif limit <= 0:
+            raise ValueError('limit parameter must be greater than 0')
+
+    r = requests.get(url,
+                     params={
+                         'date-min': date_min,
+                         'date-max': date_max,
+                         'energy-min': energy_min,
+                         'energy-max': energy_max,
+                         'impact-e-min': impact_e_min,
+                         'impact-e-max': impact_e_max,
+                         'vel-min': vel_min,
+                         'vel-max': vel_max,
+                         'alt-min': alt_min,
+                         'alt-max': alt_max,
+                         'req-loc': req_loc,
+                         'req-alt': req_alt,
+                         'req-vel': req_vel,
+                         'req-vel-comp': req_vel_comp,
+                         'vel-comp': vel_comp,
+                         'sort': sort,
+                         'limit': limit
+                     })
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+
+    else:
+        return r.json()
 
 
 def _donki_request(key, url, start_date=None, end_date=None):

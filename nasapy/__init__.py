@@ -9,8 +9,8 @@ from urllib.parse import urljoin
 
 import requests
 
-from nasapy.api import tle, media_search, media_asset_captions, media_asset_metadata, media_asset_manifest, \
-    _check_dates, _donki_request
+from nasapy.api import tle, close_approach_data, fireballs, media_search, media_asset_captions, media_asset_metadata, \
+    media_asset_manifest, _check_dates, _donki_request
 
 
 class Nasa(object):

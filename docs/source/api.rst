@@ -67,7 +67,7 @@ DONKI (Space Weather Database of Notifications, Knowledge, and Information)
     cause-and-effects between space weather activities and comprehensive webservice API access to information stored in
     DONKI.
 
-.. method:: Nasa.coronal_mass_ejection([start_date=None], [end_date=None], [accurate_only=True], [speed=0], [complete_entry=True], [half_angle=0], [catalog='ALL'], [keyword=None])
+.. method:: Nasa.coronal_mass_ejection([start_date=None],[end_date=None],[accurate_only=True],[speed=0],[complete_entry=True],[half_angle=0],[catalog='ALL'],[keyword=None])
 
     Returns data collected on coronal mass ejection events.
 
@@ -88,3 +88,5 @@ DONKI (Space Weather Database of Notifications, Knowledge, and Information)
     :param: start_date: String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.
     :param: end_date: String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.
     :rtype: list: List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.
+
+.. method:: Nasa.interplantary_shock(
