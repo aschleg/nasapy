@@ -2,7 +2,7 @@ import pytest
 import os
 import datetime
 
-from nasapy import _check_dates, _donki_request
+from nasapy.nasa import _check_dates, _donki_request
 
 
 key = os.environ.get('NASA_KEY')

@@ -3,7 +3,7 @@ import os
 import pytest
 from requests import HTTPError
 
-from nasapy import Nasa
+from nasapy.nasa import Nasa
 from requests.exceptions import HTTPError
 import datetime
 

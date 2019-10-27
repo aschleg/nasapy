@@ -268,38 +268,71 @@ def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=
                         nea=False, comet=False, nea_comet=False, neo=False, kind=None, spk=None, des=None,
                         body='Earth', sort='date', limit=None, fullname=False):
     r"""
+    Provides data for currently known close-approach data for all asteroids and comets in NASA's Jet Propulsion
+    Laboratory's (JPL) Small-Body Database.
 
     Parameters
     ----------
-    date_min
-    date_max
-    dist_min
-    dist_max
-    h_min
-    h_max
-    v_inf_min
-    v_inf_max
-    v_rel_min
-    v_rel_max
-    orbit_class
-    pha
-    nea
-    comet
-    nea_comet
-    neo
-    kind
-    spk
-    des
-    body
-    sort
-    limit
-    fullname
+    date_min : str, datetime, default 'now'
+        Excludes data earlier than the given date. Defaults to 'now', representing the current date, but can also be
+        a string representing a date in 'YYYY-MM-DD' format or 'YYYY-MM-DDThh:mm:ss' format or a datetime object.
+    date_max :'str, datetime, 'now', default '+60'
+        Excludes data later than the given date. Defaults to '+60', representing 60 days after the :code:`date_min`
+        parameter. Accepts a string of '+D' where D represents the number of days or a string representing a date in
+        'YYYY-MM-DD' format or 'YYYY-MM-DDThh:mm:ss' format or a datetime object. 'now' is also an acceptable value
+        and will exclude date later than the current date.
+    dist_min : str, float, int, default None
+        Excludes data with an approach distance less than the given value (if provided). The default unit is AU
+        (astronomical units), and LD (lunar distance) is also available. For example, '0.05' would return AU units
+        whereas '0.05LD' would return LD units.
+    dist_max : str, float int, default None
+        Excludes data with an approach distance greater than the given value (if specified). The default unit is AU
+        (astronomical units), and LD (lunar distance) is also available. For example, '0.05' would return AU units
+        whereas '0.05LD' would return LD units.
+    h_min : float, int, default None
+        Exclude data from objects with H-values less than the given value.
+    h_max : float, int, default None
+        Exclude data from objects with H-values greater than the given value.
+    v_inf_min : float, int, default None
+        Exclude data with V-infinity less than this positive value in km/s
+    v_inf_max : float, int, default None
+        Exclude data with V-infinity greater than this positive value in km/s
+    v_rel_min : float, int, default None
+        Exclude data with V-relative less than this positive value in km/s
+    v_rel_max : float, int, default None
+        Exclude data with V-relative greater than this positive value in km/s
+    orbit_class : str
+        Limits data to specified orbit-class.
+    pha : bool, default False
+    nea : bool, default False
+    comet : bool, default False
+    nea_comet : bool, default False
+    neo : bool, default False
+    kind : str, {'a', 'an', 'au', 'c', 'cn', 'cu', 'n', 'u'}, default None
+        Filters returned data to specified type of object. Available options include 'a'=asteroid,
+        'an'=numbered-asteroids, 'au'=unnumbered-asteroids, 'c'=comets, 'cn'=numbered-comets, 'cu'=unnumbered-comets,
+        'n'=numbered-objects, and 'u'=unnumbered-objects
+    spk : str, int, default None
+        Return data only for the matching SPK-ID.
+    des : str, default None
+        Filters data to objects matching the given destination.
+    body : str, default "Earth"
+        Filters data to close-approaches of the specified body. 'ALL' or '*' returns all close-approaches to the
+        available bodies.
+    sort : str, {'date', 'dist', 'dist-min', 'v-inf', 'v-rel', 'h', 'object'}
+        Sorts the returned data by the specified field. Defaults to 'date' ascending. To sort by descending, add a '-'
+        in front of the sort value, for example, '-date'.
+    limit : int, default None
+        Limit data to the first number of results specified by the parameter. Must be greater than 0.
+    fullname : bool, default False
+        Includes the full-format object name/designation
 
     Raises
     ------
 
     Returns
     -------
+    dict
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/cad.api'
@@ -376,27 +409,41 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
               vel_min=None, vel_max=None, alt_min=None, alt_max=None, req_loc=False, req_alt=False, req_vel=False,
               req_vel_comp=False, vel_comp=False, sort='-date', limit=None):
     r"""
+    Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth)
 
     Parameters
     ----------
-    date_min
-    date_max
-    energy_min
-    energy_max
-    impact_e_min
-    impact_e_max
-    vel_min
-    vel_max
-    alt_min
-    alt_max
-    req_loc
-    req_alt
-    req_vel
-    req_vel_comp
-    vel_comp
-    sort
-    limit
-    
+    date_min : str, datetime, default None
+        Excludes data earlier than the given date. Can be a string representing a date in 'YYYY-MM-DD' format or
+        'YYYY-MM-DDThh:mm:ss' format or a datetime object.
+    date_max : str, datetime, default None
+        Excludes data later than the given date. Can be a string representing a date in 'YYYY-MM-DD' format or
+        'YYYY-MM-DDThh:mm:ss' format or a datetime object.
+    energy_min : int, float, default None
+        Excludes data with total-radiated-energy less than the positive value of the specified value in joules
+        :math:`\times 10^{10}`.
+    energy_max : int, float, default None
+        Excludes data with total-radiated-energy greater than the positive value of the specified value in joules
+        :math:`\times 10^{10}`.
+    impact_e_min : int, float, default None
+        Excludes data with estimated impact energy less than the positive value of the specified value in kilotons (kt)
+    impact_e_max : int, float, default None
+        Excludes data with estimated impact energy greater than the positive value of the specified value in kilotons
+        (kt)
+    vel_min : int, float, default None
+
+    vel_max : int, float, default None
+    alt_min : int, float, default None
+    alt_max : int, float, default None
+    req_loc : bool, default False
+    req_alt : bool, default False
+    req_vel : bool, default False
+    req_vel_comp : bool, default False
+    vel_comp : bool, default False
+    sort : str, {'-date', 'energy', 'impact-e', 'vel', 'alt'}
+    limit : int, default None
+        Limits data to the first number of results specified. Must be greater than 0 if passed.
+
     Raises
     ------
 
@@ -464,65 +511,8 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
         return r.json()
 
 
-def _donki_request(key, url, start_date=None, end_date=None):
-    r"""
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-
-    """
-    start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
-
-    r = requests.get(url,
-                     params={
-                         'api_key': key,
-                         'startDate': start_date,
-                         'endDate': end_date
-                     })
-
-    limit_remaining = r.headers['X-RateLimit-Remaining']
-
-    if r.status_code != 200:
-        raise requests.exceptions.HTTPError(r.reason, r.url)
-
-    if r.text == '':
-        r = {}
-    else:
-        r = r.json()
-
-    return limit_remaining, r
-
-
-def _check_dates(start_date=None, end_date=None):
-    r"""
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-
-    """
-    if start_date is not None:
-        if not isinstance(start_date, (str, datetime.datetime)):
-            raise TypeError('start_date parameter must be a string representing a date in YYYY-MM-DD format or '
-                            'a datetime object.')
-
-    if end_date is not None:
-        if not isinstance(end_date, (str, datetime.datetime)):
-            raise TypeError('end_date parameter must be a string representing a date in YYYY-MM-DD format or '
-                            'a datetime object.')
-
-        if isinstance(end_date, datetime.datetime):
-            end_date = end_date.strftime('%Y-%m-%d')
-
-    if isinstance(start_date, datetime.datetime):
-        start_date = start_date.strftime('%Y-%m-%d')
-
-    return start_date, end_date
+def mission_design(des, spk, sstr, orbit_class, mjd0, span, tof_min, tof_max, step):
+    pass
 
 
 def _media_assets(endpoint, nasa_id):
