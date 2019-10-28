@@ -263,10 +263,10 @@ def media_asset_captions(nasa_id):
     return _media_assets(endpoint='captions', nasa_id=nasa_id)
 
 
-def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max='0.05', h_min=None, h_max=None,
-                        v_inf_min=None, v_inf_max=None, v_rel_min=None, v_rel_max=None, orbit_class=None, pha=False,
-                        nea=False, comet=False, nea_comet=False, neo=False, kind=None, spk=None, des=None,
-                        body='Earth', sort='date', limit=None, fullname=False):
+def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05', h_min=None, h_max=None,
+                   v_inf_min=None, v_inf_max=None, v_rel_min=None, v_rel_max=None, orbit_class=None, pha=False,
+                   nea=False, comet=False, nea_comet=False, neo=False, kind=None, spk=None, des=None,
+                   body='Earth', sort='date', limit=None, fullname=False):
     r"""
     Provides data for currently known close-approach data for all asteroids and comets in NASA's Jet Propulsion
     Laboratory's (JPL) Small-Body Database.
@@ -283,8 +283,8 @@ def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=
         and will exclude date later than the current date.
     dist_min : str, float, int, default None
         Excludes data with an approach distance less than the given value (if provided). The default unit is AU
-        (astronomical units), and LD (lunar distance) is also available. For example, '0.05' would return AU units
-        whereas '0.05LD' would return LD units.
+        (astronomical units), and LD (lunar distance) is also available. For example, '0.05' or 0.05 would return
+        AU units whereas '0.05LD' would return LD units.
     dist_max : str, float int, default None
         Excludes data with an approach distance greater than the given value (if specified). The default unit is AU
         (astronomical units), and LD (lunar distance) is also available. For example, '0.05' would return AU units
@@ -329,6 +329,28 @@ def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=
 
     Raises
     ------
+    ValueError
+        Raised if :code:`h_min` is greater than :code:`h_max`
+    ValueError
+        Raised if :code:`v_inf_min` parameter is greater than :code:`v_inf_max`
+    ValueError
+        Raised if :code:`v_rel_min` parameter is greater than :code:`v_rel_max`
+    ValueError
+        Raised if :code:`limit` parameter is 0 or less.
+    TypeError
+        Raised if :code:`limit` parameter is not an integer (if specified)
+    TypeError
+        Raised if :code:`pha` is not boolean (True or False)
+    TypeError
+        Raised if :code:`nea` is not boolean (True or False)
+    TypeError
+        Raised if :code:`comet` is not boolean (True or False)
+    TypeError
+        Raised if :code:`neo` is not boolean (True or False)
+    TypeError
+        Raised if :code:`fullname` is not boolean (True or False)
+    HTTPError
+        Raised if the returned status code of the resulting data is not 200 (success)
 
     Returns
     -------
@@ -336,6 +358,17 @@ def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/cad.api'
+
+    if date_min != 'now':
+        if not isinstance(date_min, (str, datetime.datetime)):
+            raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or YYYY-MM-DDThh:mm:ss "
+                            "format, 'now' for the current date, or a datetime object.")
+
+        if isinstance(date_min, datetime.datetime):
+            date_min = date_min.strftime('%Y-%m-%dT%H:%M:%S')
+
+    if isinstance(date_max, datetime.datetime):
+        date_max = date_max.strftime('%Y-%m-%dT%H:%M:%S')
 
     if h_min is not None and h_max is not None:
         if h_min > h_max:
@@ -364,6 +397,9 @@ def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=
 
     if not isinstance(comet, bool):
         raise TypeError('comet parameter must be boolean (True or False)')
+
+    if not isinstance(nea_comet, bool):
+        raise TypeError('nea_comet parameter must be boolean (True or False)')
 
     if not isinstance(neo, bool):
         raise TypeError('neo parameter must be boolean (True or False)')
@@ -407,7 +443,7 @@ def close_approach_data(date_min='now', date_max='+60', dist_min=None, dist_max=
 
 def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, impact_e_min=None, impact_e_max=None,
               vel_min=None, vel_max=None, alt_min=None, alt_max=None, req_loc=False, req_alt=False, req_vel=False,
-              req_vel_comp=False, vel_comp=False, sort='-date', limit=None):
+              req_vel_comp=False, vel_comp=False, sort='date', limit=None):
     r"""
     Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth)
 
@@ -431,16 +467,26 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
         Excludes data with estimated impact energy greater than the positive value of the specified value in kilotons
         (kt)
     vel_min : int, float, default None
-
+        Excludes data with velocity-at-peak-brightness less than the positive value of the specified value in km/s
     vel_max : int, float, default None
+        Excludes data with velocity-at-peak-brightness greater than the positive value of the specified value in km/s
     alt_min : int, float, default None
+        Excludes data from objects with an altitude less than the specified value
     alt_max : int, float, default None
+        Excludes data from objects with an altitude greater than the specified value
     req_loc : bool, default False
+        If True, latitude and longitude required for object to be included in results.
     req_alt : bool, default False
+        If True, objects without an altitude are excluded.
     req_vel : bool, default False
+        If True, objects without a velocity are not included in results.
     req_vel_comp : bool, default False
+        If True, excludes objects without velocity components
     vel_comp : bool, default False
-    sort : str, {'-date', 'energy', 'impact-e', 'vel', 'alt'}
+        If True, include velocity components
+    sort : str, {'date', 'energy', 'impact-e', 'vel', 'alt'}
+        Sorts data on specified field. Default sort order is ascending, for descending, prepend a '-'. For example,
+        for date descending, the sort value would be '-date'.
     limit : int, default None
         Limits data to the first number of results specified. Must be greater than 0 if passed.
 
@@ -452,6 +498,22 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/fireball.api'
+
+    if date_min is not None:
+        if not isinstance(date_min, (str, datetime.datetime)):
+            raise TypeError('date_min parameter must be a string representing a date in YYYY-MM-DD or '
+                            'YYYY-MM-DDThh:mm:ss formats or a datetime object.')
+
+        if isinstance(date_min, datetime.datetime):
+            date_min = date_min.strftime('%Y-%m-%d')
+
+    if date_max is not None:
+        if not isinstance(date_max, (str, datetime.datetime)):
+            raise TypeError('date_min parameter must be a string representing a date in YYYY-MM-DD or '
+                            'YYYY-MM-DDThh:mm:ss formats or a datetime object.')
+
+        if isinstance(date_max, datetime.datetime):
+            date_max = date_max.strftime('%Y-%m-%d')
 
     if vel_min is not None and vel_max is not None:
         if vel_min > vel_max:
@@ -511,7 +573,8 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
         return r.json()
 
 
-def mission_design(des, spk, sstr, orbit_class, mjd0, span, tof_min, tof_max, step):
+def mission_design(des=None, spk=None, sstr=None, orbit_class=None, mjd0=None, span=None, tof_min=None,
+                   tof_max=None, step=None):
     pass
 
 

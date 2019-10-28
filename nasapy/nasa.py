@@ -338,9 +338,6 @@ class Nasa(object):
             self.__limit_remaining = r.headers['X-RateLimit-Remaining']
             return r.json()
 
-    def neo_sentry(self, active=True):
-        pass
-
     def coronal_mass_ejection(self, start_date=None, end_date=None,
                               accurate_only=True, speed=0, complete_entry=True, half_angle=0,
                               catalog='ALL', keyword=None):
