@@ -337,6 +337,8 @@ def test_mars_rover():
         nasa.mars_rover(rover='test')
     with pytest.raises(TypeError):
         nasa.mars_rover(earth_date=1)
+    with pytest.raises(ValueError):
+        nasa.mars_rover(sol=1000, earth_date='2015-06-03')
 
 
 @vcr.use_cassette('tests/cassettes/techport.yml')

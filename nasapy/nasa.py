@@ -1267,25 +1267,12 @@ class Nasa(object):
            {'name': 'RHAZ', 'full_name': 'Rear Hazard Avoidance Camera'}]}}
 
         """
-        if sol is not None and earth_date is not None:
-            raise ValueError('either the sol or earth_date parameter should be specified, not both.')
-
-        cameras = ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES', 'all']
-
-        if camera not in cameras:
-            raise ValueError("camera parameter must be one of 'all' (default), 'FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', "
-                             "'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', or 'MINITES'")
-
-        if earth_date is not None:
-            if not isinstance(earth_date, (str, datetime.datetime)):
-                raise TypeError('end date parameter must be a string representing a date in YYYY-MM-DD format or a '
-                                'datetime object.')
-
-            if isinstance(earth_date, datetime.datetime):
-                earth_date = earth_date.strftime('%Y-%m-%d')
-
         if str.lower(rover) not in ('curiosity', 'opportunity', 'spirit'):
             raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', or 'spirit'.")
+
+        if camera not in ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES', 'all']:
+            raise ValueError("camera parameter must be one of 'all' (default), 'FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', "
+                             "'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', or 'MINITES'")
 
         url = self.host + '/mars-photos/api/v1/rovers/{rover}/photos'.format(rover=str.lower(rover))
 
@@ -1294,13 +1281,24 @@ class Nasa(object):
             'api_key': self.__api_key
         }
 
-        if sol is not None:
-            params['sol'] = sol
-        else:
-            params['earth_date'] = earth_date
-
         if camera != 'all':
             params['camera'] = camera
+
+        if sol is not None and earth_date is not None:
+            raise ValueError('either the sol or earth_date parameter should be specified, not both.')
+
+        elif sol is not None:
+            params['sol'] = sol
+
+        elif earth_date is not None:
+            if not isinstance(earth_date, (str, datetime.datetime)):
+                raise TypeError('end date parameter must be a string representing a date in YYYY-MM-DD format or a '
+                                'datetime object.')
+
+            if isinstance(earth_date, datetime.datetime):
+                earth_date = earth_date.strftime('%Y-%m-%d')
+
+            params['earth_date'] = earth_date
 
         r = requests.get(url,
                          params=params)
