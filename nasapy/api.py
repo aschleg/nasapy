@@ -302,12 +302,17 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
     v_rel_max : float, int, default None
         Exclude data with V-relative greater than this positive value in km/s
     orbit_class : str
-        Limits data to specified orbit-class.
+        Limits data to specified orbit-class
     pha : bool, default False
+        If True, limits the resulting data to only PHA objects
     nea : bool, default False
+        If True, limits the returned data to only NEA objects
     comet : bool, default False
+        If True, limits the returned data to comet objects only
     nea_comet : bool, default False
+        If True, limits the returned data to NEA comet objects only
     neo : bool, default False
+        If True, limits the returned data to only NEO objects
     kind : str, {'a', 'an', 'au', 'c', 'cn', 'cu', 'n', 'u'}, default None
         Filters returned data to specified type of object. Available options include 'a'=asteroid,
         'an'=numbered-asteroids, 'au'=unnumbered-asteroids, 'c'=comets, 'cn'=numbered-comets, 'cu'=unnumbered-comets,
