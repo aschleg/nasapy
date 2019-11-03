@@ -923,9 +923,9 @@ class Nasa(object):
         color : str, {'natural', 'enhanced'}
             Specifies the type of imagery to return. Must be one of 'natural' (default) or 'enhanced'
         date : str, datetime, default None
-            String representing a date in 'YYYY-MM-DD' format or a datetime object.
+            String representing a date in 'YYYY-MM-DD' format or a datetime object
         available : bool, default False
-            Alternative listing of all dates with specified color imagery.
+            Alternative listing of all dates with specified color imagery
 
         Raises
         ------
@@ -1037,9 +1037,9 @@ class Nasa(object):
         Parameters
         ----------
         lat : int, float
-            Latitude
+            Latitude of the desired imagery location
         lon : int, float
-            Longitude
+            Longitude of the desired imagery location
         dim : float, default 0.025
             Width and height of the image in degrees.
         date : str, datetime, default None
@@ -1134,13 +1134,15 @@ class Nasa(object):
         Parameters
         ----------
         lat : int, float
-            Latitude
+            Latitude of the desired imagery location
         lon : int, float
-            Longitude
+            Longitude of the desired imagery location
         begin_date : str, datetime
-            Beginning of date range in which to search for available assets.
+            Beginning of date range in which to search for available assets. Must be a string representing a date in
+            'YYYY-MM-DD' format or a datetime object
         end_date : str, datetime, default None
             End of date range in which to search for available assets. If not specified, defaults to the current date.
+            If specified, Must be a string representing a date in 'YYYY-MM-DD' format or a datetime object
 
         Raises
         ------
@@ -1220,10 +1222,10 @@ class Nasa(object):
         camera : str, {'all', FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES'}
             Filter results to a specific camera on the Mars Curiosity, Opportunity or Spirit rovers. Defaults to 'all',
             which includes all cameras.
-        page : int, default 1
-            25 results per page are returned.
         rover : str, {'curiosity', 'opportunity', 'spirit'}
             Specifies the Mars rover to return data. Defaults to the Curiosity rover which has more available cameras.
+        page : int, default 1
+            Page number of results to return. 25 results per page are returned.
 
         Raises
         ------
@@ -1544,8 +1546,7 @@ def tle(search_satellite=None, satellite_number=None):
     Examples
     --------
     # The TLE endpoint does not require API authentication, thus we can call the function without initializing the
-    # Nasa class
-    # Retrieve available data for a specific satellite ID.
+    # Nasa class. Retrieve available data for a specific satellite ID.
     >>> tle(satellite_number=43553)
     {'@id': 'https://data.ivanstanojevic.me/api/tle/43553',
      '@type': 'TleModel',
