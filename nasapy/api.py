@@ -1591,9 +1591,9 @@ def media_search(query=None, center=None, description=None, keywords=None, locat
     center : str, None (default)
         NASA center that published the results.
     description :  str, None (default)
-        Search for specific terms in the 'description' field of the resulting data.
+        Search and filter for specific terms in the 'description' field of the resulting data.
     keywords : str, None (default)
-        Search for specific terms in the 'keywords' field of the resulting data. Multiple values should be
+        Search and filter for specific terms in the 'keywords' field of the resulting data. Multiple values should be
         comma-separated.
     location : str, None (default)
         Search for terms in the 'locations' field of the resulting data.
@@ -1636,10 +1636,8 @@ def media_search(query=None, center=None, description=None, keywords=None, locat
 
     Examples
     --------
-    # Initialize API connection
-    >>> n = Nasa()
     # Search for media related to 'apollo 11' with 'moon landing' in the description of the items.
-    >>> r = n.media_search(query='apollo 11', description='moon landing')
+    >>> r = media_search(query='apollo 11', description='moon landing')
     # Print the first returned media item from the resulting collection.
     >>> r['items'][0]
     {'href': 'https://images-assets.nasa.gov/video/Apollo 11 Overview/collection.json',
@@ -1725,10 +1723,8 @@ def media_asset_manifest(nasa_id):
 
     Examples
     --------
-    # Initialize API connection with a Demo Key
-    >>> n = Nasa()
     # Get the manifest for the NASA media asset 'as11-40-5874'
-    >>> n.media_asset_manifest(nasa_id='as11-40-5874')
+    >>> media_asset_manifest(nasa_id='as11-40-5874')
     [{'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~orig.jpg'},
      {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~large.jpg'},
      {'href': 'http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~medium.jpg'},

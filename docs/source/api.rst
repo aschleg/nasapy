@@ -349,7 +349,7 @@ TLE (Two-Line Element Set Data)
     in JSON format. A two-line element set (TLE) is a data format encoding a list of orbital elements of an
     Earth-orbiting object for a given point in time.
 
-.. method:: Nasa.tle([search_satellite=None][, satellite_number=None])
+.. method:: tle([search_satellite=None][, satellite_number=None])
 
     Returns two-line element set records provided by CelesTrak.
 
@@ -364,5 +364,83 @@ TLE (Two-Line Element Set Data)
 NASA Image and Video Library
 ++++++++++++++++++++++++++++
 
+.. method:: media_search([query=None][, center=None][, description=None][, keywords=None][, location=None][, media_type=None][, nasa_id=None][, page=1][, photographer=None][, secondary_creator=None][, title=None][, year_start=None][, year_end=None])
 
+    Performs a general search for images from the images.nasa.gov API based on parameters and criteria specified.
+    At least one parameter must be provided.
 
+    :param query: Query terms to search.
+    :param center: NASA center that published the results.
+    :param description: Search for specific terms in the 'description' field of the resulting data.
+    :param keywords: Search and filter for specific terms in the 'keywords' field of the resulting data. Multiple values should be comma-separated.
+    :param location: Filter terms in the 'locations' field of the resulting data.
+    :param media_type: Filter results to specific media types. Options include 'image', 'audio', 'image,audio', 'audio,image'. The default :code:`None` includes all media types.
+    :param nasa_id: The media asset's NASA ID.
+    :param page: Page number of results to return. Starts at 1.
+    :param photographer: The primary photographer's name.
+    :param secondary_creator: A secondary photographer/videographer's name.
+    :param title: Search terms in the 'title' field of the resulting data.
+    :param year_start: The start year for results. If provided, must be a string representing a year in YYYY format or a datetime object.
+    :param year_end: The end year for results. If provided, must be a string representing a year in YYYY format or a datetime object.
+    :rtype: dict. Dictionary containing matching search results.
+
+    .. code-block:: python
+
+        # Search for media related to 'apollo 11' with 'moon landing' in the description of the items.
+        r = media_search(query='apollo 11', description='moon landing')
+        # Print the first returned media item from the resulting collection.
+        r['items'][0]
+
+.. method:: media_asset_manifest(nasa_id)
+
+    Returns the media asset's manifest, which contains the available versions of the asset and it's metadata
+    location.
+
+    :param nasa_id: The ID of the media asset.
+    :rtype: list. List of dictionaries containing the media asset's manifest.
+
+    .. code-block:: python
+
+        # Get the manifest for the NASA media asset 'as11-40-5874'
+        media_asset_manifest(nasa_id='as11-40-5874')
+
+.. method:: media_asset_metadata(nasa_id)
+
+    Retrieves the specified media asset's metadata.
+
+    :param nasa_id: The ID of the media asset.
+    :rtype: dict. Dictionary containing the metadata of the provided media asset ID.
+
+.. method:: media_asset_captions(nasa_id)
+
+    Retrieves the captions and location of the captions .srt file for a media asset from the NASA image API.
+
+    :param nasa_id: The ID of the media asset.
+    :rtype: dict. Dictionary object containing the resulting data from the API given the media asset ID. The dictionary will contain two keys, :code:`location` and :code:`captions`. The :code:`location` key can be used to download the .srt file directly while the :code:`captions` key can be used in conjunction with a library such as srt for parsing media asset captions.
+
+.. method:: close_approach([date_min='now'][, date_max='+60'][, dist_min=None][, dist_max='0.05'][, h_min=None][, h_max=None][, v_inf_min=None][, v_inf_max=None][, v_rel_min=None][, v_rel_max=None][, orbit_class=None][, pha=False][, nea=False][, comet=False][, nea_comet=False][, neo=False][, kind=None][, spk=None][, des=None][, body='Earth'][, sort='date'][, limit=None][, fullname=False])
+
+    :param date_min:
+    :param date_max:
+    :param dist_min:
+    :param dist_max:
+    :param h_min:
+    :param h_max:
+    :param v_inf_min:
+    :param v_inf_max:
+    :param v_rel_min:
+    :param v_rel_max:
+    :param orbit_class:
+    :param pha:
+    :param nea:
+    :param comet:
+    :param nea_comet:
+    :param neo:
+    :param kind:
+    :param spk:
+    :param des:
+    :param body:
+    :param sort:
+    :param limit:
+    :param fullname:
+    :rtype:
