@@ -2009,6 +2009,28 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 
     Raises
     ------
+    TypeError
+        Raised if :code:`date_min` parameter is not a string representing a date or dateimt or a datetime object.
+    TypeError
+        Raised if :code:`date_max` parameter is not a string representing a date or dateimt or a datetime object.
+    TypeError
+        Raised if :code:`req_loc` parameter is not boolean (if specified)
+    TypeError
+        Raised if :code:`req_alt` parameter is not boolean (if specified)
+    TypeError
+        Raised if :code:`req_vel` parameter is not boolean (if specified)
+    TypeError
+        Raised if :code:`req_vel_comp` parameter is not boolean (if specified)
+    TypeError
+        Raised if :code:`vel_comp` parameter is not boolean (if specified)
+    TypeError
+        Raised if :code:`limit` parameter is not an integer
+    ValueError
+        Raised if :code:`vel_min` parameter is greater than :code:`vel_max` parameter (if both are specified).
+    ValueError
+        Raised if :code:`alt_min` parameter is greater than :code:`alt_max` parameter (if both are specified).
+    ValueError
+        Raised if :code:`limit` parameter is 0 or less
 
     Returns
     -------
