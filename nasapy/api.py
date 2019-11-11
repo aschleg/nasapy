@@ -1872,6 +1872,14 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
     Returns
     -------
     dict
+        Dictionary object representing the returned JSON data from the API.
+
+    Examples
+    --------
+    # Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.
+    >>> nasapy.close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
+    # Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
+    >>> nasapy.close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/cad.api'
@@ -1962,7 +1970,7 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
               vel_min=None, vel_max=None, alt_min=None, alt_max=None, req_loc=False, req_alt=False, req_vel=False,
               req_vel_comp=False, vel_comp=False, sort='date', limit=None):
     r"""
-    Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth)
+    Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth).
 
     Parameters
     ----------
@@ -2034,6 +2042,17 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 
     Returns
     -------
+    dict
+        Dictionary object representing the returned JSON results from the API.
+
+    Examples
+    --------
+    # Get all available data in reverse chronological order
+    >>> n = nasapy.fireballs()
+    # Return the earlieset record
+    >>> nasapy.fireballs(limit=1)
+    # Get data from the beginning of 2019
+    >>> nasapy.fireballs(date_min='2019-01-01')
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/fireball.api'
@@ -2112,9 +2131,73 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
         return r.json()
 
 
-def mission_design(des=None, spk=None, sstr=None, orbit_class=None, mjd0=None, span=None, tof_min=None,
-                   tof_max=None, step=None):
-    pass
+def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, span=None, tof_min=None,
+                   tof_max=None, step=1):
+    if not 33282 <= mjd0 <= 73459:
+        raise ValueError('The Modified Julian date must be in range [33282, 73459] ({julian_date})'
+                         .format(julian_date=str(mjd0)))
+    if not 10 <= span <= 9200:
+        raise ValueError('The span parameter must be in range [10, 9200]')
+    if not 10 <= tof_min <= 9200:
+        raise ValueError('The tof_min parameter must be in range [10, 9200]')
+    if not 10 <= tof_max <= 9200:
+        raise ValueError('The tof_max parameter must be in range [10, 9200]')
+    if step not in (1, 2, 5, 10, 15, 20, 30):
+        raise ValueError('step parameter must be one of {1, 2, 5, 10, 15, 20, 30}')
+    if not isinstance(orbit_class, bool):
+        raise TypeError('orbit_class parameter must be boolean (True or False)')
+
+
+def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):
+    r"""
+    Calculates the Julian date or modified Julian date (if specified).
+
+    Parameters
+    ----------
+    dt : datetime, default None
+    year : int, default None
+    month : int, default 1
+    day : int, default 1
+    hour : int, default 0
+    minute : int, default 0
+    second : int, default 0
+    modified : boolean, default True
+
+    Returns
+    -------
+    float
+        The computed Julian or Modified Julian date.
+
+    Examples
+    --------
+
+    Notes
+    -----
+    The equation for calculating the Julian date is defined as:
+
+    .. math::
+
+        J = 367(Year) - /large[ \large( \frac{7(Year + \frac{Month + 9}{12})}{4} \large). \large] + \frac{275(Month)}{9}. + Day + 1721013.5 + \frac{\large( \frac{\frac{Second}{60} + Minute}{60} \large) + Hour}{24}
+
+    References
+    ----------
+
+    """
+    if all(p is None for p in (dt, year)):
+        dt = datetime.datetime.now()
+
+    if dt is None:
+        dt = datetime.datetime(year=year, month=month, day=day, hour=hour, minute=minute, second=second)
+
+    julian = 367 * dt.year - \
+             (int(7 * (dt.year + (dt.month + 9)) / 4)) + \
+             int((275 * dt.month) / 9) + dt.day + \
+             1721013.5 + (((dt.second / 60 + dt.minute) / 60) + dt.hour) / 24
+
+    if modified:
+        julian -= 2400000.5
+
+    return julian
 
 
 def _media_assets(endpoint, nasa_id):

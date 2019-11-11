@@ -54,8 +54,8 @@ Mars Weather Insight
 Near Earth Objects
 ++++++++++++++++++
 
-    All the data is from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). The API is maintained by the
-    `SpaceRocks team <https://github.com/SpaceRocks/>`_
+All the data is from the NASA JPL Asteroid team (http://neo.jpl.nasa.gov/). The API is maintained by the
+`SpaceRocks team <https://github.com/SpaceRocks/>`_
 
 .. method:: Nasa.asteroid_feed([start_date][, end_date=None])
 
@@ -90,13 +90,13 @@ Near Earth Objects
 DONKI (Space Weather Database of Notifications, Knowledge, and Information)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    The `Space Weather Database Of Notifications, Knowledge, Information (DONKI) <https://ccmc.gsfc.nasa.gov/donki/>`_
-    is a comprehensive on-line tool for space weather forecasters, scientists, and the general space science community.
-    DONKI provides chronicles the daily interpretations of space weather observations, analysis, models, forecasts, and
-    notifications provided by the Space Weather Research Center (SWRC), comprehensive knowledge-base search
-    functionality to support anomaly resolution and space science research, intelligent linkages, relationships,
-    cause-and-effects between space weather activities and comprehensive webservice API access to information stored in
-    DONKI.
+The `Space Weather Database Of Notifications, Knowledge, Information (DONKI) <https://ccmc.gsfc.nasa.gov/donki/>`_
+is a comprehensive on-line tool for space weather forecasters, scientists, and the general space science community.
+DONKI provides chronicles the daily interpretations of space weather observations, analysis, models, forecasts, and
+notifications provided by the Space Weather Research Center (SWRC), comprehensive knowledge-base search
+functionality to support anomaly resolution and space science research, intelligent linkages, relationships,
+cause-and-effects between space weather activities and comprehensive webservice API access to information stored in
+DONKI.
 
 .. method:: Nasa.coronal_mass_ejection([start_date=None][, end_date=None][, accurate_only=True][, speed=0][, complete_entry=True][, half_angle=0][, catalog='ALL'][, keyword=None])
 
@@ -237,10 +237,10 @@ DONKI (Space Weather Database of Notifications, Knowledge, and Information)
 EPIC (Earth Polychromatic Imaging Camera)
 +++++++++++++++++++++++++++++++++++++++++
 
-    The EPIC API provides information on the daily imagery collected by DSCOVR's Earth Polychromatic Imaging Camera
-    (EPIC) instrument. Uniquely positioned at the Earth-Sun Lagrange point, EPIC provides full disc imagery of the
-    Earth and captures unique perspectives of certain astronomical events such as lunar transits using a 2048x2048
-    pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.
+The EPIC API provides information on the daily imagery collected by DSCOVR's Earth Polychromatic Imaging Camera
+(EPIC) instrument. Uniquely positioned at the Earth-Sun Lagrange point, EPIC provides full disc imagery of the
+Earth and captures unique perspectives of certain astronomical events such as lunar transits using a 2048x2048
+pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.
 
 .. method:: Nasa.epic([color='natural'][, date=None][, available=False])
 
@@ -261,9 +261,9 @@ EPIC (Earth Polychromatic Imaging Camera)
 Earth Satellite Imagery
 +++++++++++++++++++++++
 
-    This endpoint retrieves the Landsat 8 image for the supplied location and date. The response will include the date
-    and URL to the image that is closest to the supplied date. The requested resource may not be available for the
-    exact date in the request.
+This endpoint retrieves the Landsat 8 image for the supplied location and date. The response will include the date
+and URL to the image that is closest to the supplied date. The requested resource may not be available for the
+exact date in the request.
 
 .. method:: Nasa.earth_imagery(lat, lon[, dim=0.025][, date=None][, cloud_score=False])
 
@@ -330,8 +330,8 @@ GeneLab Search
 Techport
 ++++++++
 
-    The NASA TechPort system provides an API to make technology project data available in a machine-readable format.
-    This API can be used to export TechPort data into either an XML or a JSON format.
+The NASA TechPort system provides an API to make technology project data available in a machine-readable format.
+This API can be used to export TechPort data into either an XML or a JSON format.
 
 .. method:: Nasa.techport([project_id=None][, last_updated=None][, return_format='json'])
 
@@ -345,9 +345,9 @@ Techport
 TLE (Two-Line Element Set Data)
 +++++++++++++++++++++++++++++++
 
-    The TLE API provides up to date two line element set records, the data is updated daily from CelesTrak and served
-    in JSON format. A two-line element set (TLE) is a data format encoding a list of orbital elements of an
-    Earth-orbiting object for a given point in time.
+The TLE API provides up to date two line element set records, the data is updated daily from CelesTrak and served
+in JSON format. A two-line element set (TLE) is a data format encoding a list of orbital elements of an
+Earth-orbiting object for a given point in time.
 
 .. method:: tle([search_satellite=None][, satellite_number=None])
 
@@ -388,7 +388,7 @@ NASA Image and Video Library
 
         # Search for media related to 'apollo 11' with 'moon landing' in the description of the items.
         r = media_search(query='apollo 11', description='moon landing')
-        # Print the first returned media item from the resulting collection.
+        # Output the first returned media item from the resulting collection.
         r['items'][0]
 
 .. method:: media_asset_manifest(nasa_id)
@@ -404,12 +404,14 @@ NASA Image and Video Library
         # Get the manifest for the NASA media asset 'as11-40-5874'
         media_asset_manifest(nasa_id='as11-40-5874')
 
+
 .. method:: media_asset_metadata(nasa_id)
 
     Retrieves the specified media asset's metadata.
 
     :param nasa_id: The ID of the media asset.
     :rtype: dict. Dictionary containing the metadata of the provided media asset ID.
+
 
 .. method:: media_asset_captions(nasa_id)
 
@@ -418,7 +420,16 @@ NASA Image and Video Library
     :param nasa_id: The ID of the media asset.
     :rtype: dict. Dictionary object containing the resulting data from the API given the media asset ID. The dictionary will contain two keys, :code:`location` and :code:`captions`. The :code:`location` key can be used to download the .srt file directly while the :code:`captions` key can be used in conjunction with a library such as srt for parsing media asset captions.
 
+Solar System Dynamics (SSD) and Center for Near-Earth Object Studies (CNEOS)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following functions provide a Pythonic interface for NASA's `Solar System Dynamics <https://ssd.jpl.nasa.gov/>`_
+and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
+
 .. method:: close_approach([date_min='now'][, date_max='+60'][, dist_min=None][, dist_max='0.05'][, h_min=None][, h_max=None][, v_inf_min=None][, v_inf_max=None][, v_rel_min=None][, v_rel_max=None][, orbit_class=None][, pha=False][, nea=False][, comet=False][, nea_comet=False][, neo=False][, kind=None][, spk=None][, des=None][, body='Earth'][, sort='date'][, limit=None][, fullname=False])
+
+    Provides data for currently known close-approach data for all asteroids and comets in NASA's Jet Propulsion
+    Laboratory's (JPL) `Small-Body Database <https://ssd.jpl.nasa.gov/sbdb.cgi>`_.
 
     :param date_min: Excludes data earlier than the given date. Defaults to 'now', representing the current date, but can also be a string representing a date in 'YYYY-MM-DD' format or 'YYYY-MM-DDThh:mm:ss' format or a datetime object.
     :param date_max: Excludes data later than the given date. Defaults to '+60', representing 60 days after the :code:`date_min` parameter. Accepts a string of '+D' where D represents the number of days or a string representing a date in 'YYYY-MM-DD' format or 'YYYY-MM-DDThh:mm:ss' format or a datetime object. 'now' is also an acceptable value and will exclude date later than the current date.
@@ -445,7 +456,17 @@ NASA Image and Video Library
     :param fullname: Includes the full-format object name/designation
     :rtype: dict
 
+    .. code-block:: python
+
+        # Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.
+        >>> nasapy.close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
+        # Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
+        >>> nasapy.close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+
+
 .. method:: fireballs([date_min=None][, date_max=None][, energy_min=None][, energy_max=None][, impact_e_min=None][, impact_e_max=None][, vel_min=None][, vel_max=None][, alt_min=None][, alt_max=None][, req_loc=False][, req_alt=False][, req_vel=False][, req_vel_comp=False][, vel_comp=False][, sort='date'][, limit=None])
+
+    Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth).
 
     :param date_min: Excludes data earlier than the given date. Can be a string representing a date in 'YYYY-MM-DD' format or 'YYYY-MM-DDThh:mm:ss' format or a datetime object.
     :param date_max: Excludes data later than the given date. Can be a string representing a date in 'YYYY-MM-DD' format or 'YYYY-MM-DDThh:mm:ss' format or a datetime object.
@@ -464,5 +485,14 @@ NASA Image and Video Library
     :param vel_comp: If True, include velocity components
     :param sort: Sorts data on specified field. Default sort order is ascending, for descending, prepend a '-'. For example, for date descending, the sort value would be '-date'.
     :param limit: Limits data to the first number of results specified. Must be greater than 0 if passed.
-    :rtype:
+    :rtype: dict.
+
+    .. code-block:: python
+
+        # Get all available data in reverse chronological order
+        >>> n = nasapy.fireballs()
+        # Return the earlieset record
+        >>> nasapy.fireballs(limit=1)
+        # Get data from the beginning of 2019
+        >>> nasapy.fireballs(date_min='2019-01-01')
 

@@ -513,3 +513,7 @@ def test_techport():
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')
 def test_exoplanets():
     pass
+
+
+def test_julian_date():
+    pass
