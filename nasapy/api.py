@@ -2132,20 +2132,137 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 
 
 def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, span=None, tof_min=None,
-                   tof_max=None, step=1):
-    if not 33282 <= mjd0 <= 73459:
-        raise ValueError('The Modified Julian date must be in range [33282, 73459] ({julian_date})'
-                         .format(julian_date=str(mjd0)))
-    if not 10 <= span <= 9200:
-        raise ValueError('The span parameter must be in range [10, 9200]')
-    if not 10 <= tof_min <= 9200:
-        raise ValueError('The tof_min parameter must be in range [10, 9200]')
-    if not 10 <= tof_max <= 9200:
-        raise ValueError('The tof_max parameter must be in range [10, 9200]')
-    if step not in (1, 2, 5, 10, 15, 20, 30):
-        raise ValueError('step parameter must be one of {1, 2, 5, 10, 15, 20, 30}')
+                   tof_max=None, step=None):
+    r"""
+
+    Parameters
+    ----------
+    des :
+    spk :
+    sstr :
+    orbit_class :
+    mjd0 :
+    span :
+    tof_min :
+    tof_max :
+    step :
+
+    Raises
+    ------
+
+    Returns
+    -------
+
+    Examples
+    --------
+
+    """
+    url = 'https://ssd-api.jpl.nasa.gov/mdesign.api'
+
+    if all(p is None for p in (des, spk, sstr)):
+        raise ValueError('A designation (:code:`des` parameter), SPK-ID (:code:`spk` parameter`), or object search '
+                         'string (:code:`sstr`) must be specified to perform a search.')
+
+    if mjd0 is not None:
+        if not 33282 <= mjd0 <= 73459:
+            raise ValueError('The Modified Julian date must be in range [33282, 73459] ({julian_date})'
+                             .format(julian_date=str(mjd0)))
+    if span is not None:
+        if not 10 <= span <= 9200:
+            raise ValueError('The span parameter must be in range [10, 9200]')
+
+    if tof_min is not None:
+        if not 10 <= tof_min <= 9200:
+            raise ValueError('The tof_min parameter must be in range [10, 9200]')
+
+    if tof_max is not None:
+        if not 10 <= tof_max <= 9200:
+            raise ValueError('The tof_max parameter must be in range [10, 9200]')
+
+    if step is not None:
+        if step not in (1, 2, 5, 10, 15, 20, 30):
+            raise ValueError('step parameter must be one of {1, 2, 5, 10, 15, 20, 30}')
+
     if not isinstance(orbit_class, bool):
         raise TypeError('orbit_class parameter must be boolean (True or False)')
+
+    params = {
+        'class': orbit_class,
+        'mjd0': mjd0,
+        'span': span,
+        'tof_min': tof_min,
+        'tof_max': tof_max,
+        'step': step
+    }
+
+    if des is not None:
+        params['des'] = des
+    elif spk is not None:
+        params['spk'] = spk
+    elif sstr is not None:
+        params['sstr'] = sstr
+
+    r = requests.get(url,
+                     params=params)
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+
+    else:
+        return r.json()
+
+
+def nhats(delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None, orbit_condition_code=None, spk=None,
+          des=None, plot=False):
+    r"""
+
+    Parameters
+    ----------
+    delta_v :
+    duration :
+    stay :
+    launch :
+    magnitude :
+    orbit_condition_code :
+    spk :
+    des :
+    plot :
+
+    Raises
+    ------
+
+    Returns
+    -------
+
+    Examples
+    --------
+     
+    """
+    if delta_v not in (4, 5, 6, 7, 8, 9, 10, 11, 12):
+        raise ValueError('deltav parameter must be one of {4, 5, 6, 7, 8, 9, 10, 11, 12}.')
+
+    if duration not in (60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450):
+        raise ValueError('duration parameter must be one of '
+                         '{60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450}.')
+
+    if stay not in (8, 16, 24, 32):
+        raise ValueError('stay parameter must be one of {8, 16, 24, 32}.')
+
+    if launch not in ('2020-2025', '2025-2030', '2030-2035', '2035-2040', '2040-2045', '2020-2045'):
+        raise ValueError("launch parameter must be one of "
+                         "{'2020-2025', '2025-2030', '2030-2035', '2035-2040','2040-2045', '2020-2045'}.")
+
+    if magnitude is not None:
+        if magnitude not in (16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30):
+            raise ValueError('magnitude parameter must be one of '
+                             '{16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, if specified.')
+
+    if orbit_condition_code is not None:
+        if orbit_condition_code not in (0, 1, 2, 3, 4, 5, 6, 7, 8):
+            raise ValueError('occ parameter must be one of {0, 1, 2, 3, 4, 5, 6, 7, 8}, if specified.')
+
+    if not isinstance(plot, bool):
+        raise TypeError('plot parameter must be boolean (True or False)')
 
 
 def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):

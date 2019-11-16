@@ -3,7 +3,6 @@ import os
 
 import vcr
 import pytest
-from requests import HTTPError
 
 from nasapy.api import *
 from requests.exceptions import HTTPError
@@ -515,5 +514,45 @@ def test_exoplanets():
     pass
 
 
+@vcr.use_cassette('tests/cassettes/mission_design.yml')
+def test_mission_design():
+    des = mission_design(des=1, orbit_class=True)
+    sstr = mission_design(sstr='apophis')
+    spk = mission_design(spk=2000433)
+
+    assert isinstance(des, dict)
+    assert isinstance(sstr, dict)
+    assert isinstance(spk, dict)
+
+    with pytest.raises(ValueError):
+        mission_design()
+    with pytest.raises(ValueError):
+        mission_design(des=1, mjd0=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, mjd0=100000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, span=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, span=10000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_min=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_min=10000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_max=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_max=10000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, step=3)
+    with pytest.raises(TypeError):
+        mission_design(des=1, orbit_class=1)
+
+
 def test_julian_date():
-    pass
+    j1 = julian_date(year=2019, modified=False)
+    j2 = julian_date(year=2019)
+    j3 = julian_date()
+
+    assert j1 == 2458467.5
+    assert j2 == 58467.0
+    assert isinstance(j3, (int, float))
