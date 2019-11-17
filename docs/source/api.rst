@@ -496,3 +496,28 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
         # Get data from the beginning of 2019
         >>> nasapy.fireballs(date_min='2019-01-01')
 
+.. method:: mission_design([des=None][, spk=None][, sstr=None][, orbit_class=False][, mjd0=None][, span=None][, tof_min=None][, tof_max=None][, step=None])
+
+    Provides access to the Jet Propulsion Laboratory/Solar System Dynamics small body mission design suite API.
+
+    :param des: The designation (provisional or IAU-number) of the desired object to search.
+    :param spk: The SPK-ID of the desired object to search.
+    :param sstr: Object search string.
+    :param orbit_class: If True, returns the orbit class in human readable format instead of the default three-letter code.
+    :param mjd0: First launch date in Modified Julian Date. Must be between [33282, 73459].
+    :param span: Duration of the launch-date period to be explored in days. Must be between [10, 9200].
+    :param tof_min: Minimum time of flight in days. Must be between [10, 9200].
+    :param tof_max: Maximum time of flight in days. Must be between [10, 9200].
+    :param step: Time step used to advance the launch date and the time of flight. Size of transfer map is limited to 1,500,000 points.
+    :rtype: dict. Dictionary object representing the returned JSON data from the API.
+
+    .. code-block:: python
+
+        # Search for mission design data for SPK-ID 2000433
+        r = nasapy.mission_design(spk=2000433)
+        # Print the object data from the returned dictionary object.
+        r['object']
+        # Get Missions to 1 Ceres
+        r = nasapy.mission_design(des=1, mjd0=59000, span=1800, tof_min=120, tof_max=1500, step=5)
+        r['object']
+

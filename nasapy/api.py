@@ -2134,27 +2134,77 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, span=None, tof_min=None,
                    tof_max=None, step=None):
     r"""
+    Provides access to the Jet Propulsion Laboratory/Solar System Dynamics small body mission design suite API.
 
     Parameters
     ----------
-    des :
-    spk :
-    sstr :
-    orbit_class :
-    mjd0 :
-    span :
-    tof_min :
-    tof_max :
-    step :
+    des : str, default None
+        The designation (provisional or IAU-number) of the desired object to search.
+    spk : int, str, default None
+        The SPK-ID of the desired object to search.
+    sstr : str, default None
+        Object search string.
+    orbit_class : bool, default False
+        If True, returns the orbit class in human readable format instead of the default three-letter code.
+    mjd0 : int, default None
+        First launch date in Modified Julian Date. Must be between [33282, 73459].
+    span : int, default None
+        Duration of the launch-date period to be explored in days. Must be between [10, 9200].
+    tof_min : int, default None
+        Minimum time of flight in days. Must be between [10, 9200].
+    tof_max : int, default None
+        Maximum time of flight in days. Must be between [10, 9200].
+    step : int, default None, {1,2,5,10,15,20,30}
+        Time step used to advance the launch date and the time of flight. Size of transfer map is limited to
+        1,500,000 points.
 
     Raises
     ------
+    ValueError
+        Raised if :code:`des`, :code:`spk` and :code:`sstr` parameters are None.
+    ValueError
+        Raised if parameter :code:`mjd0` is not between [33282, 73459].
+    ValueError
+        Raised if parameter :code:`span` is not between [10, 9200].
+    ValueError
+        Raised if parameter :code:`tof_min` is not between [10, 9200].
+    ValueError
+        Raised if parameter :code:`tof_max` is not between [10, 9200].
+    ValueError
+        Raised if parameter :code:`step` is not one of (1, 2, 5, 10, 15, 20, 30), if specified.
+    TypeError
+        Raised if parameter :code:`orbit_class` is not boolean (True or False).
 
     Returns
     -------
+    dict
+        Dictionary object representing the returned JSON data from the API.
 
     Examples
     --------
+    # Search for mission design data for SPK-ID 2000433
+    >>> r = nasapy.mission_design(spk=2000433)
+    # Print the object data from the returned dictionary object.
+    >>> r['object']
+    {'data_arc': '45762',
+     'md_orbit_id': '656',
+     'orbit_class': 'AMO',
+     'spkid': '2000433',
+     'condition_code': '0',
+     'orbit_id': '656',
+     'fullname': '433 Eros (A898 PA)',
+     'des': '433'}
+    # Get Missions to 1 Ceres
+    >>> r = nasapy.mission_design(des=1, mjd0=59000, span=1800, tof_min=120, tof_max=1500, step=5)
+    >>> r['object']
+    {'data_arc': '8822',
+     'md_orbit_id': '46',
+     'orbit_class': 'MBA',
+     'spkid': '2000001',
+     'condition_code': '0',
+     'orbit_id': '46',
+     'fullname': '1 Ceres',
+     'des': '1'}
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/mdesign.api'
@@ -2190,8 +2240,8 @@ def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, 
         'class': orbit_class,
         'mjd0': mjd0,
         'span': span,
-        'tof_min': tof_min,
-        'tof_max': tof_max,
+        'tof-min': tof_min,
+        'tof-max': tof_max,
         'step': step
     }
 
@@ -2236,7 +2286,7 @@ def nhats(delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None, 
 
     Examples
     --------
-     
+
     """
     if delta_v not in (4, 5, 6, 7, 8, 9, 10, 11, 12):
         raise ValueError('deltav parameter must be one of {4, 5, 6, 7, 8, 9, 10, 11, 12}.')
@@ -2263,6 +2313,11 @@ def nhats(delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None, 
 
     if not isinstance(plot, bool):
         raise TypeError('plot parameter must be boolean (True or False)')
+
+
+def scout(tdes, plot=None, data_files=None, orbits=False, eph_start='now', eph_stop=None, eph_step=None,
+          obs_code='500', fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
+    url = 'https://ssd-api.jpl.nasa.gov/scout.api'
 
 
 def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):
