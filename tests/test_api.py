@@ -548,6 +548,11 @@ def test_mission_design():
         mission_design(des=1, orbit_class=1)
 
 
+@vcr.use_cassette('tests/cassettes/nhats.yml')
+def test_nhats():
+    pass
+
+
 def test_julian_date():
     j1 = julian_date(year=2019, modified=False)
     j2 = julian_date(year=2019)

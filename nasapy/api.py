@@ -1409,23 +1409,21 @@ class Nasa(object):
         if size <= 0:
             raise ValueError('size of results to return cannot be 0 or less.')
 
-        r = requests.get(url,
-                         params={
-                             'term': term,
-                             'sort': sort,
-                             'type': database,
-                             'from': page,
-                             'size': size,
-                             'order': str.upper(order),
-                             'ffield': ffield,
-                             'fvalue': fvalue,
-                             'api_key': self.__api_key
-                         })
+        params = {
+            'term': term,
+            'sort': sort,
+            'type': database,
+            'from': page,
+            'size': size,
+            'order': str.upper(order),
+            'ffield': ffield,
+            'fvalue': fvalue,
+            'api_key': self.__api_key
+        }
 
-        if r.status_code != 200:
-            raise requests.exceptions.HTTPError(r.reason, r.url)
+        r = _return_api_result(url=url, params=params)
 
-        return r.json()
+        return r
 
     def techport(self, project_id=None, last_updated=None, return_format='json'):
         r"""
@@ -1682,28 +1680,25 @@ def media_search(query=None, center=None, description=None, keywords=None, locat
         if isinstance(year_end, datetime.datetime):
             year_end = year_end.strftime('%Y')
 
-    r = requests.get(url,
-                     params={
-                         'q': query,
-                         'center': center,
-                         'description': description,
-                         'keywords': keywords,
-                         'location': location,
-                         'media_type': media_type,
-                         'nasa_id': nasa_id,
-                         'page': page,
-                         'photographer': photographer,
-                         'secondary_creator': secondary_creator,
-                         'title': title,
-                         'year_start': year_start,
-                         'year_end': year_end
-                     })
+    params = {
+        'q': query,
+        'center': center,
+        'description': description,
+        'keywords': keywords,
+        'location': location,
+        'media_type': media_type,
+        'nasa_id': nasa_id,
+        'page': page,
+        'photographer': photographer,
+        'secondary_creator': secondary_creator,
+        'title': title,
+        'year_start': year_start,
+        'year_end': year_end
+    }
 
-    if r.status_code != 200:
-        raise requests.exceptions.HTTPError(r.reason, r.url)
+    r = _return_api_result(url=url, params=params)
 
-    else:
-        return r.json()['collection']
+    return r['collection']
 
 
 def media_asset_manifest(nasa_id):
@@ -1932,38 +1927,35 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
     if not isinstance(fullname, bool):
         raise TypeError('fullname parameter must be boolean (True or False)')
 
-    r = requests.get(url,
-                     params={
-                         'date-min': date_min,
-                         'date-max': date_max,
-                         'dist-min': dist_min,
-                         'dist-max': dist_max,
-                         'h-min': h_min,
-                         'h-max': h_max,
-                         'v-inf-min': v_inf_min,
-                         'v-inf-max': v_inf_max,
-                         'v-rel-min': v_rel_min,
-                         'v-rel-max': v_rel_max,
-                         'class': orbit_class,
-                         'pha': pha,
-                         'nea': nea,
-                         'comet': comet,
-                         'nea-comet': nea_comet,
-                         'neo': neo,
-                         'kind': kind,
-                         'spk': spk,
-                         'des': des,
-                         'body': body,
-                         'sort': sort,
-                         'limit': limit,
-                         'fullname': fullname
-                     })
+    params = {
+        'date-min': date_min,
+        'date-max': date_max,
+        'dist-min': dist_min,
+        'dist-max': dist_max,
+        'h-min': h_min,
+        'h-max': h_max,
+        'v-inf-min': v_inf_min,
+        'v-inf-max': v_inf_max,
+        'v-rel-min': v_rel_min,
+        'v-rel-max': v_rel_max,
+        'class': orbit_class,
+        'pha': pha,
+        'nea': nea,
+        'comet': comet,
+        'nea-comet': nea_comet,
+        'neo': neo,
+        'kind': kind,
+        'spk': spk,
+        'des': des,
+        'body': body,
+        'sort': sort,
+        'limit': limit,
+        'fullname': fullname
+    }
 
-    if r.status_code != 200:
-        raise requests.exceptions.HTTPError(r.reason, r.url)
+    r = _return_api_result(url=url, params=params)
 
-    else:
-        return r.json()
+    return r
 
 
 def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, impact_e_min=None, impact_e_max=None,
@@ -2103,32 +2095,30 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
         elif limit <= 0:
             raise ValueError('limit parameter must be greater than 0')
 
-    r = requests.get(url,
-                     params={
-                         'date-min': date_min,
-                         'date-max': date_max,
-                         'energy-min': energy_min,
-                         'energy-max': energy_max,
-                         'impact-e-min': impact_e_min,
-                         'impact-e-max': impact_e_max,
-                         'vel-min': vel_min,
-                         'vel-max': vel_max,
-                         'alt-min': alt_min,
-                         'alt-max': alt_max,
-                         'req-loc': req_loc,
-                         'req-alt': req_alt,
-                         'req-vel': req_vel,
-                         'req-vel-comp': req_vel_comp,
-                         'vel-comp': vel_comp,
-                         'sort': sort,
-                         'limit': limit
-                     })
+    params = {
+        'date-min': date_min,
+        'date-max': date_max,
+        'energy-min': energy_min,
+        'energy-max': energy_max,
+        'impact-e-min': impact_e_min,
+        'impact-e-max': impact_e_max,
+        'vel-min': vel_min,
+        'vel-max': vel_max,
+        'alt-min': alt_min,
+        'alt-max': alt_max,
+        'req-loc': req_loc,
+        'req-alt': req_alt,
+        'req-vel': req_vel,
+        'req-vel-comp': req_vel_comp,
+        'vel-comp': vel_comp,
+        'sort': sort,
+        'limit': limit
+    }
 
-    if r.status_code != 200:
-        raise requests.exceptions.HTTPError(r.reason, r.url)
+    r = _return_api_result(url=url,
+                           params=params)
 
-    else:
-        return r.json()
+    return r
 
 
 def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, span=None, tof_min=None,
@@ -2252,18 +2242,13 @@ def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, 
     elif sstr is not None:
         params['sstr'] = sstr
 
-    r = requests.get(url,
-                     params=params)
+    r = _return_api_result(url=url, params=params)
 
-    if r.status_code != 200:
-        raise requests.exceptions.HTTPError(r.reason, r.url)
-
-    else:
-        return r.json()
+    return r
 
 
-def nhats(delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None, orbit_condition_code=None, spk=None,
-          des=None, plot=False):
+def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None,
+          orbit_condition_code=None, plot=False):
     r"""
 
     Parameters
@@ -2288,6 +2273,11 @@ def nhats(delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None, 
     --------
 
     """
+    url = 'https://ssd-api.jpl.nasa.gov/nhats.api'
+
+    if all(p is not None for p in (des, spk)):
+        raise ValueError('Only a designation (:code:`des`) or SPK-ID (:code:`spk`) should be specified, not both.')
+
     if delta_v not in (4, 5, 6, 7, 8, 9, 10, 11, 12):
         raise ValueError('deltav parameter must be one of {4, 5, 6, 7, 8, 9, 10, 11, 12}.')
 
@@ -2314,8 +2304,30 @@ def nhats(delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None, 
     if not isinstance(plot, bool):
         raise TypeError('plot parameter must be boolean (True or False)')
 
+    if des is not None or spk is not None and magnitude is not None:
+        raise ValueError('magnitude parameter cannot be specified when passing a des or spk.')
 
-def scout(tdes, plot=None, data_files=None, orbits=False, eph_start='now', eph_stop=None, eph_step=None,
+    params = {
+        'dv': delta_v,
+        'dur': duration,
+        'stay': stay,
+        'launch': launch,
+        'h': magnitude,
+        'occ': orbit_condition_code,
+        'plot': plot
+    }
+
+    if des is not None:
+        params['des'] = des
+    elif spk is not None:
+        params['spk'] = spk
+
+    r = _return_api_result(url=url, params=params)
+
+    return r
+
+
+def scout(tdes, plot=None, data_files='mpc', orbits=False, n_orbits=1000, eph_start='now', eph_stop=None, eph_step=None,
           obs_code='500', fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
     url = 'https://ssd-api.jpl.nasa.gov/scout.api'
 
@@ -2463,3 +2475,14 @@ def _check_dates(start_date=None, end_date=None):
         start_date = start_date.strftime('%Y-%m-%d')
 
     return start_date, end_date
+
+
+def _return_api_result(url, params):
+    r = requests.get(url,
+                     params=params)
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+
+    else:
+        return r.json()
