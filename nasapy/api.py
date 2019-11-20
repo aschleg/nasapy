@@ -2327,9 +2327,41 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
     return r
 
 
-def scout(tdes, plot=None, data_files='mpc', orbits=False, n_orbits=1000, eph_start='now', eph_stop=None, eph_step=None,
-          obs_code='500', fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
+def scout(tdes, plot=None, data_files='mpc', orbits=False, n_orbits=None, eph_start='now', eph_stop=None, eph_step=None,
+          obs_code=None, fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
     url = 'https://ssd-api.jpl.nasa.gov/scout.api'
+
+    if n_orbits is not None:
+        if not 1 <= n_orbits <= 1000:
+            raise ValueError('n_orbits parameter must be an integer in the range [1, 1000].')
+
+    if eph_start != 'now':
+        if not isinstance(eph_start, (str, datetime.datetime)):
+            raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or YYYY-MM-DDThh:mm:ss "
+                            "format, 'now' for the current date, or a datetime object.")
+
+        if isinstance(eph_start, datetime.datetime):
+            eph_start = eph_start.strftime('%Y-%m-%dT%H:%M:%S')
+
+    if eph_stop is not None:
+        if not isinstance(eph_stop, (str, datetime.datetime)):
+            raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or YYYY-MM-DDThh:mm:ss "
+                            "format, or a datetime object.")
+
+        if isinstance(eph_stop, datetime.datetime):
+            eph_stop = eph_stop.strftime('%Y-%m-%dT%H:%M:%S')
+
+    if all(p is isinstance(p, datetime.datetime) for p in (eph_start, eph_stop)):
+        if eph_start >= eph_stop:
+            raise ValueError('eph_start parameter must be earlier than eph_stop')
+
+    if fov_diam is not None:
+        if not 0 <= fov_vmag <= 1800:
+            raise ValueError('fov_diam parameter must be an integer or float in the range (0, 1800].')
+
+    if fov_vmag is not None:
+        if not 1 <= fov_vmag <= 40:
+            raise ValueError('fov_vmag parameter must be an integer in the range [1, 40].')
 
 
 def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):
