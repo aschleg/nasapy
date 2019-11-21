@@ -553,6 +553,11 @@ def test_nhats():
     pass
 
 
+@vcr.use_cassette('tests/cassettes/scout.yml')
+def test_scout():
+    pass
+
+
 def test_julian_date():
     j1 = julian_date(year=2019, modified=False)
     j2 = julian_date(year=2019)

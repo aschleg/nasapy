@@ -2327,41 +2327,122 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
     return r
 
 
-def scout(tdes, plot=None, data_files='mpc', orbits=False, n_orbits=None, eph_start='now', eph_stop=None, eph_step=None,
-          obs_code=None, fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
+def scout(tdes=None, plot=None, data_files=None, orbit=False, n_orbits=None, eph_start='now', eph_stop=None,
+          eph_step=None, obs_code=None, fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
+
     url = 'https://ssd-api.jpl.nasa.gov/scout.api'
 
-    if n_orbits is not None:
-        if not 1 <= n_orbits <= 1000:
-            raise ValueError('n_orbits parameter must be an integer in the range [1, 1000].')
+    if tdes is None:
+        r = requests.get(url)
 
-    if eph_start != 'now':
-        if not isinstance(eph_start, (str, datetime.datetime)):
-            raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or YYYY-MM-DDThh:mm:ss "
-                            "format, 'now' for the current date, or a datetime object.")
+    else:
 
-        if isinstance(eph_start, datetime.datetime):
-            eph_start = eph_start.strftime('%Y-%m-%dT%H:%M:%S')
+        if n_orbits is not None:
+            if not 1 <= n_orbits <= 1000:
+                raise ValueError('n_orbits parameter must be an integer in the range [1, 1000].')
 
-    if eph_stop is not None:
-        if not isinstance(eph_stop, (str, datetime.datetime)):
-            raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or YYYY-MM-DDThh:mm:ss "
-                            "format, or a datetime object.")
+        if eph_start != 'now':
+            if not isinstance(eph_start, (str, datetime.datetime)):
+                raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or "
+                                "YYYY-MM-DDThh:mm:ss format, 'now' for the current date, or a datetime object.")
 
-        if isinstance(eph_stop, datetime.datetime):
-            eph_stop = eph_stop.strftime('%Y-%m-%dT%H:%M:%S')
+            if isinstance(eph_start, datetime.datetime):
+                eph_start = eph_start.strftime('%Y-%m-%dT%H:%M:%S')
 
-    if all(p is isinstance(p, datetime.datetime) for p in (eph_start, eph_stop)):
-        if eph_start >= eph_stop:
-            raise ValueError('eph_start parameter must be earlier than eph_stop')
+        if eph_stop is not None:
+            if not isinstance(eph_stop, (str, datetime.datetime)):
+                raise TypeError("date parameter must be a string representing a date in YYYY-MM-DD or "
+                                "YYYY-MM-DDThh:mm:ss format, or a datetime object.")
 
-    if fov_diam is not None:
-        if not 0 <= fov_vmag <= 1800:
-            raise ValueError('fov_diam parameter must be an integer or float in the range (0, 1800].')
+            if isinstance(eph_stop, datetime.datetime):
+                eph_stop = eph_stop.strftime('%Y-%m-%dT%H:%M:%S')
 
-    if fov_vmag is not None:
-        if not 1 <= fov_vmag <= 40:
-            raise ValueError('fov_vmag parameter must be an integer in the range [1, 40].')
+        if all(p is isinstance(p, datetime.datetime) for p in (eph_start, eph_stop)):
+            if eph_start >= eph_stop:
+                raise ValueError('eph_start parameter must be earlier than eph_stop')
+
+        if fov_diam is not None:
+            if not 0 <= fov_vmag <= 1800:
+                raise ValueError('fov_diam parameter must be an integer or float in the range (0, 1800].')
+
+        if fov_ra is not None and fov_diam is None and fov_dec is None:
+            raise ValueError('parameters fov_diam and fov_dec must be specified when passing a fov_ra value.')
+
+        if fov_dec is not None and fov_diam is None and fov_ra is None:
+            raise ValueError('parameters fov_diam and fov_ra must be specified when passing a fov_dec value')
+
+        if fov_vmag is not None:
+            if not 1 <= fov_vmag <= 40:
+                raise ValueError('fov_vmag parameter must be an integer in the range [1, 40].')
+
+        r = requests.get(url,
+                         params={'tdes': tdes,
+                                 'plot': plot,
+                                 'file': data_files,
+                                 'orbits': orbit,
+                                 'n-orbits': n_orbits,
+                                 'eph-start': eph_start,
+                                 'eph-stop': eph_stop,
+                                 'eph-step': eph_step,
+                                 'obs-code': obs_code,
+                                 'fov-diam': fov_diam,
+                                 'fov-ra': fov_ra,
+                                 'fov_dec': fov_dec,
+                                 'fov-vmag': fov_vmag})
+
+    if r.status_code != 200:
+        raise requests.exceptions.HTTPError(r.reason, r.url)
+
+    else:
+        return r.json()
+
+
+def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_days=None, complete_data=False,
+           removed=False):
+    url = 'https://ssd-api.jpl.nasa.gov/sentry.api'
+
+    if spk is not None and des is not None:
+        raise ValueError('only spk or des should be specified, not both.')
+
+    if h_max is not None:
+        if not -10 <= h_max <= 100:
+            raise ValueError('h_max parameter must be a float or integer in the range [-10, 100].')
+
+    if ps_min is not None:
+        if not -20 <= ps_min <= 20:
+            raise ValueError('ps_min parameter must be an integer in the range [-20, 20].')
+
+    if ip_min is not None:
+        if not 1e-10 <= ip_min <= 1:
+            raise ValueError('ip_min parameter must be a number in the range [1e-10, 1]')
+
+    if last_obs_days is not None:
+        if not abs(last_obs_days) > 6:
+            raise ValueError('last_obs_days parameter must be an integer whose absolute value is greater than 6.')
+
+    if not isinstance(complete_data, bool):
+        raise TypeError('complete_data parameter must be boolean (True or False).')
+
+    if not isinstance(removed, bool):
+        raise TypeError('removed parameter must be boolean (True or False).')
+
+    params = {
+        'h-max': h_max,
+        'ps-min': ps_min,
+        'ip-min': ip_min,
+        'days': last_obs_days,
+        'all': complete_data,
+        'removed': removed
+    }
+
+    if spk is not None:
+        params['spk'] = spk
+    if des is not None:
+        params['des'] = des
+
+    r = _return_api_result(url=url, params=params)
+
+    return r
 
 
 def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):
