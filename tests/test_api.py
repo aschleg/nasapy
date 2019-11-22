@@ -550,11 +550,88 @@ def test_mission_design():
 
 @vcr.use_cassette('tests/cassettes/nhats.yml')
 def test_nhats():
-    pass
+
+    summary = nhats()
+    des = nhats(des=99942)
+    des2 = nhats(des=99942, delta_v=6, duration=360, launch='2020-2045')
+    des3 = nhats(spk=2000433)
+
+    assert isinstance(summary, dict)
+    assert isinstance(des, dict)
+    assert isinstance(des2, dict)
+    assert isinstance(des3, dict)
+
+    with pytest.raises(ValueError):
+        nhats(des=99942, spk=2000433)
+
+    with pytest.raises(ValueError):
+        nhats(delta_v=1)
+
+    with pytest.raises(ValueError):
+        nhats(duration=1)
+
+    with pytest.raises(ValueError):
+        nhats(stay=1)
+
+    with pytest.raises(ValueError):
+        nhats(launch='2010')
+
+    with pytest.raises(ValueError):
+        nhats(magnitude=1)
+
+    with pytest.raises(ValueError):
+        nhats(des=99942, magnitude=20)
+
+    with pytest.raises(ValueError):
+        nhats(orbit_condition_code=10)
+
+    with pytest.raises(TypeError):
+        nhats(plot='true')
 
 
 @vcr.use_cassette('tests/cassettes/scout.yml')
 def test_scout():
+
+    s = scout()
+    s2 = scout(tdes='P20UvyK', plot='el:ca')
+    s3 = scout(tdes='P20UvyK', orbits=True)
+    s4 = scout(tdes='P20UvyK', eph_start='now')
+
+    assert isinstance(s, dict)
+    assert isinstance(s2, dict)
+    assert isinstance(s3, dict)
+    assert isinstance(s4, dict)
+
+    with pytest.raises(ValueError):
+        scout(n_orbits=0)
+
+    with pytest.raises(ValueError):
+        scout(eph_start='2019-12-31', eph_stop='2019-01-01')
+
+    with pytest.raises(ValueError):
+        scout(fov_diam=-1)
+
+    with pytest.raises(ValueError):
+        scout(fov_ra=0)
+
+    with pytest.raises(ValueError):
+        scout(fov_dec=45)
+
+    with pytest.raises(ValueError):
+        scout(fov_vmag=0)
+
+    with pytest.raises(TypeError):
+        scout(eph_start=2019)
+
+    with pytest.raises(TypeError):
+        scout(eph_stop=2020)
+
+    with pytest.raises(TypeError):
+        scout(tdes='P20UvyK', orbits='1')
+
+
+@vcr.use_cassette('tests/cassettes/sentry.yml')
+def test_sentry():
     pass
 
 
