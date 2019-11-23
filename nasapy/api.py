@@ -2251,20 +2251,37 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
           orbit_condition_code=None, plot=False):
     r"""
 
+
     Parameters
     ----------
-    delta_v :
-    duration :
-    stay :
-    launch :
-    magnitude :
-    orbit_condition_code :
-    spk :
-    des :
-    plot :
+    delta_v : int, {12, 4, 5, 6, 7, 8, 9, 10, 11}, default None
+    duration : int, {450, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420}
+    stay : int, {8, 16, 24, 32}
+    launch : str, {'2020-2045', '2020-2025', '2025-2030', '2030-2035', '2035-2040', '2040-2045'}
+    magnitude : int, default None, {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}
+    orbit_condition_code : int, default None, {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    spk : int, default None
+    des : str, default None
+    plot : bool, default False
 
     Raises
     ------
+    ValueError
+        Raised if both :code:`des` and :code:`spk` are specified.
+    ValueError
+        Raised if :code:`delta_v` parameter is not one of {4, 5, 6, 7, 8, 9, 10, 11, 12}.
+    ValueError
+        Raised if :code:`duration` parameter is not one of {60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450}.
+    ValueError
+        Raised if :code:`stay` parameter is not one of {8, 16, 24, 32}.
+    ValueError
+        Raised if :code:`launch` parameter is not one of {'2020-2025', '2025-2030', '2030-2035', '2035-2040',
+        '2040-2045', '2020-2045'}
+    ValueError
+        Raised if :code:`magnitude` parameter is not one of {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+        30}, if specified.
+    ValueError
+        Raised if :code:`orbit_condition_code` is not one of {0, 1, 2, 3, 4, 5, 6, 7, 8}, if specified.
 
     Returns
     -------
@@ -2279,7 +2296,7 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
         raise ValueError('Only a designation (:code:`des`) or SPK-ID (:code:`spk`) should be specified, not both.')
 
     if delta_v not in (4, 5, 6, 7, 8, 9, 10, 11, 12):
-        raise ValueError('deltav parameter must be one of {4, 5, 6, 7, 8, 9, 10, 11, 12}.')
+        raise ValueError('delta_v parameter must be one of {4, 5, 6, 7, 8, 9, 10, 11, 12}.')
 
     if duration not in (60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450):
         raise ValueError('duration parameter must be one of '
@@ -2331,12 +2348,60 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
 def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph_start=None, eph_stop=None,
           eph_step=None, obs_code=None, fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
     r"""
+    Provides access and data available from NASA's Center for Near-Earth Object Studies (CNEOS) Scout system.
 
     Parameters
     ----------
+    tdes : str, default None
+        Filter results by an objects temporary designation.
+    plot : str, default None
+        Includes the plot files for the specified object of the select type. Options include 'el' (elements), 'ca'
+        (close approach) and `sr` (systematic-ranging) or any combination delimited by ':'. For example, 'ca:el:sr'
+        would include plot files of each available type.
+    data_files : str, default None, {'list', 'mpc'}
+        Returns available data files or the requested data file for the specified object. Currently only, 'mpc'
+    orbits : bool, default None
+        If True, returns the sampled orbits data for a specified object.
+    n_orbits : int, default None
+        Limits the number of sampled orbits to this value. Must be in range [1, 1000].
+    eph_start : str, datetime, default None
+        Get the ephemeris for the specified object at the specified time in UTC.
+    eph_stop : str, datetime, default None
+        Sets the ephemeris stop-time. Also requires :code:`eph_start` if specified.
+    eph_step : str, default None
+        Sets the ephemeris step size. Requires both :code:`eph_start` and :code:`eph_stop` to be specified.
+    obs_code : str, default None
+        Gets the ephemeris for the specified object relative to the specified MPC observatory code.
+    fov_diam : float, int, default None
+        Specifies the size (diameter) of the field-of-view in arc-minutes.
+    fov_ra : str, default None
+        Specifies the field-of-view center (R.A component). Requires parameters :code:`fov_diam` and :code:`fov_dec` to
+        be set as well. Invalid if :code:`eph_stop` is passed.
+    fov_dec : str, default None
+        Specifies the field-of-view center (Dec. component). Requires :code:`fov_diam` and :code:`fov_ra` to be
+        passed as well. Invalid if :code:`eph_stop` is set.
+    fov_vmag : int, default None
+        Filters ephemeris results to those with V-magnitude of this value or brighter. Requires :code:`fov_diam` to
+        also be specified.
 
     Raises
     ------
+    ValueError
+        Raised when :code:`n_orbits` is not in range [1, 1000]
+    ValueError
+        Raised if :code:`eph_start` parameter is more recent than :code:`eph_stop` parameter (if both are specified)
+    ValueError
+        Raised if :code:`fov_diam` is not in range [0, 1800]
+    ValueError
+        Raised if :code:`fov_ra` is specified without passing values for :code:`fov_diam` and :code:`fov_dec`
+    ValueError
+        Raised if :code:`fov_dec` is specified without passing values for :code:`fov_diam` and :code:`fov_ra`.
+    TypeError
+        Raised if :code:`orbits` is not boolean.
+    TypeError
+        Raised if :code:`eph_start` is not a string representing a datetime format or a datetime object.
+    TypeError
+         Raised if :code:`eph_stop` is not a string representing a datetime format or a datetime object.
 
     Returns
     -------
@@ -2411,15 +2476,51 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
 def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_days=None, complete_data=False,
            removed=False):
     r"""
+    Provides data available from the Center for Near Earth Object Studies (CNEOS) Sentry system.
 
     Parameters
     ----------
+    spk : int, default None
+        Returns data available for the object matching the specified SPK-ID.
+    des : str, default None
+        Selects data for the matching designation.
+    h_max : float, int, default None
+        Limits data to those with an absolute magnitude, less than or equal to the specified value. Must be in the
+        range [-10:100].
+    ps_min : int, default None
+        Limits results to those with a Palermo scale (PS) greater than or equal to the specified value. Must be in the
+        range [-20:20].
+    ip_min : float, default None
+        Filters data to that which has an impact probability (IP) greater than or equal to the specified value.
+    last_obs_days : int, default None
+        Number of days since last observation. If negative, filters data to those which have not been observed within
+        the specified number of days. If passed, must have an absolute value greater than 6.
+    complete_data : bool, default False
+        If True, requests the full dataset to be returned.
+    removed : bool, default False
+        If True, requests the list of removed objects to be returned.
 
     Raises
     ------
+    ValueError
+        Raised if :code:`spk` and :code:`des` are both specified.
+    ValueError
+        Raised if :code:`h_max` is not in range [-10, 100].
+    ValueError
+        Raised if :code:`ps_min` is not in range [-20, 20].
+    ValueError
+        Raised if :code:`ip_min` is not in range [-1e-10, 1].
+    ValueError
+        Raised if :code:`last_obs_days` is not greater than 6.
+    TypeError
+        Raised if :code:`complete_data` is not boolean (True or False).
+    TypeError
+        Raised if :code:`removed` is not boolean (True or False).
 
     Returns
     -------
+    dict
+        Dictionary object representing the returned JSON data.
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/sentry.api'
