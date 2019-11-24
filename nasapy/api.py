@@ -2250,19 +2250,30 @@ def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, 
 def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None,
           orbit_condition_code=None, plot=False):
     r"""
-
+    Returns data available from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS) in the
+    Small Bodies Database
 
     Parameters
     ----------
     delta_v : int, {12, 4, 5, 6, 7, 8, 9, 10, 11}, default None
+        Minimum total delta-v in km/s.
     duration : int, {450, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420}
+        Minimum total distribution in number of days.
     stay : int, {8, 16, 24, 32}
+        Minimum stay in days.
     launch : str, {'2020-2045', '2020-2025', '2025-2030', '2030-2035', '2035-2040', '2040-2045'}
+        The proposed launch window as a year range.
     magnitude : int, default None, {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}
+        The object's maximum absolute magnitude, also denoted as H.
     orbit_condition_code : int, default None, {0, 1, 2, 3, 4, 5, 6, 7, 8}
+        The object's maximum orbit condition code (OCC).
     spk : int, default None
+        Returns data for a specific object by its SPK-ID.
     des : str, default None
+        Returns data for a specific object by its designation.
     plot : bool, default False
+        If True, include base-64 encoded plot image file content. Will include a new output field 'plot_base64' in the
+        returned results if True.
 
     Raises
     ------
@@ -2285,9 +2296,17 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
 
     Returns
     -------
+    dict
+        Dictionary object representing the returned JSON data from the API.
 
     Examples
     --------
+    # Get all available summary data for NHATS objects.
+    >>> n = nhats()
+    # Get the results from a 'standard' search on the NHATS webpage.
+    >>> nhats(delta_v=6, duration=360, stay=8, magnitude=26, launch='2020-2045', orbit_condition_code=7)
+    # Return data for a specific object by its designation
+    >>> nhats(des=99942)
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/nhats.api'
@@ -2353,13 +2372,13 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
     Parameters
     ----------
     tdes : str, default None
-        Filter results by an objects temporary designation.
+        Filter results by an object's temporary designation.
     plot : str, default None
         Includes the plot files for the specified object of the select type. Options include 'el' (elements), 'ca'
         (close approach) and `sr` (systematic-ranging) or any combination delimited by ':'. For example, 'ca:el:sr'
         would include plot files of each available type.
     data_files : str, default None, {'list', 'mpc'}
-        Returns available data files or the requested data file for the specified object. Currently only, 'mpc'
+        Returns available data files or the requested data file for the specified object. Currently only 'mpc' is available.
     orbits : bool, default None
         If True, returns the sampled orbits data for a specified object.
     n_orbits : int, default None
@@ -2405,6 +2424,19 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
 
     Returns
     -------
+    dict
+        Dictionary object representing the returned JSON data from the API.
+
+    Examples
+    --------
+    # Get all available summary data.
+    >>> scout()
+    # Return data and plot files for a specific object by its temporary designation. Note the object may no longer
+    # exist in the current database
+    >>> scout(tdes='P20UvyK')
+    # Get ephemeris data for a specific object at the current time with a Field of View diameter of 5 arc-minutes
+    # with a limiting V-magnitude of 23.1.
+    >>> scout(tdes='P20UvyK', fov_diam=5, fov_vmag=23.1)
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/scout.api'
@@ -2522,6 +2554,15 @@ def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_da
     dict
         Dictionary object representing the returned JSON data.
 
+    Examples
+    --------
+    # Get summary data for available sentry objects.
+    >>> sentry()
+    # Get data for a specific Sentry object by its designation.
+    >>> sentry(des=99942)
+    # Get data for objects removed from the Sentry system.
+    >>> sentry(removed=1)
+
     """
     url = 'https://ssd-api.jpl.nasa.gov/sentry.api'
 
@@ -2576,13 +2617,22 @@ def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, 
     Parameters
     ----------
     dt : datetime, default None
-    year : int, default None
+        Datetime object to convert into a Julian date. Note if a datetime object is supplied to :code:`dt` the other
+        parameters will not be evaluated. If None, returns the current datetime converted into a Julian date.
+    year : int, str, default None
+        Four digit year, such as 2019 or '2019'.
     month : int, default 1
+        Month number. For example 1 = January, 12 = December.
     day : int, default 1
+        Day of the month.
     hour : int, default 0
+        Hour of the day.
     minute : int, default 0
+        Minute of the day.
     second : int, default 0
+        Second of the day.
     modified : boolean, default True
+        If True, returns the modified Julian date, which is the computed Julian Date - 24000000.5.
 
     Returns
     -------
@@ -2591,6 +2641,12 @@ def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, 
 
     Examples
     --------
+    # Return the modified Julian Date for the current time.
+    >>> julian_date()
+    # Return the non-modified Julian Date for the current time.
+    >>> julian_date(modified=False)
+    # Get the modified Julian Date for 2019-01-01 at midnight.
+    >>> julian_date(year=2019)
 
     Notes
     -----
@@ -2598,7 +2654,8 @@ def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, 
 
     .. math::
 
-        J = 367(Year) - /large[ \large( \frac{7(Year + \frac{Month + 9}{12})}{4} \large). \large] + \frac{275(Month)}{9}. + Day + 1721013.5 + \frac{\large( \frac{\frac{Second}{60} + Minute}{60} \large) + Hour}{24}
+        J = 367(Year) - /large[ \large( \frac{7(Year + \frac{Month + 9}{12})}{4} \large). \large] +
+        \frac{275(Month)}{9}. + Day + 1721013.5 + \frac{\large( \frac{\frac{Second}{60} + Minute}{60} \large) + Hour}{24}
 
     References
     ----------

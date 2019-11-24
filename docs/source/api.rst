@@ -521,3 +521,82 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
         r = nasapy.mission_design(des=1, mjd0=59000, span=1800, tof_min=120, tof_max=1500, step=5)
         r['object']
 
+.. method:: nhats([spk=None][, des=None][, delta_v=12][, duration=450][, stay=8][, launch='2020-2045'][, magnitude=None][, orbit_condition_code=None][, plot=False])
+
+    Returns data available from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS) in the Small
+    Bodies Database
+
+    :param spk: Returns data for a specific object by its SPK-ID.
+    :param des: Returns data for a specific object by its designation.
+    :param delta_v: Minimum total delta-v in km/s. Must be one of {12, 4, 5, 6, 7, 8, 9, 10, 11}
+    :param duration: Minimum total distribution in number of days. Must be one of {450, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420}
+    :param stay: Minimum stay in days. Must be one of {8, 16, 24, 32}
+    :param launch: The proposed launch window as a year range. Must be one of {'2020-2045', '2020-2025', '2025-2030', '2030-2035', '2035-2040', '2040-2045'}
+    :param magnitude: The object's maximum absolute magnitude, also denoted as H. Must be one of {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}
+    :param orbit_condition_code: The object's maximum orbit condition code (OCC). Must be one of {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    :param plot: If True, include base-64 encoded plot image file content. Will include a new output field 'plot_base64' in the returned results if True.
+    :rtype: dict. Dictionary object representing the returned JSON data from the API.
+
+    .. code-block:: python
+
+        # Get all available summary data for NHATS objects.
+        n = nhats()
+        # Get the results from a 'standard' search on the NHATS webpage.
+        nhats(delta_v=6, duration=360, stay=8, magnitude=26, launch='2020-2045', orbit_condition_code=7)
+        # Return data for a specific object by its designation
+        nhats(des=99942)
+
+.. method:: scout([tdes=None][, plot=None][, data_files=None][, orbits=None][, n_orbits=None][, eph_start=None][, eph_stop=None][, eph_step=None][, obs_code=None][, fov_diam=None][, fov_ra=None][, fov_dec=None][, fov_vmag=None])
+
+    Provides access and data available from NASA's Center for Near-Earth Object Studies (CNEOS) Scout system.
+
+    :param tdes: Filter results by an object's temporary designation.
+    :param plot: Includes the plot files for the specified object of the select type. Options include 'el' (elements), 'ca' (close approach) and `sr` (systematic-ranging) or any combination delimited by ':'. For example, 'ca:el:sr' would include plot files of each available type.
+    :param data_files: Returns available data files or the requested data file for the specified object. Currently only 'mpc' is available.
+    :param orbits: If True, returns the sampled orbits data for a specified object.
+    :param n_orbits: Limits the number of sampled orbits to this value. Must be in range [1, 1000].
+    :param eph_start: Get the ephemeris for the specified object at the specified time in UTC.
+    :param eph_stop: Sets the ephemeris stop-time. Also requires :code:`eph_start` if specified.
+    :param eph_step: Sets the ephemeris step size. Requires both :code:`eph_start` and :code:`eph_stop` to be specified.
+    :param obs_code: Gets the ephemeris for the specified object relative to the specified MPC observatory code.
+    :param fov_diam: Specifies the size (diameter) of the field-of-view in arc-minutes.
+    :param fov_ra: Specifies the field-of-view center (R.A component). Requires parameters :code:`fov_diam` and :code:`fov_dec` to be set as well. Invalid if :code:`eph_stop` is passed.
+    :param fov_dec: Specifies the field-of-view center (Dec. component). Requires :code:`fov_diam` and :code:`fov_ra` to be passed as well. Invalid if :code:`eph_stop` is set.
+    :param fov_vmag: Filters ephemeris results to those with V-magnitude of this value or brighter. Requires :code:`fov_diam` to also be specified.
+    :rtype: dict. Dictionary object representing the returned JSON data from the API.
+
+    .. code-block:: python
+
+        # Get all available summary data.
+        scout()
+        # Return data and plot files for a specific object by its temporary designation. Note the object may no longer
+        # exist in the current database
+        scout(tdes='P20UvyK')
+        # Get ephemeris data for a specific object at the current time with a Field of View diameter of 5 arc-minutes
+        # with a limiting V-magnitude of 23.1.
+        scout(tdes='P20UvyK', fov_diam=5, fov_vmag=23.1)
+
+.. method:: sentry([spk=None][, des=None][, h_max=None][, ps_min=None][, ip_min=None][, last_obs_days=None][, complete_data=False][, removed=False])
+
+    Provides data available from the Center for Near Earth Object Studies (CNEOS) Sentry system.
+
+    :param spk: Returns data available for the object matching the specified SPK-ID.
+    :param des: Selects data for the matching designation.
+    :param h_max: Limits data to those with an absolute magnitude, less than or equal to the specified value. Must be in the range [-10:100].
+    :param ps_min: Limits results to those with a Palermo scale (PS) greater than or equal to the specified value. Must be in the range [-20:20].
+    :param ip_min: Filters data to that which has an impact probability (IP) greater than or equal to the specified value.
+    :param last_obs_days: Number of days since last observation. If negative, filters data to those which have not been observed within the specified number of days. If passed, must have an absolute value greater than 6.
+    :param complete_data: If True, requests the full dataset to be returned.
+    :param removed: If True, requests the list of removed objects to be returned.
+    :rtype: dict. Dictionary object representing the returned JSON data.
+
+    .. code-block:: python
+
+        # Get summary data for available sentry objects.
+        sentry()
+        # Get data for a specific Sentry object by its designation.
+        sentry(des=99942)
+        # Get data for objects removed from the Sentry system.
+        sentry(removed=1)
+
+
