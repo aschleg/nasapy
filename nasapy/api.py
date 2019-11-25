@@ -125,7 +125,7 @@ class Nasa(object):
 
     def picture_of_the_day(self, date=None, hd=False):
         r"""
-        Returns the URL and other information for the NASA Picture of the Day.
+        Returns the URL and other information for the NASA Astronomy Picture of the Day.
 
         Parameters
         ----------
@@ -161,8 +161,8 @@ class Nasa(object):
         """
         if date is not None:
             if not isinstance(date, (str, datetime.datetime)):
-                raise TypeError('date parameter must be a string representing a date in YYYY-MM-DD format or a datetime '
-                                'object.')
+                raise TypeError('date parameter must be a string representing a date in YYYY-MM-DD format or a '
+                                'datetime object.')
 
         if not isinstance(hd, bool):
             raise TypeError('hd parameter must be True or False (boolean).')
@@ -1579,7 +1579,7 @@ def media_search(query=None, center=None, description=None, keywords=None, locat
                  nasa_id=None, page=1, photographer=None, secondary_creator=None, title=None, year_start=None,
                  year_end=None):
     r"""
-    Performs a general search for images from the images.nasa.gov API based on parameters and criteria specified.
+    Performs a general search for media from the images.nasa.gov API based on parameters and criteria specified.
     At least one parameter must be provided.
 
     Parameters
@@ -2711,15 +2711,6 @@ def _media_assets(endpoint, nasa_id):
 
 
 def _donki_request(key, url, start_date=None, end_date=None):
-    r"""
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-
-    """
     start_date, end_date = _check_dates(start_date=start_date, end_date=end_date)
 
     r = requests.get(url,
@@ -2743,15 +2734,6 @@ def _donki_request(key, url, start_date=None, end_date=None):
 
 
 def _check_dates(start_date=None, end_date=None):
-    r"""
-
-    Parameters
-    ----------
-
-    Returns
-    -------
-
-    """
     if start_date is not None:
         if not isinstance(start_date, (str, datetime.datetime)):
             raise TypeError('start_date parameter must be a string representing a date in YYYY-MM-DD format or '
