@@ -293,6 +293,11 @@ exact date in the request.
     :param end_date: End of date range in which to search for available assets. If not specified, defaults to the current date. If specified, Must be a string representing a date in 'YYYY-MM-DD' format or a datetime object
     :rtype: dict. Dictionary object representing the returned JSON data from the API.
 
+    .. code-block:: python
+
+        # Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5
+        n.earth_assets(lat=100.75, lon=1.5, begin_date='2014-02-01')
+
 Mars Rover Photos
 +++++++++++++++++
 
@@ -326,6 +331,11 @@ GeneLab Search
     :param ffield: Filters the returned data based on the defined field. Should be paired with the :code:`fvalue` parameter. Only the 'cgene' (GeneLab) database can be filtered.
     :param fvalue: Filters the returned data based on value or values in the specified :code:`ffield` parameter field. Only the 'cgene' (GeneLab) database can be filtered.
     :rtype: dict. Dictionary object representing the returned JSON data.
+
+    .. code-block:: python
+
+        # Find Gene studies in the cgene database related to 'mouse liver'
+        n.genelab_search(term='mouse liver')
 
 Techport
 ++++++++
@@ -599,4 +609,35 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
         # Get data for objects removed from the Sentry system.
         sentry(removed=1)
 
+Other Methods
++++++++++++++
 
+.. method:: julian_date([dt=None][, year=None][, month=1][, day=1][, hour=0][, minute=0][, second=0][, modified=True])
+
+    Calculates the Julian date or modified Julian date (if specified).
+
+    :param dt: Datetime object to convert into a Julian date. Note if a datetime object is supplied to :code:`dt` the other parameters will not be evaluated. If None, returns the current datetime converted into a Julian date.
+    :param year: Four digit year, such as 2019 or '2019'.
+    :param month: Month number. For example 1 = January, 12 = December.
+    :param day: Day of the month.
+    :param hour:  Hour of the day.
+    :param minute: Minute of the day.
+    :param second: Second of the day.
+    :param modified: If True, returns the modified Julian date, which is the computed Julian Date - 24000000.5.
+    :rtype: float. The computed Julian or Modified Julian date.
+
+    .. code-block:: python
+
+        # Return the modified Julian Date for the current time.
+        julian_date()
+        # Return the non-modified Julian Date for the current time.
+        julian_date(modified=False)
+        # Get the modified Julian Date for 2019-01-01 at midnight.
+        julian_date(year=2019)
+
+    The equation for calculating the Julian date is defined as:
+
+    .. math::
+
+        J = 367(Year) - /large[ \large( \frac{7(Year + \frac{Month + 9}{12})}{4} \large). \large] +
+        \frac{275(Month)}{9}. + Day + 1721013.5 + \frac{\large( \frac{\frac{Second}{60} + Minute}{60} \large) + Hour}{24}

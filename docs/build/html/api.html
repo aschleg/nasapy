@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#tle-two-line-element-set-data">TLE (Two-Line Element Set Data)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nasa-image-and-video-library">NASA Image and Video Library</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#solar-system-dynamics-ssd-and-center-for-near-earth-object-studies-cneos">Solar System Dynamics (SSD) and Center for Near-Earth Object Studies (CNEOS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-methods">Other Methods</a></li>
 </ul>
 </li>
 </ul>
@@ -648,6 +649,10 @@ exact date in the request.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5</span>
+<span class="n">n</span><span class="o">.</span><span class="n">earth_assets</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">begin_date</span><span class="o">=</span><span class="s1">&#39;2014-02-01&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -708,6 +713,10 @@ Laboratory’s (ANL) Metagenomics Rapid Annotations using Subsystems Technology 
 </tr>
 </tbody>
 </table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find Gene studies in the cgene database related to &#39;mouse liver&#39;</span>
+<span class="n">n</span><span class="o">.</span><span class="n">genelab_search</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;mouse liver&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -958,6 +967,199 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 <span class="o">&gt;&gt;&gt;</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="mission_design">
+<code class="descname">mission_design</code><span class="sig-paren">(</span><em>[des=None][, spk=None][, sstr=None][, orbit_class=False][, mjd0=None][, span=None][, tof_min=None][, tof_max=None][, step=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#mission_design" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to the Jet Propulsion Laboratory/Solar System Dynamics small body mission design suite API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>des</strong> – The designation (provisional or IAU-number) of the desired object to search.</li>
+<li><strong>spk</strong> – The SPK-ID of the desired object to search.</li>
+<li><strong>sstr</strong> – Object search string.</li>
+<li><strong>orbit_class</strong> – If True, returns the orbit class in human readable format instead of the default three-letter code.</li>
+<li><strong>mjd0</strong> – First launch date in Modified Julian Date. Must be between [33282, 73459].</li>
+<li><strong>span</strong> – Duration of the launch-date period to be explored in days. Must be between [10, 9200].</li>
+<li><strong>tof_min</strong> – Minimum time of flight in days. Must be between [10, 9200].</li>
+<li><strong>tof_max</strong> – Maximum time of flight in days. Must be between [10, 9200].</li>
+<li><strong>step</strong> – Time step used to advance the launch date and the time of flight. Size of transfer map is limited to 1,500,000 points.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search for mission design data for SPK-ID 2000433</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">mission_design</span><span class="p">(</span><span class="n">spk</span><span class="o">=</span><span class="mi">2000433</span><span class="p">)</span>
+<span class="c1"># Print the object data from the returned dictionary object.</span>
+<span class="n">r</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">]</span>
+<span class="c1"># Get Missions to 1 Ceres</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">mission_design</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mjd0</span><span class="o">=</span><span class="mi">59000</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span> <span class="n">tof_min</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">tof_max</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nhats">
+<code class="descname">nhats</code><span class="sig-paren">(</span><em>[spk=None][, des=None][, delta_v=12][, duration=450][, stay=8][, launch='2020-2045'][, magnitude=None][, orbit_condition_code=None][, plot=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#nhats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns data available from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS) in the Small
+Bodies Database</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>spk</strong> – Returns data for a specific object by its SPK-ID.</li>
+<li><strong>des</strong> – Returns data for a specific object by its designation.</li>
+<li><strong>delta_v</strong> – Minimum total delta-v in km/s. Must be one of {12, 4, 5, 6, 7, 8, 9, 10, 11}</li>
+<li><strong>duration</strong> – Minimum total distribution in number of days. Must be one of {450, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420}</li>
+<li><strong>stay</strong> – Minimum stay in days. Must be one of {8, 16, 24, 32}</li>
+<li><strong>launch</strong> – The proposed launch window as a year range. Must be one of {‘2020-2045’, ‘2020-2025’, ‘2025-2030’, ‘2030-2035’, ‘2035-2040’, ‘2040-2045’}</li>
+<li><strong>magnitude</strong> – The object’s maximum absolute magnitude, also denoted as H. Must be one of {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}</li>
+<li><strong>orbit_condition_code</strong> – The object’s maximum orbit condition code (OCC). Must be one of {0, 1, 2, 3, 4, 5, 6, 7, 8}</li>
+<li><strong>plot</strong> – If True, include base-64 encoded plot image file content. Will include a new output field ‘plot_base64’ in the returned results if True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available summary data for NHATS objects.</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">nhats</span><span class="p">()</span>
+<span class="c1"># Get the results from a &#39;standard&#39; search on the NHATS webpage.</span>
+<span class="n">nhats</span><span class="p">(</span><span class="n">delta_v</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">stay</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">magnitude</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">launch</span><span class="o">=</span><span class="s1">&#39;2020-2045&#39;</span><span class="p">,</span> <span class="n">orbit_condition_code</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="c1"># Return data for a specific object by its designation</span>
+<span class="n">nhats</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="mi">99942</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="scout">
+<code class="descname">scout</code><span class="sig-paren">(</span><em>[tdes=None][, plot=None][, data_files=None][, orbits=None][, n_orbits=None][, eph_start=None][, eph_stop=None][, eph_step=None][, obs_code=None][, fov_diam=None][, fov_ra=None][, fov_dec=None][, fov_vmag=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#scout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access and data available from NASA’s Center for Near-Earth Object Studies (CNEOS) Scout system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tdes</strong> – Filter results by an object’s temporary designation.</li>
+<li><strong>plot</strong> – Includes the plot files for the specified object of the select type. Options include ‘el’ (elements), ‘ca’ (close approach) and <cite>sr</cite> (systematic-ranging) or any combination delimited by ‘:’. For example, ‘ca:el:sr’ would include plot files of each available type.</li>
+<li><strong>data_files</strong> – Returns available data files or the requested data file for the specified object. Currently only ‘mpc’ is available.</li>
+<li><strong>orbits</strong> – If True, returns the sampled orbits data for a specified object.</li>
+<li><strong>n_orbits</strong> – Limits the number of sampled orbits to this value. Must be in range [1, 1000].</li>
+<li><strong>eph_start</strong> – Get the ephemeris for the specified object at the specified time in UTC.</li>
+<li><strong>eph_stop</strong> – Sets the ephemeris stop-time. Also requires <code class="code docutils literal notranslate"><span class="pre">eph_start</span></code> if specified.</li>
+<li><strong>eph_step</strong> – Sets the ephemeris step size. Requires both <code class="code docutils literal notranslate"><span class="pre">eph_start</span></code> and <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> to be specified.</li>
+<li><strong>obs_code</strong> – Gets the ephemeris for the specified object relative to the specified MPC observatory code.</li>
+<li><strong>fov_diam</strong> – Specifies the size (diameter) of the field-of-view in arc-minutes.</li>
+<li><strong>fov_ra</strong> – Specifies the field-of-view center (R.A component). Requires parameters <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> and <code class="code docutils literal notranslate"><span class="pre">fov_dec</span></code> to be set as well. Invalid if <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> is passed.</li>
+<li><strong>fov_dec</strong> – Specifies the field-of-view center (Dec. component). Requires <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> and <code class="code docutils literal notranslate"><span class="pre">fov_ra</span></code> to be passed as well. Invalid if <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> is set.</li>
+<li><strong>fov_vmag</strong> – Filters ephemeris results to those with V-magnitude of this value or brighter. Requires <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> to also be specified.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available summary data.</span>
+<span class="n">scout</span><span class="p">()</span>
+<span class="c1"># Return data and plot files for a specific object by its temporary designation. Note the object may no longer</span>
+<span class="c1"># exist in the current database</span>
+<span class="n">scout</span><span class="p">(</span><span class="n">tdes</span><span class="o">=</span><span class="s1">&#39;P20UvyK&#39;</span><span class="p">)</span>
+<span class="c1"># Get ephemeris data for a specific object at the current time with a Field of View diameter of 5 arc-minutes</span>
+<span class="c1"># with a limiting V-magnitude of 23.1.</span>
+<span class="n">scout</span><span class="p">(</span><span class="n">tdes</span><span class="o">=</span><span class="s1">&#39;P20UvyK&#39;</span><span class="p">,</span> <span class="n">fov_diam</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">fov_vmag</span><span class="o">=</span><span class="mf">23.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sentry">
+<code class="descname">sentry</code><span class="sig-paren">(</span><em>[spk=None][, des=None][, h_max=None][, ps_min=None][, ip_min=None][, last_obs_days=None][, complete_data=False][, removed=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#sentry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides data available from the Center for Near Earth Object Studies (CNEOS) Sentry system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>spk</strong> – Returns data available for the object matching the specified SPK-ID.</li>
+<li><strong>des</strong> – Selects data for the matching designation.</li>
+<li><strong>h_max</strong> – Limits data to those with an absolute magnitude, less than or equal to the specified value. Must be in the range [-10:100].</li>
+<li><strong>ps_min</strong> – Limits results to those with a Palermo scale (PS) greater than or equal to the specified value. Must be in the range [-20:20].</li>
+<li><strong>ip_min</strong> – Filters data to that which has an impact probability (IP) greater than or equal to the specified value.</li>
+<li><strong>last_obs_days</strong> – Number of days since last observation. If negative, filters data to those which have not been observed within the specified number of days. If passed, must have an absolute value greater than 6.</li>
+<li><strong>complete_data</strong> – If True, requests the full dataset to be returned.</li>
+<li><strong>removed</strong> – If True, requests the list of removed objects to be returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get summary data for available sentry objects.</span>
+<span class="n">sentry</span><span class="p">()</span>
+<span class="c1"># Get data for a specific Sentry object by its designation.</span>
+<span class="n">sentry</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="mi">99942</span><span class="p">)</span>
+<span class="c1"># Get data for objects removed from the Sentry system.</span>
+<span class="n">sentry</span><span class="p">(</span><span class="n">removed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="other-methods">
+<h3>Other Methods<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="julian_date">
+<code class="descname">julian_date</code><span class="sig-paren">(</span><em>[dt=None][, year=None][, month=1][, day=1][, hour=0][, minute=0][, second=0][, modified=True]</em><span class="sig-paren">)</span><a class="headerlink" href="#julian_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Julian date or modified Julian date (if specified).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dt</strong> – Datetime object to convert into a Julian date. Note if a datetime object is supplied to <code class="code docutils literal notranslate"><span class="pre">dt</span></code> the other parameters will not be evaluated. If None, returns the current datetime converted into a Julian date.</li>
+<li><strong>year</strong> – Four digit year, such as 2019 or ‘2019’.</li>
+<li><strong>month</strong> – Month number. For example 1 = January, 12 = December.</li>
+<li><strong>day</strong> – Day of the month.</li>
+<li><strong>hour</strong> – Hour of the day.</li>
+<li><strong>minute</strong> – Minute of the day.</li>
+<li><strong>second</strong> – Second of the day.</li>
+<li><strong>modified</strong> – If True, returns the modified Julian date, which is the computed Julian Date - 24000000.5.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float. The computed Julian or Modified Julian date.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the modified Julian Date for the current time.</span>
+<span class="n">julian_date</span><span class="p">()</span>
+<span class="c1"># Return the non-modified Julian Date for the current time.</span>
+<span class="n">julian_date</span><span class="p">(</span><span class="n">modified</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># Get the modified Julian Date for 2019-01-01 at midnight.</span>
+<span class="n">julian_date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The equation for calculating the Julian date is defined as:</p>
+<div class="math notranslate nohighlight">
+\[J = 367(Year) - /large[ \large( \frac{7(Year + \frac{Month + 9}{12})}{4} \large). \large] +
+\frac{275(Month)}{9}. + Day + 1721013.5 + \frac{\large( \frac{\frac{Second}{60} + Minute}{60} \large) + Hour}{24}\]</div>
 </dd></dl>
 
 </div>

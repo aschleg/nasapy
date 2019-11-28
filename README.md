@@ -101,64 +101,52 @@ nasa.get_asteroids()
 nasa.get_asteroids(asteroid_id=3542519)
 ~~~
 
-#### Coronal Mass Ejection Event Data
+#### DONKI (Space Weather Database of Notifications, Knowledge and Information)
 
 ~~~ python
+# Coronal Mass Ejection Event Data
+
 # View data from coronal mass ejection events from the last thirty days
 nasa.coronal_mass_ejection()
 # View all CME events from the beginning of 2019.
 nasa.coronal_mass_ejection(start_date='2019-01-01', end_date=datetime.datetime.today())
-~~~
 
-#### Geomagnetic Storm Event Data
+# Geomagnetic Storm Event Data
 
-~~~ python
 # Get geomagnetic storm events from the last thirty days.
 nasa.geomagnetic_storm()
-~~~
 
-#### Solar Flare Event Data 
+# Solar Flare Event Data 
 
-~~~ python
 # Get solar flare events from May of 2019
 nasa.solar_flare(start_date='2019-05-01', end_date='2019-05-31')
-~~~
 
-#### Solar Energetic Particle Data
+# Solar Energetic Particle Data
 
-~~~ python
 # Get data from April 2017
 nasa.solar_energetic_particle(start_date='2017-04-01', end_date='2017-04-30')
-~~~
 
-#### Magnetopause Crossing Data
+# Magnetopause Crossing Data
 
-~~~ python
 # Get data on magnetopause crossing events from 2018 to the current date.
 nasa.magnetopause_crossing(start_date='2018-01-01')
-~~~
 
-#### Radiation Belt Enhancement Data
+# Radiation Belt Enhancement Data
 
-~~~ python
 # Get data on radiation belt enhancement events from the last 30 days.
 nasa.radiation_belt_enhancement()
-~~~ 
 
-#### Hight Speed Stream Data
+# Hight Speed Stream Data
 
-~~~ python
 # Get data on hight speed stream events from the beginning of September 2019.
 nasa.hight_speed_stream()
-~~~
 
-#### WSA Enlil-Simulation Data
+# WSA Enlil-Simulation Data
 
-~~~ python
 # Get data from the first simulation performed in 2019.
 wsa = n.wsa_enlil_simulation(start_date='2019-01-01')
 wsa[0]
-~~~ 
+~~~
 
 #### EPIC (DSCOVR's Earth Polychromatic Imaging Camera)
 
@@ -174,6 +162,9 @@ e[0]
 ~~~ python
 # Get imagery at latitude 1.5, longitude 100.75 and include the computed cloud score calculation.
 nasa.earth_imagery(lon=100.75, lat=1.5, cloud_score=True)
+
+# Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5
+nasa.earth_assets(lat=100.75, lon=1.5, begin_date='2014-02-01')
 ~~~ 
 
 #### Available Image data collected by the Mars rovers Curiosity, Discovery and Spirit.
@@ -186,7 +177,8 @@ nasa.mars_rover(sol=1000)
 #### Access GeneLab and Other Bioinformatics Databases
 
 ~~~ python
-
+# Find Gene studies in the cgene database related to 'mouse liver'
+n.genelab_search(term='mouse liver')
 ~~~ 
 
 The following functions do not require authentication with an API or demo key.
@@ -205,6 +197,19 @@ tle(satellite_number=43553)
 r = media_search(query='apollo 11', description='moon landing')
 # Print the first returned media item from the resulting collection.
 r['items'][0]
+~~~
+
+Other function examples
+
+#### Getting the Julian and Modified Julian Date
+
+~~~ python 
+# Return the modified Julian Date for the current time.
+julian_date()
+# Return the non-modified Julian Date for the current time.
+julian_date(modified=False)
+# Get the modified Julian Date for 2019-01-01 at midnight.
+julian_date(year=2019)
 ~~~
 
 ## Requirements

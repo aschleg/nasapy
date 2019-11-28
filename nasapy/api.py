@@ -1160,6 +1160,13 @@ class Nasa(object):
         dict
             Dictionary object representing the returned JSON data from the API.
 
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5
+        >>> n.earth_assets(lat=100.75, lon=1.5, begin_date='2014-02-01')
+
         Notes
         -----
         The assets endpoint is meant to support the imagery endpoint by making it easier for users to find available
@@ -1388,6 +1395,13 @@ class Nasa(object):
         dict
             Dictionary object representing the returned JSON data.
 
+        Examples
+        --------
+        # Initialize API connection with a Demo Key
+        >>> n = Nasa()
+        # Find Gene studies in the cgene database related to 'mouse liver'
+        >>> n.genelab_search(term='mouse liver')
+
         Notes
         -----
         The `GeneLab public data repository <https://genelab-data.ndc.nasa.gov/genelab/projects>`_ provides the same
@@ -1395,7 +1409,7 @@ class Nasa(object):
         databases, please see the following links:
         `Gene Expression Omnibus (GEO) <https://www.ncbi.nlm.nih.gov/geo/>`_
         `European Bioinformatics Institute (EBI) <https://www.ebi.ac.uk/pride/archive/>`_
-        `Argonne National Laboratorys (ANL) <http://www.mg-rast.org>`_
+        `Argonne National Laboratory's (ANL) <http://www.mg-rast.org>`_
 
         """
         url = 'https://genelab-data.ndc.nasa.gov/genelab/data/search'
@@ -2659,6 +2673,7 @@ def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, 
 
     References
     ----------
+    Capt. Vallado, David. Methods of Astrodynamics, A Computer Approach. USAF Academy, CO.
 
     """
     if all(p is None for p in (dt, year)):
