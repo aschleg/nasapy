@@ -19,7 +19,7 @@ class Nasa(object):
     ----------
     key : str, default None
         The generated API key received from the NASA API. Registering for an API key can be done on the `NASA API
-        webpage <https://api.nasa.gov/>`_. If :code:`None`, a 'DEMO_KEY' with a much more restricted access limited
+        webpage <https://api.nasa.gov/>`_. If :code:`None`, a 'DEMO_KEY' with a much more restricted access limit
         is used.
 
     Attributes
@@ -1886,9 +1886,32 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
     Examples
     --------
     # Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.
-    >>> nasapy.close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
+    >>> close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
     # Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
-    >>> nasapy.close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+    >>> close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+
+    Notes
+    -----
+    Each close-approach record is a list containing the following fields in the corresponding order:
+
+    * des - primary designation of the asteroid or comet (e.g., 443, 2000 SG344)
+    * orbit_id - orbit ID
+    * jd - time of close-approach (JD Ephemeris Time)
+    * cd - time of close-approeach (formatted calendar date/time)
+    * dist - nominal approach distance (au)
+    * dist_min - minimum (3-sigma) approach distance (au)
+    * dist_max - maximum (3-sigma) approach distance (au)
+    * v_rel - velocity relative to the approach body at close approach (km/s)
+    * v_inf - velocity relative to a massless body (km/s)
+    * t_sigma_f - 3-sigma uncertainty in the time of close-approach (formatted in days, hours, and minutes;
+        days are not included if zero; example “13:02” is 13 hours 2 minutes; example “2_09:08” is 2 days 9 hours 8
+        minutes)
+    * body - name of the close-approach body (e.g., Earth)
+        * only output if the body query parameters is set to ALL
+    * h - absolute magnitude H (mag)
+    * fullname - formatted full-name/designation of the asteroid or comet
+        * optional - only output if requested with the appropriate query flag
+        * formatted with leading spaces for column alignment in monospaced font tables
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/cad.api'
@@ -2059,6 +2082,39 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
     >>> nasapy.fireballs(limit=1)
     # Get data from the beginning of 2019
     >>> nasapy.fireballs(date_min='2019-01-01')
+
+    Notes
+    -----
+    Each returned record is provided as an element of the object and each record is a list of fields corresponding to
+    the fields below. The names of each field contained in the returned results in each record can also be found in the
+    'fields' key of the returned dictionary.
+
+    * date - date/time of peak brightness (GMT)
+    * lat - latitude at peak brightness (degrees)
+    * lon - longitude at peak brightness (degrees)
+    * lat-dir - latitude direction (“N” or “S”)
+    * lon-dir - latitude direction (“E” or “W”)
+    * alt - altitude above the geoid at peak brightness (km)
+    * vel - velocity at peak brightness (km/s)
+    * energy - approximate total radiated energy (1010 joules)
+    * impact-e - approximate total impact energy (kt)
+    * vx - pre-entry estimated velocity (Earth centered X component, km/s)
+    * vy - pre-entry est. velocity (Earth centered Y component, km/s)
+    * vz - pre-entry est. velocity (Earth centered Z component, km/s)
+
+    Note that many fields can be undefined (null) in a particular data record. The only fields which are guaranteed
+    to be defined are `date`, `energy`, and `impact-e`. Where the location is known, all four related fields
+    (`lat`, `lat-dir`, `lon`, and `lon-dir`) are defined. Where the location is not known (reported), all four location
+    fields will be null.
+
+    The date is reported as a string in `YYYY-MM-DD hh:mm:ss` format. Both `lat` and `lon` are reported as strings in
+    decimal degrees. The `lat-dir` field will be either N or S (or null). Similarly, the `lon-dir` field will be either
+    E or W (or null). The `alt` field is reported as a string in decimal km and is referenced to the Earth geoid. The
+    `vel` field is reported as a string in decimal km/s. Total radiated energy is reported in the `energy` field as a
+    string in decimal joules × 1010 (for example, a reported value of 3.6 is 3.6 × 1010 joules). Impact energy is
+    reported in the `impact-e` field in units of kilotons (kt).
+
+    All fields are relative to the fireball’s peak-brightness event.
 
     """
     url = 'https://ssd-api.jpl.nasa.gov/fireball.api'

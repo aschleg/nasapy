@@ -11,7 +11,7 @@ API Reference
 
     Class object containing the methods for interacting with NASA API endpoints that require an API key.
 
-    :param key: The generated API key received from the NASA API. Registering for an API key can be done on the `NASA API webpage <https://api.nasa.gov/>`_. If :code:`None`, a 'DEMO_KEY' with a much more restricted access limited is used.
+    :param key: The generated API key received from the NASA API. Registering for an API key can be done on the `NASA API webpage <https://api.nasa.gov/>`_. If :code:`None`, a 'DEMO_KEY' with a much more restricted access limit is used.
 
 Astronomy Picture of the Day
 ++++++++++++++++++++++++++++
@@ -473,6 +473,26 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
         # Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
         >>> nasapy.close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
 
+    Each close-approach record is a list containing the following fields in the corresponding order:
+
+    * des - primary designation of the asteroid or comet (e.g., 443, 2000 SG344)
+    * orbit_id - orbit ID
+    * jd - time of close-approach (JD Ephemeris Time)
+    * cd - time of close-approeach (formatted calendar date/time)
+    * dist - nominal approach distance (au)
+    * dist_min - minimum (3-sigma) approach distance (au)
+    * dist_max - maximum (3-sigma) approach distance (au)
+    * v_rel - velocity relative to the approach body at close approach (km/s)
+    * v_inf - velocity relative to a massless body (km/s)
+    * t_sigma_f - 3-sigma uncertainty in the time of close-approach (formatted in days, hours, and minutes; days are not included if zero; example “13:02” is 13 hours 2 minutes; example “2_09:08” is 2 days 9 hours 8 minutes)
+    * body - name of the close-approach body (e.g., Earth)
+
+      - only output if the body query parameters is set to ALL
+    * h - absolute magnitude H (mag)
+    * fullname - formatted full-name/designation of the asteroid or comet
+
+      - optional - only output if requested with the appropriate query flag
+      - formatted with leading spaces for column alignment in monospaced font tables
 
 .. method:: fireballs([date_min=None][, date_max=None][, energy_min=None][, energy_max=None][, impact_e_min=None][, impact_e_max=None][, vel_min=None][, vel_max=None][, alt_min=None][, alt_max=None][, req_loc=False][, req_alt=False][, req_vel=False][, req_vel_comp=False][, vel_comp=False][, sort='date'][, limit=None])
 

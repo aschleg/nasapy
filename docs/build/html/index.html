@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contents &mdash; nasapy 0.2.1 documentation</title>
+  <title>Nasapy Documentation &mdash; nasapy 0.2.1 documentation</title>
   
 
   
@@ -133,7 +133,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Contents</li>
+      <li>Nasapy Documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,13 +152,202 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="contents">
+  <div class="section" id="nasapy-documentation">
+<h1>Nasapy Documentation<a class="headerlink" href="#nasapy-documentation" title="Permalink to this headline">¶</a></h1>
+<p><code class="code docutils literal notranslate"><span class="pre">nasapy</span></code> is a Python wrapper for the <a class="reference external" href="https://api.nasa.gov/">nasa.gov API</a>.</p>
+</div>
+<div class="section" id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
 </ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p><code class="code docutils literal notranslate"><span class="pre">nasapy</span></code> is most easily installed using <code class="code docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install nasapy</span>
+</pre></div>
+</div>
+<p>The library can also be cloned or downloaded into a location of your choosing and then installed using the <cite>setup.py</cite>
+file per the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone git@github.com:aschleg/nasapy.git</span>
+<span class="go">cd nasapy</span>
+<span class="go">python setup.py install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples-and-usage">
+<h1>Examples and Usage<a class="headerlink" href="#examples-and-usage" title="Permalink to this headline">¶</a></h1>
+<p>Although not strictly required to begin interacting with the NASA API, it is recommended to sign up
+to receive an <a class="reference external" href="https://api.nasa.gov/">API access key</a> that has a significantly higher usage limit available compared
+to the demo key option. Many methods do not require an API key, but for those that do, it is typically a good option to
+use a provided API key rather than the demo key. Using a received API key allows for 1,000 requests per hour, while the
+demo key has 30 requests limit per hour and 50 requests per day.</p>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Assuming an API key was received after signing up, authentication to the NASA API happens when initializing the
+<code class="code docutils literal notranslate"><span class="pre">Nasa</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nasa</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If using a demo key, the initialization does not require any parameters to be passed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nasa</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remaining-requests-available">
+<h2>Remaining Requests Available<a class="headerlink" href="#remaining-requests-available" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code docutils literal notranslate"><span class="pre">limit_remaining</span></code> attribute of the initialized <code class="code docutils literal notranslate"><span class="pre">Nasa</span></code> class allows one to see the number of available
+requests remaining.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nasa</span><span class="o">.</span><span class="n">limit_remaining</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The following are some quick examples to get started.</p>
+<div class="section" id="astronomy-picture-of-the-day">
+<h3>Astronomy Picture of the Day<a class="headerlink" href="#astronomy-picture-of-the-day" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return today&#39;s picture of the day</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">()</span>
+<span class="c1"># Return a previous date&#39;s picture of the day with the high-definition URL included.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">(</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">hd</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mars-weather">
+<h3>Mars Weather<a class="headerlink" href="#mars-weather" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the most recent data for the previous seven Sols (Martian Days)</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">mars_weather</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asteroid-feed">
+<h3>Asteroid Feed<a class="headerlink" href="#asteroid-feed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get asteroids approaching Earth at the beginning of 2019.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">asteroid_feed</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-asteroid-data">
+<h3>Get Asteroid Data<a class="headerlink" href="#get-asteroid-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get entire asteroid data set.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">get_asteroids</span><span class="p">()</span>
+<span class="c1"># Get asteroid with ID 3542519</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">get_asteroids</span><span class="p">(</span><span class="n">asteroid_id</span><span class="o">=</span><span class="mi">3542519</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="donki-space-weather-database-of-notifications-knowledge-and-information">
+<h3>DONKI (Space Weather Database of Notifications, Knowledge and Information)<a class="headerlink" href="#donki-space-weather-database-of-notifications-knowledge-and-information" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Coronal Mass Ejection Event Data</span>
+
+<span class="c1"># View data from coronal mass ejection events from the last thirty days</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">coronal_mass_ejection</span><span class="p">()</span>
+<span class="c1"># View all CME events from the beginning of 2019.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">coronal_mass_ejection</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+
+<span class="c1"># Geomagnetic Storm Event Data</span>
+
+<span class="c1"># Get geomagnetic storm events from the last thirty days.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">geomagnetic_storm</span><span class="p">()</span>
+
+<span class="c1"># Solar Flare Event Data</span>
+
+<span class="c1"># Get solar flare events from May of 2019</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">solar_flare</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2019-05-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2019-05-31&#39;</span><span class="p">)</span>
+
+<span class="c1"># Solar Energetic Particle Data</span>
+
+<span class="c1"># Get data from April 2017</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">solar_energetic_particle</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2017-04-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2017-04-30&#39;</span><span class="p">)</span>
+
+<span class="c1"># Magnetopause Crossing Data</span>
+
+<span class="c1"># Get data on magnetopause crossing events from 2018 to the current date.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">magnetopause_crossing</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2018-01-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Radiation Belt Enhancement Data</span>
+
+<span class="c1"># Get data on radiation belt enhancement events from the last 30 days.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">radiation_belt_enhancement</span><span class="p">()</span>
+
+<span class="c1"># Hight Speed Stream Data</span>
+
+<span class="c1"># Get data on hight speed stream events from the beginning of September 2019.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">hight_speed_stream</span><span class="p">()</span>
+
+<span class="c1"># WSA Enlil-Simulation Data</span>
+
+<span class="c1"># Get data from the first simulation performed in 2019.</span>
+<span class="n">wsa</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">wsa_enlil_simulation</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+<span class="n">wsa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="epic-dscovr-s-earth-polychromatic-imaging-camera">
+<h3>EPIC (DSCOVR’s Earth Polychromatic Imaging Camera)<a class="headerlink" href="#epic-dscovr-s-earth-polychromatic-imaging-camera" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get EPIC data from the beginning of 2019.</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">nasa</span><span class="o">.</span><span class="n">epic</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+<span class="c1"># Print the first result</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="landsat-images-for-a-given-latitude-longitude">
+<h3>Landsat Images for a given Latitude-Longitude<a class="headerlink" href="#landsat-images-for-a-given-latitude-longitude" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get imagery at latitude 1.5, longitude 100.75 and include the computed cloud score calculation.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">earth_imagery</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cloud_score</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">earth_assets</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">begin_date</span><span class="o">=</span><span class="s1">&#39;2014-02-01&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="available-image-data-collected-by-the-mars-rovers-curiosity-discovery-and-spirit">
+<h3>Available Image data collected by the Mars rovers Curiosity, Discovery and Spirit.<a class="headerlink" href="#available-image-data-collected-by-the-mars-rovers-curiosity-discovery-and-spirit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return image data collected on Curiosity&#39;s 1000th sol.</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">mars_rover</span><span class="p">(</span><span class="n">sol</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-genelab-and-other-bioinformatics-databases">
+<h3>Access GeneLab and Other Bioinformatics Databases<a class="headerlink" href="#access-genelab-and-other-bioinformatics-databases" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find Gene studies in the cgene database related to &#39;mouse liver&#39;</span>
+<span class="n">n</span><span class="o">.</span><span class="n">genelab_search</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;mouse liver&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="celestrak-two-line-element-set-records">
+<h3>CelesTrak Two-Line Element Set Records<a class="headerlink" href="#celestrak-two-line-element-set-records" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve available data for a specific satellite ID.</span>
+<span class="n">tle</span><span class="p">(</span><span class="n">satellite_number</span><span class="o">=</span><span class="mi">43553</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="search-for-available-imagery-and-audio-from-the-images-nasa-gov-api">
+<h3>Search for Available Imagery and Audio from the images.nasa.gov API<a class="headerlink" href="#search-for-available-imagery-and-audio-from-the-images-nasa-gov-api" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search for media related to &#39;apollo 11&#39; with &#39;moon landing&#39; in the description of the items.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">media_search</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;apollo 11&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;moon landing&#39;</span><span class="p">)</span>
+<span class="c1"># Print the first returned media item from the resulting collection.</span>
+<span class="n">r</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-the-julian-and-modified-julian-date">
+<h3>Getting the Julian and Modified Julian Date<a class="headerlink" href="#getting-the-julian-and-modified-julian-date" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the modified Julian Date for the current time.</span>
+<span class="n">julian_date</span><span class="p">()</span>
+<span class="c1"># Return the non-modified Julian Date for the current time.</span>
+<span class="n">julian_date</span><span class="p">(</span><span class="n">modified</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># Get the modified Julian Date for 2019-01-01 at midnight.</span>
+<span class="n">julian_date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

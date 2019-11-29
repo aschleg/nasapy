@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Version History" href="versions.html" />
-    <link rel="prev" title="Contents" href="index.html" /> 
+    <link rel="prev" title="Nasapy Documentation" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -183,7 +183,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – The generated API key received from the NASA API. Registering for an API key can be done on the <a class="reference external" href="https://api.nasa.gov/">NASA API webpage</a>. If <code class="code docutils literal notranslate"><span class="pre">None</span></code>, a ‘DEMO_KEY’ with a much more restricted access limited is used.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – The generated API key received from the NASA API. Registering for an API key can be done on the <a class="reference external" href="https://api.nasa.gov/">NASA API webpage</a>. If <code class="code docutils literal notranslate"><span class="pre">None</span></code>, a ‘DEMO_KEY’ with a much more restricted access limit is used.</td>
 </tr>
 </tbody>
 </table>
@@ -923,6 +923,29 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 <span class="o">&gt;&gt;&gt;</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="s1">&#39;433&#39;</span><span class="p">,</span> <span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2100-01-01&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Each close-approach record is a list containing the following fields in the corresponding order:</p>
+<ul class="simple">
+<li>des - primary designation of the asteroid or comet (e.g., 443, 2000 SG344)</li>
+<li>orbit_id - orbit ID</li>
+<li>jd - time of close-approach (JD Ephemeris Time)</li>
+<li>cd - time of close-approeach (formatted calendar date/time)</li>
+<li>dist - nominal approach distance (au)</li>
+<li>dist_min - minimum (3-sigma) approach distance (au)</li>
+<li>dist_max - maximum (3-sigma) approach distance (au)</li>
+<li>v_rel - velocity relative to the approach body at close approach (km/s)</li>
+<li>v_inf - velocity relative to a massless body (km/s)</li>
+<li>t_sigma_f - 3-sigma uncertainty in the time of close-approach (formatted in days, hours, and minutes; days are not included if zero; example “13:02” is 13 hours 2 minutes; example “2_09:08” is 2 days 9 hours 8 minutes)</li>
+<li>body - name of the close-approach body (e.g., Earth)<ul>
+<li>only output if the body query parameters is set to ALL</li>
+</ul>
+</li>
+<li>h - absolute magnitude H (mag)</li>
+<li>fullname - formatted full-name/designation of the asteroid or comet<ul>
+<li>optional - only output if requested with the appropriate query flag</li>
+<li>formatted with leading spaces for column alignment in monospaced font tables</li>
+</ul>
+</li>
+</ul>
 </dd></dl>
 
 <dl class="method">
@@ -1177,7 +1200,7 @@ Bodies Database</p>
         <a href="versions.html" class="btn btn-neutral float-right" title="Version History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Nasapy Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
