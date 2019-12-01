@@ -7,6 +7,7 @@
 
 import datetime
 from urllib.parse import urljoin
+from pandas import DataFrame
 
 import requests
 
@@ -1997,7 +1998,7 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
 
 def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, impact_e_min=None, impact_e_max=None,
               vel_min=None, vel_max=None, alt_min=None, alt_max=None, req_loc=False, req_alt=False, req_vel=False,
-              req_vel_comp=False, vel_comp=False, sort='date', limit=None):
+              req_vel_comp=False, vel_comp=False, sort='date', limit=None, return_df=False):
     r"""
     Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth).
 
@@ -2043,6 +2044,9 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
         for date descending, the sort value would be '-date'.
     limit : int, default None
         Limits data to the first number of results specified. Must be greater than 0 if passed.
+    return_df : bool, default False
+        If True, returns the 'data' field of the returned JSON data as a pandas DataFrame with column names extracted
+        from the 'fields' key of the returned JSON.
 
     Raises
     ------
@@ -2077,11 +2081,13 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
     Examples
     --------
     # Get all available data in reverse chronological order
-    >>> n = nasapy.fireballs()
+    >>> n = fireballs()
     # Return the earlieset record
-    >>> nasapy.fireballs(limit=1)
+    >>> fireballs(limit=1)
     # Get data from the beginning of 2019
-    >>> nasapy.fireballs(date_min='2019-01-01')
+    >>> fireballs(date_min='2019-01-01')
+    # Return fireball data from the beginning of the millennium to the beginning of 2020 as a pandas DataFrame.
+    >>> fireballs(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
 
     Notes
     -----
@@ -2137,33 +2143,36 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 
     if vel_min is not None and vel_max is not None:
         if vel_min > vel_max:
-            raise ValueError('vel_min parameter must be less than vel_max')
+            raise ValueError('vel_min parameter must be less than vel_max.')
 
     if alt_min is not None and alt_max is not None:
         if alt_min > alt_max:
-            raise ValueError('alt_min parameter must be less than alt_max')
+            raise ValueError('alt_min parameter must be less than alt_max.')
 
     if not isinstance(req_loc, bool):
-        raise TypeError('req_loc parameter must be boolean (True or False)')
+        raise TypeError('req_loc parameter must be boolean (True or False).')
 
     if not isinstance(req_alt, bool):
-        raise TypeError('req_alt parameter must be boolean (True or False)')
+        raise TypeError('req_alt parameter must be boolean (True or False).')
 
     if not isinstance(req_vel, bool):
-        raise TypeError('req_vel parameter must be boolean (True or False)')
+        raise TypeError('req_vel parameter must be boolean (True or False).')
 
     if not isinstance(req_vel_comp, bool):
-        raise TypeError('req_vel_comp parameter must be boolean (True or False)')
+        raise TypeError('req_vel_comp parameter must be boolean (True or False).')
 
     if not isinstance(vel_comp, bool):
-        raise TypeError('vel_comp parameter must be boolean (True or False)')
+        raise TypeError('vel_comp parameter must be boolean (True or False).')
+
+    if not isinstance(return_df, bool):
+        raise TypeError('return_df parameter must be boolean (True or False).')
 
     if limit is not None:
         if not isinstance(limit, int):
-            raise TypeError('limit parameter must be an integer (if specified)')
+            raise TypeError('limit parameter must be an integer (if specified).')
 
         elif limit <= 0:
-            raise ValueError('limit parameter must be greater than 0')
+            raise ValueError('limit parameter must be greater than 0.')
 
     params = {
         'date-min': date_min,
@@ -2187,6 +2196,9 @@ def fireballs(date_min=None, date_max=None, energy_min=None, energy_max=None, im
 
     r = _return_api_result(url=url,
                            params=params)
+
+    if return_df:
+        r = DataFrame(r['data'], columns=r['fields'])
 
     return r
 
