@@ -1788,7 +1788,7 @@ def media_asset_captions(nasa_id):
 def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05', h_min=None, h_max=None,
                    v_inf_min=None, v_inf_max=None, v_rel_min=None, v_rel_max=None, orbit_class=None, pha=False,
                    nea=False, comet=False, nea_comet=False, neo=False, kind=None, spk=None, des=None,
-                   body='Earth', sort='date', limit=None, fullname=False):
+                   body='Earth', sort='date', limit=None, fullname=False, return_df=False):
     r"""
     Provides data for currently known close-approach data for all asteroids and comets in NASA's Jet Propulsion
     Laboratory's (JPL) Small-Body Database.
@@ -1853,6 +1853,9 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
         Limit data to the first number of results specified by the parameter. Must be greater than 0.
     fullname : bool, default False
         Includes the full-format object name/designation
+    return_df : bool, default False
+        If True, returns the 'data' field of the returned JSON data as a pandas DataFrame with column names extracted
+        from the 'fields' key of the returned JSON.
 
     Raises
     ------
@@ -1890,6 +1893,8 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
     >>> close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
     # Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
     >>> close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+    # Return close-approach data from the beginning of 2000 to the beginning of 2020 as a pandas DataFrame.
+    >>> close_approach(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
 
     Notes
     -----
@@ -1992,6 +1997,9 @@ def close_approach(date_min='now', date_max='+60', dist_min=None, dist_max='0.05
     }
 
     r = _return_api_result(url=url, params=params)
+
+    if return_df:
+        r = DataFrame(r['data'], columns=r['fields'])
 
     return r
 
@@ -2255,7 +2263,7 @@ def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, 
     Examples
     --------
     # Search for mission design data for SPK-ID 2000433
-    >>> r = nasapy.mission_design(spk=2000433)
+    >>> r = mission_design(spk=2000433)
     # Print the object data from the returned dictionary object.
     >>> r['object']
     {'data_arc': '45762',
@@ -2267,7 +2275,7 @@ def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, 
      'fullname': '433 Eros (A898 PA)',
      'des': '433'}
     # Get Missions to 1 Ceres
-    >>> r = nasapy.mission_design(des=1, mjd0=59000, span=1800, tof_min=120, tof_max=1500, step=5)
+    >>> r = mission_design(des=1, mjd0=59000, span=1800, tof_min=120, tof_max=1500, step=5)
     >>> r['object']
     {'data_arc': '8822',
      'md_orbit_id': '46',
