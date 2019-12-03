@@ -2451,12 +2451,14 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
 
     if des is not None:
         params['des'] = des
+        return_df = False
     elif spk is not None:
         params['spk'] = spk
+        return_df = False
 
     r = _return_api_result(url=url, params=params)
 
-    if return_df and 'des' not in params.keys() or 'spk' not in params.keys():
+    if return_df:
         r = DataFrame(r)
 
     return r
