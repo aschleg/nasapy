@@ -2338,7 +2338,7 @@ def mission_design(des=None, spk=None, sstr=None, orbit_class=False, mjd0=None, 
 
 
 def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-2045', magnitude=None,
-          orbit_condition_code=None, plot=False):
+          orbit_condition_code=None, plot=False, return_df=False):
     r"""
     Returns data available from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS) in the
     Small Bodies Database
@@ -2364,6 +2364,9 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
     plot : bool, default False
         If True, include base-64 encoded plot image file content. Will include a new output field 'plot_base64' in the
         returned results if True.
+    return_df : bool, default False
+        If True and parameters `spk` and `des` are None, returns the 'data' field of the returned JSON data as a
+        pandas DataFrame with column names extracted from the 'fields' key of the returned JSON.
 
     Raises
     ------
@@ -2393,6 +2396,8 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
     --------
     # Get all available summary data for NHATS objects.
     >>> n = nhats()
+    # Get summary data as a pandas DataFrame
+    >>> n = nhats(return_df=True)
     # Get the results from a 'standard' search on the NHATS webpage.
     >>> nhats(delta_v=6, duration=360, stay=8, magnitude=26, launch='2020-2045', orbit_condition_code=7)
     # Return data for a specific object by its designation
@@ -2450,6 +2455,9 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
         params['spk'] = spk
 
     r = _return_api_result(url=url, params=params)
+
+    if return_df and 'des' not in params.keys() or 'spk' not in params.keys():
+        r = DataFrame(r)
 
     return r
 

@@ -1,8 +1,12 @@
 # Version 0.2.2
 
-- An optional `return_df` parameter has been implemented in the `fireballs`, and `close_approach` functions. When set 
+- An optional `return_df` parameter has been implemented in the listed functions below. When set 
   as `True`, the resulting JSON data will be coerced into a pandas DataFrame to allow easier and more straightforward 
   data analysis for those interested.
+  
+  * `fireballs`
+  * `close_approach`
+  * `nhats` 
 
 # Version 0.2.1
 
