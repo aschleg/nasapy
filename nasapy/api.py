@@ -2606,7 +2606,7 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
 
 
 def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_days=None, complete_data=False,
-           removed=False):
+           removed=False, return_df=False):
     r"""
     Provides data available from the Center for Near Earth Object Studies (CNEOS) Sentry system.
 
@@ -2631,6 +2631,10 @@ def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_da
         If True, requests the full dataset to be returned.
     removed : bool, default False
         If True, requests the list of removed objects to be returned.
+    return_df : bool, default False
+        If True, returns the 'data' field of the returned JSON data as a pandas DataFrame. If a `des` or `spk`
+        parameter is passed with `return_df=True`, a tuple containing the coerced data field as a pandas DataFrame and
+        the `summary` object of the returned data will be returned.
 
     Raises
     ------
@@ -2696,18 +2700,26 @@ def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_da
         'ps-min': ps_min,
         'ip-min': ip_min,
         'days': last_obs_days,
-        'all': complete_data,
-        'removed': removed
     }
 
-    if spk is not None:
-        params['spk'] = spk
-    if des is not None:
-        params['des'] = des
+    if spk is None and des is None:
+        params['all'] = complete_data
+        params['removed'] = removed
+    else:
+        if spk is not None:
+            params['spk'] = spk
+        if des is not None:
+            params['des'] = des
 
     r = _return_api_result(url=url, params=params)
 
-    return r
+    if return_df:
+        if spk is None or des is None:
+            r = DataFrame(r['data'])
+            return r
+        else:
+            r, r2 = DataFrame(r['data']), r['summary']
+            return r, r2
 
 
 def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):

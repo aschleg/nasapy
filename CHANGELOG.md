@@ -6,7 +6,11 @@
   
   * `fireballs`
   * `close_approach`
-  * `nhats` 
+  * `nhats`
+  * `sentry`
+  
+- General bug fixes
+  * The `sentry` function should now operate correctly when passing a `des` or `spk` parameter.
 
 # Version 0.2.1
 

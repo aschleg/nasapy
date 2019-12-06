@@ -14,6 +14,10 @@ Version 0.2.2
   * :code:`fireballs`
   * :code:`close_approach`
   * :code:`nhats`
+  * :code:`sentry`
+
+- General bug fixes
+  * The :code:`sentry` function should now operate correctly when passing a :code:`des` or :code:`spk` parameter.
 
 Version 0.2.1
 -------------
