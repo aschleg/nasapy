@@ -1,3 +1,8 @@
+
+# Version 0.2.3
+
+- Fixes bug in `nhats` function when `return_df` parameter is set to `True`.
+
 # Version 0.2.2
 
 - An optional `return_df` parameter has been implemented in the listed functions below. When set 

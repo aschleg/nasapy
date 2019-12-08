@@ -4,6 +4,11 @@
 Version History
 ===============
 
+Version 0.2.3
+-------------
+
+- Fixes bug in :code:`nhats` function when :code:`return_df` parameter is set to :code:`True`.
+
 Version 0.2.2
 -------------
 

@@ -31,6 +31,16 @@ file per the following:
     cd nasapy
     python setup.py install
 
+Requirements
+============
+
+ - Python 3.4+
+ - :code:`requests>=2.18`
+ - :code:`pandas>=0.22.0`
+
+  - Although not strictly required to use :code:`nasapy`, the `pandas <https://pandas.pydata.org/>`_ library is needed
+    for returning results as a DataFrame.
+
 Examples and Usage
 ==================
 

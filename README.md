@@ -33,6 +33,14 @@ python setup.py install
 * [nasapy Documentation](https://nasapy.readthedocs.io/)
 * [Nasa's API documentation page](https://api.nasa.gov/)
 
+## Requirements
+
+* Python 3.4+
+* `requests>=2.18`
+* `pandas>=0.22.0`
+  - Although not strictly required to use `nasapy`, the [pandas](https://pandas.pydata.org/) library is needed 
+    for returning results as a DataFrame.
+
 ## Examples and Usage
 
 Although not strictly required to begin interacting with the NASA API, it is recommended to sign up 
@@ -211,11 +219,6 @@ julian_date(modified=False)
 # Get the modified Julian Date for 2019-01-01 at midnight.
 julian_date(year=2019)
 ~~~
-
-## Requirements
-
-* Python 3.4+
-* `requests>=2.18`
 
 ## License
 

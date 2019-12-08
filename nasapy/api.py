@@ -2439,6 +2439,9 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
         if des is not None or spk is not None:
             raise ValueError('magnitude parameter cannot be specified when passing a des or spk.')
 
+    if not isinstance(return_df, bool):
+        raise TypeError('return_df parameter must be boolean (True or False)')
+
     params = {
         'dv': delta_v,
         'dur': duration,
@@ -2459,7 +2462,7 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
     r = _return_api_result(url=url, params=params)
 
     if return_df:
-        r = DataFrame(r)
+        r = DataFrame(r['data'])
 
     return r
 
@@ -2590,6 +2593,9 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
     if orbits is not None:
         if not isinstance(orbits, bool):
             raise TypeError('orbits parameter must be boolean (True or False).')
+
+    if not isinstance(return_df, bool):
+        raise TypeError('return_df parameter must be boolean (True or False)')
 
     params = {'tdes': tdes,
               'plot': plot,
