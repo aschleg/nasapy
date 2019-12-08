@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Version History &mdash; nasapy 0.2.1 documentation</title>
+  <title>Version History &mdash; nasapy 0.2.2 documentation</title>
   
 
   
@@ -88,6 +88,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Version History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-2-2">Version 0.2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-2-1">Version 0.2.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-2-0">Version 0.2.0</a></li>
 </ul>
@@ -158,6 +159,24 @@
             
   <div class="section" id="version-history">
 <span id="versions"></span><h1>Version History<a class="headerlink" href="#version-history" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-0-2-2">
+<h2>Version 0.2.2<a class="headerlink" href="#version-0-2-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>An optional <code class="code docutils literal notranslate"><span class="pre">return_df</span></code> parameter has been implemented in the listed functions below. When set as <code class="code docutils literal notranslate"><span class="pre">True</span></code>,
+the resulting JSON data will be coerced into a pandas DataFrame to allow easier and more straightforward data
+analysis for those interested. Please see the individual function documentation for more information and
+examples.<ul>
+<li><code class="code docutils literal notranslate"><span class="pre">fireballs</span></code></li>
+<li><code class="code docutils literal notranslate"><span class="pre">close_approach</span></code></li>
+<li><code class="code docutils literal notranslate"><span class="pre">nhats</span></code></li>
+<li><code class="code docutils literal notranslate"><span class="pre">sentry</span></code></li>
+<li><code class="code docutils literal notranslate"><span class="pre">scout</span></code></li>
+</ul>
+</li>
+<li>General bug fixes
+* The <code class="code docutils literal notranslate"><span class="pre">sentry</span></code> function should now operate correctly when passing a <code class="code docutils literal notranslate"><span class="pre">des</span></code> or <code class="code docutils literal notranslate"><span class="pre">spk</span></code> parameter.</li>
+</ul>
+</div>
 <div class="section" id="version-0-2-1">
 <h2>Version 0.2.1<a class="headerlink" href="#version-0-2-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">

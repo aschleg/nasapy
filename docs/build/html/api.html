@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; nasapy 0.2.1 documentation</title>
+  <title>API Reference &mdash; nasapy 0.2.2 documentation</title>
   
 
   
@@ -918,9 +918,11 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 </tbody>
 </table>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="c1"># Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="s1">&#39;433&#39;</span><span class="p">,</span> <span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2100-01-01&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="s1">&#39;433&#39;</span><span class="p">,</span> <span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2100-01-01&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="c1"># Return close-approach data from the beginning of 2000 to the beginning of 2020 as a pandas DataFrame.</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Each close-approach record is a list containing the following fields in the corresponding order:</p>
@@ -983,11 +985,13 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 </tbody>
 </table>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available data in reverse chronological order</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">()</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">()</span>
 <span class="c1"># Return the earlieset record</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Get data from the beginning of 2019</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+<span class="c1"># Return fireball data from the beginning of the millennium to the beginning of 2020 as a pandas DataFrame.</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1098,6 +1102,8 @@ Bodies Database</p>
 </table>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available summary data.</span>
 <span class="n">scout</span><span class="p">()</span>
+<span class="c1"># Return all summary data as a pandas DataFrame.</span>
+<span class="n">scout</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="c1"># Return data and plot files for a specific object by its temporary designation. Note the object may no longer</span>
 <span class="c1"># exist in the current database</span>
 <span class="n">scout</span><span class="p">(</span><span class="n">tdes</span><span class="o">=</span><span class="s1">&#39;P20UvyK&#39;</span><span class="p">)</span>

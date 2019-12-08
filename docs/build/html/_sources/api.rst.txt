@@ -414,7 +414,6 @@ NASA Image and Video Library
         # Get the manifest for the NASA media asset 'as11-40-5874'
         media_asset_manifest(nasa_id='as11-40-5874')
 
-
 .. method:: media_asset_metadata(nasa_id)
 
     Retrieves the specified media asset's metadata.
@@ -469,9 +468,11 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
     .. code-block:: python
 
         # Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.
-        >>> nasapy.close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
+        nasapy.close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
         # Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
-        >>> nasapy.close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+        nasapy.close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+        # Return close-approach data from the beginning of 2000 to the beginning of 2020 as a pandas DataFrame.
+        nasapy.close_approach(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
 
     Each close-approach record is a list containing the following fields in the corresponding order:
 
@@ -520,11 +521,13 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
     .. code-block:: python
 
         # Get all available data in reverse chronological order
-        >>> n = nasapy.fireballs()
+        nasapy.fireballs()
         # Return the earlieset record
-        >>> nasapy.fireballs(limit=1)
+        nasapy.fireballs(limit=1)
         # Get data from the beginning of 2019
-        >>> nasapy.fireballs(date_min='2019-01-01')
+        nasapy.fireballs(date_min='2019-01-01')
+        # Return fireball data from the beginning of the millennium to the beginning of 2020 as a pandas DataFrame.
+        nasapy.fireballs(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
 
 .. method:: mission_design([des=None][, spk=None][, sstr=None][, orbit_class=False][, mjd0=None][, span=None][, tof_min=None][, tof_max=None][, step=None])
 
@@ -599,6 +602,8 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
 
         # Get all available summary data.
         scout()
+        # Return all summary data as a pandas DataFrame.
+        scout(return_df=True)
         # Return data and plot files for a specific object by its temporary designation. Note the object may no longer
         # exist in the current database
         scout(tdes='P20UvyK')
