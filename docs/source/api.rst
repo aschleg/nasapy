@@ -602,6 +602,8 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
 
         # Get all available summary data.
         scout()
+        # Return all summary data as a pandas DataFrame.
+        scout(return_df=True)
         # Return data and plot files for a specific object by its temporary designation. Note the object may no longer
         # exist in the current database
         scout(tdes='P20UvyK')

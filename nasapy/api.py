@@ -2465,7 +2465,7 @@ def nhats(spk=None, des=None, delta_v=12, duration=450, stay=8, launch='2020-204
 
 
 def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph_start=None, eph_stop=None,
-          eph_step=None, obs_code=None, fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None):
+          eph_step=None, obs_code=None, fov_diam=None, fov_ra=None, fov_dec=None, fov_vmag=None, return_df=False):
     r"""
     Provides access and data available from NASA's Center for Near-Earth Object Studies (CNEOS) Scout system.
 
@@ -2502,6 +2502,9 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
     fov_vmag : int, default None
         Filters ephemeris results to those with V-magnitude of this value or brighter. Requires :code:`fov_diam` to
         also be specified.
+    return_df : bool, default False
+        If True and no parameters are specified (returns summary data of all available Scout records), returns the
+        'data' field of the returned JSON data as a pandas DataFrame.
 
     Raises
     ------
@@ -2531,6 +2534,8 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
     --------
     # Get all available summary data.
     >>> scout()
+    # Return all summary data as a pandas DataFrame.
+    >>> scout(return_df=True)
     # Return data and plot files for a specific object by its temporary designation. Note the object may no longer
     # exist in the current database
     >>> scout(tdes='P20UvyK')
@@ -2601,6 +2606,12 @@ def scout(tdes=None, plot=None, data_files=None, orbits=None, n_orbits=None, eph
               'fov-vmag': fov_vmag}
 
     r = _return_api_result(url=url, params=params)
+
+    if return_df:
+        if all(p is None for p in (tdes, plot, data_files, orbits, n_orbits, eph_start, eph_stop, eph_step, obs_code,
+                                   fov_diam, fov_ra, fov_dec, fov_vmag)):
+            if int(r['count']) > 0:
+                r = DataFrame(r['data'])
 
     return r
 

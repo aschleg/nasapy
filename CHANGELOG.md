@@ -2,12 +2,14 @@
 
 - An optional `return_df` parameter has been implemented in the listed functions below. When set 
   as `True`, the resulting JSON data will be coerced into a pandas DataFrame to allow easier and more straightforward 
-  data analysis for those interested.
+  data analysis for those interested. Please see the individual function documentation for more information and 
+  examples.
   
   * `fireballs`
   * `close_approach`
   * `nhats`
   * `sentry`
+  * `scout`
   
 - General bug fixes
   * The `sentry` function should now operate correctly when passing a `des` or `spk` parameter.
