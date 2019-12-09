@@ -1,5 +1,6 @@
 import datetime
 import os
+import pandas as pd
 
 import vcr
 import pytest
@@ -136,12 +137,15 @@ def test_fireballs():
     f_dt = fireballs(date_min=datetime.datetime.strptime('2010-01-01', '%Y-%m-%d'),
                      date_max=datetime.datetime.strptime('2020-01-01', '%Y-%m-%d'),
                      limit=1)
+    f_df = fireballs(limit=10, return_df=True)
 
     assert isinstance(f, dict)
     assert 'data' in f.keys()
 
     assert isinstance(f_dt, dict)
     assert 'data' in f_dt.keys()
+
+    assert isinstance(f_df, pd.DataFrame)
 
     with pytest.raises(TypeError):
         fireballs(date_min=1)
@@ -165,6 +169,140 @@ def test_fireballs():
         fireballs(limit='1')
     with pytest.raises(ValueError):
         fireballs(limit=-1)
+    with pytest.raises(TypeError):
+        fireballs(return_df='false')
+
+
+@vcr.use_cassette('tests/cassettes/mission_design.yml')
+def test_mission_design():
+    des = mission_design(des=1, orbit_class=True)
+    sstr = mission_design(sstr='apophis')
+    spk = mission_design(spk=2000433)
+
+    assert isinstance(des, dict)
+    assert isinstance(sstr, dict)
+    assert isinstance(spk, dict)
+
+    with pytest.raises(ValueError):
+        mission_design()
+    with pytest.raises(ValueError):
+        mission_design(des=1, mjd0=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, mjd0=100000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, span=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, span=10000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_min=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_min=10000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_max=0)
+    with pytest.raises(ValueError):
+        mission_design(des=1, tof_max=10000)
+    with pytest.raises(ValueError):
+        mission_design(des=1, step=3)
+    with pytest.raises(TypeError):
+        mission_design(des=1, orbit_class=1)
+
+
+@vcr.use_cassette('tests/cassettes/nhats.yml')
+def test_nhats():
+
+    summary = nhats()
+    summary_df = nhats(return_df=True)
+    des = nhats(des=99942)
+    des2 = nhats(des=99942, delta_v=6, duration=360, launch='2020-2045')
+    des3 = nhats(spk=2000433)
+
+    assert isinstance(summary, dict)
+    assert isinstance(summary_df, pd.DataFrame)
+    assert isinstance(des, dict)
+    assert isinstance(des2, dict)
+    assert isinstance(des3, dict)
+
+    with pytest.raises(ValueError):
+        nhats(des=99942, spk=2000433)
+    with pytest.raises(ValueError):
+        nhats(delta_v=1)
+    with pytest.raises(ValueError):
+        nhats(duration=1)
+    with pytest.raises(ValueError):
+        nhats(stay=1)
+    with pytest.raises(ValueError):
+        nhats(launch='2010')
+    with pytest.raises(ValueError):
+        nhats(magnitude=1)
+    with pytest.raises(ValueError):
+        nhats(des=99942, magnitude=20)
+    with pytest.raises(ValueError):
+        nhats(orbit_condition_code=10)
+    with pytest.raises(TypeError):
+        nhats(plot='true')
+    with pytest.raises(TypeError):
+        nhats(return_df='true')
+
+
+@vcr.use_cassette('tests/cassettes/scout.yml')
+def test_scout():
+
+    s = scout()
+    s_df = scout(return_df=True)
+    s2 = scout(tdes='P20UvyK', plot='el:ca')
+    s3 = scout(tdes='P20UvyK', orbits=True)
+    s4 = scout(tdes='P20UvyK', eph_start='now')
+
+    assert isinstance(s, dict)
+    assert isinstance(s_df, pd.DataFrame)
+    assert isinstance(s2, dict)
+    assert isinstance(s3, dict)
+    assert isinstance(s4, dict)
+
+    with pytest.raises(ValueError):
+        scout(n_orbits=0)
+
+    with pytest.raises(ValueError):
+        scout(eph_start='2019-12-31', eph_stop='2019-01-01')
+
+    with pytest.raises(ValueError):
+        scout(fov_diam=-1)
+
+    with pytest.raises(ValueError):
+        scout(fov_ra=0)
+
+    with pytest.raises(ValueError):
+        scout(fov_dec=45)
+
+    with pytest.raises(ValueError):
+        scout(fov_vmag=0)
+
+    with pytest.raises(TypeError):
+        scout(eph_start=2019)
+
+    with pytest.raises(TypeError):
+        scout(eph_stop=2020)
+
+    with pytest.raises(TypeError):
+        scout(tdes='P20UvyK', orbits='1')
+
+    with pytest.raises(TypeError):
+        scout(return_df='true')
+
+
+@vcr.use_cassette('tests/cassettes/sentry.yml')
+def test_sentry():
+    pass
+
+
+def test_julian_date():
+    j1 = julian_date(year=2019, modified=False)
+    j2 = julian_date(year=2019)
+    j3 = julian_date()
+
+    assert j1 == 2458467.5
+    assert j2 == 58467.0
+    assert isinstance(j3, (int, float))
 
 
 def nasa_api():
@@ -512,134 +650,3 @@ def test_techport():
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')
 def test_exoplanets():
     pass
-
-
-@vcr.use_cassette('tests/cassettes/mission_design.yml')
-def test_mission_design():
-    des = mission_design(des=1, orbit_class=True)
-    sstr = mission_design(sstr='apophis')
-    spk = mission_design(spk=2000433)
-
-    assert isinstance(des, dict)
-    assert isinstance(sstr, dict)
-    assert isinstance(spk, dict)
-
-    with pytest.raises(ValueError):
-        mission_design()
-    with pytest.raises(ValueError):
-        mission_design(des=1, mjd0=0)
-    with pytest.raises(ValueError):
-        mission_design(des=1, mjd0=100000)
-    with pytest.raises(ValueError):
-        mission_design(des=1, span=0)
-    with pytest.raises(ValueError):
-        mission_design(des=1, span=10000)
-    with pytest.raises(ValueError):
-        mission_design(des=1, tof_min=0)
-    with pytest.raises(ValueError):
-        mission_design(des=1, tof_min=10000)
-    with pytest.raises(ValueError):
-        mission_design(des=1, tof_max=0)
-    with pytest.raises(ValueError):
-        mission_design(des=1, tof_max=10000)
-    with pytest.raises(ValueError):
-        mission_design(des=1, step=3)
-    with pytest.raises(TypeError):
-        mission_design(des=1, orbit_class=1)
-
-
-@vcr.use_cassette('tests/cassettes/nhats.yml')
-def test_nhats():
-
-    summary = nhats()
-    des = nhats(des=99942)
-    des2 = nhats(des=99942, delta_v=6, duration=360, launch='2020-2045')
-    des3 = nhats(spk=2000433)
-
-    assert isinstance(summary, dict)
-    assert isinstance(des, dict)
-    assert isinstance(des2, dict)
-    assert isinstance(des3, dict)
-
-    with pytest.raises(ValueError):
-        nhats(des=99942, spk=2000433)
-
-    with pytest.raises(ValueError):
-        nhats(delta_v=1)
-
-    with pytest.raises(ValueError):
-        nhats(duration=1)
-
-    with pytest.raises(ValueError):
-        nhats(stay=1)
-
-    with pytest.raises(ValueError):
-        nhats(launch='2010')
-
-    with pytest.raises(ValueError):
-        nhats(magnitude=1)
-
-    with pytest.raises(ValueError):
-        nhats(des=99942, magnitude=20)
-
-    with pytest.raises(ValueError):
-        nhats(orbit_condition_code=10)
-
-    with pytest.raises(TypeError):
-        nhats(plot='true')
-
-
-@vcr.use_cassette('tests/cassettes/scout.yml')
-def test_scout():
-
-    s = scout()
-    s2 = scout(tdes='P20UvyK', plot='el:ca')
-    s3 = scout(tdes='P20UvyK', orbits=True)
-    s4 = scout(tdes='P20UvyK', eph_start='now')
-
-    assert isinstance(s, dict)
-    assert isinstance(s2, dict)
-    assert isinstance(s3, dict)
-    assert isinstance(s4, dict)
-
-    with pytest.raises(ValueError):
-        scout(n_orbits=0)
-
-    with pytest.raises(ValueError):
-        scout(eph_start='2019-12-31', eph_stop='2019-01-01')
-
-    with pytest.raises(ValueError):
-        scout(fov_diam=-1)
-
-    with pytest.raises(ValueError):
-        scout(fov_ra=0)
-
-    with pytest.raises(ValueError):
-        scout(fov_dec=45)
-
-    with pytest.raises(ValueError):
-        scout(fov_vmag=0)
-
-    with pytest.raises(TypeError):
-        scout(eph_start=2019)
-
-    with pytest.raises(TypeError):
-        scout(eph_stop=2020)
-
-    with pytest.raises(TypeError):
-        scout(tdes='P20UvyK', orbits='1')
-
-
-@vcr.use_cassette('tests/cassettes/sentry.yml')
-def test_sentry():
-    pass
-
-
-def test_julian_date():
-    j1 = julian_date(year=2019, modified=False)
-    j2 = julian_date(year=2019)
-    j3 = julian_date()
-
-    assert j1 == 2458467.5
-    assert j2 == 58467.0
-    assert isinstance(j3, (int, float))

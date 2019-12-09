@@ -7,10 +7,11 @@ setup(
     version='0.2.3',
     author='Aaron Schlegel',
     author_email='aaron@aaronschlegel.me',
-    description=('Python wrapper for the NASA API.'),
+    description='Python wrapper for the NASA API',
     packages=find_packages(exclude=['docs', 'notebooks', 'tests*']),
     include_package_data=True,
     long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     install_requires=['requests >= 2.18'],
     home_page='',
     classifiers=[
