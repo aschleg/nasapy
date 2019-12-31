@@ -41,6 +41,15 @@ python setup.py install
   - Although not strictly required to use `nasapy`, the [pandas](https://pandas.pydata.org/) library is needed 
     for returning results as a DataFrame.
 
+## Tutorials and In-Depth Examples
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aschleg/nasapy/master?filepath=notebooks)
+
+The following are Jupyter Notebooks that explore a facet of the `nasapy` library in more depth. The notebooks can 
+also be launched interactively with binder by clicking the "launch binder" badge above.
+
+* Plot Earth Fireball Impacts with nasapy, pandas and folium
+
 ## Examples and Usage
 
 Although not strictly required to begin interacting with the NASA API, it is recommended to sign up 
