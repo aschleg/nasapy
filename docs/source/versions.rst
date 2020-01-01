@@ -4,6 +4,12 @@
 Version History
 ===============
 
+Version 0.2.4
+-------------
+
+- Adds :code:`exoplanet` function for providing access to
+  `NASA's Exoplanet Archive <https://exoplanetarchive.ipac.caltech.edu/index.html>`_.
+
 Version 0.2.3
 -------------
 

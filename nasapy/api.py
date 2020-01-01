@@ -1328,25 +1328,6 @@ class Nasa(object):
 
         return r.json()['photos']
 
-    def exoplanets(self, table, select, count, colset, where, order, ra, dec):
-        host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'
-
-        r = requests.get(host,
-                         params={
-                             'api_key': self.__api_key,
-                             'table': table,
-                             'select': select,
-                             'count': count,
-                             'colset': colset,
-                             'where': where,
-                             'order': order,
-                             'ra': ra,
-                             'dec': dec,
-                             'format': 'json'
-                         })
-
-        return r
-
     def genelab_search(self, term=None, database='cgene', page=0, size=25, sort=None, order='desc',
                        ffield=None, fvalue=None):
         r"""
@@ -1537,6 +1518,73 @@ class Nasa(object):
     #         r = r.json()
     #
     #     return r
+
+
+def exoplanets(table='exoplanets', select=None, count=None, colset=None, where=None, order=None, ra=None, dec=None,
+               aliastable=None, objname=None, return_df=False):
+    r"""
+    Provides access to NASA's Exoplanet Archive.
+
+    Parameters
+    ----------
+    table : str, default 'exoplanets'
+        Specifies which table to query.
+    select : str
+        Specifies which columns within the chosen table to return. Multiple columns can be returned by comma-separating
+        the column names and distinct values can be returned by adding 'distinct ' in front of the desired column
+        names.
+    count : str
+        Can be used to return the number of rows which fulfill the given query, including queries using where
+        clauses or cone searches.
+    colset : str
+        Returns a set of pre-defined columns that have been created by the archive. Currently, this keyword is only
+        used by the Composite Planet Data ('compositepars') table.
+    where : str
+        Takes a SQL-like query string to filter the returned results. Please see the examples section for more.
+    order : str
+        Returns the data sorted by the specified column. Append ' desc' for descending or ' asc' for ascending values.
+    ra : str
+        Specifies an area of the sky to search for all objects within that area.
+    dec : str
+        Specifies an area of the sky to search for all objects within that area.
+    aliastable : str
+        Requests a list of aliases for a particular confirmed planet.
+    objname : str
+        When parameter `aliastable` is specified, `objname` must also be passed with the planet's name.
+    return_df : bool, default False
+        If True, returns the JSON data as a pandas DataFrame.
+
+    Returns
+    -------
+    dict or pandas DataFrame
+        If parameter `return_df` is `True`, a pandas DataFrame of the returned results. Otherwise, a dictionary
+        representing the returned JSON data from the API is returned.
+
+    Examples
+    --------
+
+    """
+    host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'
+
+    r = requests.get(host,
+                     params={
+                         'table': table,
+                         'select': select,
+                         'count': count,
+                         'colset': colset,
+                         'where': where,
+                         'order': order,
+                         'ra': ra,
+                         'dec': dec,
+                         'aliastable': aliastable,
+                         'objname': objname,
+                         'format': 'json'
+                     }).json()
+
+    if return_df:
+        r = DataFrame(r)
+
+    return r
 
 
 def tle(search_satellite=None, satellite_number=None):

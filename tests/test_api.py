@@ -1,4 +1,3 @@
-import datetime
 import os
 import pandas as pd
 
@@ -16,6 +15,25 @@ tape = vcr.VCR(
 )
 
 key = os.environ.get('NASA_KEY')
+
+
+def nasa_api():
+    nasa = Nasa(key=key)
+
+    return nasa
+
+
+nasa = nasa_api()
+
+
+def test_julian_date():
+    j1 = julian_date(year=2019, modified=False)
+    j2 = julian_date(year=2019)
+    j3 = julian_date()
+
+    assert j1 == 2458467.5
+    assert j2 == 58467.0
+    assert isinstance(j3, (int, float))
 
 
 @vcr.use_cassette('tests/cassettes/media_search.yml')
@@ -288,30 +306,6 @@ def test_scout():
 
     with pytest.raises(TypeError):
         scout(return_df='true')
-
-
-@vcr.use_cassette('tests/cassettes/sentry.yml')
-def test_sentry():
-    pass
-
-
-def test_julian_date():
-    j1 = julian_date(year=2019, modified=False)
-    j2 = julian_date(year=2019)
-    j3 = julian_date()
-
-    assert j1 == 2458467.5
-    assert j2 == 58467.0
-    assert isinstance(j3, (int, float))
-
-
-def nasa_api():
-    nasa = Nasa(key=key)
-
-    return nasa
-
-
-nasa = nasa_api()
 
 
 @vcr.use_cassette('tests/cassettes/initialization.yml')
@@ -649,4 +643,9 @@ def test_techport():
 
 @vcr.use_cassette('tests/cassettes/exoplanets.yml')
 def test_exoplanets():
+    pass
+
+
+@vcr.use_cassette('tests/cassettes/sentry.yml')
+def test_sentry():
     pass
