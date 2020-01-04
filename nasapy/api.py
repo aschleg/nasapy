@@ -1552,7 +1552,7 @@ def exoplanets(table='exoplanets', select=None, count=None, colset=None, where=N
     objname : str
         When parameter `aliastable` is specified, `objname` must also be passed with the planet's name.
     return_df : bool, default False
-        If True, returns the JSON data as a pandas DataFrame.
+        If `True`, returns the JSON data as a pandas DataFrame.
 
     Returns
     -------
@@ -1562,6 +1562,12 @@ def exoplanets(table='exoplanets', select=None, count=None, colset=None, where=N
 
     Examples
     --------
+    # Get all exoplanets data as a pandas DataFrame.
+    >>> exoplanets(return_df=True)
+    # Get all confirmed planets in the Kepler field.
+    >>> exoplanets(where='pl_kepflag=1')
+    # Stars known to host exoplanets as a pandas DataFrame.
+    >>> exoplanets(select='distinct pl_hostname', order='pl_hostname', return_df=True)
 
     """
     host = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?'

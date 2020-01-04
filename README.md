@@ -48,7 +48,7 @@ python setup.py install
 The following are Jupyter Notebooks that explore a facet of the `nasapy` library in more depth. The notebooks can 
 also be launched interactively with binder by clicking the "launch binder" badge above.
 
-* Plot Earth Fireball Impacts with nasapy, pandas and folium
+* [Plot Earth Fireball Impacts with nasapy, pandas and folium](https://github.com/aschleg/nasapy/blob/master/notebooks/Plot%20Earth%20Fireball%20Impacts%20with%20nasapy%2C%20pandas%20and%20folium.ipynb)
 
 ## Examples and Usage
 
@@ -172,6 +172,17 @@ wsa[0]
 e = nasa.epic(date='2019-01-01')
 # Print the first result
 e[0]
+~~~
+
+#### Exoplanets
+
+~~~ python
+# Get all exoplanets data as a pandas DataFrame.
+exoplanets(return_df=True)
+# Get all confirmed planets in the Kepler field.
+exoplanets(where='pl_kepflag=1')
+# Stars known to host exoplanets as a pandas DataFrame.
+exoplanets(select='distinct pl_hostname', order='pl_hostname', return_df=True)
 ~~~
 
 #### Landsat Images for a given Latitude-Longitude

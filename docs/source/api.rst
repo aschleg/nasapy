@@ -258,6 +258,33 @@ pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrai
         # Print the first result
         e[0]
 
+Exoplanets
+++++++++++
+
+.. method:: Nasa.exoplanets([table='exoplanets'][, select=None][, count=None][, colset=None][, where=None][, order=None][, ra=None][, dec=None][, aliastable=None][, objname=None][, return_df=False])
+
+    :param table: Specifies which table to query. Defaults to the 'exoplanets' table.
+    :param select: Specifies which columns within the chosen table to return. Multiple columns can be returned by comma-separating the column names and distinct values can be returned by adding 'distinct ' in front of the desired column names.
+    :param count: Can be used to return the number of rows which fulfill the given query, including queries using where clauses or cone searches.
+    :param colset: Returns a set of pre-defined columns that have been created by the archive. Currently, this keyword is only used by the Composite Planet Data ('compositepars') table.
+    :param where: Takes a SQL-like query string to filter the returned results. Please see the examples section for more.
+    :param order: Returns the data sorted by the specified column. Append ' desc' for descending or ' asc' for ascending values.
+    :param ra: Specifies an area of the sky to search for all objects within that area.
+    :param dec: Specifies an area of the sky to search for all objects within that area.
+    :param aliastable: Requests a list of aliases for a particular confirmed planet.
+    :param objname: When parameter :code:`aliastable` is specified, :code:`objname` must also be passed with the planet's name.
+    :param return_df: If :code:`True`, returns the JSON data as a pandas DataFrame.
+    :rtype: dict or pandas DataFrame.
+
+    .. code-block:: python
+
+        # Get all exoplanets data as a pandas DataFrame.
+        exoplanets(return_df=True)
+        # Get all confirmed planets in the Kepler field.
+        exoplanets(where='pl_kepflag=1')
+        # Stars known to host exoplanets as a pandas DataFrame.
+        exoplanets(select='distinct pl_hostname', order='pl_hostname', return_df=True)
+
 Earth Satellite Imagery
 +++++++++++++++++++++++
 

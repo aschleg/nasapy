@@ -183,17 +183,26 @@ file per the following:</p>
 <h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><ul class="simple">
-<li>Python 3.4+</li>
-<li><code class="code docutils literal notranslate"><span class="pre">requests&gt;=2.18</span></code></li>
-<li><code class="code docutils literal notranslate"><span class="pre">pandas&gt;=0.22.0</span></code></li>
+<li><p>Python 3.4+</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">requests&gt;=2.18</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">pandas&gt;=0.22.0</span></code></p></li>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li>Although not strictly required to use <code class="code docutils literal notranslate"><span class="pre">nasapy</span></code>, the <a class="reference external" href="https://pandas.pydata.org/">pandas</a> library is needed
-for returning results as a DataFrame.</li>
+<li><p>Although not strictly required to use <code class="code docutils literal notranslate"><span class="pre">nasapy</span></code>, the <a class="reference external" href="https://pandas.pydata.org/">pandas</a> library is needed
+for returning results as a DataFrame.</p></li>
 </ul>
 </div></blockquote>
 </div></blockquote>
+</div>
+<div class="section" id="tutorials-and-in-depth-examples">
+<h1>Tutorials and In-Depth Examples<a class="headerlink" href="#tutorials-and-in-depth-examples" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/aschleg/nasapy/master?filepath=notebooks"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p>The following are Jupyter Notebooks that explore a facet of the <code class="code docutils literal notranslate"><span class="pre">nasapy</span></code> library in more depth. The notebooks can
+also be launched interactively with binder by clicking the “launch binder” badge above.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/aschleg/nasapy/blob/master/notebooks/Plot%20Earth%20Fireball%20Impacts%20with%20nasapy%2C%20pandas%20and%20folium.ipynb">Plot Earth Fireball Impacts with nasapy, pandas and folium</a></p></li>
+</ul>
 </div>
 <div class="section" id="examples-and-usage">
 <h1>Examples and Usage<a class="headerlink" href="#examples-and-usage" title="Permalink to this headline">¶</a></h1>
@@ -310,6 +319,17 @@ requests remaining.</p>
 <span class="n">e</span> <span class="o">=</span> <span class="n">nasa</span><span class="o">.</span><span class="n">epic</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
 <span class="c1"># Print the first result</span>
 <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exoplanets">
+<h3>Exoplanets<a class="headerlink" href="#exoplanets" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all exoplanets data as a pandas DataFrame.</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># Get all confirmed planets in the Kepler field.</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s1">&#39;pl_kepflag=1&#39;</span><span class="p">)</span>
+<span class="c1"># Stars known to host exoplanets as a pandas DataFrame.</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;distinct pl_hostname&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;pl_hostname&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

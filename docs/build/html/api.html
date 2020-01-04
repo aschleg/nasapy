@@ -88,12 +88,13 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#nasa-nasa-api-wrapper"><code class="docutils literal notranslate"><span class="pre">Nasa</span></code> - NASA API Wrapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nasa-nasa-api-wrapper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Nasa</span></code> - NASA API Wrapper</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#astronomy-picture-of-the-day">Astronomy Picture of the Day</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mars-weather-insight">Mars Weather Insight</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#near-earth-objects">Near Earth Objects</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#donki-space-weather-database-of-notifications-knowledge-and-information">DONKI (Space Weather Database of Notifications, Knowledge, and Information)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#epic-earth-polychromatic-imaging-camera">EPIC (Earth Polychromatic Imaging Camera)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exoplanets">Exoplanets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#earth-satellite-imagery">Earth Satellite Imagery</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mars-rover-photos">Mars Rover Photos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#genelab-search">GeneLab Search</a></li>
@@ -177,39 +178,32 @@
 <h2><a class="reference internal" href="#Nasa" title="Nasa"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Nasa</span></code></a> - NASA API Wrapper<a class="headerlink" href="#nasa-nasa-api-wrapper" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="Nasa">
-<em class="property">class </em><code class="descname">Nasa</code><span class="sig-paren">(</span><span class="optional">[</span><em>key=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Nasa" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Nasa</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">key=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Nasa" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class object containing the methods for interacting with NASA API endpoints that require an API key.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – The generated API key received from the NASA API. Registering for an API key can be done on the <a class="reference external" href="https://api.nasa.gov/">NASA API webpage</a>. If <code class="code docutils literal notranslate"><span class="pre">None</span></code>, a ‘DEMO_KEY’ with a much more restricted access limit is used.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – The generated API key received from the NASA API. Registering for an API key can be done on the <a class="reference external" href="https://api.nasa.gov/">NASA API webpage</a>. If <code class="code docutils literal notranslate"><span class="pre">None</span></code>, a ‘DEMO_KEY’ with a much more restricted access limit is used.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="section" id="astronomy-picture-of-the-day">
 <h3>Astronomy Picture of the Day<a class="headerlink" href="#astronomy-picture-of-the-day" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="Nasa.picture_of_the_day">
-<code class="descclassname">Nasa.</code><code class="descname">picture_of_the_day</code><span class="sig-paren">(</span><em>[date=None][, hd=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.picture_of_the_day" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">picture_of_the_day</code><span class="sig-paren">(</span><em class="sig-param">[date=None][, hd=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.picture_of_the_day" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URL and other information for the NASA Astronomy Picture of the Day.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date.</li>
-<li><strong>hd</strong> – If True, returns the associated high-definition image of the Astrononmy Picture of the Day.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date.</p></li>
+<li><p><strong>hd</strong> – If True, returns the associated high-definition image of the Astrononmy Picture of the Day.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object of the JSON data returned from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object of the JSON data returned from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize Nasa API Class with a demo key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Return today&#39;s picture of the day</span>
@@ -225,18 +219,15 @@
 <h3>Mars Weather Insight<a class="headerlink" href="#mars-weather-insight" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="Nasa.mars_weather">
-<code class="descclassname">Nasa.</code><code class="descname">mars_weather</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.mars_weather" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">mars_weather</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.mars_weather" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns per-Sol (Martian Days) summary data for each of the last seven available Sols. Data is provided by NASA’s
 InSight Mars lander and as such data for particular Sols may be recalculated as more data is received. For more
 information on the data returned, please see <a class="reference external" href="https://github.com/nasa/api-docs/blob/gh-pages/InSight%20Weather%20API%20Documentation.pdf">NASA’s documentation</a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict. Dictionary object representing the returned JSON data from the API.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict. Dictionary object representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize NASA API object with a demo key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">NASA</span><span class="p">()</span>
 <span class="c1"># Return the most recent data for the previous seven Sols (Martian Days)</span>
@@ -252,23 +243,19 @@ information on the data returned, please see <a class="reference external" href=
 <a class="reference external" href="https://github.com/SpaceRocks/">SpaceRocks team</a></p>
 <dl class="method">
 <dt id="Nasa.asteroid_feed">
-<code class="descclassname">Nasa.</code><code class="descname">asteroid_feed</code><span class="sig-paren">(</span><em>[start_date][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.asteroid_feed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">asteroid_feed</code><span class="sig-paren">(</span><em class="sig-param">[start_date][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.asteroid_feed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of asteroids based on their closest approach date to Earth.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to seven days after the provided <code class="code docutils literal notranslate"><span class="pre">start_date</span></code>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to seven days after the provided <code class="code docutils literal notranslate"><span class="pre">start_date</span></code>.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary representing the returned JSON data from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the NASA API with a demo key.</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">NASA</span><span class="p">()</span>
 <span class="c1"># Get asteroids approaching Earth at the beginning of 2019.</span>
@@ -279,18 +266,16 @@ information on the data returned, please see <a class="reference external" href=
 
 <dl class="method">
 <dt id="Nasa.get_asteroids">
-<code class="descclassname">Nasa.</code><code class="descname">get_asteroids</code><span class="sig-paren">(</span><span class="optional">[</span><em>asteroid_id=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.get_asteroids" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">get_asteroids</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">asteroid_id=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.get_asteroids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data from the overall asteroid data-set or specific asteroids given an ID.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>asteroid_id</strong> – If None, the entire asteroid data set is returned. If an <code class="code docutils literal notranslate"><span class="pre">asteroid_id</span></code> is provided, data on that specific asteroid is returned.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict. Dictionary object representing the returned JSON data from the NASA API.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>asteroid_id</strong> – If None, the entire asteroid data set is returned. If an <code class="code docutils literal notranslate"><span class="pre">asteroid_id</span></code> is provided, data on that specific asteroid is returned.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data from the NASA API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get entire asteroid data set.</span>
 <span class="n">n</span><span class="o">.</span><span class="n">get_asteroids</span><span class="p">()</span>
@@ -312,29 +297,25 @@ cause-and-effects between space weather activities and comprehensive webservice 
 DONKI.</p>
 <dl class="method">
 <dt id="Nasa.coronal_mass_ejection">
-<code class="descclassname">Nasa.</code><code class="descname">coronal_mass_ejection</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None][, accurate_only=True][, speed=0][, complete_entry=True][, half_angle=0][, catalog='ALL'][, keyword=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.coronal_mass_ejection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">coronal_mass_ejection</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None][, accurate_only=True][, speed=0][, complete_entry=True][, half_angle=0][, catalog='ALL'][, keyword=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.coronal_mass_ejection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data collected on coronal mass ejection events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
-<li><strong>accurate_only</strong> – If True (default), only the most accurate results collected are returned.</li>
-<li><strong>complete_entry</strong> – If True (default), only results with complete data is returned.</li>
-<li><strong>speed</strong> – The lower limit of the speed of the CME event. Default is 0</li>
-<li><strong>half_angle</strong> – The lower limit half angle of the CME event. Default is 0.</li>
-<li><strong>catalog</strong> – Specifies which catalog of data to return results. Defaults to ‘ALL’ and must be one of {‘ALL’, ‘SWRC_CATALOG’, ‘JANG_ET_AL_CATALOG’}.</li>
-<li><strong>keyword</strong> – Filter results by a specific keyword.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
+<li><p><strong>accurate_only</strong> – If True (default), only the most accurate results collected are returned.</p></li>
+<li><p><strong>complete_entry</strong> – If True (default), only results with complete data is returned.</p></li>
+<li><p><strong>speed</strong> – The lower limit of the speed of the CME event. Default is 0</p></li>
+<li><p><strong>half_angle</strong> – The lower limit half angle of the CME event. Default is 0.</p></li>
+<li><p><strong>catalog</strong> – Specifies which catalog of data to return results. Defaults to ‘ALL’ and must be one of {‘ALL’, ‘SWRC_CATALOG’, ‘JANG_ET_AL_CATALOG’}.</p></li>
+<li><p><strong>keyword</strong> – Filter results by a specific keyword.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize NASA API with a demo key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># View data from coronal mass ejection events from the last thirty days</span>
@@ -347,23 +328,19 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.geomagnetic_storm">
-<code class="descclassname">Nasa.</code><code class="descname">geomagnetic_storm</code><span class="sig-paren">(</span><em>[start_date=None][,end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.geomagnetic_storm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">geomagnetic_storm</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][,end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.geomagnetic_storm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data collected on geomagnetic storm events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list: List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list: List of results representing returned JSON data. If no data is returned, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get geomagnetic storm events from the last thirty days.</span>
@@ -374,46 +351,38 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.interplantary_shock">
-<code class="descclassname">Nasa.</code><code class="descname">interplantary_shock</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None][, location='ALL'][, catalog='ALL']</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.interplantary_shock" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">interplantary_shock</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None][, location='ALL'][, catalog='ALL']</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.interplantary_shock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data collected on interplantary shock events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
-<li><strong>location</strong> – Filters returned results to specified location of the interplantary shock event. Defaults to ‘ALL’ and must be one of {‘ALL’, ‘Earth’, ‘MESSENGER’, ‘STEREO A’, ‘STEREO B’}</li>
-<li><strong>catalog</strong> – Filters results to a specified catalog of collected data. Defaults to ‘ALL’ and must be one of {‘ALL’, ‘SWRC_CATALOG’, ‘WINSLOW_MESSENGER_ICME_CATALOG’}</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
+<li><p><strong>location</strong> – Filters returned results to specified location of the interplantary shock event. Defaults to ‘ALL’ and must be one of {‘ALL’, ‘Earth’, ‘MESSENGER’, ‘STEREO A’, ‘STEREO B’}</p></li>
+<li><p><strong>catalog</strong> – Filters results to a specified catalog of collected data. Defaults to ‘ALL’ and must be one of {‘ALL’, ‘SWRC_CATALOG’, ‘WINSLOW_MESSENGER_ICME_CATALOG’}</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. List of results representing returned JSON data. If no data is returned, an empty list is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. List of results representing returned JSON data. If no data is returned, an empty list is returned.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="Nasa.solar_flare">
-<code class="descclassname">Nasa.</code><code class="descname">solar_flare</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.solar_flare" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">solar_flare</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.solar_flare" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data on solar flare events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get solar flare events from May of 2019</span>
@@ -424,23 +393,19 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.solar_energetic_particle">
-<code class="descclassname">Nasa.</code><code class="descname">solar_energetic_particle</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.solar_energetic_particle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">solar_energetic_particle</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.solar_energetic_particle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data available related to solar energetic particle events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get data from April 2017</span>
@@ -451,23 +416,19 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.magnetopause_crossing">
-<code class="descclassname">Nasa.</code><code class="descname">magnetopause_crossing</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.magnetopause_crossing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">magnetopause_crossing</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.magnetopause_crossing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data available related to magnetopause crossing events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get data on magnetopause crossing events from 2018 to the current date.</span>
@@ -478,23 +439,19 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.radiation_belt_enhancement">
-<code class="descclassname">Nasa.</code><code class="descname">radiation_belt_enhancement</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.radiation_belt_enhancement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">radiation_belt_enhancement</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.radiation_belt_enhancement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data available related to radiation belt enhancement events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get data on radiation belt enhancement events from the last 30 days.</span>
@@ -505,23 +462,19 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.hight_speed_stream">
-<code class="descclassname">Nasa.</code><code class="descname">hight_speed_stream</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.hight_speed_stream" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">hight_speed_stream</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.hight_speed_stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data available related to hight speed stream events.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get data on hight speed stream events from the beginning of September 2019.</span>
@@ -532,22 +485,18 @@ DONKI.</p>
 
 <dl class="method">
 <dt id="Nasa.wsa_enlil_simulation">
-<code class="descclassname">Nasa.</code><code class="descname">wsa_enlil_simulation</code><span class="sig-paren">(</span><em>[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.wsa_enlil_simulation" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</li>
-<li><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</li>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">wsa_enlil_simulation</code><span class="sig-paren">(</span><em class="sig-param">[start_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.wsa_enlil_simulation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to 30 days prior to the current date in UTC time.</p></li>
+<li><p><strong>end_date</strong> – String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the current date in UTC time.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. If data is available in the specified date range, a list of dictionary objects representing the data from the API is returned. If no data is available, an empty dictionary is returned.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get data from the first simulation performed in 2019.</span>
@@ -565,29 +514,61 @@ Earth and captures unique perspectives of certain astronomical events such as lu
 pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.</p>
 <dl class="method">
 <dt id="Nasa.epic">
-<code class="descclassname">Nasa.</code><code class="descname">epic</code><span class="sig-paren">(</span><em>[color='natural'][, date=None][, available=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.epic" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>color</strong> – Specifies the type of imagery to return. Must be one of ‘natural’ (default) or ‘enhanced’</li>
-<li><strong>date</strong> – String representing a date in ‘YYYY-MM-DD’ format or a datetime object</li>
-<li><strong>available</strong> – Alternative listing of all dates with specified color imagery</li>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">epic</code><span class="sig-paren">(</span><em class="sig-param">[color='natural'][, date=None][, available=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.epic" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – Specifies the type of imagery to return. Must be one of ‘natural’ (default) or ‘enhanced’</p></li>
+<li><p><strong>date</strong> – String representing a date in ‘YYYY-MM-DD’ format or a datetime object</p></li>
+<li><p><strong>available</strong> – Alternative listing of all dates with specified color imagery</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. List of dictionaries representing the returned JSON data from the EPIC API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. List of dictionaries representing the returned JSON data from the EPIC API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get EPIC data from the beginning of 2019.</span>
 <span class="n">e</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">epic</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
 <span class="c1"># Print the first result</span>
 <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="exoplanets">
+<h3>Exoplanets<a class="headerlink" href="#exoplanets" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="Nasa.exoplanets">
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">exoplanets</code><span class="sig-paren">(</span><em class="sig-param">[table='exoplanets'][, select=None][, count=None][, colset=None][, where=None][, order=None][, ra=None][, dec=None][, aliastable=None][, objname=None][, return_df=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.exoplanets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> – Specifies which table to query. Defaults to the ‘exoplanets’ table.</p></li>
+<li><p><strong>select</strong> – Specifies which columns within the chosen table to return. Multiple columns can be returned by comma-separating the column names and distinct values can be returned by adding ‘distinct ‘ in front of the desired column names.</p></li>
+<li><p><strong>count</strong> – Can be used to return the number of rows which fulfill the given query, including queries using where clauses or cone searches.</p></li>
+<li><p><strong>colset</strong> – Returns a set of pre-defined columns that have been created by the archive. Currently, this keyword is only used by the Composite Planet Data (‘compositepars’) table.</p></li>
+<li><p><strong>where</strong> – Takes a SQL-like query string to filter the returned results. Please see the examples section for more.</p></li>
+<li><p><strong>order</strong> – Returns the data sorted by the specified column. Append ‘ desc’ for descending or ‘ asc’ for ascending values.</p></li>
+<li><p><strong>ra</strong> – Specifies an area of the sky to search for all objects within that area.</p></li>
+<li><p><strong>dec</strong> – Specifies an area of the sky to search for all objects within that area.</p></li>
+<li><p><strong>aliastable</strong> – Requests a list of aliases for a particular confirmed planet.</p></li>
+<li><p><strong>objname</strong> – When parameter <code class="code docutils literal notranslate"><span class="pre">aliastable</span></code> is specified, <code class="code docutils literal notranslate"><span class="pre">objname</span></code> must also be passed with the planet’s name.</p></li>
+<li><p><strong>return_df</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code>, returns the JSON data as a pandas DataFrame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict or pandas DataFrame.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all exoplanets data as a pandas DataFrame.</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># Get all confirmed planets in the Kepler field.</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s1">&#39;pl_kepflag=1&#39;</span><span class="p">)</span>
+<span class="c1"># Stars known to host exoplanets as a pandas DataFrame.</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;distinct pl_hostname&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;pl_hostname&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -600,26 +581,22 @@ and URL to the image that is closest to the supplied date. The requested resourc
 exact date in the request.</p>
 <dl class="method">
 <dt id="Nasa.earth_imagery">
-<code class="descclassname">Nasa.</code><code class="descname">earth_imagery</code><span class="sig-paren">(</span><em>lat, lon[, dim=0.025][, date=None][, cloud_score=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.earth_imagery" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">earth_imagery</code><span class="sig-paren">(</span><em class="sig-param">lat, lon[, dim=0.025][, date=None][, cloud_score=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.earth_imagery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the URL and other information from the Landsat 8 image database for the specified lat/lon location and date.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>lat</strong> – Latitude of the desired imagery location</li>
-<li><strong>lon</strong> – Longitude of the desired imagery location</li>
-<li><strong>dim</strong> – Width and height of the image in degrees.</li>
-<li><strong>date</strong> – Date the image was taken. If specified, must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object. If None, the most recent image available from the current date is returned.</li>
-<li><strong>cloud_score</strong> – Calculate the percentage of the image covered by clouds.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lat</strong> – Latitude of the desired imagery location</p></li>
+<li><p><strong>lon</strong> – Longitude of the desired imagery location</p></li>
+<li><p><strong>dim</strong> – Width and height of the image in degrees.</p></li>
+<li><p><strong>date</strong> – Date the image was taken. If specified, must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object. If None, the most recent image available from the current date is returned.</p></li>
+<li><p><strong>cloud_score</strong> – Calculate the percentage of the image covered by clouds.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get imagery at latitude 1.5, longitude 100.75 and include the computed cloud score calculation.</span>
@@ -630,25 +607,21 @@ exact date in the request.</p>
 
 <dl class="method">
 <dt id="Nasa.earth_assets">
-<code class="descclassname">Nasa.</code><code class="descname">earth_assets</code><span class="sig-paren">(</span><em>lat, lon[, dim=0.025][, begin_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.earth_assets" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">earth_assets</code><span class="sig-paren">(</span><em class="sig-param">lat, lon[, dim=0.025][, begin_date=None][, end_date=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.earth_assets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the datetimes and asset names of available imagery for a specified lat-lon location over a given date range. The satellite that takes the images passes over each point approximately once every sixteen days.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>lat</strong> – Latitude of the desired imagery location</li>
-<li><strong>lon</strong> – Longitude of the desired imagery location</li>
-<li><strong>begin_date</strong> – Beginning of date range in which to search for available assets. Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object</li>
-<li><strong>end_date</strong> – End of date range in which to search for available assets. If not specified, defaults to the current date. If specified, Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lat</strong> – Latitude of the desired imagery location</p></li>
+<li><p><strong>lon</strong> – Longitude of the desired imagery location</p></li>
+<li><p><strong>begin_date</strong> – Beginning of date range in which to search for available assets. Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object</p></li>
+<li><p><strong>end_date</strong> – End of date range in which to search for available assets. If not specified, defaults to the current date. If specified, Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5</span>
 <span class="n">n</span><span class="o">.</span><span class="n">earth_assets</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">begin_date</span><span class="o">=</span><span class="s1">&#39;2014-02-01&#39;</span><span class="p">)</span>
 </pre></div>
@@ -660,26 +633,22 @@ exact date in the request.</p>
 <h3>Mars Rover Photos<a class="headerlink" href="#mars-rover-photos" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="Nasa.mars_rover">
-<code class="descclassname">Nasa.</code><code class="descname">mars_rover</code><span class="sig-paren">(</span><em>[sol=None][, earth_date=None][, camera='all'][, rover='curiosity'][, page=1]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.mars_rover" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">mars_rover</code><span class="sig-paren">(</span><em class="sig-param">[sol=None][, earth_date=None][, camera='all'][, rover='curiosity'][, page=1]</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.mars_rover" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves image data collected by the Mars rovers Curiosity, Discovery and Spirit.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>sol</strong> – The sol (Martian rotation or day) on which the images were collected. Either this parameter or <code class="code docutils literal notranslate"><span class="pre">earth_date</span></code> must be provided. The parameter <code class="code docutils literal notranslate"><span class="pre">earth_date</span></code> is an alternative parameter for searching for a specific date. The sol values count up from the rover’s landing date, for example, the Curiosity’s 100th sol would be the 100th Martian rotation since the rover landed.</li>
-<li><strong>earth_date</strong> – Alternative search parameter for finding data on a specific date. Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object. Either <code class="code docutils literal notranslate"><span class="pre">earth_date</span></code> or <code class="code docutils literal notranslate"><span class="pre">sol</span></code> must be specified.</li>
-<li><strong>camera</strong> – Filter results to a specific camera on the Mars Curiosity, Opportunity or Spirit rovers. Defaults to ‘all’, which includes all cameras and must be one of {‘all’, FHAZ’, ‘RHAZ’, ‘MAST’, ‘CHEMCAM’, ‘MAHLI’, ‘MARDI’, ‘NAVCAM’, ‘PANCAM’, ‘MINITES’}</li>
-<li><strong>rover</strong> – Specifies the Mars rover to return data. Defaults to the Curiosity rover which has more available cameras. Must be one of {‘curiosity’, ‘opportunity’, ‘spirit’}</li>
-<li><strong>page</strong> – Page number of results to return. 25 results per page are returned.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sol</strong> – The sol (Martian rotation or day) on which the images were collected. Either this parameter or <code class="code docutils literal notranslate"><span class="pre">earth_date</span></code> must be provided. The parameter <code class="code docutils literal notranslate"><span class="pre">earth_date</span></code> is an alternative parameter for searching for a specific date. The sol values count up from the rover’s landing date, for example, the Curiosity’s 100th sol would be the 100th Martian rotation since the rover landed.</p></li>
+<li><p><strong>earth_date</strong> – Alternative search parameter for finding data on a specific date. Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object. Either <code class="code docutils literal notranslate"><span class="pre">earth_date</span></code> or <code class="code docutils literal notranslate"><span class="pre">sol</span></code> must be specified.</p></li>
+<li><p><strong>camera</strong> – Filter results to a specific camera on the Mars Curiosity, Opportunity or Spirit rovers. Defaults to ‘all’, which includes all cameras and must be one of {‘all’, FHAZ’, ‘RHAZ’, ‘MAST’, ‘CHEMCAM’, ‘MAHLI’, ‘MARDI’, ‘NAVCAM’, ‘PANCAM’, ‘MINITES’}</p></li>
+<li><p><strong>rover</strong> – Specifies the Mars rover to return data. Defaults to the Curiosity rover which has more available cameras. Must be one of {‘curiosity’, ‘opportunity’, ‘spirit’}</p></li>
+<li><p><strong>page</strong> – Page number of results to return. 25 results per page are returned.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list. List of dictionaries representing the returned JSON data from the Mars Rover API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. List of dictionaries representing the returned JSON data from the Mars Rover API.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -687,32 +656,28 @@ exact date in the request.</p>
 <h3>GeneLab Search<a class="headerlink" href="#genelab-search" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="Nasa.genelab_search">
-<code class="descclassname">Nasa.</code><code class="descname">genelab_search</code><span class="sig-paren">(</span><em>term=None</em>, <em>database='cgene'</em>, <em>page=0</em>, <em>size=25</em>, <em>sort=None</em>, <em>order='desc'</em>, <em>ffield=None</em>, <em>fvalue=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.genelab_search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">genelab_search</code><span class="sig-paren">(</span><em class="sig-param">term=None</em>, <em class="sig-param">database='cgene'</em>, <em class="sig-param">page=0</em>, <em class="sig-param">size=25</em>, <em class="sig-param">sort=None</em>, <em class="sig-param">order='desc'</em>, <em class="sig-param">ffield=None</em>, <em class="sig-param">fvalue=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.genelab_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves available data from the GeneLab and other bioinformatics databases such as the National Institutes
 of Health (NIH) / National Center for Biotechnology Information (NCBI), Gene Expression Omnibus (GEO), the
 European Bioinformatics Institute’s (EBI) Proteomics Identification (PRIDE), and the Argonne National
 Laboratory’s (ANL) Metagenomics Rapid Annotations using Subsystems Technology (MG-RAST).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>term</strong> – Search by specific keyword(s). Case-insensitive boolean operators (AND, OR, NOT) can be used as well to include and filter specific keywords.</li>
-<li><strong>database</strong> – Determines the database(s) to query. Defaults to the ‘cgene’ (GeneLab) database, but other available databases include ‘nih_geo_gse’ (NIH GEO), ‘ebi_pride’ (EBI PRIDE), or ‘mg_rast’ (MG-RAST). Multiple databases can be queried by separating values with commas. For example, ‘cgene,nih_geo_gse,ebi_pride,mg_rast’ will query all available databases.</li>
-<li><strong>page</strong> – Specifies the page of results to return. Defaults to the first page (0).</li>
-<li><strong>size</strong> – Specifies the number of results to return per page. Default is 25 results per page.</li>
-<li><strong>sort</strong> – Sorts by a specific field name in the returned JSON data.</li>
-<li><strong>order</strong> – Determines the sorting order. Must be one of ‘desc’ (descending) or ‘asc’ (ascending).</li>
-<li><strong>ffield</strong> – Filters the returned data based on the defined field. Should be paired with the <code class="code docutils literal notranslate"><span class="pre">fvalue</span></code> parameter. Only the ‘cgene’ (GeneLab) database can be filtered.</li>
-<li><strong>fvalue</strong> – Filters the returned data based on value or values in the specified <code class="code docutils literal notranslate"><span class="pre">ffield</span></code> parameter field. Only the ‘cgene’ (GeneLab) database can be filtered.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>term</strong> – Search by specific keyword(s). Case-insensitive boolean operators (AND, OR, NOT) can be used as well to include and filter specific keywords.</p></li>
+<li><p><strong>database</strong> – Determines the database(s) to query. Defaults to the ‘cgene’ (GeneLab) database, but other available databases include ‘nih_geo_gse’ (NIH GEO), ‘ebi_pride’ (EBI PRIDE), or ‘mg_rast’ (MG-RAST). Multiple databases can be queried by separating values with commas. For example, ‘cgene,nih_geo_gse,ebi_pride,mg_rast’ will query all available databases.</p></li>
+<li><p><strong>page</strong> – Specifies the page of results to return. Defaults to the first page (0).</p></li>
+<li><p><strong>size</strong> – Specifies the number of results to return per page. Default is 25 results per page.</p></li>
+<li><p><strong>sort</strong> – Sorts by a specific field name in the returned JSON data.</p></li>
+<li><p><strong>order</strong> – Determines the sorting order. Must be one of ‘desc’ (descending) or ‘asc’ (ascending).</p></li>
+<li><p><strong>ffield</strong> – Filters the returned data based on the defined field. Should be paired with the <code class="code docutils literal notranslate"><span class="pre">fvalue</span></code> parameter. Only the ‘cgene’ (GeneLab) database can be filtered.</p></li>
+<li><p><strong>fvalue</strong> – Filters the returned data based on value or values in the specified <code class="code docutils literal notranslate"><span class="pre">ffield</span></code> parameter field. Only the ‘cgene’ (GeneLab) database can be filtered.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find Gene studies in the cgene database related to &#39;mouse liver&#39;</span>
 <span class="n">n</span><span class="o">.</span><span class="n">genelab_search</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;mouse liver&#39;</span><span class="p">)</span>
 </pre></div>
@@ -726,24 +691,20 @@ Laboratory’s (ANL) Metagenomics Rapid Annotations using Subsystems Technology 
 This API can be used to export TechPort data into either an XML or a JSON format.</p>
 <dl class="method">
 <dt id="Nasa.techport">
-<code class="descclassname">Nasa.</code><code class="descname">techport</code><span class="sig-paren">(</span><em>[project_id=None][, last_updated=None][, return_format='json']</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.techport" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Nasa.</code><code class="sig-name descname">techport</code><span class="sig-paren">(</span><em class="sig-param">[project_id=None][, last_updated=None][, return_format='json']</em><span class="sig-paren">)</span><a class="headerlink" href="#Nasa.techport" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves available NASA project data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>project_id</strong> – The ID of the project record. If not specified, all available projects will be returned.</li>
-<li><strong>last_updated</strong> – Returns projects only updated after the specified date. Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object.</li>
-<li><strong>return_format</strong> – Specifies the return format of the data. Defaults to ‘json’, but ‘xml’ formatted data is also available.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_id</strong> – The ID of the project record. If not specified, all available projects will be returned.</p></li>
+<li><p><strong>last_updated</strong> – Returns projects only updated after the specified date. Must be a string representing a date in ‘YYYY-MM-DD’ format or a datetime object.</p></li>
+<li><p><strong>return_format</strong> – Specifies the return format of the data. Defaults to ‘json’, but ‘xml’ formatted data is also available.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict or str. If <code class="code docutils literal notranslate"><span class="pre">return_format</span></code> is ‘json’, a dictionary representing the JSON formatted data is returned. Otherwise, a string formatted for XML is returned.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict or str. If <code class="code docutils literal notranslate"><span class="pre">return_format</span></code> is ‘json’, a dictionary representing the JSON formatted data is returned. Otherwise, a string formatted for XML is returned.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -754,23 +715,19 @@ in JSON format. A two-line element set (TLE) is a data format encoding a list of
 Earth-orbiting object for a given point in time.</p>
 <dl class="method">
 <dt id="tle">
-<code class="descname">tle</code><span class="sig-paren">(</span><em>[search_satellite=None][, satellite_number=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#tle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tle</code><span class="sig-paren">(</span><em class="sig-param">[search_satellite=None][, satellite_number=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#tle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns two-line element set records provided by CelesTrak.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>search_satellite</strong> – Searches satellites by name designation.</li>
-<li><strong>satellite_number</strong> – Specfic satellite ID number.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search_satellite</strong> – Searches satellites by name designation.</p></li>
+<li><p><strong>satellite_number</strong> – Specfic satellite ID number.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Specfic satellite ID number.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Specfic satellite ID number.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tle</span><span class="p">(</span><span class="n">satellite_number</span><span class="o">=</span><span class="mi">43553</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -781,35 +738,31 @@ Earth-orbiting object for a given point in time.</p>
 <h3>NASA Image and Video Library<a class="headerlink" href="#nasa-image-and-video-library" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="media_search">
-<code class="descname">media_search</code><span class="sig-paren">(</span><em>[query=None][, center=None][, description=None][, keywords=None][, location=None][, media_type=None][, nasa_id=None][, page=1][, photographer=None][, secondary_creator=None][, title=None][, year_start=None][, year_end=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#media_search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">media_search</code><span class="sig-paren">(</span><em class="sig-param">[query=None][, center=None][, description=None][, keywords=None][, location=None][, media_type=None][, nasa_id=None][, page=1][, photographer=None][, secondary_creator=None][, title=None][, year_start=None][, year_end=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#media_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a general search for images from the images.nasa.gov API based on parameters and criteria specified.
 At least one parameter must be provided.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>query</strong> – Query terms to search.</li>
-<li><strong>center</strong> – NASA center that published the results.</li>
-<li><strong>description</strong> – Search for specific terms in the ‘description’ field of the resulting data.</li>
-<li><strong>keywords</strong> – Search and filter for specific terms in the ‘keywords’ field of the resulting data. Multiple values should be comma-separated.</li>
-<li><strong>location</strong> – Filter terms in the ‘locations’ field of the resulting data.</li>
-<li><strong>media_type</strong> – Filter results to specific media types. Options include ‘image’, ‘audio’, ‘image,audio’, ‘audio,image’. The default <code class="code docutils literal notranslate"><span class="pre">None</span></code> includes all media types.</li>
-<li><strong>nasa_id</strong> – The media asset’s NASA ID.</li>
-<li><strong>page</strong> – Page number of results to return. Starts at 1.</li>
-<li><strong>photographer</strong> – The primary photographer’s name.</li>
-<li><strong>secondary_creator</strong> – A secondary photographer/videographer’s name.</li>
-<li><strong>title</strong> – Search terms in the ‘title’ field of the resulting data.</li>
-<li><strong>year_start</strong> – The start year for results. If provided, must be a string representing a year in YYYY format or a datetime object.</li>
-<li><strong>year_end</strong> – The end year for results. If provided, must be a string representing a year in YYYY format or a datetime object.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – Query terms to search.</p></li>
+<li><p><strong>center</strong> – NASA center that published the results.</p></li>
+<li><p><strong>description</strong> – Search for specific terms in the ‘description’ field of the resulting data.</p></li>
+<li><p><strong>keywords</strong> – Search and filter for specific terms in the ‘keywords’ field of the resulting data. Multiple values should be comma-separated.</p></li>
+<li><p><strong>location</strong> – Filter terms in the ‘locations’ field of the resulting data.</p></li>
+<li><p><strong>media_type</strong> – Filter results to specific media types. Options include ‘image’, ‘audio’, ‘image,audio’, ‘audio,image’. The default <code class="code docutils literal notranslate"><span class="pre">None</span></code> includes all media types.</p></li>
+<li><p><strong>nasa_id</strong> – The media asset’s NASA ID.</p></li>
+<li><p><strong>page</strong> – Page number of results to return. Starts at 1.</p></li>
+<li><p><strong>photographer</strong> – The primary photographer’s name.</p></li>
+<li><p><strong>secondary_creator</strong> – A secondary photographer/videographer’s name.</p></li>
+<li><p><strong>title</strong> – Search terms in the ‘title’ field of the resulting data.</p></li>
+<li><p><strong>year_start</strong> – The start year for results. If provided, must be a string representing a year in YYYY format or a datetime object.</p></li>
+<li><p><strong>year_end</strong> – The end year for results. If provided, must be a string representing a year in YYYY format or a datetime object.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary containing matching search results.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary containing matching search results.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search for media related to &#39;apollo 11&#39; with &#39;moon landing&#39; in the description of the items.</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">media_search</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;apollo 11&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;moon landing&#39;</span><span class="p">)</span>
 <span class="c1"># Output the first returned media item from the resulting collection.</span>
@@ -820,19 +773,17 @@ At least one parameter must be provided.</p>
 
 <dl class="method">
 <dt id="media_asset_manifest">
-<code class="descname">media_asset_manifest</code><span class="sig-paren">(</span><em>nasa_id</em><span class="sig-paren">)</span><a class="headerlink" href="#media_asset_manifest" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">media_asset_manifest</code><span class="sig-paren">(</span><em class="sig-param">nasa_id</em><span class="sig-paren">)</span><a class="headerlink" href="#media_asset_manifest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the media asset’s manifest, which contains the available versions of the asset and it’s metadata
 location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nasa_id</strong> – The ID of the media asset.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list. List of dictionaries containing the media asset’s manifest.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nasa_id</strong> – The ID of the media asset.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list. List of dictionaries containing the media asset’s manifest.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the manifest for the NASA media asset &#39;as11-40-5874&#39;</span>
 <span class="n">media_asset_manifest</span><span class="p">(</span><span class="n">nasa_id</span><span class="o">=</span><span class="s1">&#39;as11-40-5874&#39;</span><span class="p">)</span>
 </pre></div>
@@ -841,34 +792,30 @@ location.</p>
 
 <dl class="method">
 <dt id="media_asset_metadata">
-<code class="descname">media_asset_metadata</code><span class="sig-paren">(</span><em>nasa_id</em><span class="sig-paren">)</span><a class="headerlink" href="#media_asset_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">media_asset_metadata</code><span class="sig-paren">(</span><em class="sig-param">nasa_id</em><span class="sig-paren">)</span><a class="headerlink" href="#media_asset_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the specified media asset’s metadata.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nasa_id</strong> – The ID of the media asset.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict. Dictionary containing the metadata of the provided media asset ID.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nasa_id</strong> – The ID of the media asset.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary containing the metadata of the provided media asset ID.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="media_asset_captions">
-<code class="descname">media_asset_captions</code><span class="sig-paren">(</span><em>nasa_id</em><span class="sig-paren">)</span><a class="headerlink" href="#media_asset_captions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">media_asset_captions</code><span class="sig-paren">(</span><em class="sig-param">nasa_id</em><span class="sig-paren">)</span><a class="headerlink" href="#media_asset_captions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the captions and location of the captions .srt file for a media asset from the NASA image API.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nasa_id</strong> – The ID of the media asset.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict. Dictionary object containing the resulting data from the API given the media asset ID. The dictionary will contain two keys, <code class="code docutils literal notranslate"><span class="pre">location</span></code> and <code class="code docutils literal notranslate"><span class="pre">captions</span></code>. The <code class="code docutils literal notranslate"><span class="pre">location</span></code> key can be used to download the .srt file directly while the <code class="code docutils literal notranslate"><span class="pre">captions</span></code> key can be used in conjunction with a library such as srt for parsing media asset captions.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nasa_id</strong> – The ID of the media asset.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object containing the resulting data from the API given the media asset ID. The dictionary will contain two keys, <code class="code docutils literal notranslate"><span class="pre">location</span></code> and <code class="code docutils literal notranslate"><span class="pre">captions</span></code>. The <code class="code docutils literal notranslate"><span class="pre">location</span></code> key can be used to download the .srt file directly while the <code class="code docutils literal notranslate"><span class="pre">captions</span></code> key can be used in conjunction with a library such as srt for parsing media asset captions.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -878,45 +825,41 @@ location.</p>
 and <a class="reference external" href="https://cneos.jpl.nasa.gov/">Center for Near-Earth Object Studies</a> APIs.</p>
 <dl class="method">
 <dt id="close_approach">
-<code class="descname">close_approach</code><span class="sig-paren">(</span><em>[date_min='now'][, date_max='+60'][, dist_min=None][, dist_max='0.05'][, h_min=None][, h_max=None][, v_inf_min=None][, v_inf_max=None][, v_rel_min=None][, v_rel_max=None][, orbit_class=None][, pha=False][, nea=False][, comet=False][, nea_comet=False][, neo=False][, kind=None][, spk=None][, des=None][, body='Earth'][, sort='date'][, limit=None][, fullname=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#close_approach" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">close_approach</code><span class="sig-paren">(</span><em class="sig-param">[date_min='now'][, date_max='+60'][, dist_min=None][, dist_max='0.05'][, h_min=None][, h_max=None][, v_inf_min=None][, v_inf_max=None][, v_rel_min=None][, v_rel_max=None][, orbit_class=None][, pha=False][, nea=False][, comet=False][, nea_comet=False][, neo=False][, kind=None][, spk=None][, des=None][, body='Earth'][, sort='date'][, limit=None][, fullname=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#close_approach" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides data for currently known close-approach data for all asteroids and comets in NASA’s Jet Propulsion
 Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.gov/sbdb.cgi">Small-Body Database</a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>date_min</strong> – Excludes data earlier than the given date. Defaults to ‘now’, representing the current date, but can also be a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object.</li>
-<li><strong>date_max</strong> – Excludes data later than the given date. Defaults to ‘+60’, representing 60 days after the <code class="code docutils literal notranslate"><span class="pre">date_min</span></code> parameter. Accepts a string of ‘+D’ where D represents the number of days or a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object. ‘now’ is also an acceptable value and will exclude date later than the current date.</li>
-<li><strong>dist_min</strong> – Excludes data with an approach distance less than the given value (if provided). The default unit is AU (astronomical units), and LD (lunar distance) is also available. For example, ‘0.05’ or 0.05 would return AU units whereas ‘0.05LD’ would return LD units.</li>
-<li><strong>dist_max</strong> – Excludes data with an approach distance greater than the given value (if specified). The default unit is AU (astronomical units), and LD (lunar distance) is also available. For example, ‘0.05’ would return AU units whereas ‘0.05LD’ would return LD units.</li>
-<li><strong>h_min</strong> – Exclude data from objects with H-values less than the given value.</li>
-<li><strong>h_max</strong> – Exclude data from objects with H-values greater than the given value.</li>
-<li><strong>v_inf_min</strong> – Exclude data with V-infinity less than this positive value in km/s</li>
-<li><strong>v_inf_max</strong> – Exclude data with V-infinity greater than this positive value in km/s</li>
-<li><strong>v_rel_min</strong> – Exclude data with V-relative less than this positive value in km/s</li>
-<li><strong>v_rel_max</strong> – Exclude data with V-relative greater than this positive value in km/s</li>
-<li><strong>orbit_class</strong> – Limits data to specified orbit-class</li>
-<li><strong>pha</strong> – If True, limits the resulting data to only PHA objects</li>
-<li><strong>nea</strong> – If True, limits the returned data to only NEA objects</li>
-<li><strong>comet</strong> – If True, limits the returned data to comet objects only</li>
-<li><strong>nea_comet</strong> – If True, limits the returned data to NEA comet objects only</li>
-<li><strong>neo</strong> – If True, limits the returned data to only NEO objects</li>
-<li><strong>kind</strong> – Filters returned data to specified type of object. Available options include ‘a’=asteroid, ‘an’=numbered-asteroids, ‘au’=unnumbered-asteroids, ‘c’=comets, ‘cn’=numbered-comets, ‘cu’=unnumbered-comets, ‘n’=numbered-objects, and ‘u’=unnumbered-objects</li>
-<li><strong>spk</strong> – Return data only for the matching SPK-ID.</li>
-<li><strong>des</strong> – Filters data to objects matching the given destination.</li>
-<li><strong>body</strong> – Filters data to close-approaches of the specified body. ‘ALL’ or ‘*’ returns all close-approaches to the available bodies.</li>
-<li><strong>sort</strong> – Sorts the returned data by the specified field. Defaults to ‘date’ ascending. To sort by descending, add a ‘-‘ in front of the sort value, for example, ‘-date’.</li>
-<li><strong>limit</strong> – Limit data to the first number of results specified by the parameter. Must be greater than 0.</li>
-<li><strong>fullname</strong> – Includes the full-format object name/designation</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_min</strong> – Excludes data earlier than the given date. Defaults to ‘now’, representing the current date, but can also be a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object.</p></li>
+<li><p><strong>date_max</strong> – Excludes data later than the given date. Defaults to ‘+60’, representing 60 days after the <code class="code docutils literal notranslate"><span class="pre">date_min</span></code> parameter. Accepts a string of ‘+D’ where D represents the number of days or a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object. ‘now’ is also an acceptable value and will exclude date later than the current date.</p></li>
+<li><p><strong>dist_min</strong> – Excludes data with an approach distance less than the given value (if provided). The default unit is AU (astronomical units), and LD (lunar distance) is also available. For example, ‘0.05’ or 0.05 would return AU units whereas ‘0.05LD’ would return LD units.</p></li>
+<li><p><strong>dist_max</strong> – Excludes data with an approach distance greater than the given value (if specified). The default unit is AU (astronomical units), and LD (lunar distance) is also available. For example, ‘0.05’ would return AU units whereas ‘0.05LD’ would return LD units.</p></li>
+<li><p><strong>h_min</strong> – Exclude data from objects with H-values less than the given value.</p></li>
+<li><p><strong>h_max</strong> – Exclude data from objects with H-values greater than the given value.</p></li>
+<li><p><strong>v_inf_min</strong> – Exclude data with V-infinity less than this positive value in km/s</p></li>
+<li><p><strong>v_inf_max</strong> – Exclude data with V-infinity greater than this positive value in km/s</p></li>
+<li><p><strong>v_rel_min</strong> – Exclude data with V-relative less than this positive value in km/s</p></li>
+<li><p><strong>v_rel_max</strong> – Exclude data with V-relative greater than this positive value in km/s</p></li>
+<li><p><strong>orbit_class</strong> – Limits data to specified orbit-class</p></li>
+<li><p><strong>pha</strong> – If True, limits the resulting data to only PHA objects</p></li>
+<li><p><strong>nea</strong> – If True, limits the returned data to only NEA objects</p></li>
+<li><p><strong>comet</strong> – If True, limits the returned data to comet objects only</p></li>
+<li><p><strong>nea_comet</strong> – If True, limits the returned data to NEA comet objects only</p></li>
+<li><p><strong>neo</strong> – If True, limits the returned data to only NEO objects</p></li>
+<li><p><strong>kind</strong> – Filters returned data to specified type of object. Available options include ‘a’=asteroid, ‘an’=numbered-asteroids, ‘au’=unnumbered-asteroids, ‘c’=comets, ‘cn’=numbered-comets, ‘cu’=unnumbered-comets, ‘n’=numbered-objects, and ‘u’=unnumbered-objects</p></li>
+<li><p><strong>spk</strong> – Return data only for the matching SPK-ID.</p></li>
+<li><p><strong>des</strong> – Filters data to objects matching the given destination.</p></li>
+<li><p><strong>body</strong> – Filters data to close-approaches of the specified body. ‘ALL’ or ‘*’ returns all close-approaches to the available bodies.</p></li>
+<li><p><strong>sort</strong> – Sorts the returned data by the specified field. Defaults to ‘date’ ascending. To sort by descending, add a ‘-‘ in front of the sort value, for example, ‘-date’.</p></li>
+<li><p><strong>limit</strong> – Limit data to the first number of results specified by the parameter. Must be greater than 0.</p></li>
+<li><p><strong>fullname</strong> – Includes the full-format object name/designation</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.</span>
 <span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="c1"># Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.</span>
@@ -927,24 +870,26 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 </div>
 <p>Each close-approach record is a list containing the following fields in the corresponding order:</p>
 <ul class="simple">
-<li>des - primary designation of the asteroid or comet (e.g., 443, 2000 SG344)</li>
-<li>orbit_id - orbit ID</li>
-<li>jd - time of close-approach (JD Ephemeris Time)</li>
-<li>cd - time of close-approeach (formatted calendar date/time)</li>
-<li>dist - nominal approach distance (au)</li>
-<li>dist_min - minimum (3-sigma) approach distance (au)</li>
-<li>dist_max - maximum (3-sigma) approach distance (au)</li>
-<li>v_rel - velocity relative to the approach body at close approach (km/s)</li>
-<li>v_inf - velocity relative to a massless body (km/s)</li>
-<li>t_sigma_f - 3-sigma uncertainty in the time of close-approach (formatted in days, hours, and minutes; days are not included if zero; example “13:02” is 13 hours 2 minutes; example “2_09:08” is 2 days 9 hours 8 minutes)</li>
-<li>body - name of the close-approach body (e.g., Earth)<ul>
-<li>only output if the body query parameters is set to ALL</li>
+<li><p>des - primary designation of the asteroid or comet (e.g., 443, 2000 SG344)</p></li>
+<li><p>orbit_id - orbit ID</p></li>
+<li><p>jd - time of close-approach (JD Ephemeris Time)</p></li>
+<li><p>cd - time of close-approeach (formatted calendar date/time)</p></li>
+<li><p>dist - nominal approach distance (au)</p></li>
+<li><p>dist_min - minimum (3-sigma) approach distance (au)</p></li>
+<li><p>dist_max - maximum (3-sigma) approach distance (au)</p></li>
+<li><p>v_rel - velocity relative to the approach body at close approach (km/s)</p></li>
+<li><p>v_inf - velocity relative to a massless body (km/s)</p></li>
+<li><p>t_sigma_f - 3-sigma uncertainty in the time of close-approach (formatted in days, hours, and minutes; days are not included if zero; example “13:02” is 13 hours 2 minutes; example “2_09:08” is 2 days 9 hours 8 minutes)</p></li>
+<li><p>body - name of the close-approach body (e.g., Earth)</p>
+<ul>
+<li><p>only output if the body query parameters is set to ALL</p></li>
 </ul>
 </li>
-<li>h - absolute magnitude H (mag)</li>
-<li>fullname - formatted full-name/designation of the asteroid or comet<ul>
-<li>optional - only output if requested with the appropriate query flag</li>
-<li>formatted with leading spaces for column alignment in monospaced font tables</li>
+<li><p>h - absolute magnitude H (mag)</p></li>
+<li><p>fullname - formatted full-name/designation of the asteroid or comet</p>
+<ul>
+<li><p>optional - only output if requested with the appropriate query flag</p></li>
+<li><p>formatted with leading spaces for column alignment in monospaced font tables</p></li>
 </ul>
 </li>
 </ul>
@@ -952,38 +897,34 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 
 <dl class="method">
 <dt id="fireballs">
-<code class="descname">fireballs</code><span class="sig-paren">(</span><em>[date_min=None][, date_max=None][, energy_min=None][, energy_max=None][, impact_e_min=None][, impact_e_max=None][, vel_min=None][, vel_max=None][, alt_min=None][, alt_max=None][, req_loc=False][, req_alt=False][, req_vel=False][, req_vel_comp=False][, vel_comp=False][, sort='date'][, limit=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#fireballs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fireballs</code><span class="sig-paren">(</span><em class="sig-param">[date_min=None][, date_max=None][, energy_min=None][, energy_max=None][, impact_e_min=None][, impact_e_max=None][, vel_min=None][, vel_max=None][, alt_min=None][, alt_max=None][, req_loc=False][, req_alt=False][, req_vel=False][, req_vel_comp=False][, vel_comp=False][, sort='date'][, limit=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#fireballs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns available data on fireballs (objects that burn up in the upper atmosphere of Earth).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>date_min</strong> – Excludes data earlier than the given date. Can be a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object.</li>
-<li><strong>date_max</strong> – Excludes data later than the given date. Can be a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object.</li>
-<li><strong>energy_min</strong> – Excludes data with total-radiated-energy less than the positive value of the specified value in joules <span class="math notranslate nohighlight">\(\times 10^{10}\)</span>.</li>
-<li><strong>energy_max</strong> – Excludes data with total-radiated-energy greater than the positive value of the specified value in joules <span class="math notranslate nohighlight">\(\times 10^{10}\)</span>.</li>
-<li><strong>impact_e_min</strong> – Excludes data with estimated impact energy less than the positive value of the specified value in kilotons (kt)</li>
-<li><strong>impact_e_max</strong> – Excludes data with estimated impact energy greater than the positive value of the specified value in kilotons (kt)</li>
-<li><strong>vel_min</strong> – Excludes data with velocity-at-peak-brightness less than the positive value of the specified value in km/s</li>
-<li><strong>vel_max</strong> – Excludes data with velocity-at-peak-brightness greater than the positive value of the specified value in km/s</li>
-<li><strong>alt_min</strong> – Excludes data from objects with an altitude less than the specified value</li>
-<li><strong>alt_max</strong> – Excludes data from objects with an altitude greater than the specified value</li>
-<li><strong>req_loc</strong> – If True, latitude and longitude required for object to be included in results.</li>
-<li><strong>req_alt</strong> – If True, objects without an altitude are excluded.</li>
-<li><strong>req_vel</strong> – If True, objects without a velocity are not included in results.</li>
-<li><strong>req_vel_comp</strong> – If True, excludes objects without velocity components.</li>
-<li><strong>vel_comp</strong> – If True, include velocity components</li>
-<li><strong>sort</strong> – Sorts data on specified field. Default sort order is ascending, for descending, prepend a ‘-‘. For example, for date descending, the sort value would be ‘-date’.</li>
-<li><strong>limit</strong> – Limits data to the first number of results specified. Must be greater than 0 if passed.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_min</strong> – Excludes data earlier than the given date. Can be a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object.</p></li>
+<li><p><strong>date_max</strong> – Excludes data later than the given date. Can be a string representing a date in ‘YYYY-MM-DD’ format or ‘YYYY-MM-DDThh:mm:ss’ format or a datetime object.</p></li>
+<li><p><strong>energy_min</strong> – Excludes data with total-radiated-energy less than the positive value of the specified value in joules <span class="math notranslate nohighlight">\(\times 10^{10}\)</span>.</p></li>
+<li><p><strong>energy_max</strong> – Excludes data with total-radiated-energy greater than the positive value of the specified value in joules <span class="math notranslate nohighlight">\(\times 10^{10}\)</span>.</p></li>
+<li><p><strong>impact_e_min</strong> – Excludes data with estimated impact energy less than the positive value of the specified value in kilotons (kt)</p></li>
+<li><p><strong>impact_e_max</strong> – Excludes data with estimated impact energy greater than the positive value of the specified value in kilotons (kt)</p></li>
+<li><p><strong>vel_min</strong> – Excludes data with velocity-at-peak-brightness less than the positive value of the specified value in km/s</p></li>
+<li><p><strong>vel_max</strong> – Excludes data with velocity-at-peak-brightness greater than the positive value of the specified value in km/s</p></li>
+<li><p><strong>alt_min</strong> – Excludes data from objects with an altitude less than the specified value</p></li>
+<li><p><strong>alt_max</strong> – Excludes data from objects with an altitude greater than the specified value</p></li>
+<li><p><strong>req_loc</strong> – If True, latitude and longitude required for object to be included in results.</p></li>
+<li><p><strong>req_alt</strong> – If True, objects without an altitude are excluded.</p></li>
+<li><p><strong>req_vel</strong> – If True, objects without a velocity are not included in results.</p></li>
+<li><p><strong>req_vel_comp</strong> – If True, excludes objects without velocity components.</p></li>
+<li><p><strong>vel_comp</strong> – If True, include velocity components</p></li>
+<li><p><strong>sort</strong> – Sorts data on specified field. Default sort order is ascending, for descending, prepend a ‘-‘. For example, for date descending, the sort value would be ‘-date’.</p></li>
+<li><p><strong>limit</strong> – Limits data to the first number of results specified. Must be greater than 0 if passed.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available data in reverse chronological order</span>
 <span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">()</span>
 <span class="c1"># Return the earlieset record</span>
@@ -998,30 +939,26 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 
 <dl class="method">
 <dt id="mission_design">
-<code class="descname">mission_design</code><span class="sig-paren">(</span><em>[des=None][, spk=None][, sstr=None][, orbit_class=False][, mjd0=None][, span=None][, tof_min=None][, tof_max=None][, step=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#mission_design" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mission_design</code><span class="sig-paren">(</span><em class="sig-param">[des=None][, spk=None][, sstr=None][, orbit_class=False][, mjd0=None][, span=None][, tof_min=None][, tof_max=None][, step=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#mission_design" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to the Jet Propulsion Laboratory/Solar System Dynamics small body mission design suite API.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>des</strong> – The designation (provisional or IAU-number) of the desired object to search.</li>
-<li><strong>spk</strong> – The SPK-ID of the desired object to search.</li>
-<li><strong>sstr</strong> – Object search string.</li>
-<li><strong>orbit_class</strong> – If True, returns the orbit class in human readable format instead of the default three-letter code.</li>
-<li><strong>mjd0</strong> – First launch date in Modified Julian Date. Must be between [33282, 73459].</li>
-<li><strong>span</strong> – Duration of the launch-date period to be explored in days. Must be between [10, 9200].</li>
-<li><strong>tof_min</strong> – Minimum time of flight in days. Must be between [10, 9200].</li>
-<li><strong>tof_max</strong> – Maximum time of flight in days. Must be between [10, 9200].</li>
-<li><strong>step</strong> – Time step used to advance the launch date and the time of flight. Size of transfer map is limited to 1,500,000 points.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>des</strong> – The designation (provisional or IAU-number) of the desired object to search.</p></li>
+<li><p><strong>spk</strong> – The SPK-ID of the desired object to search.</p></li>
+<li><p><strong>sstr</strong> – Object search string.</p></li>
+<li><p><strong>orbit_class</strong> – If True, returns the orbit class in human readable format instead of the default three-letter code.</p></li>
+<li><p><strong>mjd0</strong> – First launch date in Modified Julian Date. Must be between [33282, 73459].</p></li>
+<li><p><strong>span</strong> – Duration of the launch-date period to be explored in days. Must be between [10, 9200].</p></li>
+<li><p><strong>tof_min</strong> – Minimum time of flight in days. Must be between [10, 9200].</p></li>
+<li><p><strong>tof_max</strong> – Maximum time of flight in days. Must be between [10, 9200].</p></li>
+<li><p><strong>step</strong> – Time step used to advance the launch date and the time of flight. Size of transfer map is limited to 1,500,000 points.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search for mission design data for SPK-ID 2000433</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">nasapy</span><span class="o">.</span><span class="n">mission_design</span><span class="p">(</span><span class="n">spk</span><span class="o">=</span><span class="mi">2000433</span><span class="p">)</span>
 <span class="c1"># Print the object data from the returned dictionary object.</span>
@@ -1035,31 +972,27 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 
 <dl class="method">
 <dt id="nhats">
-<code class="descname">nhats</code><span class="sig-paren">(</span><em>[spk=None][, des=None][, delta_v=12][, duration=450][, stay=8][, launch='2020-2045'][, magnitude=None][, orbit_condition_code=None][, plot=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#nhats" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nhats</code><span class="sig-paren">(</span><em class="sig-param">[spk=None][, des=None][, delta_v=12][, duration=450][, stay=8][, launch='2020-2045'][, magnitude=None][, orbit_condition_code=None][, plot=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#nhats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns data available from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS) in the Small
 Bodies Database</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>spk</strong> – Returns data for a specific object by its SPK-ID.</li>
-<li><strong>des</strong> – Returns data for a specific object by its designation.</li>
-<li><strong>delta_v</strong> – Minimum total delta-v in km/s. Must be one of {12, 4, 5, 6, 7, 8, 9, 10, 11}</li>
-<li><strong>duration</strong> – Minimum total distribution in number of days. Must be one of {450, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420}</li>
-<li><strong>stay</strong> – Minimum stay in days. Must be one of {8, 16, 24, 32}</li>
-<li><strong>launch</strong> – The proposed launch window as a year range. Must be one of {‘2020-2045’, ‘2020-2025’, ‘2025-2030’, ‘2030-2035’, ‘2035-2040’, ‘2040-2045’}</li>
-<li><strong>magnitude</strong> – The object’s maximum absolute magnitude, also denoted as H. Must be one of {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}</li>
-<li><strong>orbit_condition_code</strong> – The object’s maximum orbit condition code (OCC). Must be one of {0, 1, 2, 3, 4, 5, 6, 7, 8}</li>
-<li><strong>plot</strong> – If True, include base-64 encoded plot image file content. Will include a new output field ‘plot_base64’ in the returned results if True.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spk</strong> – Returns data for a specific object by its SPK-ID.</p></li>
+<li><p><strong>des</strong> – Returns data for a specific object by its designation.</p></li>
+<li><p><strong>delta_v</strong> – Minimum total delta-v in km/s. Must be one of {12, 4, 5, 6, 7, 8, 9, 10, 11}</p></li>
+<li><p><strong>duration</strong> – Minimum total distribution in number of days. Must be one of {450, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420}</p></li>
+<li><p><strong>stay</strong> – Minimum stay in days. Must be one of {8, 16, 24, 32}</p></li>
+<li><p><strong>launch</strong> – The proposed launch window as a year range. Must be one of {‘2020-2045’, ‘2020-2025’, ‘2025-2030’, ‘2030-2035’, ‘2035-2040’, ‘2040-2045’}</p></li>
+<li><p><strong>magnitude</strong> – The object’s maximum absolute magnitude, also denoted as H. Must be one of {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}</p></li>
+<li><p><strong>orbit_condition_code</strong> – The object’s maximum orbit condition code (OCC). Must be one of {0, 1, 2, 3, 4, 5, 6, 7, 8}</p></li>
+<li><p><strong>plot</strong> – If True, include base-64 encoded plot image file content. Will include a new output field ‘plot_base64’ in the returned results if True.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available summary data for NHATS objects.</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">nhats</span><span class="p">()</span>
 <span class="c1"># Get the results from a &#39;standard&#39; search on the NHATS webpage.</span>
@@ -1072,34 +1005,30 @@ Bodies Database</p>
 
 <dl class="method">
 <dt id="scout">
-<code class="descname">scout</code><span class="sig-paren">(</span><em>[tdes=None][, plot=None][, data_files=None][, orbits=None][, n_orbits=None][, eph_start=None][, eph_stop=None][, eph_step=None][, obs_code=None][, fov_diam=None][, fov_ra=None][, fov_dec=None][, fov_vmag=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#scout" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">scout</code><span class="sig-paren">(</span><em class="sig-param">[tdes=None][, plot=None][, data_files=None][, orbits=None][, n_orbits=None][, eph_start=None][, eph_stop=None][, eph_step=None][, obs_code=None][, fov_diam=None][, fov_ra=None][, fov_dec=None][, fov_vmag=None]</em><span class="sig-paren">)</span><a class="headerlink" href="#scout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access and data available from NASA’s Center for Near-Earth Object Studies (CNEOS) Scout system.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>tdes</strong> – Filter results by an object’s temporary designation.</li>
-<li><strong>plot</strong> – Includes the plot files for the specified object of the select type. Options include ‘el’ (elements), ‘ca’ (close approach) and <cite>sr</cite> (systematic-ranging) or any combination delimited by ‘:’. For example, ‘ca:el:sr’ would include plot files of each available type.</li>
-<li><strong>data_files</strong> – Returns available data files or the requested data file for the specified object. Currently only ‘mpc’ is available.</li>
-<li><strong>orbits</strong> – If True, returns the sampled orbits data for a specified object.</li>
-<li><strong>n_orbits</strong> – Limits the number of sampled orbits to this value. Must be in range [1, 1000].</li>
-<li><strong>eph_start</strong> – Get the ephemeris for the specified object at the specified time in UTC.</li>
-<li><strong>eph_stop</strong> – Sets the ephemeris stop-time. Also requires <code class="code docutils literal notranslate"><span class="pre">eph_start</span></code> if specified.</li>
-<li><strong>eph_step</strong> – Sets the ephemeris step size. Requires both <code class="code docutils literal notranslate"><span class="pre">eph_start</span></code> and <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> to be specified.</li>
-<li><strong>obs_code</strong> – Gets the ephemeris for the specified object relative to the specified MPC observatory code.</li>
-<li><strong>fov_diam</strong> – Specifies the size (diameter) of the field-of-view in arc-minutes.</li>
-<li><strong>fov_ra</strong> – Specifies the field-of-view center (R.A component). Requires parameters <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> and <code class="code docutils literal notranslate"><span class="pre">fov_dec</span></code> to be set as well. Invalid if <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> is passed.</li>
-<li><strong>fov_dec</strong> – Specifies the field-of-view center (Dec. component). Requires <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> and <code class="code docutils literal notranslate"><span class="pre">fov_ra</span></code> to be passed as well. Invalid if <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> is set.</li>
-<li><strong>fov_vmag</strong> – Filters ephemeris results to those with V-magnitude of this value or brighter. Requires <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> to also be specified.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdes</strong> – Filter results by an object’s temporary designation.</p></li>
+<li><p><strong>plot</strong> – Includes the plot files for the specified object of the select type. Options include ‘el’ (elements), ‘ca’ (close approach) and <cite>sr</cite> (systematic-ranging) or any combination delimited by ‘:’. For example, ‘ca:el:sr’ would include plot files of each available type.</p></li>
+<li><p><strong>data_files</strong> – Returns available data files or the requested data file for the specified object. Currently only ‘mpc’ is available.</p></li>
+<li><p><strong>orbits</strong> – If True, returns the sampled orbits data for a specified object.</p></li>
+<li><p><strong>n_orbits</strong> – Limits the number of sampled orbits to this value. Must be in range [1, 1000].</p></li>
+<li><p><strong>eph_start</strong> – Get the ephemeris for the specified object at the specified time in UTC.</p></li>
+<li><p><strong>eph_stop</strong> – Sets the ephemeris stop-time. Also requires <code class="code docutils literal notranslate"><span class="pre">eph_start</span></code> if specified.</p></li>
+<li><p><strong>eph_step</strong> – Sets the ephemeris step size. Requires both <code class="code docutils literal notranslate"><span class="pre">eph_start</span></code> and <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> to be specified.</p></li>
+<li><p><strong>obs_code</strong> – Gets the ephemeris for the specified object relative to the specified MPC observatory code.</p></li>
+<li><p><strong>fov_diam</strong> – Specifies the size (diameter) of the field-of-view in arc-minutes.</p></li>
+<li><p><strong>fov_ra</strong> – Specifies the field-of-view center (R.A component). Requires parameters <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> and <code class="code docutils literal notranslate"><span class="pre">fov_dec</span></code> to be set as well. Invalid if <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> is passed.</p></li>
+<li><p><strong>fov_dec</strong> – Specifies the field-of-view center (Dec. component). Requires <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> and <code class="code docutils literal notranslate"><span class="pre">fov_ra</span></code> to be passed as well. Invalid if <code class="code docutils literal notranslate"><span class="pre">eph_stop</span></code> is set.</p></li>
+<li><p><strong>fov_vmag</strong> – Filters ephemeris results to those with V-magnitude of this value or brighter. Requires <code class="code docutils literal notranslate"><span class="pre">fov_diam</span></code> to also be specified.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data from the API.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data from the API.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available summary data.</span>
 <span class="n">scout</span><span class="p">()</span>
 <span class="c1"># Return all summary data as a pandas DataFrame.</span>
@@ -1116,29 +1045,25 @@ Bodies Database</p>
 
 <dl class="method">
 <dt id="sentry">
-<code class="descname">sentry</code><span class="sig-paren">(</span><em>[spk=None][, des=None][, h_max=None][, ps_min=None][, ip_min=None][, last_obs_days=None][, complete_data=False][, removed=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#sentry" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sentry</code><span class="sig-paren">(</span><em class="sig-param">[spk=None][, des=None][, h_max=None][, ps_min=None][, ip_min=None][, last_obs_days=None][, complete_data=False][, removed=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#sentry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides data available from the Center for Near Earth Object Studies (CNEOS) Sentry system.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>spk</strong> – Returns data available for the object matching the specified SPK-ID.</li>
-<li><strong>des</strong> – Selects data for the matching designation.</li>
-<li><strong>h_max</strong> – Limits data to those with an absolute magnitude, less than or equal to the specified value. Must be in the range [-10:100].</li>
-<li><strong>ps_min</strong> – Limits results to those with a Palermo scale (PS) greater than or equal to the specified value. Must be in the range [-20:20].</li>
-<li><strong>ip_min</strong> – Filters data to that which has an impact probability (IP) greater than or equal to the specified value.</li>
-<li><strong>last_obs_days</strong> – Number of days since last observation. If negative, filters data to those which have not been observed within the specified number of days. If passed, must have an absolute value greater than 6.</li>
-<li><strong>complete_data</strong> – If True, requests the full dataset to be returned.</li>
-<li><strong>removed</strong> – If True, requests the list of removed objects to be returned.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spk</strong> – Returns data available for the object matching the specified SPK-ID.</p></li>
+<li><p><strong>des</strong> – Selects data for the matching designation.</p></li>
+<li><p><strong>h_max</strong> – Limits data to those with an absolute magnitude, less than or equal to the specified value. Must be in the range [-10:100].</p></li>
+<li><p><strong>ps_min</strong> – Limits results to those with a Palermo scale (PS) greater than or equal to the specified value. Must be in the range [-20:20].</p></li>
+<li><p><strong>ip_min</strong> – Filters data to that which has an impact probability (IP) greater than or equal to the specified value.</p></li>
+<li><p><strong>last_obs_days</strong> – Number of days since last observation. If negative, filters data to those which have not been observed within the specified number of days. If passed, must have an absolute value greater than 6.</p></li>
+<li><p><strong>complete_data</strong> – If True, requests the full dataset to be returned.</p></li>
+<li><p><strong>removed</strong> – If True, requests the list of removed objects to be returned.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict. Dictionary object representing the returned JSON data.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict. Dictionary object representing the returned JSON data.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get summary data for available sentry objects.</span>
 <span class="n">sentry</span><span class="p">()</span>
 <span class="c1"># Get data for a specific Sentry object by its designation.</span>
@@ -1154,29 +1079,25 @@ Bodies Database</p>
 <h3>Other Methods<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="julian_date">
-<code class="descname">julian_date</code><span class="sig-paren">(</span><em>[dt=None][, year=None][, month=1][, day=1][, hour=0][, minute=0][, second=0][, modified=True]</em><span class="sig-paren">)</span><a class="headerlink" href="#julian_date" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">julian_date</code><span class="sig-paren">(</span><em class="sig-param">[dt=None][, year=None][, month=1][, day=1][, hour=0][, minute=0][, second=0][, modified=True]</em><span class="sig-paren">)</span><a class="headerlink" href="#julian_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Julian date or modified Julian date (if specified).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dt</strong> – Datetime object to convert into a Julian date. Note if a datetime object is supplied to <code class="code docutils literal notranslate"><span class="pre">dt</span></code> the other parameters will not be evaluated. If None, returns the current datetime converted into a Julian date.</li>
-<li><strong>year</strong> – Four digit year, such as 2019 or ‘2019’.</li>
-<li><strong>month</strong> – Month number. For example 1 = January, 12 = December.</li>
-<li><strong>day</strong> – Day of the month.</li>
-<li><strong>hour</strong> – Hour of the day.</li>
-<li><strong>minute</strong> – Minute of the day.</li>
-<li><strong>second</strong> – Second of the day.</li>
-<li><strong>modified</strong> – If True, returns the modified Julian date, which is the computed Julian Date - 24000000.5.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dt</strong> – Datetime object to convert into a Julian date. Note if a datetime object is supplied to <code class="code docutils literal notranslate"><span class="pre">dt</span></code> the other parameters will not be evaluated. If None, returns the current datetime converted into a Julian date.</p></li>
+<li><p><strong>year</strong> – Four digit year, such as 2019 or ‘2019’.</p></li>
+<li><p><strong>month</strong> – Month number. For example 1 = January, 12 = December.</p></li>
+<li><p><strong>day</strong> – Day of the month.</p></li>
+<li><p><strong>hour</strong> – Hour of the day.</p></li>
+<li><p><strong>minute</strong> – Minute of the day.</p></li>
+<li><p><strong>second</strong> – Second of the day.</p></li>
+<li><p><strong>modified</strong> – If True, returns the modified Julian date, which is the computed Julian Date - 24000000.5.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float. The computed Julian or Modified Julian date.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float. The computed Julian or Modified Julian date.</p>
+</dd>
+</dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the modified Julian Date for the current time.</span>
 <span class="n">julian_date</span><span class="p">()</span>
 <span class="c1"># Return the non-modified Julian Date for the current time.</span>
