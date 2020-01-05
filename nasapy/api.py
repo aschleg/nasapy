@@ -2792,6 +2792,8 @@ def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_da
             r, r2 = DataFrame(r['data']), r['summary']
             return r, r2
 
+    return r
+
 
 def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, modified=True):
     r"""

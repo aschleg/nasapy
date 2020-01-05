@@ -4,6 +4,11 @@
 Version History
 ===============
 
+Version 0.2.5
+-------------
+
+- :code:`sentry` function now returns results as expected when not returning a pandas DataFrame.
+
 Version 0.2.4
 -------------
 

@@ -281,9 +281,6 @@ def test_scout():
         scout(n_orbits=0)
 
     with pytest.raises(ValueError):
-        scout(eph_start='2019-12-31', eph_stop='2019-01-01')
-
-    with pytest.raises(ValueError):
         scout(fov_diam=-1)
 
     with pytest.raises(ValueError):
@@ -294,6 +291,9 @@ def test_scout():
 
     with pytest.raises(ValueError):
         scout(fov_vmag=0)
+
+    with pytest.raises(ValueError):
+        scout(eph_start='2009-12-31', eph_stop='2010-01-01')
 
     with pytest.raises(TypeError):
         scout(eph_start=2019)
@@ -648,4 +648,27 @@ def test_exoplanets():
 
 @vcr.use_cassette('tests/cassettes/sentry.yml')
 def test_sentry():
-    pass
+    s = sentry()
+    s1 = sentry(return_df=True)
+    s2 = sentry(des=99942)
+    s3 = sentry(des=99942, return_df=True)
+
+    assert isinstance(s, dict)
+    assert isinstance(s1, DataFrame)
+    assert isinstance(s2, dict)
+    assert isinstance(s3, DataFrame)
+
+    with pytest.raises(ValueError):
+        sentry(spk='value', des='value')
+    with pytest.raises(ValueError):
+        sentry(h_max=-20)
+    with pytest.raises(ValueError):
+        sentry(ps_min=-25)
+    with pytest.raises(ValueError):
+        sentry(ip_min=2)
+    with pytest.raises(ValueError):
+        sentry(last_obs_days=5)
+    with pytest.raises(TypeError):
+        sentry(complete_data='false')
+    with pytest.raises(TypeError):
+        sentry(removed='false')
