@@ -149,6 +149,21 @@ def test_close_approach():
         close_approach(limit=-1)
 
 
+@vcr.use_cassette('tests/cassettes/exoplanets.yml')
+def test_exoplanets():
+    exo1 = exoplanets()
+    exo1_df = exoplanets(return_df=True)
+
+    exo2 = exoplanets(where='pl_kepflag=1')
+    exo2_df = exoplanets(select='distinct pl_hostname', order='pl_hostname', return_df=True)
+
+    assert isinstance(exo1, list)
+    assert isinstance(exo1_df, DataFrame)
+
+    assert isinstance(exo2,list)
+    assert isinstance(exo2_df, DataFrame)
+
+
 @vcr.use_cassette('tests/cassettes/fireballs.yml')
 def test_fireballs():
     f = fireballs(limit=1)
@@ -639,11 +654,6 @@ def test_techport():
         nasa.techport(return_format='test')
     with pytest.raises(TypeError):
         nasa.techport(last_updated=1)
-
-
-@vcr.use_cassette('tests/cassettes/exoplanets.yml')
-def test_exoplanets():
-    pass
 
 
 @vcr.use_cassette('tests/cassettes/sentry.yml')
