@@ -2733,6 +2733,8 @@ def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_da
     --------
     # Get summary data for available sentry objects.
     >>> sentry()
+    # Get summary data as a pandas DataFrame
+    >>> sentry(return_df=True)
     # Get data for a specific Sentry object by its designation.
     >>> sentry(des=99942)
     # Get data for objects removed from the Sentry system.
@@ -2785,12 +2787,11 @@ def sentry(spk=None, des=None, h_max=None, ps_min=None, ip_min=None, last_obs_da
     r = _return_api_result(url=url, params=params)
 
     if return_df:
-        if spk is None or des is None:
-            r = DataFrame(r['data'])
-            return r
-        else:
+        if 'summary' in r.keys():
             r, r2 = DataFrame(r['data']), r['summary']
             return r, r2
+        else:
+            r = DataFrame(r['data'])
 
     return r
 
