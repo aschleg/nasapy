@@ -661,12 +661,18 @@ def test_sentry():
     s = sentry()
     s1 = sentry(return_df=True)
     s2 = sentry(des=99942)
-    s3 = sentry(des=99942, return_df=True)
+    s3, sum3 = sentry(des=99942, return_df=True)
+    s4 = sentry(spk=2029075)
+    s5, sum5 = sentry(spk=2029075, return_df=True)
 
     assert isinstance(s, dict)
     assert isinstance(s1, DataFrame)
     assert isinstance(s2, dict)
     assert isinstance(s3, DataFrame)
+    assert isinstance(sum3, dict)
+    assert isinstance(s4, dict)
+    assert isinstance(s5, DataFrame)
+    assert isinstance(sum5, dict)
 
     with pytest.raises(ValueError):
         sentry(spk='value', des='value')
