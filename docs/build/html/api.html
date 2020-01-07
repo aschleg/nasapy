@@ -1066,6 +1066,8 @@ Bodies Database</p>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get summary data for available sentry objects.</span>
 <span class="n">sentry</span><span class="p">()</span>
+<span class="c1"># Get summary data as a pandas DataFrame</span>
+<span class="n">sentry</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="c1"># Get data for a specific Sentry object by its designation.</span>
 <span class="n">sentry</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="mi">99942</span><span class="p">)</span>
 <span class="c1"># Get data for objects removed from the Sentry system.</span>

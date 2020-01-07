@@ -656,6 +656,8 @@ and `Center for Near-Earth Object Studies <https://cneos.jpl.nasa.gov/>`_ APIs.
 
         # Get summary data for available sentry objects.
         sentry()
+        # Get summary data as a pandas DataFrame
+        sentry(return_df=True)
         # Get data for a specific Sentry object by its designation.
         sentry(des=99942)
         # Get data for objects removed from the Sentry system.

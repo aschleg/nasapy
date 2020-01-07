@@ -111,11 +111,14 @@ def test_tle():
 @vcr.use_cassette('tests/cassettes/close_approach.yml')
 def test_close_approach():
     cad = close_approach(des=433, date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+    cad_df = close_approach(des=433, date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2, return_df=True)
     cad_dt = close_approach(date_min='2010-01-01', date_max=datetime.datetime.strptime('2019-10-28', '%Y-%m-%d'))
     cad_dt2 = close_approach(date_min=datetime.datetime.strptime('2019-10-28', '%Y-%m-%d'), date_max='2025-01-01')
 
     assert isinstance(cad, dict)
     assert 'data' in cad.keys()
+
+    assert isinstance(cad_df, DataFrame)
 
     assert isinstance(cad_dt, dict)
     assert 'data' in cad_dt.keys()
