@@ -228,6 +228,30 @@ r = media_search(query='apollo 11', description='moon landing')
 r['items'][0]
 ~~~
 
+#### Asteroid and Comet Close Approaches to planets in the past and future
+
+~~~ python
+# Get all close-approach object data in the year 2019 with a maximum approach distance of 0.01AU.
+close_approach(date_min='2019-01-01', date_max='2019-12-31', dist_max=0.01)
+# Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.
+close_approach(des='433', date_min='1900-01-01', date_max='2100-01-01', dist_max=0.2)
+# Return close-approach data from the beginning of 2000 to the beginning of 2020 as a pandas DataFrame.
+close_approach(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
+~~~
+
+#### Fireball atmospheric impact data reported by US Government sensors
+
+~~~ python
+# Get all available data in reverse chronological order
+n = fireballs()
+# Return the earlieset record
+fireballs(limit=1)
+# Get data from the beginning of 2019
+fireballs(date_min='2019-01-01')
+# Return fireball data from the beginning of the millennium to the beginning of 2020 as a pandas DataFrame.
+fireballs(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
+~~~
+
 Other function examples
 
 #### Getting the Julian and Modified Julian Date
