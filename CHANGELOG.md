@@ -1,5 +1,9 @@
 # Version History
 
+## Version 0.2.6
+
+- `sentry` function now returns a summary object when `return_df=True` and a `des` or `spk` parameter are not specified.
+
 ## Version 0.2.5
 
 - `sentry` function now returns results as expected when not returning a pandas DataFrame.

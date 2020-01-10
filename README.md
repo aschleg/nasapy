@@ -252,6 +252,56 @@ fireballs(date_min='2019-01-01')
 fireballs(date_min='2000-01-01', date_max='2020-01-01', return_df=True)
 ~~~
 
+#### Jet Propulsion Laboratory/Solar System Dynamics small body mission design suite API
+
+~~~ python
+# Search for mission design data for SPK-ID 2000433
+r = mission_design(spk=2000433)
+# Print the object data from the returned dictionary object.
+r['object']
+~~~
+
+#### Get Data on Near-Earth Object Human Space Flight Accessible Targets
+
+~~~ python
+# Get all available summary data for NHATS objects.
+n = nhats()
+# Get summary data as a pandas DataFrame
+n = nhats(return_df=True)
+# Get the results from a 'standard' search on the NHATS webpage.
+nhats(delta_v=6, duration=360, stay=8, magnitude=26, launch='2020-2045', orbit_condition_code=7)
+# Return data for a specific object by its designation
+nhats(des=99942)
+~~~
+
+#### Get Data from NASA's Center for Near-Earth Object Studies (CNEOS) Scout system
+
+~~~ python
+# Get all available summary data.
+scout()
+# Return all summary data as a pandas DataFrame.
+scout(return_df=True)
+# Return data and plot files for a specific object by its temporary designation. Note the object may no longer
+# exist in the current database
+scout(tdes='P20UvyK')
+# Get ephemeris data for a specific object at the current time with a Field of View diameter of 5 arc-minutes
+# with a limiting V-magnitude of 23.1.
+scout(tdes='P20UvyK', fov_diam=5, fov_vmag=23.1)
+~~~
+
+#### Get Data from the Center for Near Earth Object Studies (CNEOS) Sentry system
+
+~~~ python
+# Get summary data for available sentry objects.
+sentry()
+# Get summary data as a pandas DataFrame
+sentry(return_df=True)
+# Get data for a specific Sentry object by its designation.
+sentry(des=99942)
+# Get data for objects removed from the Sentry system.
+sentry(removed=1)
+~~~
+
 Other function examples
 
 #### Getting the Julian and Modified Julian Date

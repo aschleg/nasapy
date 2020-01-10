@@ -4,6 +4,11 @@
 Version History
 ===============
 
+Version 0.2.6
+-------------
+
+- :code:`sentry` function now returns a summary object when :code:`return_df=True` and a :code:`des` or :code:`spk` parameter are not specified.
+
 Version 0.2.5
 -------------
 
