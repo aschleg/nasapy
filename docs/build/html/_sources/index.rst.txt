@@ -51,6 +51,7 @@ The following are Jupyter Notebooks that explore a facet of the :code:`nasapy` l
 also be launched interactively with binder by clicking the "launch binder" badge above.
 
 * `Plot Earth Fireball Impacts with nasapy, pandas and folium <https://github.com/aschleg/nasapy/blob/master/notebooks/Plot%20Earth%20Fireball%20Impacts%20with%20nasapy%2C%20pandas%20and%20folium.ipynb>`_
+* `Analyzing the Next Decade of Earth Close-Approaching Objects with nasapy <https://github.com/aschleg/nasapy/blob/master/notebooks/Analyzing%20the%20Next%20Decade%20of%20Earth%20Close-Approaching%20Objects%20with%20nasapy.ipynb>`_
 
 Examples and Usage
 ==================
