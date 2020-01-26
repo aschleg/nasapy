@@ -52,6 +52,7 @@ also be launched interactively with binder by clicking the "launch binder" badge
 
 * `Plot Earth Fireball Impacts with nasapy, pandas and folium <https://github.com/aschleg/nasapy/blob/master/notebooks/Plot%20Earth%20Fireball%20Impacts%20with%20nasapy%2C%20pandas%20and%20folium.ipynb>`_
 * `Analyzing the Next Decade of Earth Close-Approaching Objects with nasapy <https://github.com/aschleg/nasapy/blob/master/notebooks/Analyzing%20the%20Next%20Decade%20of%20Earth%20Close-Approaching%20Objects%20with%20nasapy.ipynb>`_
+* `Get All NASA Astronomy Pictures of the Day from 2019 <https://github.com/aschleg/nasapy/blob/master/notebooks/Get%20All%20NASA%20Astronomy%20Pictures%20of%20the%20Day%20from%202019.ipynb>`_
 
 Examples and Usage
 ==================
