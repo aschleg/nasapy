@@ -44,14 +44,11 @@ python setup.py install
 
 ## Tutorials and In-Depth Examples
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aschleg/nasapy/master?filepath=notebooks)
+The following are articles that explore a facet of the `nasapy` library in more depth.
 
-The following are Jupyter Notebooks that explore a facet of the `nasapy` library in more depth. The notebooks can 
-also be launched interactively with binder by clicking the "launch binder" badge above.
-
-* [Plot Earth Fireball Impacts with nasapy, pandas and folium](https://github.com/aschleg/nasapy/blob/master/notebooks/Plot%20Earth%20Fireball%20Impacts%20with%20nasapy%2C%20pandas%20and%20folium.ipynb)
-* [Analyzing the Next Decade of Earth Close-Approaching Objects with nasapy](https://github.com/aschleg/nasapy/blob/master/notebooks/Analyzing%20the%20Next%20Decade%20of%20Earth%20Close-Approaching%20Objects%20with%20nasapy.ipynb)
-* [Get All NASA Astronomy Pictures of the Day from 2019](https://github.com/aschleg/nasapy/blob/master/notebooks/Get%20All%20NASA%20Astronomy%20Pictures%20of%20the%20Day%20from%202019.ipynb)
+* [Plot Earth Fireball Impacts with nasapy, pandas and folium](https://medium.com/@AaronSchlegel/plot-earth-fireball-impacts-with-nasapy-pandas-and-folium-46bb8bd0b99a)
+* [Analyzing the Next Decade of Earth Close-Approaching Objects with nasapy](https://medium.com/@AaronSchlegel/analyzing-the-next-decade-of-earth-close-approaching-objects-with-nasapy-8a6194c4a493)
+* [Get All NASA Astronomy Pictures of the Day from 2019](https://medium.com/@AaronSchlegel/get-all-nasa-astronomy-pictures-of-the-day-from-2019-with-python-and-nasapy-c31875e2c48)
 
 ## Examples and Usage
 

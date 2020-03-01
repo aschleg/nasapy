@@ -21,11 +21,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -197,13 +197,11 @@ for returning results as a DataFrame.</p></li>
 </div>
 <div class="section" id="tutorials-and-in-depth-examples">
 <h1>Tutorials and In-Depth Examples<a class="headerlink" href="#tutorials-and-in-depth-examples" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/aschleg/nasapy/master?filepath=notebooks"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
-<p>The following are Jupyter Notebooks that explore a facet of the <code class="code docutils literal notranslate"><span class="pre">nasapy</span></code> library in more depth. The notebooks can
-also be launched interactively with binder by clicking the “launch binder” badge above.</p>
+<p>The following are articles that explore a facet of the <cite>nasapy</cite> library in more depth.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/aschleg/nasapy/blob/master/notebooks/Plot%20Earth%20Fireball%20Impacts%20with%20nasapy%2C%20pandas%20and%20folium.ipynb">Plot Earth Fireball Impacts with nasapy, pandas and folium</a></p></li>
-<li><p><a class="reference external" href="https://github.com/aschleg/nasapy/blob/master/notebooks/Analyzing%20the%20Next%20Decade%20of%20Earth%20Close-Approaching%20Objects%20with%20nasapy.ipynb">Analyzing the Next Decade of Earth Close-Approaching Objects with nasapy</a></p></li>
-<li><p><a class="reference external" href="https://github.com/aschleg/nasapy/blob/master/notebooks/Get%20All%20NASA%20Astronomy%20Pictures%20of%20the%20Day%20from%202019.ipynb">Get All NASA Astronomy Pictures of the Day from 2019</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;AaronSchlegel/plot-earth-fireball-impacts-with-nasapy-pandas-and-folium-46bb8bd0b99a">Plot Earth Fireball Impacts with nasapy, pandas and folium</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;AaronSchlegel/analyzing-the-next-decade-of-earth-close-approaching-objects-with-nasapy-8a6194c4a493">Analyzing the Next Decade of Earth Close-Approaching Objects with nasapy</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;AaronSchlegel/get-all-nasa-astronomy-pictures-of-the-day-from-2019-with-python-and-nasapy-c31875e2c48">Get All NASA Astronomy Pictures of the Day from 2019</a></p></li>
 </ul>
 </div>
 <div class="section" id="examples-and-usage">
@@ -241,7 +239,7 @@ requests remaining.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return today&#39;s picture of the day</span>
 <span class="n">nasa</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">()</span>
 <span class="c1"># Return a previous date&#39;s picture of the day with the high-definition URL included.</span>
-<span class="n">nasa</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">(</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">hd</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">(</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">hd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -327,18 +325,18 @@ requests remaining.</p>
 <div class="section" id="exoplanets">
 <h3>Exoplanets<a class="headerlink" href="#exoplanets" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all exoplanets data as a pandas DataFrame.</span>
-<span class="n">exoplanets</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Get all confirmed planets in the Kepler field.</span>
 <span class="n">exoplanets</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s1">&#39;pl_kepflag=1&#39;</span><span class="p">)</span>
 <span class="c1"># Stars known to host exoplanets as a pandas DataFrame.</span>
-<span class="n">exoplanets</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;distinct pl_hostname&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;pl_hostname&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;distinct pl_hostname&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;pl_hostname&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="landsat-images-for-a-given-latitude-longitude">
 <h3>Landsat Images for a given Latitude-Longitude<a class="headerlink" href="#landsat-images-for-a-given-latitude-longitude" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get imagery at latitude 1.5, longitude 100.75 and include the computed cloud score calculation.</span>
-<span class="n">nasa</span><span class="o">.</span><span class="n">earth_imagery</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cloud_score</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">nasa</span><span class="o">.</span><span class="n">earth_imagery</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cloud_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Get assets available beginning from 2014-02-01 at lat-lon 100.75, 1.5</span>
 <span class="n">nasa</span><span class="o">.</span><span class="n">earth_assets</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">begin_date</span><span class="o">=</span><span class="s1">&#39;2014-02-01&#39;</span><span class="p">)</span>
@@ -380,7 +378,7 @@ requests remaining.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the modified Julian Date for the current time.</span>
 <span class="n">julian_date</span><span class="p">()</span>
 <span class="c1"># Return the non-modified Julian Date for the current time.</span>
-<span class="n">julian_date</span><span class="p">(</span><span class="n">modified</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">julian_date</span><span class="p">(</span><span class="n">modified</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Get the modified Julian Date for 2019-01-01 at midnight.</span>
 <span class="n">julian_date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
 </pre></div>

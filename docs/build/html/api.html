@@ -21,11 +21,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -209,7 +209,7 @@
 <span class="c1"># Return today&#39;s picture of the day</span>
 <span class="n">n</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">()</span>
 <span class="c1"># Return a previous date&#39;s picture of the day with the high-definition URL included.</span>
-<span class="n">n</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">(</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">hd</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">picture_of_the_day</span><span class="p">(</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span> <span class="n">hd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -564,11 +564,11 @@ pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrai
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all exoplanets data as a pandas DataFrame.</span>
-<span class="n">exoplanets</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Get all confirmed planets in the Kepler field.</span>
 <span class="n">exoplanets</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s1">&#39;pl_kepflag=1&#39;</span><span class="p">)</span>
 <span class="c1"># Stars known to host exoplanets as a pandas DataFrame.</span>
-<span class="n">exoplanets</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;distinct pl_hostname&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;pl_hostname&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">exoplanets</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;distinct pl_hostname&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;pl_hostname&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -600,7 +600,7 @@ exact date in the request.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize API connection with a Demo Key</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">Nasa</span><span class="p">()</span>
 <span class="c1"># Get imagery at latitude 1.5, longitude 100.75 and include the computed cloud score calculation.</span>
-<span class="n">n</span><span class="o">.</span><span class="n">earth_imagery</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cloud_score</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">earth_imagery</span><span class="p">(</span><span class="n">lon</span><span class="o">=</span><span class="mf">100.75</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cloud_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -865,7 +865,7 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 <span class="c1"># Get close-approach data for asteroid 433 Eros within 0.2AU from the years 1900 to 2100.</span>
 <span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="s1">&#39;433&#39;</span><span class="p">,</span> <span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2100-01-01&#39;</span><span class="p">,</span> <span class="n">dist_max</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="c1"># Return close-approach data from the beginning of 2000 to the beginning of 2020 as a pandas DataFrame.</span>
-<span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">close_approach</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Each close-approach record is a list containing the following fields in the corresponding order:</p>
@@ -932,7 +932,7 @@ Laboratory’s (JPL) <a class="reference external" href="https://ssd.jpl.nasa.go
 <span class="c1"># Get data from the beginning of 2019</span>
 <span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
 <span class="c1"># Return fireball data from the beginning of the millennium to the beginning of 2020 as a pandas DataFrame.</span>
-<span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">nasapy</span><span class="o">.</span><span class="n">fireballs</span><span class="p">(</span><span class="n">date_min</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">date_max</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1032,7 +1032,7 @@ Bodies Database</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available summary data.</span>
 <span class="n">scout</span><span class="p">()</span>
 <span class="c1"># Return all summary data as a pandas DataFrame.</span>
-<span class="n">scout</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">scout</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Return data and plot files for a specific object by its temporary designation. Note the object may no longer</span>
 <span class="c1"># exist in the current database</span>
 <span class="n">scout</span><span class="p">(</span><span class="n">tdes</span><span class="o">=</span><span class="s1">&#39;P20UvyK&#39;</span><span class="p">)</span>
@@ -1067,7 +1067,7 @@ Bodies Database</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get summary data for available sentry objects.</span>
 <span class="n">sentry</span><span class="p">()</span>
 <span class="c1"># Get summary data as a pandas DataFrame</span>
-<span class="n">sentry</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">sentry</span><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Get data for a specific Sentry object by its designation.</span>
 <span class="n">sentry</span><span class="p">(</span><span class="n">des</span><span class="o">=</span><span class="mi">99942</span><span class="p">)</span>
 <span class="c1"># Get data for objects removed from the Sentry system.</span>
@@ -1103,7 +1103,7 @@ Bodies Database</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the modified Julian Date for the current time.</span>
 <span class="n">julian_date</span><span class="p">()</span>
 <span class="c1"># Return the non-modified Julian Date for the current time.</span>
-<span class="n">julian_date</span><span class="p">(</span><span class="n">modified</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">julian_date</span><span class="p">(</span><span class="n">modified</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Get the modified Julian Date for 2019-01-01 at midnight.</span>
 <span class="n">julian_date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
 </pre></div>
