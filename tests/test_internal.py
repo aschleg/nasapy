@@ -29,7 +29,7 @@ def test_date_check():
 
 
 def test_donki_request():
-    url = 'https://api.nasa.gov//DONKI/FLR'
+    url = 'https://api.nasa.gov/DONKI/FLR'
 
     limit, r = _donki_request(key=key, url=url, start_date='2019-01-01', end_date='2019-02-01')
 
@@ -39,4 +39,4 @@ def test_donki_request():
     limit_no_dat, r_no_dat = _donki_request(key=key, url=url)
 
     assert isinstance(limit_no_dat, (str, int))
-    assert isinstance(r_no_dat, dict)
+    assert isinstance(r_no_dat, list)

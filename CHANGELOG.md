@@ -1,5 +1,12 @@
 # Version History
 
+## Version 0.2.7
+
+- Calling the `techport()` method without a project ID now returns data as expected. Thank you to user 
+[Burzlurker](https://github.com/Burzlurker) for pointing this out and providing a fix! 
+- Implemented a fix for when the `X-RateLimit-Remaining` header object was not available in the returned 
+  API data and thus caused an error.
+
 ## Version 0.2.6
 
 - `sentry` function now returns a summary object when `return_df=True` and a `des` or `spk` parameter are not specified.

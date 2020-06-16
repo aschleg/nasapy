@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='nasapy',
-    version='0.2.6',
+    version='0.2.7',
     author='Aaron Schlegel',
     author_email='aaron@aaronschlegel.me',
     description='Python wrapper for the NASA API',

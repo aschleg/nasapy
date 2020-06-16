@@ -1467,7 +1467,7 @@ class Nasa(object):
                              params={'updatedSince': last_updated,
                                      'api_key': self.__api_key})
         else:
-            url = url + '{project_id}'.format(project_id=project_id)
+            url = url + '/{project_id}'.format(project_id=project_id)
 
             if return_format == 'xml':
                 url = url + '.xml'
@@ -2907,7 +2907,10 @@ def _donki_request(key, url, start_date=None, end_date=None):
                          'endDate': end_date
                      })
 
-    limit_remaining = r.headers['X-RateLimit-Remaining']
+    if 'X-RateLimit-Remaining' not in r.headers:
+        limit_remaining = 'n/a'
+    else:
+        limit_remaining = r.headers['X-RateLimit-Remaining']
 
     if r.status_code != 200:
         raise requests.exceptions.HTTPError(r.reason, r.url)
