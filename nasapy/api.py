@@ -1449,7 +1449,7 @@ class Nasa(object):
             Otherwise, a string formatted for XML is returned.
 
         """
-        url = self.host + '/techport/api/projects/'
+        url = self.host + '/techport/api/projects'
 
         if return_format not in ('json', 'xml'):
             raise ValueError("type parameter must be one of 'json' (default), or 'xml'.")
