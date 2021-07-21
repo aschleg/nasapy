@@ -1284,8 +1284,8 @@ class Nasa(object):
            {'name': 'RHAZ', 'full_name': 'Rear Hazard Avoidance Camera'}]}}
 
         """
-        if str.lower(rover) not in ('curiosity', 'opportunity', 'spirit'):
-            raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', or 'spirit'.")
+        if str.lower(rover) not in ('curiosity', 'opportunity', 'spirit', 'perseverance', 'ingenuity'):
+            raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', 'perseverance',  or 'spirit'.")
 
         if camera not in ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES', 'all']:
             raise ValueError("camera parameter must be one of 'all' (default), 'FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', "
