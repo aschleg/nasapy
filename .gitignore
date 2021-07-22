@@ -1,5 +1,6 @@
 $ cat .gitignore
 
+.env
 venv/
 .idea/
 dist/
