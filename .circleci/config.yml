@@ -25,7 +25,7 @@ jobs:
           pkg-manager: pip
           pip-dependency-file: test-requirements.txt
       - run:
-          name: Install petpy
+          name: Install nasapy
           command: python setup.py install
       - run:
           name: Run tests
