@@ -79,7 +79,7 @@ class Nasa(object):
         Retrieves the datetimes and asset names of available imagery for a specified lat-lon location over a given
         date range. The satellite that takes the images passes over each point approximately once every sixteen days.
     mars_rover
-        Retrieves image data collected by the Mars rovers Curiosity, Discovery and Spirit.
+        Retrieves image data collected by the Mars rovers Curiosity, Discovery, Perseverance and Spirit.
     genelab_search
         Retrieves available data from the GeneLab and other bioinformatics databases such as the National Institutes
         of Health (NIH) / National Center for Biotechnology Information (NCBI), Gene Expression Omnibus (GEO), the
@@ -131,7 +131,7 @@ class Nasa(object):
         Parameters
         ----------
         date : str, datetime, default None
-            String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the  current
+           String representing a date in YYYY-MM-DD format or a datetime object. If None, defaults to the  current
             date.
         hd : bool, default False
             If True, returns the associated high-definition image of the Astrononmy Picture of the Day.
@@ -1215,7 +1215,7 @@ class Nasa(object):
 
     def mars_rover(self, sol=None, earth_date=None, camera='all', rover='curiosity', page=1):
         r"""
-        Retrieves image data collected by the Mars rovers Curiosity, Discovery and Spirit.
+        Retrieves image data collected by the Mars rovers Curiosity, Discovery, Perseverance and Spirit.
 
         Parameters
         ----------
@@ -1230,7 +1230,7 @@ class Nasa(object):
         camera : str, {'all', FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES'}
             Filter results to a specific camera on the Mars Curiosity, Opportunity or Spirit rovers. Defaults to 'all',
             which includes all cameras.
-        rover : str, {'curiosity', 'opportunity', 'spirit'}
+        rover : str, {'curiosity', 'opportunity', 'perseverance', 'spirit'}
             Specifies the Mars rover to return data. Defaults to the Curiosity rover which has more available cameras.
         page : int, default 1
             Page number of results to return. 25 results per page are returned.
@@ -1284,8 +1284,8 @@ class Nasa(object):
            {'name': 'RHAZ', 'full_name': 'Rear Hazard Avoidance Camera'}]}}
 
         """
-        if str.lower(rover) not in ('curiosity', 'opportunity', 'spirit'):
-            raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', or 'spirit'.")
+        if str.lower(rover) not in ('curiosity', 'opportunity', 'spirit', 'perseverance'):
+            raise ValueError("rover parameter must be one of 'curiosity' (default), 'opportunity', 'perseverance',  or 'spirit'.")
 
         if camera not in ['FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', 'MAHLI', 'MARDI', 'NAVCAM', 'PANCAM', 'MINITES', 'all']:
             raise ValueError("camera parameter must be one of 'all' (default), 'FHAZ', 'RHAZ', 'MAST', 'CHEMCAM', "
