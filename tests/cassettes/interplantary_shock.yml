@@ -9,41 +9,63 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/IPS?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&location=ALL&catalog=ALL
+    uri: https://api.nasa.gov/DONKI/IPS?api_key=DEMO_KEY&location=ALL&catalog=ALL
   response:
     body:
-      string: ''
+      string: !!binary |
+        H4sIAAAAAAAAA8zSXWvCMBQG4L9Scm2aj3Z2y12oRcqsLTZsMJERuk6D2oqNHSL+96Uy2Y2FaWEI
+        ueo5b076cKYHkEktV+UcMBDR6N3ngo/iIegBmWlVK70PB6ZEMSUQ9yH1BHYZxubAMEkhxsS0rkpz
+        iSoL05iKYBLEFjdf8zovtFDr/EL+rUmpYmlKC603FUNoKXdS2Vm2zux59ZnZhaykPS9rNIjHzyGq
+        Vf6FzEhEPPLgINjMVUWlt7u1GVMBNj2AD1VtVnI/lqeZ56cwK4wS7gtw7LW3JCOeitAHx1nTdZWJ
+        gwWmzKWtJoHc6kULyDncDcR7/AvIIPXjlwmzmn+N+PCCB/cDZqWvQcKjtuopeC2SBzFpkJz2xWlH
+        +g13Q3r07h2JmE3CzCE3bJIHz+FOSLSP7x7JFaRZo9uQfsLdkJ7c/0aafQMAAP//AwCh4dlIqQUA
+        AA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '0'
+      Content-Encoding:
+      - gzip
       Content-Type:
-      - text/plain; charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 11:55:52 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:07 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '994'
+      - '23'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -54,36 +76,61 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/IPS?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-01-01&location=ALL&catalog=ALL
+    uri: https://api.nasa.gov/DONKI/IPS?api_key=DEMO_KEY&startDate=2019-01-01&location=ALL&catalog=ALL
   response:
     body:
       string: !!binary |
-        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
+        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
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 11:55:52 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:08 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Transfer-Encoding:
       - chunked
@@ -93,11 +140,17 @@ interactions:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '993'
+      - '22'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 version: 1

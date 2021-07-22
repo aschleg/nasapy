@@ -9,12 +9,12 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-api.nasa.gov/asset/as11-40-5874
   response:
     body:
-      string: '{"collection":{"items":[{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~orig.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~large.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~medium.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~small.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~thumb.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/metadata.json"}],"href":"https://images-api.nasa.gov/asset/as11-40-5874","version":"1.0"}}'
+      string: '{"collection":{"version":"1.0","items":[{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~orig.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~large.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~medium.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~small.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/as11-40-5874~thumb.jpg"},{"href":"http://images-assets.nasa.gov/image/as11-40-5874/metadata.json"}],"href":"http://images-api.nasa.gov/asset/as11-40-5874"}}'
     headers:
       Access-Control-Allow-Headers:
       - Origin,Content-Type,Accept,Authorization,X-Requested-With
@@ -27,21 +27,21 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '587'
+      - '586'
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 09 Oct 2019 13:18:22 GMT
+      - Thu, 22 Jul 2021 18:09:18 GMT
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.19.10
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 27a84054de24e45f952ea4056a821764.cloudfront.net (CloudFront)
+      - 1.1 ee329e7867e2d3224fe24c26277b115b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Y3OLqT8aj82B4JCj-RosnJv9KYiclHvWLZyzCL140aVnllNstHC19Q==
+      - xoJuuRb8kYUzy_P7EfnSjRwGQk2-QqADzetJdbxM-vc8CBm0Lho3Fw==
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SFO53-C1
       X-Cache:
       - Miss from cloudfront
     status:
@@ -57,7 +57,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-api.nasa.gov/asset/1
   response:
@@ -77,17 +77,17 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 09 Oct 2019 13:18:23 GMT
+      - Thu, 22 Jul 2021 18:09:19 GMT
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.19.10
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 44cd593d82a2d200a94217033c614c6a.cloudfront.net (CloudFront)
+      - 1.1 bdb686e41bd85ffb1c6e5b48947e5566.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - gC6H3iML7kqxhMJ8ebmP3MRsWdq2iD-EZD9tUWRiWSt-vWib9gz9nA==
+      - dOtMbXfoMzID305DGhmETQ9wW80KPCbcJ2fhRaK-EFxDBHQjV2mPxA==
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SFO53-C1
       X-Cache:
       - Error from cloudfront
     status:

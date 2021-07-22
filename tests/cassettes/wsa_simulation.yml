@@ -9,35 +9,41 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/WSAEnlilSimulations?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-01-01&endDate=2019-01-05
+    uri: https://api.nasa.gov/DONKI/WSAEnlilSimulations?api_key=DEMO_KEY&startDate=2019-01-01&endDate=2019-01-05
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA1xQy27CMBD8F59JsZ1QwLeUoCpSaA8gVSpCkZU4xMJOIj+4IP696wa1aY+zOzM7
-        s8cbslJ7xZ3suzxDDH3s02j7VuTFnCTxOpkTNEO6r4Xa9HpQIvAOUgtgUkzWESYRjg9kxejzJzC5
-        R4w+4RmqtMi7wTuL2PEW0N5x4/4r6YHGjNCgDBGcr8E4osvgoPru/JgkizCwgxA1YkmMA2q5atLu
-        rEBAVmHgIBUl5eJvMrxkZBH8pd311qVV5Q13IHLGCzgirkK9Nxl3HHyANdhCWgehT98dJBz8LfqI
-        yzCONrtthDFBd+AJC7fBtN63fXVJjZFXrsaqnVdqQsjCcfggYuPCaNmVBtKM8DKUZDUBazzdxFBt
-        wvvZSbuF17avL4g1XFloJfXAKzcWCYr76QsAAP//AwCLL5C/6AEAAA==
+        H4sIAAAAAAAAA1xSy26DMBD8F58D2ECaxDcaogo1j0MiVWpURZYxYGEMwoYeov571yVq0xxnd2Z2
+        xvL5ioxsBsWsbHWWIorejom32W+zbUDiaBUHBM1Q0+ZCrdumU8LxTrIRwAwxWXmYeDg6kSUNn96B
+        yQZEQx/PEG9EprvBGkTPV4eOlvX2URmewoiS0CldBDvkYOyFC+egWl3eJvHcDUwnRI5oHGGHKqaK
+        RJcKBGTpBhZSheQy/58MLyiZO39pdq2xCedDzyyIbD8IOCJGoQ5FyiwDH2B1ZiuNhdAfPx0kHPwr
+        eotLMfbWu42HMUFfwBMGboNpfqxaXid9L0empqp6UOqOkLrj8IKITou+kfrSQ5oJ1t2FLO/ACt9v
+        Iqh2x/vdSbOBp61enhEtmDLQSjYd43YqMimU1DU0qaztDA2Cmg1M+pw33C9NwX3NDPPLdgzSw/41
+        C0YpPoPHj+C5st8AAAD//wMAQRUjiDACAAA=
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:31:31 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:16 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Transfer-Encoding:
       - chunked
@@ -47,13 +53,19 @@ interactions:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '917'
+      - '11'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -64,39 +76,73 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/WSAEnlilSimulations?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+    uri: https://api.nasa.gov/DONKI/WSAEnlilSimulations?api_key=DEMO_KEY
   response:
     body:
-      string: ''
+      string: !!binary |
+        H4sIAAAAAAAAA+SYXW+bMBSG/0rFdUn8wafvsjWaorWL1CBN6jRVHqUpKoEISDup2n/fsaGZw0dx
+        Inax7q40YHzM877vsb+9GEW82SW8jLN0cWEw4+tqZs6/XC4up9ilyJli49zYZHdR8jHbbJNI3BfE
+        mwjuJIhgE7kmtgNMmUVv4E6+MxiZoHMj3ESLdLsrC4N9exFXq5LnZftJ5DHqiSfFFMrdHQzsiOeT
+        LF3X1ybGvvhXsY2iO4NZxBNXDzy5n6XrBB7AtvhHCbMi+NZuzMyGB8T4cXGVFeUsDHc5L+GhMt9F
+        8JroKUqW9xe85AaDQeJtcRkXJUz6u6whhheqhcrpMoTMj1dzEyFs/IL7ogLeDYPerR6y8HGW5/ET
+        T6pS012SKDdciJfDChqs+iHfxOltDrOpLh+3t9hTLnyk/kKhNOW+/W9xMYelffj0wWD3PCmgqniz
+        5WFZF/ICpX9KeBrG6fpDkj3vS8/Cei7GKkt4frbMf8RllIuvqJbwp3wvQDaj6EYWncTpI6zNQ1lu
+        CzadPvIdjydhuAkn6+I+nKS84JN19jS9WH75vJg+xdHztImWCct3PgCgrwlgNbGjAbQCgpkt0f0D
+        oCkJVgn0kQKg7UkcFQCpfKAbQEQZleOPAWA93X8dwBrT5GgC3QC5zHKBQOBmGOtgfj1fns3eIhqc
+        C41FtD/VIBpjHaKdADvMtk+yVCCaOg2ipWUeeKqreiq2SJNp6w1TJZThTqZfP6zqqnjYVeWMD6CG
+        z9ufGYTIb3YgWdqu0JEV1KlhUxkrimgJ7hOtE4BoiVzCpmhPLVDM+P2p9ornRa+4CApEzcBwl1jb
+        FrBcLa4XK/N6/rN3SOwG2GUE0BsjgUCJOnp19fRKELMkMke3QB16lXFzKFc1gdyKXQVm23oDZvy3
+        1foP9kBt/oZgBtexRVJ0JE97MB2YPdk2W91D1u3p0QkJg4r+dCSFuDoKIVqJBtKFak9RCIS+zQis
+        k2r40rwPFEJVu8eoHWhun0TgBR6zZNg2/b5jlzCYZ/V8/ze7xwEmjPjdOJ+mEF8MibUTRHMb4wfI
+        ko44RogA/BohQrRCBLQL6QYrOE6ImLKl608Rgpxm02fLlOneyEDTh6QINTRCTun53n+KYOnOwmnG
+        SxFwG6C5R3anpogbQDszVooA/BoSoTo7fegpT5UIeInPrMZRk9mOkaq1qncN1G8qpHerL9pdiCnY
+        m2opZDBF6vm+vxTRc2lCAwR9a89Wvx0nb3dvsKMbj2cgVYNny9bYNxAITWjX8PGWL5TgtHgmrbNT
+        iwpHr3H2Xcm7ugmWfHcYPowvLEDOTMPwh3B+ne4ROO/PHQEFEH21498ftZ5wkgqhJA5YxTEqrf70
+        4AzVEvXtD1Arwxw4P23Ttxo6aSJE2M9YjgpsCQK//wYAAP//AwD/nm2fvhcAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '0'
+      Content-Encoding:
+      - gzip
       Content-Type:
-      - text/plain; charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:31:31 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:16 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '916'
+      - '10'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 version: 1

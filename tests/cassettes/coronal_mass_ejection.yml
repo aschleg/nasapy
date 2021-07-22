@@ -9,35 +9,102 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=ALL
+    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=DEMO_KEY&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=ALL
   response:
     body:
       string: !!binary |
-        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
+        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
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '2'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 11:55:50 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:04 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Transfer-Encoding:
       - chunked
@@ -47,13 +114,19 @@ interactions:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '999'
+      - '27'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -64,94 +137,111 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=SWRC_CATALOG
+    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=DEMO_KEY&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=SWRC_CATALOG
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA6RRYUvDMBT8KyGfFFZ5ydptzbdSRYSNgSsMFBmhzbpom5QmRYf4332dCtsYiPNb
-        3r3L8e7u8Z16XSvOVhEVlAOLA5gEfJJxLiJ4oANaSa99VygqAhZeAQLWlN9I1M8bWa0TU1bIYLwH
-        XKNUQQUPx/3ktw1u6AKltJtZ55M871rpEfRtpwZUOmdzjUCRzm7urg/PgBh1BECAuwCAoYqx/V+K
-        r1x6WdmyV1/ep6s0yZLp/JZ+DE6YigMGGQcRskNToyNLSDt2taP8mIp2GZxtancGjMQQTppaSkdq
-        JV3XqoJ0TpuSPHfOE2sU0cZhYLUynlxMk0U6J+nwkrxqvyGSNJVEil0T97Ilsmla+6ZrbM6aq78H
-        xTMYi3D8S1Bf9e63vx/UkMX/DYpljJ/R/tMnAAAA//8DAOCwDvHUAgAA
+      string: "\r\n \r\n<html>  \r\n  <head>  \r\n    <link rel=\"stylesheet\" type=\"text/css\"
+        media=\"all\" href=\"/DONKI/resources/css/styles.css\">   \r\n    <title>\r\n
+        \   Error Page\r\n</title>\r\n</head>\r\n<body>\r\n<table width=\"100%\" border=\"1\"
+        cellpadding=\"2\" cellspacing=\"2\" align=\"left\">\r\n    <tr>\r\n        <td
+        colspan=\"2\" align=\"left\">\r\n            \r\n\r\n\r\n\r\n<!DOCTYPE html
+        PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\r\n<head>\r\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n<meta
+        name=\"description\" content=\"CCMC DONKI Application\">\r\n<meta name=\"orgcode\"
+        content=\"Code674\">\r\n<meta name=\"rno\" content=\"Dr. Masha Kuznetsova\">\r\n<meta
+        name=\"content-owner\" content=\"Dr. Masha Kuznetsova\">\r\n<meta name=\"webmaster\"
+        content=\"Chiu Wiegand\">\r\n<title>DONKI Header</title>\r\n<link rel=\"shortcut
+        icon\" href=\"https://webtools.ccmc.gsfc.nasa.gov/favicon.ico\" type=\"image/x-icon\">\r\n<link
+        rel=\"icon\" href=\"https://webtools.ccmc.gsfc.nasa.gov/favicon.ico\" type=\"image/x-icon\">\r\n\r\n<script>\r\n
+        \ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n
+        \ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n
+        \ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n
+        \ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');\r\n\r\n
+        \ ga('create', 'UA-43747106-1', 'auto');\r\n  ga('send', 'pageview');\r\n</script>\r\n<script
+        language=\"javascript\" id=\"_fed_an_ua_tag\" src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&subagency=GSFC&yt=true&dclink=true\"></script>\r\n</head>\r\n<body>\r\n\t<H1>\r\n\t\t<a
+        href=\"https://ccmc.gsfc.nasa.gov\" target=\"_blank\"><img src=\"/DONKI/resources/images/ccmcLogo.gif;jsessionid=0376DFABEBF4298EBBC9F2F90685C331.jvm1\"/></a>\r\n\t\tSpace
+        Weather Database Of Notifications, Knowledge, Information (DONKI)\r\n\t</H1>\r\n</body>\r\n</html>\r\n
+        \       </td>\r\n    </tr>\r\n    <tr>\r\n        <td valign=\"top\">\r\n
+        \           \r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01
+        Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\r\n<head>\r\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n<title>Menu
+        Page</title>\r\n</head>\r\n<body>\r\n\t<h4>Go to:</h4>\r\n\t<ul>\r\n\t\t<li><a
+        href=\"https://ccmc.gsfc.nasa.gov/donki\" target=\"_blank\"> About DONKI</a></li>\r\n\t\t<li><a
+        href=\"/DONKI/;jsessionid=0376DFABEBF4298EBBC9F2F90685C331.jvm1\"> DONKI Home</a></li>\r\n\t\t\r\n\t\t\t\t\r\n\t\t\r\n\t\t<li><a
+        href=\"/DONKI/search/;jsessionid=0376DFABEBF4298EBBC9F2F90685C331.jvm1\">
+        Search Space Weather Activity</a></li>\r\n\t\t\r\n\t\t<li><a href=\"/DONKI/search/alerts;jsessionid=0376DFABEBF4298EBBC9F2F90685C331.jvm1\">
+        Search Notification Archive</a></li>\r\n\t\t\r\n\t\t\r\n\r\n\t\t\r\n\t\t\r\n\t\t\r\n\r\n\r\n\t</ul>\r\n\r\n</body>\r\n</html>\r\n
+        \       </td>\r\n        <td width=\"80%\">\r\n            \r\n<!DOCTYPE html
+        PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\r\n<head>\r\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n<title>Message
+        Page</title>\r\n</head>\r\n<body>\r\n<h2> Message:</h2>\r\n<br><br>\r\n<pre>An
+        internal error has occured.  Please contact the site admin and try again later.</pre>\r\n</body>\r\n</html>\r\n
+        \       </td>\r\n    </tr>\r\n    <tr>\r\n        <td colspan=\"2\"  align=\"left\">\r\n
+        \           \r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"
+        \"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=ISO-8859-1\">\r\n<title>Insert title here</title>\r\n</head>\r\n<body>\r\n\r\n<p>\r\n<B>The
+        Moon to Mars Space Weather Operations Office and other entities provide data
+        to DONKI as a courtesy to the community.</B><br>\r\n<B>By visiting this site,
+        you acknowledge that you understand and agree to the <a href=\"/DONKI/Disclaimer;jsessionid=0376DFABEBF4298EBBC9F2F90685C331.jvm1\">Important
+        Disclaimer Notice</a></B>\r\n<br><br>\r\n\r\n<B>\r\nIf you are looking for
+        the official U.S. Government forecast for space weather, please go to NOAA's
+        Space Weather Prediction Center (<a href=\"https://swpc.noaa.gov\" target=\"_blank\">https://swpc.noaa.gov</a>).
+        This \"Experimental Research Information\" consists of preliminary NASA research
+        products and should be interpreted and used accordingly.\r\n</B>\r\n</p>\r\n
+        \r\n<p style=\"padding-bottom: 0pt; padding-top: 0pt;text-align: center \">\r\nCurator:
+        <a title=\"mailto: chiu.wiegand@nasa.gov?\" href=\"mailto:chiu.wiegand@nasa.gov
+        \">Chiu Wiegand</a> |\r\nNASA Official: <a title=\"mailto:Maria.M.Kuznetsova@nasa.gov?subject=DONKI\"\r\nhref=\"mailto:Maria.M.Kuznetsova@nasa.gov?subject=DONKI\">Dr.
+        Masha Kuznetsova</a> |\r\n<a onclick=\"window.open(this.href); return false;\"
+        title=\"https://www.nasa.gov/about/highlights/HP_Privacy.html\"\r\nhref=\"https://www.nasa.gov/about/highlights/HP_Privacy.html\"
+        onkeypress=\"window.open(this.href); return\r\nfalse;\">Privacy and Security
+        Notices</a> |\r\n<a onclick=\"window.open(this.href); return false;\" title=\"https://ccmc.gsfc.nasa.gov/consent/\"\r\nhref=\"https://ccmc.gsfc.nasa.gov/consent/\"
+        onkeypress=\"window.open(this.href); return\r\nfalse;\">CCMC Data Collection
+        Consent Agreement</a>\r\n</p>\r\n\r\n \r\n\r\n</body>\r\n</html>\r\n        </td>\r\n
+        \   </tr>\r\n</table>\r\n</body>  \r\n</html>\r\n\r\n\r\n "
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json;charset=UTF-8
-      Date:
-      - Sun, 22 Sep 2019 11:55:50 GMT
-      Server:
-      - openresty
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
-      X-Cache:
-      - MISS
-      X-RateLimit-Limit:
-      - '1000'
-      X-RateLimit-Remaining:
-      - '998'
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.21.0
-    method: GET
-    uri: https://api.nasa.gov/DONKI/CMEAnalysis?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-09-21&endDate=2019-09-21&mostAccurateOnly=True&completeEntryOnly=True&speed=0&halfAngle=0&catalog=ALL
-  response:
-    body:
-      string: ''
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      Age:
-      - '0'
-      Connection:
-      - keep-alive
+      Content-Language:
+      - en-US
       Content-Length:
-      - '0'
+      - '5153'
       Content-Type:
-      - text/plain; charset=UTF-8
+      - text/html;charset=ISO-8859-1
       Date:
-      - Sun, 22 Sep 2019 11:55:51 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:04 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - JSESSIONID=0376DFABEBF4298EBBC9F2F90685C331.jvm1; Path=/DONKI; Secure; HttpOnly
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '997'
+      - '26'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: '500'
 version: 1

@@ -9,35 +9,40 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/HSS?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+    uri: https://api.nasa.gov/DONKI/HSS?api_key=DEMO_KEY
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA8ST0WqDMBSGX0VybeAkrmvNXeakE+YmTWCw4oVMYWFWxrSFUvruS7Rd6azTlUKv
-        8yX5zn/OmW/Qe1kG94ghCsTFMMH0VpIxA4cB4AchMABBNspWWVFJtchOkK/6XBVl9bVcaKhEbL5B
-        KkXMtVGqys88WT8l9UXu+cwSL37EQ7S1G4jASSrkU7SNbZSr4iNLffO7frhY5rm52HIeSbjRwgOc
-        d2SXM23pCOnP/GeLMysII+7JH3NKfpsf0OiRCxl4/yjBAUkoM8n3xb4nu0q4fOy6n8lbpVaqWh+N
-        ikOMcxP7VMh6VEx7OuEJG9U9mt35DRy3u6mH0JVAGDUv/zmBB/K8KAaOl4sJlRQYJf1Ce/I8ocut
-        hHYey3qHBzjvyC7nK62EiymRYPahv4Q9ed0S4m8AAAD//wMAQsO5A04FAAA=
+        H4sIAAAAAAAAA9SSXUvDMBSG/8rIddOc9MPS3JW1aNFtxRYFxy5CV7ewtg7TVsbwv5u1RXGsDkRQ
+        r88Tzvs+OfM9WksZ+oghAwyK4QKbkFBgNjAAfBXHGIAiDWVNVlaJKLIT5IOai1JWz3WhIInYfI+W
+        Qm5zvpvy9oUfj2d3t2wU3XjxxLtEr9ox4Y0DNorvg8ibDE3bhwsN5aLcZMvgEKjbxdNKNKLaHdcA
+        g1nGoUYYdTUOa0/ADgaaKNhsO7/D/SoVf11VW8kI2fCaCz1Ni1RfycdUL7nk+uqpIf5seh2SRmQv
+        RCkj1KGOQzBtm3z262AKCTjMtM/5/SD/oN8uHDCT/pgyw3YHldkJWMxu//Krk1SpevJXlZV1nndn
+        +q3bMcEcFOEm4DJ1PudF9OS/FmEZrYjFGwAAAP//AwBLz3W2pgQAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:31:30 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:14 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Transfer-Encoding:
       - chunked
@@ -47,13 +52,19 @@ interactions:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '919'
+      - '13'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -64,39 +75,96 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/HSS?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-09-22
+    uri: https://api.nasa.gov/DONKI/HSS?api_key=DEMO_KEY&startDate=2019-09-22
   response:
     body:
-      string: ''
+      string: !!binary |
+        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
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '0'
+      Content-Encoding:
+      - gzip
       Content-Type:
-      - text/plain; charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:31:30 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:15 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '918'
+      - '12'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 version: 1

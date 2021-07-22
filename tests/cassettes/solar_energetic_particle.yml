@@ -9,33 +9,39 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/SEP?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2017-01-01&endDate=2017-05-01
+    uri: https://api.nasa.gov/DONKI/SEP?api_key=DEMO_KEY&startDate=2017-01-01&endDate=2017-05-01
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA3zOzwuCMBTA8X9F3nmDTa10N7EFQpbo6JB4kNxhpCJtCSL+7/njFtH5fd5733wE
-        LbvoCAxsQg+YuJh6wnaY4zNCcMYTTAgFBLKXrRGqkT/kfZ6rVpvXu5mRBpaPoCpgewSV0l1dDpdy
-        XcwET/nVCpgVxUkQCos6mBJixfIGU4GgVu1TVnx5tV0pH0b1ygzfgdRndLcEns7pGjihEf5g11tw
-        GPMNF1PxAQAA//8DAEaAp8L5AAAA
+        H4sIAAAAAAAAA3yQzYrCMBRGX6XcddMkbf3LTjQDRauixcUUFyFmnKCtxcSKFN/dVF2JuL7n4xxu
+        3oBRVTIGBiGhPURiRPtZGLFowAhBK75AhFDwQdWqtJku1Afy1911aezpXDjIAMsb2GpTHcR1Jh6L
+        VcaXfO4NmZeki+Eo82iEKCFeqtZw2/hw0OVebXnreM6FtLrW9vpeRgeMdtqyn+nyUXbzG/gCx/0W
+        HqX8Cb9Urujf2sowjPfiLHQgZSGDnfmTQSmMCHbHGo/ns0mCa60u2H0B0zDuRhg54eYOAAD//wMA
+        lQZ2BDQBAAA=
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:14:58 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:10 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Transfer-Encoding:
       - chunked
@@ -45,13 +51,19 @@ interactions:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '965'
+      - '19'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -62,39 +74,59 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/SEP?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+    uri: https://api.nasa.gov/DONKI/SEP?api_key=DEMO_KEY
   response:
     body:
-      string: ''
+      string: !!binary |
+        H4sIAAAAAAAAA3yQzYrCMBRGX6XcdfNXdVqzExtBptVBxcUUFyFGDdpOMbGDFN99YnWnzPqej3O4
+        RQtW19MUOEQ0YojGiA5XLOF0wClFS/GFKGUQgm505Vam1G/Ib383lXXnS+khC7xoYWtsfZLXmewW
+        +TwVGQ8WIhOjpQjYACeoN8RJkOs13DYhnEx11Ftxlzz2UjnTGHd9SYs569Im2aJLu4Ut/AP3Pu7w
+        OBcP+KnySQfnassJOcqLNFipUuG93SlcSSvx/qch6Xz2OSWN0b/Ev4GwOOozgrxw8wcAAP//AwBb
+        QLhJNQEAAA==
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
-      Content-Length:
-      - '0'
+      Content-Encoding:
+      - gzip
       Content-Type:
-      - text/plain; charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:14:58 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:10 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '964'
+      - '18'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 version: 1

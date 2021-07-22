@@ -9,49 +9,50 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/GST?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+    uri: https://api.nasa.gov/DONKI/GST?api_key=DEMO_KEY
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA4quVkovLvF0UbJSMjIwtNQ1sNA1NgwxNLIyMAAiXffgEF0DA0MlHaXiksSikpDM
-        3FQsKqOA8ok5Od4FnnkpqRVKVtHVSvlJxalFZakpWHSYAg0G6ciGKTcDmp5fWpQMMtrP39FRqVYH
-        hwFA9wEdR4QBsTpKOZl52akprmWpeSXFYCclJpdklmWWVKJ61gDkWUNzkGc9goPBnq2NrY0FAAAA
-        //8DAH5GXM0YAQAA
+      string: ''
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json;charset=UTF-8
+      Content-Length:
+      - '0'
       Date:
-      - Sun, 22 Sep 2019 11:55:51 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:05 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '996'
+      - '25'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -62,9 +63,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/GST?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2019-09-21&endDate=2019-09-21
+    uri: https://api.nasa.gov/DONKI/GST?api_key=DEMO_KEY&startDate=2019-09-21&endDate=2019-09-21
   response:
     body:
       string: ''
@@ -73,28 +74,37 @@ interactions:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
       - '0'
-      Content-Type:
-      - text/plain; charset=UTF-8
       Date:
-      - Sun, 22 Sep 2019 11:55:51 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:06 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '995'
+      - '24'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 version: 1

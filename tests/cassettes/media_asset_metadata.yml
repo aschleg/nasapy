@@ -9,7 +9,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-api.nasa.gov/metadata/as11-40-5874
   response:
@@ -31,17 +31,17 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 09 Oct 2019 13:18:23 GMT
+      - Thu, 22 Jul 2021 18:09:19 GMT
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.19.10
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 1002c05e647d0804e83147cdd205d14a.cloudfront.net (CloudFront)
+      - 1.1 a3b511649bade26170091701ae26b616.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - MmhyJdCgoPpTVY2cq3Px2Rl6gjB2l5GK_x4wWAL1jLZ-x08WXEJDuw==
+      - IxmxTcIcR9lx5yW9sCnm_bLlOzTb3LcWQwX8EA3q58U_YsOSZSFTvQ==
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SFO53-C1
       X-Cache:
       - Miss from cloudfront
     status:
@@ -57,7 +57,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-assets.nasa.gov/image/as11-40-5874/metadata.json
   response:
@@ -180,10 +180,6 @@ interactions:
     headers:
       Accept-Ranges:
       - bytes
-      Access-Control-Allow-Methods:
-      - GET
-      Access-Control-Allow-Origin:
-      - '*'
       Cache-Control:
       - public, max-age=300, s-max-age=600
       Connection:
@@ -193,7 +189,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 29 Sep 2019 16:12:30 GMT
+      - Thu, 22 Jul 2021 18:09:21 GMT
       ETag:
       - '"9335542b2914ef9f6d8d414b1bff4550"'
       Last-Modified:
@@ -203,13 +199,13 @@ interactions:
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 e4d3d5aafc7d7d582423c073065ab563.cloudfront.net (CloudFront)
+      - 1.1 cc58556a6e846289f4d3105969536e4c.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - mUsv7jjna87JcWhZLpA1dVZbcLkymeD456PeluYF3aPcWXDv7d0s9Q==
+      - vkmCsALnClcS-5bXyphVVGl5YVb7qOK-rcbbBjQOJYl0WyklEb1dKQ==
       X-Amz-Cf-Pop:
-      - SEA19-C2
+      - SFO53-C1
       X-Cache:
-      - RefreshHit from cloudfront
+      - Miss from cloudfront
       x-amz-version-id:
       - Ab3bgCYiIsBM5ISk3FSkjn1i9ponoC2p
     status:
@@ -225,7 +221,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-api.nasa.gov/metadata/1
   response:
@@ -245,17 +241,17 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 09 Oct 2019 13:18:24 GMT
+      - Thu, 22 Jul 2021 18:09:20 GMT
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.19.10
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 deaaf0548506de20925615eb51a7ea7f.cloudfront.net (CloudFront)
+      - 1.1 0f4013a0af68dcba176ca4372e470df4.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - f0E-ye9QYrCgfUeNNEgOmLw83IkFb7dz7YKROprbxdDsoUxzJuBKHA==
+      - 2fyiNVC6F5BtJtrz-FsfHwdhitzN1mr5kGCw2IzO4eOGmGZt1cJ7LA==
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SFO53-C1
       X-Cache:
       - Error from cloudfront
     status:

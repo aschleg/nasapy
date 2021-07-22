@@ -9,7 +9,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-api.nasa.gov/captions/172_ISS-Slosh
   response:
@@ -31,17 +31,17 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 10 Oct 2019 13:24:54 GMT
+      - Thu, 22 Jul 2021 18:09:20 GMT
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.19.10
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 60b744e5b364d04abea9fa6686121242.cloudfront.net (CloudFront)
+      - 1.1 b014854bd0108b7ed0058504b69ccb5b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - qApIa3EWbvZbmEeriyRsO-56piBPgPea8NMreUERHMcgPDsBO3B1Ug==
+      - DttXWXF_rtXT7BNxtpfmlxzu748Cch0kMo8M7uNWOIlV_rqdDn4S2w==
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SFO53-C1
       X-Cache:
       - Miss from cloudfront
     status:
@@ -57,7 +57,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-assets.nasa.gov/video/172_ISS-Slosh/172_ISS-Slosh.srt
   response:
@@ -166,7 +166,7 @@ interactions:
       Content-Type:
       - text/plain
       Date:
-      - Sat, 05 Oct 2019 11:15:45 GMT
+      - Thu, 22 Jul 2021 18:09:22 GMT
       ETag:
       - '"9bb65724716f0b448e2d7ef41da418fa"'
       Last-Modified:
@@ -176,13 +176,13 @@ interactions:
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 7eb3b782ab09047ce0d11ee03763894c.cloudfront.net (CloudFront)
+      - 1.1 acc85cd7bb80090b1fc6f29cede93767.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - gbRuw8MhzHuzbX34omqQvv9PAzkFq7OIrryuFUoT-osjoOIWZmLj4Q==
+      - oNf7VDvwxUSWLsOdWgjiRNDV1Mejz0KiFYkGrMmWsTmbyHeStRUO2A==
       X-Amz-Cf-Pop:
-      - SEA19-C2
+      - SFO53-C1
       X-Cache:
-      - RefreshHit from cloudfront
+      - Miss from cloudfront
       x-amz-version-id:
       - O1dcZ7uJSx5mzMNMEPRZBZWWkhgbJswe
     status:
@@ -198,7 +198,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
     uri: https://images-api.nasa.gov/captions/1
   response:
@@ -218,17 +218,17 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 10 Oct 2019 13:24:55 GMT
+      - Thu, 22 Jul 2021 18:09:21 GMT
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.19.10
       Strict-Transport-Security:
       - max-age=31536000
       Via:
-      - 1.1 599f04a365a179d553682d476509c389.cloudfront.net (CloudFront)
+      - 1.1 694410c900be78078eeebf840a01e4c9.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 21oDMdAYzQ-oP1xG5d_fy1-Ju0tIOCBL_exfGBtUgiBnIkl83APUEg==
+      - yyTHLmNVgByJuPn7T60lUIjARAWPzUrFCKaG1qJRFyK6UKOl-luDQQ==
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SFO53-C1
       X-Cache:
       - Error from cloudfront
     status:

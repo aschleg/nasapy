@@ -9,134 +9,40 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/planetary/earth/assets?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&lat=1.5&lon=100.75&begin_date=2019-01-01
+    uri: https://api.nasa.gov/planetary/earth/assets?api_key=DEMO_KEY&lat=1.5&lon=100.75&begin_date=2019-01-01
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAA5SYQU8VQRCE/wp5ZyZ290zP7L6b8eCF6IWbMcSIBxOjicCJ8N/tmX2zGKWguD0C
-        VN58W1PVvfeHr7/uft4ejmeLnJ8dfn+7uftxexM/fro/XH+5/RafDiaak3iycin5mPUodoi//X7d
-        f3nxbrm60Mury49v38RntSa+9v/QUi7efxA5PJyf/atVk6xTSxmtKs9omQ8tObozWq1CrZZUp9bK
-        aK32jJa1qbUQWiYL1FqS2uQljJZh9mvS/JozmmNea7LtOQZ7xhPWIC+VlCf7kokzZoFnVE1aT2cs
-        jL+yQX+pJV1OWsZ4Ijs4Y0miSSZ7I3gVkfy0J4aWTvZC+KuIrlDLkmx3W45C8CqS/Rktk87L1mNp
-        Lz/HIq5QK2JnsA+tTHiiSG3PaG35FVpG3KEiC2Yf+Af70JLKnHHF7Eva8suWozPfSxWz91N+hVYm
-        srBESkNekfcjv7oW41UtmH095VdoMfexaMXsa7LNE6HFeEIbZh95P3zf2TO+13Ww1/86LQzRUt58
-        H1qMJ0wx+8j70WndX8wZzTD75ZSrXYvxhBXMPrpj5GrXYu62OWQfeS+j07oWkavFGvR9aG0ZHVpK
-        8Voh++iOLaO7FuOJLJB976GZE8rc7WyQffSQ7J5geOWM2Vuy0bXsc8wO2PvotN0TRE64CJgnQivO
-        ODPHy8u56pLBzDS0bHRtzxyiH10czBOhlf/KVcL3Lg3ME0Nrz1VmnnBZMK/ymKvMPOEqYDaJ7xU9
-        NHNVifxyVcw+emjmaiwAL+4Krhmz98dcFcYT6ph99NB2h5Yjd8aK2bew/slfRmSO64LZRw/tXUtp
-        rZj9MnM1ept5jqaYffTQa7rWLWP268xV8j5agex7d+xZyPjLGuQVWo9ZyLC3FfKKvLe905jMyYbP
-        GFk4Z1+maz0X6K/ojn32ZXYFzw54xeIeeb/PvgSvKgJ6aGidZt+YAYi7XcVAD4VW7Gn7/EX0Y5UC
-        ZoChZVunxSxHndHBDBBa0R2zh5j5vkoDM8DQ2vbt3mmE76ssmH10x8xoZleoKph9ecxoTssw+26L
-        uXcwz1Ed84qM3tkTs1zVBZ8xMnrzfXiCuNs13oE9vVvFASOjN/bhe+Z7mWJ/LWnft5ldtFrGvCKj
-        Z64qMctVK9hf8W5ozpjMTF6tQvY9o7fnyO3u1VbIq8/3M1eV8VdWyKvn/XyOzDuFmg3y6u+ZtvyK
-        vYOYMWsugFcfTOa8GlpETjRBu+jQOs2rXEY3QbtoaMUZt37kduQmaBcdWvu8yuzu/bX00/exh8Tc
-        ayNXCd83QbtoaPVXczO/iE5rgnbRobXPhUbs7k33XfTzwx8AAAD//wMAvPh0Y9oXAAA=
+      string: '{"msg":"Bad Request incorrect field passed. Allowed request fields
+        for earth/imagery method are ''lat'', ''lon'', ''address'', ''dataset'', ''date'',
+        ''cloud_score'', ''dim''","service_version":"v5000"}
+
+        '
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
-      Cache-Control:
-      - no-cache
+      - '152'
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      Content-Length:
+      - '189'
       Content-Type:
       - application/json
       Date:
-      - Mon, 07 Oct 2019 13:44:42 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:44 GMT
       Strict-Transport-Security:
       - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
       Via:
       - http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
-      X-Cloud-Trace-Context:
-      - 5d84a7882916318ba958de9ffc9b2a7d;o=1
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '986'
+      - '2'
     status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.21.0
-    method: GET
-    uri: https://api.nasa.gov/planetary/earth/assets?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&lat=1.5&lon=100.75&begin_date=2019-01-01&end_date=2019-10-01
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA5SYQU8VQRCE/wp5ZyZ290zP7L6b8eCF6IWbMcSIBxOjicCJ8N/tmX2zGKWguD0C
-        VN58W1PVvfeHr7/uft4ejmeLnJ8dfn+7uftxexM/fro/XH+5/RafDiaak3iycin5mPUodoi//X7d
-        f3nxbrm60Mury49v38RntSa+9v/QUi7efxA5PJyf/atVk6xTSxmtKs9omQ8tObozWq1CrZZUp9bK
-        aK32jJa1qbUQWiYL1FqS2uQljJZh9mvS/JozmmNea7LtOQZ7xhPWIC+VlCf7kokzZoFnVE1aT2cs
-        jL+yQX+pJV1OWsZ4Ijs4Y0miSSZ7I3gVkfy0J4aWTvZC+KuIrlDLkmx3W45C8CqS/Rktk87L1mNp
-        Lz/HIq5QK2JnsA+tTHiiSG3PaG35FVpG3KEiC2Yf+Af70JLKnHHF7Eva8suWozPfSxWz91N+hVYm
-        srBESkNekfcjv7oW41UtmH095VdoMfexaMXsa7LNE6HFeEIbZh95P3zf2TO+13Ww1/86LQzRUt58
-        H1qMJ0wx+8j70WndX8wZzTD75ZSrXYvxhBXMPrpj5GrXYu62OWQfeS+j07oWkavFGvR9aG0ZHVpK
-        8Voh++iOLaO7FuOJLJB976GZE8rc7WyQffSQ7J5geOWM2Vuy0bXsc8wO2PvotN0TRE64CJgnQivO
-        ODPHy8u56pLBzDS0bHRtzxyiH10czBOhlf/KVcL3Lg3ME0Nrz1VmnnBZMK/ymKvMPOEqYDaJ7xU9
-        NHNVifxyVcw+emjmaiwAL+4Krhmz98dcFcYT6ph99NB2h5Yjd8aK2bew/slfRmSO64LZRw/tXUtp
-        rZj9MnM1ept5jqaYffTQa7rWLWP268xV8j5agex7d+xZyPjLGuQVWo9ZyLC3FfKKvLe905jMyYbP
-        GFk4Z1+maz0X6K/ojn32ZXYFzw54xeIeeb/PvgSvKgJ6aGidZt+YAYi7XcVAD4VW7Gn7/EX0Y5UC
-        ZoChZVunxSxHndHBDBBa0R2zh5j5vkoDM8DQ2vbt3mmE76ssmH10x8xoZleoKph9ecxoTssw+26L
-        uXcwz1Ed84qM3tkTs1zVBZ8xMnrzfXiCuNs13oE9vVvFASOjN/bhe+Z7mWJ/LWnft5ldtFrGvCKj
-        Z64qMctVK9hf8W5ozpjMTF6tQvY9o7fnyO3u1VbIq8/3M1eV8VdWyKvn/XyOzDuFmg3y6u+ZtvyK
-        vYOYMWsugFcfTOa8GlpETjRBu+jQOs2rXEY3QbtoaMUZt37kduQmaBcdWvu8yuzu/bX00/exh8Tc
-        ayNXCd83QbtoaPVXczO/iE5rgnbRobXPhUbs7k33XfTzwx8AAAD//wMAvPh0Y9oXAAA=
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      Age:
-      - '0'
-      Cache-Control:
-      - no-cache
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Mon, 07 Oct 2019 13:44:42 GMT
-      Server:
-      - openresty
-      Strict-Transport-Security:
-      - max-age=31536000; preload
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
-      X-Cache:
-      - MISS
-      X-Cloud-Trace-Context:
-      - d714424b57947cae9ed04a5159d7eee4
-      X-RateLimit-Limit:
-      - '1000'
-      X-RateLimit-Remaining:
-      - '985'
-    status:
-      code: 200
-      message: OK
+      code: 400
+      message: BAD REQUEST
 version: 1

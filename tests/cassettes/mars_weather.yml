@@ -9,17 +9,17 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/insight_weather/?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&ver=1.0&feedtype=json
+    uri: https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&ver=1.0&feedtype=json
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA92VTwuCQBDF7/spFs8d8m/WLSjoGBV4CFlENxQFydVCxO/ertrqdKugxNv+Zobd
-        9wYeWyGMFZYmJKYlU1b47M6wKN28JAqivCR+SP1YdCpe5g3NNiRwXJ8G1F0VpkXGyD3KQxJ4uSdu
-        lQMYq2bzgkQL4gKiDXEJUJtDVCFqEHUJ7qDROuUaL17CaFeu5YCyc44Td7g/bCfu0NlM0iAa2uTB
-        NL8LJtT5IhOQDsgABBdn/Spz4xH/QZzGI/79pPxbOwxBrzej1yLKqJiX+RRt1v5oTePpo/nU+iWI
-        JDVnF4kHavQAI0nPniUHAAA=
+        H4sIAAAAAAAAA6vmUlBQKs7Pic9OrSxWslKIjtVRAAmVJeZkpmSWVMYnZ6QmZ4NkqoHCQAlLY1M4
+        B8gNCHJF4kLNysgvLSqOL88syYhPSSxJBBkLV6CgYAi2AQaMUHjGKDwTFJ4pnB2LJA5xKdCKtMSc
+        4lSocC2YroUqA7rZjEI308eV5gMVsig8M1RTjCnwkAWFHjJAccpAJBxLZB84hpAcI6iuNCQlMOEK
+        lDzCgwfGYnLSIFUsDnehp71okW5iSGGyHYi8ZmI0OPIaqvfI9g/CvUWphaWZRakg9YYWSNLFkKoJ
+        LAHzB7h2QqQiULmPzDNH4Vmg8CyRecAUgMwzUgKzY7lAzqzlAgDRXXGnNAcAAA==
     headers:
       Access-Control-Allow-Headers:
       - x-requested-with, Content-Type, origin, authorization, accept, client-security-token
@@ -30,9 +30,8 @@ interactions:
       Access-Control-Max-Age:
       - '1000'
       Age:
-      - '1'
+      - '0'
       Cache-Control:
-      - max-age=600
       - max-age=60
       Connection:
       - keep-alive
@@ -41,11 +40,9 @@ interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sun, 15 Sep 2019 12:50:01 GMT
+      - Thu, 22 Jul 2021 18:09:58 GMT
       Expires:
-      - '{ts ''2019-09-15 12:50:01''}'
-      Server:
-      - openresty
+      - '{ts ''2021-07-22 18:09:58''}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       - max-age=31536000; includeSubDomains; preload;
@@ -56,20 +53,20 @@ interactions:
       - Accept-Encoding
       - Accept-Encoding
       Via:
-      - 1.1 966d01179c7098b0cf2a20ba8c352dee.cloudfront.net (CloudFront), https/1.1
-        api-umbrella (ApacheTrafficServer [cMsSfW])
+      - 1.1 ec8b1bfbf511818c606f196b49f871e2.cloudfront.net (CloudFront), https/1.1
+        api-umbrella (ApacheTrafficServer [cSsSfU])
       X-Amz-Cf-Id:
-      - mwMRrQh_SbatkRtPjwCkef95mNAp0hmgkf_HhOply4xIbC-FH5R6IA==
+      - M729dR7--VgJ7J7tCnmPiPrceWD6W76jcDaoHs1Qp2VWOpW-obgIEg==
       X-Amz-Cf-Pop:
-      - IAD89-C2
+      - IAD50-C2
       X-Cache:
       - Miss from cloudfront
       X-Frame-Options:
       - ALLOWALL
       X-RateLimit-Limit:
-      - '2000'
+      - '40'
       X-RateLimit-Remaining:
-      - '1998'
+      - '34'
     status:
       code: 200
       message: OK

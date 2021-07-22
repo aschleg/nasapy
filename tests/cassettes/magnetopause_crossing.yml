@@ -9,32 +9,38 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/MPC?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk&startDate=2018-01-01&endDate=2018-05-31
+    uri: https://api.nasa.gov/DONKI/MPC?api_key=DEMO_KEY&startDate=2018-01-01&endDate=2018-05-31
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA4quVsotSPZ0UbJSMjIwtNA1MAWiEEMTK2NjKwMDXd8AZ10DA0MlHaXUstS8kpDM
-        3FQsKqOA8pl5xSVFpblARcVKVtHVSpkpSlaGpjpKKZnFBTmJlX6JYJ2+/i6uPlYKweG+bkq1sTpK
-        OZl52akpriCzIdoSk0syyzJLKtFdZGBpZWQOcpFHcDDYRbWxtbEAAAAA//8DAH00Kgu9AAAA
+        H4sIAAAAAAAAA2yPTQuCQBRF/0q8tTpjVtZss0hKDRSCpMUwTTX4kTSjIdJ/bzTaRPB2997DeWkH
+        RcV8DwiMsT038VRfYk+I4xCMzWC/NDG2wQDe8FIlouB/mkedi1KqR13okgSSdnAWssppG9JhEUTe
+        akdG8SFYw+tkQC7KjJ9XPfNTp0yJRqj21wQvyNjtTTZxPJh81xp6U6qSBKGM1lRYjBXMusoLs0oq
+        qXW9N8iLwq2PGsGfSD+CbGfuzpDZM94AAAD//wMAaq86NPcAAAA=
     headers:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
       Date:
-      - Sun, 22 Sep 2019 12:30:29 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:11 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Transfer-Encoding:
       - chunked
@@ -44,13 +50,19 @@ interactions:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '928'
+      - '17'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 - request:
     body: null
     headers:
@@ -61,9 +73,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.21.0
+      - python-requests/2.24.0
     method: GET
-    uri: https://api.nasa.gov/DONKI/MPC?api_key=m3HUz15Tzj7hucaU1YGnJawk0RXcCh7zZ5SkO8Lk
+    uri: https://api.nasa.gov/DONKI/MPC?api_key=DEMO_KEY
   response:
     body:
       string: ''
@@ -72,28 +84,37 @@ interactions:
       - '*'
       Age:
       - '0'
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
       - '0'
-      Content-Type:
-      - text/plain; charset=UTF-8
       Date:
-      - Sun, 22 Sep 2019 12:30:29 GMT
-      Server:
-      - openresty
+      - Thu, 22 Jul 2021 18:10:12 GMT
+      Expires:
+      - '0'
+      Pragma:
+      - no-cache
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
       - max-age=31536000; preload
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Cache:
       - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
       X-RateLimit-Limit:
-      - '1000'
+      - '40'
       X-RateLimit-Remaining:
-      - '927'
+      - '16'
+      X-XSS-Protection:
+      - 1; mode=block
     status:
       code: 200
-      message: OK
+      message: '200'
 version: 1
