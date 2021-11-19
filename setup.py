@@ -12,7 +12,7 @@ setup(
     include_package_data=True,
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    install_requires=['requests >= 2.18'],
+    install_requires=['requests >= 2.18', 'pandas >= 1.3.4'],
     home_page='',
     classifiers=[
         'Environment :: Console',
